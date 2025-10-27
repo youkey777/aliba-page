@@ -549,15 +549,15 @@
 
         .media-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 0;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             max-width: 800px;
             margin: 0 auto;
         }
 
         @media (min-width: 768px) {
             .media-grid {
-                grid-template-columns: 1fr 1fr;
+                gap: 0;
             }
         }
 
@@ -567,14 +567,9 @@
             overflow: hidden;
         }
 
-        .media-item:first-child {
-            border-right: none;
-        }
-
-        @media (max-width: 767px) {
+        @media (min-width: 768px) {
             .media-item:first-child {
-                border-right: 1px solid var(--border-light);
-                border-bottom: none;
+                border-right: none;
             }
         }
 
@@ -779,18 +774,10 @@
 
         .journal-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            max-width: 400px;
+            max-width: 600px;
             margin: 0 auto 25px;
-        }
-
-        @media (min-width: 640px) {
-            .journal-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-                max-width: 600px;
-            }
         }
 
         @media (min-width: 1024px) {
@@ -1459,7 +1446,7 @@
     <header class="header">
         <div class="header-container">
             <a href="/" class="logo">
-                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=120&fit=crop" alt="Éclat Femme">
+                <img src="logo.png" alt="aliba">
             </a>
 
             <nav class="nav">
@@ -1932,14 +1919,31 @@
         // Initialize Lucide icons
         lucide.createIcons();
 
-        // Hero Carousel
-        let currentSlide = 0;
-        let carouselInterval;
-        let isFirstSlide = true;
+        // Hero Carousel - Store state per carousel
+        const carouselState = {
+            main: { currentSlide: 0, interval: null, isFirst: true },
+            mens: { currentSlide: 0, interval: null, isFirst: true }
+        };
 
-        function showSlide(index) {
-            const slides = document.querySelectorAll('.hero-carousel .slide');
-            const dots = document.querySelectorAll('.carousel-dot');
+        function getActiveCarousel() {
+            // Get the currently visible page's carousel and its state key
+            const mainContent = document.getElementById('main-content');
+            const mensTopPage = document.getElementById('mens-top-page');
+
+            if (mensTopPage && mensTopPage.style.display !== 'none') {
+                return { element: mensTopPage.querySelector('.hero-carousel'), key: 'mens' };
+            }
+            return { element: mainContent.querySelector('.hero-carousel'), key: 'main' };
+        }
+
+        function showSlide(index, stateKey) {
+            const carouselInfo = getActiveCarousel();
+            if (!carouselInfo.element) return;
+
+            const slides = carouselInfo.element.querySelectorAll('.slide');
+            const dots = carouselInfo.element.querySelectorAll('.carousel-dot');
+
+            if (index >= slides.length) index = 0;
 
             slides.forEach(slide => slide.classList.remove('active'));
             dots.forEach(dot => dot.classList.remove('active'));
@@ -1947,28 +1951,42 @@
             slides[index].classList.add('active');
             dots[index].classList.add('active');
 
-            currentSlide = index;
+            carouselState[stateKey || carouselInfo.key].currentSlide = index;
         }
 
         function nextSlide() {
-            const slides = document.querySelectorAll('.hero-carousel .slide');
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
+            const carouselInfo = getActiveCarousel();
+            if (!carouselInfo.element) return;
+
+            const state = carouselState[carouselInfo.key];
+            const slides = carouselInfo.element.querySelectorAll('.slide');
+
+            state.currentSlide = (state.currentSlide + 1) % slides.length;
+            showSlide(state.currentSlide, carouselInfo.key);
 
             // After first slide, restart with 2 second interval
-            if (isFirstSlide) {
-                isFirstSlide = false;
+            if (state.isFirst) {
+                state.isFirst = false;
                 stopCarousel();
-                carouselInterval = setInterval(nextSlide, 2000);
+                state.interval = setInterval(nextSlide, 2000);
             }
         }
 
         function startCarousel() {
-            carouselInterval = setInterval(nextSlide, 1500);
+            const carouselInfo = getActiveCarousel();
+            const state = carouselState[carouselInfo.key];
+
+            stopCarousel();
+            state.interval = setInterval(nextSlide, 1500);
         }
 
         function stopCarousel() {
-            clearInterval(carouselInterval);
+            Object.values(carouselState).forEach(state => {
+                if (state.interval) {
+                    clearInterval(state.interval);
+                    state.interval = null;
+                }
+            });
         }
 
         function restartCarousel() {
@@ -1980,65 +1998,83 @@
         document.addEventListener('DOMContentLoaded', function() {
             startCarousel();
 
-            // Dot click handlers
-            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    showSlide(index);
+            // Setup carousel event handlers for both carousels
+            function setupCarouselHandlers(carouselElement) {
+                if (!carouselElement) return;
+
+                // Dot click handlers
+                const dots = carouselElement.querySelectorAll('.carousel-dot');
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        showSlide(index);
+                        restartCarousel();
+                    });
+                });
+
+                // Touch/swipe support for mobile
+                let startX = 0;
+                let startY = 0;
+
+                carouselElement.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                    stopCarousel();
+                });
+
+                carouselElement.addEventListener('touchend', (e) => {
+                    const endX = e.changedTouches[0].clientX;
+                    const endY = e.changedTouches[0].clientY;
+                    const diffX = startX - endX;
+                    const diffY = startY - endY;
+
+                    // Detect horizontal swipe (more horizontal than vertical)
+                    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                        const carouselInfo = getActiveCarousel();
+                        const slides = carouselInfo.element.querySelectorAll('.slide');
+                        const state = carouselState[carouselInfo.key];
+
+                        if (diffX > 0) {
+                            // Swipe left - next slide
+                            nextSlide();
+                        } else {
+                            // Swipe right - previous slide
+                            state.currentSlide = (state.currentSlide - 1 + slides.length) % slides.length;
+                            showSlide(state.currentSlide, carouselInfo.key);
+                        }
+                    }
+
                     restartCarousel();
                 });
-            });
 
-            // Touch/swipe support for mobile
-            let startX = 0;
-            let startY = 0;
-            const carousel = document.querySelector('.hero-carousel');
+                // Mouse click support for desktop
+                carouselElement.addEventListener('click', (e) => {
+                    const rect = carouselElement.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const centerX = rect.width / 2;
 
-            carousel.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
-                stopCarousel();
-            });
+                    const carouselInfo = getActiveCarousel();
+                    const slides = carouselInfo.element.querySelectorAll('.slide');
+                    const state = carouselState[carouselInfo.key];
 
-            carousel.addEventListener('touchend', (e) => {
-                const endX = e.changedTouches[0].clientX;
-                const endY = e.changedTouches[0].clientY;
-                const diffX = startX - endX;
-                const diffY = startY - endY;
-
-                // Detect horizontal swipe (more horizontal than vertical)
-                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-                    if (diffX > 0) {
-                        // Swipe left - next slide
+                    if (clickX > centerX) {
+                        // Clicked right side - next slide
                         nextSlide();
                     } else {
-                        // Swipe right - previous slide
-                        const slides = document.querySelectorAll('.hero-carousel .slide');
-                        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                        showSlide(currentSlide);
+                        // Clicked left side - previous slide
+                        state.currentSlide = (state.currentSlide - 1 + slides.length) % slides.length;
+                        showSlide(state.currentSlide, carouselInfo.key);
                     }
-                }
 
-                restartCarousel();
-            });
+                    restartCarousel();
+                });
+            }
 
-            // Mouse click support for desktop
-            carousel.addEventListener('click', (e) => {
-                const rect = carousel.getBoundingClientRect();
-                const clickX = e.clientX - rect.left;
-                const centerX = rect.width / 2;
+            // Setup handlers for both carousels
+            const mainCarousel = document.querySelector('#main-content .hero-carousel');
+            const mensCarousel = document.querySelector('#mens-top-page .hero-carousel');
 
-                if (clickX > centerX) {
-                    // Clicked right side - next slide
-                    nextSlide();
-                } else {
-                    // Clicked left side - previous slide
-                    const slides = document.querySelectorAll('.hero-carousel .slide');
-                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                    showSlide(currentSlide);
-                }
-
-                restartCarousel();
-            });
+            setupCarouselHandlers(mainCarousel);
+            setupCarouselHandlers(mensCarousel);
         });
 
         // Header scroll effect
@@ -2155,6 +2191,14 @@
                 }, 10);
                 // Reinitialize icons for the new page
                 lucide.createIcons();
+
+                // Reset and restart carousel for the new page
+                const carouselKey = pageId === 'mens-top-page' ? 'mens' : 'main';
+                carouselState[carouselKey].currentSlide = 0;
+                carouselState[carouselKey].isFirst = true;
+                showSlide(0, carouselKey);
+                restartCarousel();
+
                 return true;
             } else {
                 console.error('Target page not found:', pageId);
@@ -2188,6 +2232,12 @@
 
             // Scroll to top
             window.scrollTo(0, 0);
+
+            // Reset and restart carousel for main page
+            carouselState.main.currentSlide = 0;
+            carouselState.main.isFirst = true;
+            showSlide(0, 'main');
+            restartCarousel();
         }
 
         function handleNavigation(e) {
