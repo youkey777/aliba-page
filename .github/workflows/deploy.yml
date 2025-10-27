@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
+      - claude/display-current-state-011CUXmxzcBiTvQ4kNmYYXsH
       - main
   workflow_dispatch:
 
