@@ -1937,21 +1937,38 @@
         let carouselInterval;
         let isFirstSlide = true;
 
+        // Get only visible carousel slides (filters out hidden theme slides)
+        function getVisibleSlides() {
+            return Array.from(document.querySelectorAll('.hero-carousel .slide')).filter(slide => {
+                return slide.offsetParent !== null;
+            });
+        }
+
+        function getVisibleDots() {
+            return Array.from(document.querySelectorAll('.carousel-dot')).filter(dot => {
+                return dot.offsetParent !== null;
+            });
+        }
+
         function showSlide(index) {
-            const slides = document.querySelectorAll('.hero-carousel .slide');
-            const dots = document.querySelectorAll('.carousel-dot');
+            const slides = getVisibleSlides();
+            const dots = getVisibleDots();
 
             slides.forEach(slide => slide.classList.remove('active'));
             dots.forEach(dot => dot.classList.remove('active'));
 
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
+            if (slides[index]) {
+                slides[index].classList.add('active');
+            }
+            if (dots[index]) {
+                dots[index].classList.add('active');
+            }
 
             currentSlide = index;
         }
 
         function nextSlide() {
-            const slides = document.querySelectorAll('.hero-carousel .slide');
+            const slides = getVisibleSlides();
             currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
 
@@ -1973,6 +1990,14 @@
 
         function restartCarousel() {
             stopCarousel();
+            startCarousel();
+        }
+
+        function resetCarousel() {
+            stopCarousel();
+            currentSlide = 0;
+            isFirstSlide = true;
+            showSlide(0);
             startCarousel();
         }
 
@@ -2012,7 +2037,7 @@
                         nextSlide();
                     } else {
                         // Swipe right - previous slide
-                        const slides = document.querySelectorAll('.hero-carousel .slide');
+                        const slides = getVisibleSlides();
                         currentSlide = (currentSlide - 1 + slides.length) % slides.length;
                         showSlide(currentSlide);
                     }
@@ -2032,7 +2057,7 @@
                     nextSlide();
                 } else {
                     // Clicked left side - previous slide
-                    const slides = document.querySelectorAll('.hero-carousel .slide');
+                    const slides = getVisibleSlides();
                     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
                     showSlide(currentSlide);
                 }
@@ -2155,6 +2180,8 @@
                 }, 10);
                 // Reinitialize icons for the new page
                 lucide.createIcons();
+                // Reset carousel for the new page
+                resetCarousel();
                 return true;
             } else {
                 console.error('Target page not found:', pageId);
@@ -2188,6 +2215,9 @@
 
             // Scroll to top
             window.scrollTo(0, 0);
+
+            // Reset carousel when returning to main content
+            resetCarousel();
         }
 
         function handleNavigation(e) {
