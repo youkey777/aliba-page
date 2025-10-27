@@ -1,0 +1,3127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éclat Femme - 上質なジュエリーで、あなただけの輝きを</title>
+    <meta name="description" content="触れるたび、声にならない余韻。Éclat Femmeは上質な素材と職人の技で、あなただけの特別な瞬間を彩るジュエリーを創造します。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+        :root {
+            /* Design Tokens */
+            --bg-dark: #0E0E10;
+            --bg-light: #F8F5F2;
+            --bg-white: #ffffff;
+            --bg-section: #f9f9f9;
+            --fg-dark: #EDEAE6;
+            --fg-light: #161617;
+            --fg-primary: #333333;
+            --fg-secondary: #666666;
+            --acc-gold: #C2A578;
+            --acc-gold-hover: #D4B689;
+            --line: #E6DFD6;
+            --border-light: #e5e5e5;
+
+            /* Typography */
+            --font-modern: 'Inter', sans-serif;
+            --font-display: 'Poppins', sans-serif;
+            --font-serif: 'Noto Serif JP', serif;
+            --font-sans: 'Noto Sans JP', sans-serif;
+
+            /* Transitions */
+            --transition-smooth: 250ms cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-fast: 200ms ease-out;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.75;
+            letter-spacing: 0.01em;
+            background: var(--bg-white);
+            color: var(--fg-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 15px 0;
+            transition: all var(--transition-smooth);
+        }
+
+        .header.scrolled {
+            padding: 10px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: block;
+            height: 45px;
+            width: auto;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav {
+            display: none;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .nav { display: flex; }
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--fg-primary);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            padding: 10px 0;
+            display: block;
+        }
+
+        .nav-link:hover {
+            color: var(--acc-gold);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 10px 0;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 8px 20px;
+            color: var(--fg-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown a:hover {
+            color: var(--acc-gold);
+            background: rgba(194, 165, 120, 0.05);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .header-accent {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .accent-line {
+            width: 30px;
+            height: 1px;
+            background: var(--acc-gold);
+        }
+
+        .accent-text {
+            font-family: var(--font-modern);
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--acc-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .header-accent {
+                display: none;
+            }
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--fg-primary);
+            transition: color 0.3s ease;
+        }
+
+        .icon-btn:hover {
+            color: var(--acc-gold);
+        }
+
+        .mobile-menu-btn {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn { display: none; }
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid var(--border-light);
+            padding: 20px;
+            z-index: 999;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-nav-item {
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 15px;
+        }
+
+        .mobile-nav-item:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-nav-title {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--fg-primary);
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-left: 15px;
+        }
+
+        .mobile-nav-links a {
+            color: var(--fg-secondary);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 65vh;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-carousel .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-carousel .slide.active {
+            opacity: 1;
+        }
+
+        .hero-carousel .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 45vh;
+                min-height: 350px;
+            }
+
+            .carousel-dots {
+                bottom: 20px;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background: var(--acc-gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 18px;
+            transition: all var(--transition-fast);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--acc-gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--acc-gold);
+            color: var(--acc-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--acc-gold);
+            color: white;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            cursor: pointer;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .scroll-indicator .caption-text {
+            margin-bottom: 8px;
+            color: inherit;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+        }
+
+        .chevron-down {
+            animation: bounce 2s infinite;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section-bg {
+            background: var(--bg-section);
+        }
+
+        .section-title {
+            font-family: var(--font-modern);
+            font-size: 20px;
+            font-weight: 500;
+            text-align: left;
+            margin-bottom: 30px;
+            color: var(--fg-primary);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding-left: 0;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 22px;
+            }
+        }
+
+        /* Monthly Ranking */
+        .ranking-section {
+            padding: 40px 20px;
+            margin-top: 70px;
+        }
+
+        .ranking-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 10px 0 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .ranking-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .ranking-scroll::-webkit-scrollbar-track {
+            background: var(--border-light);
+            border-radius: 2px;
+        }
+
+        .ranking-scroll::-webkit-scrollbar-thumb {
+            background: var(--acc-gold);
+            border-radius: 2px;
+        }
+
+        .ranking-item {
+            flex-shrink: 0;
+            width: 200px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .ranking-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .ranking-number {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--acc-gold);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .ranking-image {
+            aspect-ratio: 1;
+            background: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ranking-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ranking-info {
+            padding: 15px;
+        }
+
+        .ranking-name {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--fg-primary);
+        }
+
+        .ranking-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--acc-gold);
+            margin-bottom: 10px;
+        }
+
+
+        /* Media Section */
+        .media-section {
+            padding: 50px 20px;
+            background: var(--bg-section);
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .media-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .media-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        .media-item:first-child {
+            border-right: none;
+        }
+
+        @media (max-width: 767px) {
+            .media-item:first-child {
+                border-right: 1px solid var(--border-light);
+                border-bottom: none;
+            }
+        }
+
+        .media-image {
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .media-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .media-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .media-caption {
+            padding: 15px;
+            text-align: center;
+            color: var(--fg-secondary);
+            font-weight: 500;
+            font-size: 14px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Category Section */
+        .category-section {
+            padding: 70px 20px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 1024px) {
+            .category-item {
+                height: 337.5px; /* 画像270px + テキスト67.5px */
+                display: flex;
+                flex-direction: column;
+            }
+
+            .category-image {
+                height: 270px; /* 画像の高さ（8割） */
+                aspect-ratio: auto;
+            }
+
+            .category-name {
+                height: 67.5px; /* テキストエリア（2割） */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+                flex-shrink: 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .category-section {
+                padding: 60px 20px;
+            }
+        }
+
+        .category-item {
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--fg-primary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .category-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .category-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-item:hover .category-image img {
+            transform: scale(1.05);
+        }
+
+        .category-name {
+            padding: 18px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            background: white;
+        }
+
+        @media (max-width: 767px) {
+            .category-name {
+                padding: 16px 15px;
+                font-size: 15px;
+            }
+        }
+
+        /* Brand Message */
+        .brand-message {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(194, 165, 120, 0.1) 0%, rgba(194, 165, 120, 0.05) 100%);
+        }
+
+        .message-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .message-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+        }
+
+        .message-text {
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .message-text {
+                text-align: left;
+            }
+        }
+
+        .message-title {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            color: var(--fg-primary);
+        }
+
+        .message-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--fg-secondary);
+            margin-bottom: 30px;
+        }
+
+        .message-image {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .message-image::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 50px;
+            background: linear-gradient(to right, rgba(194, 165, 120, 0.1), transparent);
+            z-index: 10;
+        }
+
+        .message-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Journal Content */
+        .journal-section {
+            padding: 40px 20px;
+            background: var(--bg-section);
+        }
+
+        .journal-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 400px;
+            margin: 0 auto 25px;
+        }
+
+        @media (min-width: 640px) {
+            .journal-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+                max-width: 600px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .journal-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+                max-width: 900px;
+            }
+        }
+
+        .journal-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease;
+        }
+
+        .journal-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .journal-image {
+            aspect-ratio: 16/9;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .journal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .journal-item:hover .journal-image img {
+            transform: scale(1.03);
+        }
+
+        .journal-content {
+            padding: 15px 18px;
+        }
+
+        .journal-title {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--fg-primary);
+        }
+
+        @media (min-width: 768px) {
+            .journal-title {
+                font-size: 15px;
+            }
+        }
+
+        .journal-more {
+            text-align: center;
+        }
+
+        .more-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--acc-gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .more-link:hover {
+            color: var(--acc-gold-hover);
+            transform: translateX(5px);
+        }
+
+        /* All Items */
+        .all-items-section {
+            padding: 60px 20px;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (min-width: 640px) {
+            .items-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .items-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .items-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .item-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-light);
+        }
+
+        .item-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Mobile: Show only first 6 items (3 rows x 2 columns) */
+        @media (max-width: 639px) {
+            .item-card:nth-child(n+7) {
+                display: none;
+            }
+
+            .item-card.show-more {
+                display: block;
+            }
+
+            .items-more {
+                display: block;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .items-more {
+                display: block;
+            }
+        }
+
+        .item-image {
+            aspect-ratio: 1;
+            background: #f5f5f5;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--acc-gold);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .items-more {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .item-info {
+            padding: 15px;
+        }
+
+        .item-name {
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--fg-primary);
+            line-height: 1.3;
+        }
+
+        .item-price {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--acc-gold);
+        }
+
+        /* High Brand - Aliva Luxe */
+        .high-brand-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .high-brand-title {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #C2A578 0%, #D4B689 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .high-brand-description {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .aliva-luxe-showcase {
+            max-width: 400px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .aliva-luxe-image {
+            aspect-ratio: 4/3;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #333;
+        }
+
+        .aliva-luxe-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .aliva-luxe-btn {
+            background: linear-gradient(135deg, #C2A578 0%, #D4B689 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .aliva-luxe-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(194, 165, 120, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--acc-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--acc-gold);
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            opacity: 0.6;
+            margin-top: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Instagram Section */
+        .instagram-section {
+            padding: 60px 20px;
+            background: var(--bg-light);
+        }
+
+        .instagram-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 10px 0 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .instagram-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .instagram-scroll::-webkit-scrollbar-track {
+            background: var(--border-light);
+            border-radius: 2px;
+        }
+
+        .instagram-scroll::-webkit-scrollbar-thumb {
+            background: var(--acc-gold);
+            border-radius: 2px;
+        }
+
+        .instagram-item {
+            flex-shrink: 0;
+            width: 240px;
+            aspect-ratio: 1;
+            scroll-snap-align: start;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .instagram-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .instagram-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--acc-gold);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .instagram-link a:hover {
+            color: var(--acc-gold-hover);
+        }
+
+        @media (max-width: 768px) {
+            .instagram-item {
+                width: 200px;
+            }
+
+            .mobile-hidden {
+                display: none;
+            }
+        }
+
+        /* Aliva Luxe Dark Theme */
+        .aliva-luxe-theme {
+            background: var(--bg-dark) !important;
+            color: var(--fg-dark) !important;
+        }
+
+        .aliva-luxe-theme .page-hero {
+            background: linear-gradient(135deg, #1a1a1c 0%, #2a2a2e 100%) !important;
+        }
+
+        .aliva-luxe-theme .page-title {
+            color: var(--acc-gold) !important;
+        }
+
+        .aliva-luxe-theme .page-description {
+            color: var(--fg-dark) !important;
+        }
+
+        .aliva-luxe-theme .product-card {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(194, 165, 120, 0.2) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .aliva-luxe-theme .product-name {
+            color: var(--fg-dark) !important;
+        }
+
+        .aliva-luxe-theme .product-price {
+            color: var(--acc-gold) !important;
+        }
+
+        .aliva-luxe-theme .footer {
+            background: rgba(14, 14, 16, 0.95) !important;
+            border-top: 1px solid rgba(194, 165, 120, 0.3) !important;
+        }
+
+        .aliva-luxe-theme .footer-logo {
+            color: var(--acc-gold) !important;
+        }
+
+        .aliva-luxe-theme .footer-links a {
+            color: var(--fg-dark) !important;
+        }
+
+        .aliva-luxe-theme .footer-links a:hover {
+            color: var(--acc-gold) !important;
+        }
+
+        .aliva-luxe-theme .footer-copyright {
+            color: rgba(237, 234, 230, 0.7) !important;
+        }
+
+        /* Page-specific styles */
+        .page-hero {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-section) 0%, var(--bg-white) 100%);
+            margin-top: 70px;
+        }
+
+        .page-hero-content {
+            text-align: center;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 16px;
+            color: var(--fg-primary);
+        }
+
+        .page-description {
+            font-size: 16px;
+            color: var(--fg-secondary);
+            line-height: 1.6;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            aspect-ratio: 1;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--fg-primary);
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--acc-gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="images/logo/1464×600サイズ.png" alt="Éclat Femme">
+            </a>
+
+            <nav class="nav">
+                <div class="nav-item">
+                    <a href="#" class="nav-link">レディース</a>
+                    <div class="dropdown">
+                        <a href="#ladies-earrings">ピアス</a>
+                        <a href="#ladies-necklaces">ネックレス</a>
+                        <a href="#set-items">セットアイテム</a>
+                        <a href="#aliva-luxe">Aliva Luxe</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="#mens-top" class="nav-link">メンズ</a>
+                    <div class="dropdown">
+                        <a href="#mens-earrings">ピアス</a>
+                        <a href="#mens-necklaces">ネックレス</a>
+                        <a href="#mens-wallets">ウォレット</a>
+                    </div>
+                </div>
+                <a href="#pair-necklaces" class="nav-link">ペアネックレス</a>
+                <a href="#memorial" class="nav-link">遺骨ネックレス</a>
+                <a href="#aliva-luxe" class="nav-link">Aliva Luxe</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#column" class="nav-link">Column</a>
+            </nav>
+
+            <div class="header-icons">
+                <div class="header-accent">
+                    <span class="accent-line"></span>
+                    <span class="accent-text">Luxury</span>
+                    <span class="accent-line"></span>
+                </div>
+                <button class="icon-btn mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" size="20"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-nav">
+                <div class="mobile-nav-item">
+                    <div class="mobile-nav-title">レディース</div>
+                    <div class="mobile-nav-links">
+                        <a href="#ladies-earrings">ピアス</a>
+                        <a href="#ladies-necklaces">ネックレス</a>
+                        <a href="#set-items">セットアイテム</a>
+                        <a href="#aliva-luxe">Aliva Luxe</a>
+                    </div>
+                </div>
+                <div class="mobile-nav-item">
+                    <a href="#mens-top" class="mobile-nav-title">メンズ</a>
+                    <div class="mobile-nav-links">
+                        <a href="#mens-earrings">ピアス</a>
+                        <a href="#mens-necklaces">ネックレス</a>
+                        <a href="#mens-wallets">ウォレット</a>
+                    </div>
+                </div>
+                <div class="mobile-nav-item">
+                    <a href="#pair-necklaces" class="mobile-nav-title">ペアネックレス</a>
+                </div>
+                <div class="mobile-nav-item">
+                    <a href="#memorial" class="mobile-nav-title">遺骨ネックレス</a>
+                </div>
+                <div class="mobile-nav-item">
+                    <a href="#aliva-luxe" class="mobile-nav-title">Aliva Luxe</a>
+                </div>
+                <div class="mobile-nav-item">
+                    <a href="#about" class="mobile-nav-title">About</a>
+                </div>
+                <div class="mobile-nav-item">
+                    <a href="#column" class="mobile-nav-title">Column</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-carousel">
+                <div class="slide active">
+                    <img src="images/hero/Gemini_Generated_Image_8lusth8lusth8lus.png" alt="Luxury Jewelry 1">
+                </div>
+                <div class="slide">
+                    <img src="images/hero/Generated Image September 16, 2025 - 1_43PM.png" alt="Luxury Jewelry 2">
+                </div>
+                <div class="slide">
+                    <img src="images/hero/Gemini_Generated_Image_hn0e8shn0e8shn0e.png" alt="Luxury Jewelry 3">
+                </div>
+                <div class="slide">
+                    <img src="images/hero/S__48660552.jpg" alt="Luxury Jewelry 4">
+                </div>
+                <div class="carousel-dots">
+                    <div class="carousel-dot active" data-slide="0"></div>
+                    <div class="carousel-dot" data-slide="1"></div>
+                    <div class="carousel-dot" data-slide="2"></div>
+                    <div class="carousel-dot" data-slide="3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monthly Ranking -->
+        <section class="ranking-section" id="ranking">
+            <div class="container">
+                <h2 class="section-title">Monthly Ranking</h2>
+                <div class="ranking-scroll">
+                    <div class="ranking-item">
+                        <div class="ranking-number">1</div>
+                        <a href="https://www.amazon.co.jp/dp/B0CP6KLS4X" target="_blank" class="ranking-link">
+                            <div class="ranking-image">
+                                <img src="images/S__48734222.jpg" alt="エレガント ピアス&ネックレスセット">
+                            </div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">エレガント ピアス&ネックレスセット</div>
+                                <div class="ranking-price">￥2,980</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-number">2</div>
+                        <a href="https://www.amazon.co.jp/dp/B0CP6KJZ9H" target="_blank" class="ranking-link">
+                            <div class="ranking-image">
+                                <img src="images/3.jpg" alt="クリスタル ペンダントセット">
+                            </div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">クリスタル ペンダントセット</div>
+                                <div class="ranking-price">￥2,980</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-number">3</div>
+                        <a href="https://www.amazon.co.jp/dp/B09KTQ4QB1" target="_blank" class="ranking-link">
+                            <div class="ranking-image">
+                                <img src="images/LINE_ALBUM_ピアスB_211227_6.jpg" alt="パール チェーンピアス">
+                            </div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">パール チェーンピアス</div>
+                                <div class="ranking-price">￥3,180</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-number">4</div>
+                        <a href="https://www.amazon.co.jp/dp/B09KTKXBML" target="_blank" class="ranking-link">
+                            <div class="ranking-image">
+                                <img src="images/LINE_ALBUM_ピアスD_211227_6.jpg" alt="リボン ジルコニアピアス">
+                            </div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">リボン ジルコニアピアス</div>
+                                <div class="ranking-price">￥3,180</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-number">5</div>
+                        <a href="https://www.amazon.co.jp/dp/B09KTHVDT6" target="_blank" class="ranking-link">
+                            <div class="ranking-image">
+                                <img src="images/LINE_ALBUM_ピアスE_211227_6.jpg" alt="パール リボンピアス">
+                            </div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">パール リボンピアス</div>
+                                <div class="ranking-price">￥2,980</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Section -->
+        <section class="media-section">
+            <div class="container">
+                <h2 class="section-title">Media</h2>
+                <div class="media-grid">
+                    <div class="media-item">
+                        <div class="media-image">
+                            <img src="images/news information/S__6463504_0.jpg" alt="メディア掲載">
+                        </div>
+                        <div class="media-caption">美人百貨の9月号に掲載頂きました</div>
+                    </div>
+                    <div class="media-item">
+                        <div class="media-image">
+                            <img src="images/news information/１.png" alt="メディア掲載">
+                        </div>
+                        <div class="media-caption">beginの10月号に掲載頂きました</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Item Categories -->
+        <section class="category-section" id="categories">
+            <div class="container">
+                <h2 class="section-title">Item Categories</h2>
+                <div class="category-grid">
+                    <a href="#ladies-earrings-page" class="category-item" onclick="showPage('ladies-earrings-page')">
+                        <div class="category-image">
+                            <img src="images/Gemini_Generated_Image_q40oqoq40oqoq40o.png" alt="ピアス">
+                        </div>
+                        <div class="category-name">Earrings</div>
+                    </a>
+                    <a href="#ladies-necklaces-page" class="category-item" onclick="showPage('ladies-necklaces-page')">
+                        <div class="category-image">
+                            <img src="images/Gemini_Generated_Image_cfky9pcfky9pcfky.png" alt="ネックレス">
+                        </div>
+                        <div class="category-name">Necklaces</div>
+                    </a>
+                    <a href="#set-items-page" class="category-item" onclick="showPage('set-items-page')">
+                        <div class="category-image">
+                            <img src="images/Gemini_Generated_Image_qczm40qczm40qczm.png" alt="セットアイテム">
+                        </div>
+                        <div class="category-name">Set Items</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Message -->
+        <section class="brand-message">
+            <div class="container">
+                <div class="message-container">
+                    <div class="message-text">
+                        <h2 class="message-title">
+                            触れるたび、<br>
+                            声にならない余韻。
+                        </h2>
+                        <p class="message-description">
+                            上質な素材と職人の技で、あなただけの特別な瞬間を彩るジュエリーを創造します。一つ一つに込められた想いが、日常に静かな輝きをもたらし、身に着ける人の内なる美しさを引き出します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journal Content -->
+        <section class="journal-section" id="journal">
+            <div class="container">
+                <h2 class="section-title">Jewelry Content</h2>
+                <div class="journal-grid">
+                    <article class="journal-item">
+                        <div class="journal-image">
+                            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=180&fit=crop" alt="ジュエリーケアガイド">
+                        </div>
+                        <div class="journal-content">
+                            <h3 class="journal-title">ジュエリーケアの極意</h3>
+                        </div>
+                    </article>
+
+                    <article class="journal-item">
+                        <div class="journal-image">
+                            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300&h=180&fit=crop" alt="エンゲージリング選び">
+                        </div>
+                        <div class="journal-content">
+                            <h3 class="journal-title">運命のエンゲージリング選び</h3>
+                        </div>
+                    </article>
+
+                    <article class="journal-item mobile-hidden">
+                        <div class="journal-image">
+                            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&h=180&fit=crop" alt="ジュエリートレンド">
+                        </div>
+                        <div class="journal-content">
+                            <h3 class="journal-title">2024年ジュエリートレンド</h3>
+                        </div>
+                    </article>
+                </div>
+                <div class="journal-more">
+                    <a href="/column" class="more-link">
+                        MORE
+                        <i data-lucide="arrow-right" size="16"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Items -->
+        <section class="all-items-section" id="items">
+            <div class="container">
+                <h2 class="section-title">All Items</h2>
+                <div class="items-grid">
+                    <a href="https://www.amazon.co.jp/dp/B0CP6KLS4X" target="_blank" class="item-card">
+                        <div class="item-image">
+                            <img src="images/S__48734222.jpg" alt="エレガント ピアス&ネックレスセット">
+                            <div class="item-badge">NEW</div>
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">エレガント ピアス&ネックレスセット</div>
+                            <div class="item-price">￥2,980</div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.amazon.co.jp/dp/B0CP6KJZ9H" target="_blank" class="item-card">
+                        <div class="item-image">
+                            <img src="images/3.jpg" alt="クリスタル ペンダントセット">
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">クリスタル ペンダントセット</div>
+                            <div class="item-price">￥2,980</div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.amazon.co.jp/dp/B09KTQ4QB1" target="_blank" class="item-card">
+                        <div class="item-image">
+                            <img src="images/LINE_ALBUM_ピアスB_211227_6.jpg" alt="パール チェーンピアス">
+                            <div class="item-badge">人気</div>
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">パール チェーンピアス</div>
+                            <div class="item-price">￥3,180</div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.amazon.co.jp/dp/B09KTKXBML" target="_blank" class="item-card">
+                        <div class="item-image">
+                            <img src="images/LINE_ALBUM_ピアスD_211227_6.jpg" alt="リボン ジルコニアピアス">
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">リボン ジルコニアピアス</div>
+                            <div class="item-price">￥3,180</div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.amazon.co.jp/dp/B09KTHVDT6" target="_blank" class="item-card">
+                        <div class="item-image">
+                            <img src="images/LINE_ALBUM_ピアスE_211227_6.jpg" alt="パール リボンピアス">
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">パール リボンピアス</div>
+                            <div class="item-price">￥2,980</div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.amazon.co.jp/dp/B09KTMRCNM" target="_blank" class="item-card">
+                        <div class="item-image">
+                            <img src="images/LINE_ALBUM_ピアスF_211227_6.jpg" alt="シャープ ダイヤモンドピアス">
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">シャープ ダイヤモンドピアス</div>
+                            <div class="item-price">￥1,608</div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.amazon.co.jp/dp/B09KTMJPH3" target="_blank" class="item-card">
+                        <div class="item-image">
+                            <img src="images/ariba_pierce_G_cata_004__001_1.jpg" alt="リボン フックピアス">
+                            <div class="item-badge">限定</div>
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">リボン フックピアス</div>
+                            <div class="item-price">￥4,380</div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.amazon.co.jp/dp/B0CDVNXXXN" target="_blank" class="item-card">
+                        <div class="item-image">
+                            <img src="images/S__36569094.jpg" alt="シンプル フープピアス">
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">シンプル フープピアス</div>
+                            <div class="item-price">￥2,680</div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.amazon.co.jp/dp/B0CDQX4PYD" target="_blank" class="item-card">
+                        <div class="item-image">
+                            <img src="images/S__36577290.jpg" alt="エレガント ネックレス">
+                            <div class="item-badge">NEW</div>
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">エレガント ネックレス</div>
+                            <div class="item-price">N/A</div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.amazon.co.jp/dp/B09KTMYXSF" target="_blank" class="item-card">
+                        <div class="item-image">
+                            <img src="images/LINE_ALBUM_ピアスH_211227_6.jpg" alt="ダブル フープピアス">
+                        </div>
+                        <div class="item-info">
+                            <div class="item-name">ダブル フープピアス</div>
+                            <div class="item-price">￥3,680</div>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="items-more">
+                    <a href="/items" class="more-link">
+                        MORE
+                        <i data-lucide="arrow-right" size="16"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aliva Luxe -->
+        <section class="high-brand-section">
+            <div class="container">
+                <h2 class="high-brand-title">特別な輝きを放つハイブランド</h2>
+                <p class="high-brand-description">
+                    最高峰の技術と品質で創られた、Aliva Luxeコレクション。
+                    世代を超えて愛され続ける、究極の美しさをお届けします。
+                </p>
+                <div class="aliva-luxe-showcase">
+                    <div class="aliva-luxe-image">
+                        <img src="images/alivaluxe/Generated Image September 16, 2025 - 4_42PM.png" alt="Aliva Luxe Collection">
+                    </div>
+                </div>
+                <button class="aliva-luxe-btn" onclick="window.location.hash='#aliva-luxe'">
+                    Aliva Luxe
+                </button>
+            </div>
+        </section>
+
+        <!-- Instagram Section -->
+        <section class="instagram-section">
+            <div class="container">
+                <h2 class="section-title">Instagram</h2>
+                <div class="instagram-scroll">
+                    <div class="instagram-item">
+                        <img src="images/instagram/DKedYx3TvY7-0.png" alt="ALIBA Instagram投稿">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="images/instagram/DKw1rmkyf_a-0.png" alt="ALIBA Instagram投稿">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="images/instagram/DKY_ceYunIY-1.png" alt="ALIBA Instagram投稿">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="images/instagram/Edits__________20250625_172943 - frame at 0m14s.jpg" alt="ALIBA Instagram投稿">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="images/instagram/IMG_4718.jpeg" alt="ALIBA Instagram投稿">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="images/instagram/IMG_7593.jpeg" alt="ALIBA Instagram投稿">
+                    </div>
+                </div>
+                <div class="instagram-link">
+                    <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">
+                        @aliba_official01 をフォロー
+                        <i data-lucide="external-link" size="16"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Hero Carousel
+        let currentSlide = 0;
+        let carouselInterval;
+        let isFirstSlide = true;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.hero-carousel .slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const slides = document.querySelectorAll('.hero-carousel .slide');
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+
+            // After first slide, restart with 2 second interval
+            if (isFirstSlide) {
+                isFirstSlide = false;
+                stopCarousel();
+                carouselInterval = setInterval(nextSlide, 2000);
+            }
+        }
+
+        function startCarousel() {
+            carouselInterval = setInterval(nextSlide, 1500);
+        }
+
+        function stopCarousel() {
+            clearInterval(carouselInterval);
+        }
+
+        function restartCarousel() {
+            stopCarousel();
+            startCarousel();
+        }
+
+        // Initialize carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            startCarousel();
+
+            // Dot click handlers
+            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                    restartCarousel();
+                });
+            });
+
+            // Touch/swipe support for mobile
+            let startX = 0;
+            let startY = 0;
+            const carousel = document.querySelector('.hero-carousel');
+
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                stopCarousel();
+            });
+
+            carousel.addEventListener('touchend', (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const endY = e.changedTouches[0].clientY;
+                const diffX = startX - endX;
+                const diffY = startY - endY;
+
+                // Detect horizontal swipe (more horizontal than vertical)
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        // Swipe left - next slide
+                        nextSlide();
+                    } else {
+                        // Swipe right - previous slide
+                        const slides = document.querySelectorAll('.hero-carousel .slide');
+                        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                        showSlide(currentSlide);
+                    }
+                }
+
+                restartCarousel();
+            });
+
+            // Mouse click support for desktop
+            carousel.addEventListener('click', (e) => {
+                const rect = carousel.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const centerX = rect.width / 2;
+
+                if (clickX > centerX) {
+                    // Clicked right side - next slide
+                    nextSlide();
+                } else {
+                    // Clicked left side - previous slide
+                    const slides = document.querySelectorAll('.hero-carousel .slide');
+                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                    showSlide(currentSlide);
+                }
+
+                restartCarousel();
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const headerHeight = 70;
+                const targetPosition = section.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe fade-in elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            fadeInElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Page Navigation System
+        let mainContent = null;
+        let individualPages = null;
+
+        function initializePageSystem() {
+            mainContent = document.getElementById('main-content');
+            individualPages = document.querySelectorAll('[id$="-page"]');
+
+            console.log('Page system initialized:', {
+                mainContent: !!mainContent,
+                individualPagesCount: individualPages.length
+            });
+
+            // Ensure all individual pages are hidden by default
+            individualPages.forEach(page => {
+                page.style.display = 'none';
+                console.log('Hidden page:', page.id);
+            });
+        }
+
+        function showPage(pageId) {
+            console.log('showPage called with:', pageId);
+
+            if (!individualPages) {
+                console.error('individualPages not initialized');
+                return false;
+            }
+
+            // Hide main content
+            if (mainContent) {
+                mainContent.style.display = 'none';
+                console.log('Hidden main content');
+            }
+
+            // Hide all individual pages
+            individualPages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Show target page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.style.display = 'block';
+                console.log('Showed page:', pageId);
+                
+                // Add to browser history
+                const pageUrl = `#${pageId.replace('-page', '')}`;
+                if (window.location.hash !== pageUrl) {
+                    history.pushState({page: pageId}, '', pageUrl);
+                }
+                
+                // Scroll to top with slight delay to ensure DOM is updated
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: 'instant'
+                    });
+                }, 10);
+                // Reinitialize icons for the new page
+                lucide.createIcons();
+                return true;
+            } else {
+                console.error('Target page not found:', pageId);
+            }
+            return false;
+        }
+
+        function showMainContent() {
+            console.log('showMainContent called');
+
+            if (!individualPages) {
+                console.error('individualPages not initialized');
+                return;
+            }
+
+            // Hide all individual pages
+            individualPages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Show main content
+            if (mainContent) {
+                mainContent.style.display = 'block';
+                console.log('Showed main content');
+            }
+
+            // Add to browser history (return to main page)
+            if (window.location.hash !== '') {
+                history.pushState({page: 'main'}, '', window.location.pathname);
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function handleNavigation(e) {
+            e.preventDefault();
+            const href = e.target.getAttribute('href');
+
+            if (href && href.startsWith('#')) {
+                const targetId = href.substring(1);
+                const pageId = targetId + '-page';
+
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('active');
+                }
+
+                // Special case for home/logo
+                if (href === '#' || href === '#home') {
+                    showMainContent();
+                    return;
+                }
+
+                // Try to show the specific page first
+                if (showPage(pageId)) {
+                    // Success - page navigation
+                    return;
+                }
+
+                // If page not found, try smooth scroll to section within main content
+                const targetSection = document.getElementById(targetId);
+                if (targetSection && mainContent && mainContent.style.display !== 'none') {
+                    const headerHeight = 70;
+                    const targetPosition = targetSection.offsetTop - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Neither page nor section found, show main content
+                    showMainContent();
+                }
+            }
+        }
+
+        // Initialize navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded - initializing page system');
+
+            // Initialize page system first
+            initializePageSystem();
+
+            // Add click handlers to all navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', handleNavigation);
+            });
+
+            // Add click handler to logo to return to main content
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                logo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMainContent();
+                });
+                logo.style.cursor = 'pointer';
+            }
+
+            // Handle back button / browser navigation
+            window.addEventListener('popstate', function() {
+                const hash = window.location.hash;
+                if (hash && hash.length > 1) {
+                    const pageId = hash.substring(1) + '-page';
+                    if (!showPage(pageId)) {
+                        showMainContent();
+                    }
+                } else {
+                    showMainContent();
+                }
+            });
+
+            // Handle initial page load with hash
+            const initialHash = window.location.hash;
+            if (initialHash && initialHash.length > 1) {
+                const pageId = initialHash.substring(1) + '-page';
+                if (!showPage(pageId)) {
+                    showMainContent();
+                }
+            } else {
+                // Ensure main content is shown by default
+                showMainContent();
+            }
+        });
+    </script>
+
+    <!-- Individual Pages Content (Hidden by default, shown when navigating) -->
+    <div id="ladies-earrings-page" style="display: none;">
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">Ladies Earrings</h1>
+                <p class="page-description">エレガントで上品な女性用ピアスコレクション</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="products-grid">
+                <a href="https://www.amazon.co.jp/dp/B09KTQ4QB1" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/LINE_ALBUM_ピアスB_211227_6.jpg" alt="パール チェーンピアス">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">パール チェーンピアス</div>
+                        <div class="product-price">￥3,180</div>
+                    </div>
+                </a>
+                <a href="https://www.amazon.co.jp/dp/B09KTKXBML" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/LINE_ALBUM_ピアスD_211227_6.jpg" alt="リボン ジルコニアピアス">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">リボン ジルコニアピアス</div>
+                        <div class="product-price">￥3,180</div>
+                    </div>
+                </a>
+                <a href="https://www.amazon.co.jp/dp/B09KTHVDT6" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/LINE_ALBUM_ピアスE_211227_6.jpg" alt="パール リボンピアス">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">パール リボンピアス</div>
+                        <div class="product-price">￥2,980</div>
+                    </div>
+                </a>
+                <a href="https://www.amazon.co.jp/dp/B09KTMRCNM" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/LINE_ALBUM_ピアスF_211227_6.jpg" alt="シャープ ダイヤモンドピアス">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">シャープ ダイヤモンドピアス</div>
+                        <div class="product-price">￥1,608</div>
+                    </div>
+                </a>
+                <a href="https://www.amazon.co.jp/dp/B09KTMJPH3" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/ariba_pierce_G_cata_004__001_1.jpg" alt="リボン フックピアス">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">リボン フックピアス</div>
+                        <div class="product-price">￥4,380</div>
+                    </div>
+                </a>
+                <a href="https://www.amazon.co.jp/dp/B0CDVNXXXN" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/S__36569094.jpg" alt="シンプル フープピアス">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">シンプル フープピアス</div>
+                        <div class="product-price">￥2,680</div>
+                    </div>
+                </a>
+                <a href="https://www.amazon.co.jp/dp/B09KTMYXSF" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/LINE_ALBUM_ピアスH_211227_6.jpg" alt="ダブル フープピアス">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ダブル フープピアス</div>
+                        <div class="product-price">￥3,680</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Ladies Necklaces Page -->
+    <div id="ladies-necklaces-page" style="display: none;">
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">Ladies Necklaces</h1>
+                <p class="page-description">華やかで洗練された女性用ネックレスコレクション</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="products-grid">
+                <a href="https://www.amazon.co.jp/dp/B0CDQX4PYD" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/S__36577290.jpg" alt="エレガント ネックレス">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">エレガント ネックレス</div>
+                        <div class="product-price">N/A</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Men's Earrings Page -->
+    <div id="mens-earrings-page" style="display: none;">
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">Men's Earrings</h1>
+                <p class="page-description">モダンでスタイリッシュなメンズピアスコレクション</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=300&fit=crop" alt="メンズ ピアス 1">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ブラック スタッド ピアス</div>
+                        <div class="product-price">¥180,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=300&h=300&fit=crop" alt="メンズ ピアス 2">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">シルバー フープ ピアス</div>
+                        <div class="product-price">¥220,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=300&h=300&fit=crop&entropy=0.3" alt="メンズ ピアス 3">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ダイヤモンド スタッド</div>
+                        <div class="product-price">¥280,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=300&h=300&fit=crop&entropy=0.8" alt="メンズ ピアス 4">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">チタン バー ピアス</div>
+                        <div class="product-price">¥200,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=300&fit=crop&entropy=0.7" alt="メンズ ピアス 5">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ゴールド クロス ピアス</div>
+                        <div class="product-price">¥250,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Men's Necklaces Page -->
+    <div id="mens-necklaces-page" style="display: none;">
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">Men's Necklaces</h1>
+                <p class="page-description">力強く洗練されたメンズネックレスコレクション</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=300&h=300&fit=crop" alt="メンズ ネックレス 1">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">シルバー チェーン ネックレス</div>
+                        <div class="product-price">¥260,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&h=300&fit=crop&entropy=0.3" alt="メンズ ネックレス 2">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ブラック レザー ネックレス</div>
+                        <div class="product-price">¥180,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=300&fit=crop&entropy=0.2" alt="メンズ ネックレス 3">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ゴールド ペンダント</div>
+                        <div class="product-price">¥340,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=300&h=300&fit=crop&entropy=0.6" alt="メンズ ネックレス 4">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">スチール チョーカー</div>
+                        <div class="product-price">¥220,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&h=300&fit=crop&entropy=0.8" alt="メンズ ネックレス 5">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">プラチナ バー ネックレス</div>
+                        <div class="product-price">¥380,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Men's Wallets Page -->
+    <div id="mens-wallets-page" style="display: none;">
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">Men's Wallets</h1>
+                <p class="page-description">上質なレザーと金属アクセントのメンズウォレット</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop" alt="メンズ ウォレット 1">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">レザー バイフォールド ウォレット</div>
+                        <div class="product-price">¥120,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=300&h=300&fit=crop" alt="メンズ ウォレット 2">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">カーボンファイバー ウォレット</div>
+                        <div class="product-price">¥180,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop&entropy=0.3" alt="メンズ ウォレット 3">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ゴールド アクセント ウォレット</div>
+                        <div class="product-price">¥250,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=300&h=300&fit=crop&entropy=0.5" alt="メンズ ウォレット 4">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ミニマル カード ウォレット</div>
+                        <div class="product-price">¥80,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop&entropy=0.8" alt="メンズ ウォレット 5">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">プレミアム トリフォールド</div>
+                        <div class="product-price">¥200,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Pair Items Page -->
+    <div id="pair-necklaces-page" style="display: none;">
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">Pair Items</h1>
+                <p class="page-description">二人の絆を象徴するペアジュエリーコレクション</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300&h=300&fit=crop&entropy=0.2" alt="ペア アイテム 1">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ペア リング セット</div>
+                        <div class="product-price">¥360,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=300&fit=crop&entropy=0.1" alt="ペア アイテム 2">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ペア ネックレス</div>
+                        <div class="product-price">¥280,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=300&h=300&fit=crop&entropy=0.4" alt="ペア アイテム 3">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ペア ブレスレット</div>
+                        <div class="product-price">¥320,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300&h=300&fit=crop&entropy=0.7" alt="ペア アイテム 4">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">エンゲージ リング セット</div>
+                        <div class="product-price">¥480,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=300&fit=crop&entropy=0.9" alt="ペア アイテム 5">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ペア ピアス</div>
+                        <div class="product-price">¥240,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Set Items Page -->
+    <div id="set-items-page" style="display: none;">
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">Set Items</h1>
+                <p class="page-description">コーディネートが楽しめるセットジュエリーコレクション</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="products-grid">
+                <a href="https://www.amazon.co.jp/dp/B0CP6KLS4X" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/S__48734222.jpg" alt="エレガント ピアス&ネックレスセット">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">エレガント ピアス&ネックレスセット</div>
+                        <div class="product-price">￥2,980</div>
+                    </div>
+                </a>
+                <a href="https://www.amazon.co.jp/dp/B0CP6KJZ9H" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/3.jpg" alt="クリスタル ペンダントセット">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">クリスタル ペンダントセット</div>
+                        <div class="product-price">￥2,980</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Memorial Page -->
+    <div id="memorial-page" style="display: none;">
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">Memorial</h1>
+                <p class="page-description">大切な想い出を永遠に刻むメモリアルジュエリー</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&h=300&fit=crop&entropy=0.1" alt="メモリアル ジュエリー 1">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">メモリアル ペンダント</div>
+                        <div class="product-price">¥200,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=300&fit=crop&entropy=0.3" alt="メモリアル ジュエリー 2">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">エンジェル ウィング リング</div>
+                        <div class="product-price">¥180,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=300&h=300&fit=crop&entropy=0.2" alt="メモリアル ジュエリー 3">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ハート ロケット</div>
+                        <div class="product-price">¥250,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&h=300&fit=crop&entropy=0.6" alt="メモリアル ジュエリー 4">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">バースストーン ネックレス</div>
+                        <div class="product-price">¥220,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=300&fit=crop&entropy=0.8" alt="メモリアル ジュエリー 5">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">インフィニティ ブレスレット</div>
+                        <div class="product-price">¥280,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Aliva Luxe Page -->
+    <div id="aliva-luxe-page" class="aliva-luxe-theme" style="display: none;">
+        <div class="page-hero" style="margin-top: 70px;">
+            <div class="page-hero-content">
+                <h1 class="page-title">Aliva Luxe</h1>
+                <p class="page-description">最高級の素材と技術の粋を集めたプレミアムライン</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="products-grid">
+                <a href="https://www.amazon.co.jp/dp/B0CDFK1PCB" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/alivaluxe/S__35545111.jpg" alt="プレミアム フープピアス">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">プレミアム フープピアス</div>
+                        <div class="product-price">￥4,980</div>
+                    </div>
+                </a>
+                <a href="https://www.amazon.co.jp/dp/B0C52F5GRF" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/alivaluxe/IMG_top1.jpg" alt="ダイヤモンド ネックレス">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ダイヤモンド ネックレス</div>
+                        <div class="product-price">￥4,980</div>
+                    </div>
+                </a>
+                <a href="https://www.amazon.co.jp/dp/B0C4SVYJD2" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/alivaluxe/top2.jpg" alt="ホースシュー ネックレス">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">ホースシュー ネックレス</div>
+                        <div class="product-price">￥6,980</div>
+                    </div>
+                </a>
+                <a href="https://www.amazon.co.jp/dp/B0BP7M8H1G" target="_blank" class="product-card">
+                    <div class="product-image">
+                        <img src="images/alivaluxe/aliba_main_gold.jpg" alt="モアサナイト ホースシュー">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">モアサナイト ホースシュー</div>
+                        <div class="product-price">￥4,980</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- About Page -->
+    <div id="about-page" style="display: none;">
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">About</h1>
+                <p class="page-description">Éclat Femmeの物語と哲学</p>
+            </div>
+        </div>
+        <div class="container" style="padding: 60px 20px;">
+            <div style="max-width: 800px; margin: 0 auto; line-height: 1.8; color: #333;">
+                <h2 style="font-family: var(--font-serif); font-size: 32px; margin-bottom: 30px; color: var(--acc-gold);">私たちの物語</h2>
+                <p style="margin-bottom: 30px;">触れるたび、声にならない余韻。Éclat Femmeは、上質な素材と職人の技で、あなただけの特別な瞬間を彩るジュエリーを創造します。</p>
+
+                <p style="margin-bottom: 30px;">2015年に設立されたÉclat Femmeは、伝統的なジュエリー制作技術と現代的なデザインセンスを融合させ、世界中の女性たちに愛される美しい作品を生み出し続けています。</p>
+
+                <h3 style="font-family: var(--font-serif); font-size: 24px; margin: 40px 0 20px; color: var(--acc-gold);">私たちの理念</h3>
+                <ul style="margin-bottom: 30px; padding-left: 20px;">
+                    <li style="margin-bottom: 10px;">一つひとつ手作業で仕上げる職人のクラフトマンシップ</li>
+                    <li style="margin-bottom: 10px;">厳選された最高品質の素材のみを使用</li>
+                    <li style="margin-bottom: 10px;">持続可能で環境に配慮した製造プロセス</li>
+                    <li style="margin-bottom: 10px;">お客様一人ひとりのストーリーを大切にしたカスタマイズ</li>
+                </ul>
+
+                <h3 style="font-family: var(--font-serif); font-size: 24px; margin: 40px 0 20px; color: var(--acc-gold);">アトリエ</h3>
+                <p style="margin-bottom: 30px;">私たちのアトリエは東京の静かな街角にあり、熟練した職人たちが一つひとつの作品に魂を込めて制作しています。伝統的な技法と最新の技術を組み合わせることで、時代を超えて愛される美しいジュエリーを創り上げています。</p>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Column Page -->
+    <div id="column-page" style="display: none;">
+        <div class="page-hero">
+            <div class="page-hero-content">
+                <h1 class="page-title">Column</h1>
+                <p class="page-description">ジュエリーと美しい暮らしのためのコラム</p>
+            </div>
+        </div>
+        <div class="container" style="padding: 60px 20px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                <article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=250&fit=crop" alt="コラム1" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">ジュエリーケアの極意</h3>
+                        <p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">大切なジュエリーを美しく保つための正しいお手入れ方法をご紹介します。</p>
+                        <time style="color: #999; font-size: 12px;">2024.09.15</time>
+                    </div>
+                </article>
+
+                <article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=250&fit=crop" alt="コラム2" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">運命のエンゲージリング選び</h3>
+                        <p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">一生に一度の特別な瞬間にふさわしいリング選びのポイントをお教えします。</p>
+                        <time style="color: #999; font-size: 12px;">2024.09.10</time>
+                    </div>
+                </article>
+
+                <article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&h=250&fit=crop" alt="コラム3" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">持続可能なジュエリー</h3>
+                        <p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">環境に配慮したエシカルなジュエリー制作への私たちの取り組みについて。</p>
+                        <time style="color: #999; font-size: 12px;">2024.09.05</time>
+                    </div>
+                </article>
+
+                <article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=250&fit=crop" alt="コラム4" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">宝石に込められた想い</h3>
+                        <p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">古来より人々に愛され続ける宝石たちの持つ意味とパワーについて探ります。</p>
+                        <time style="color: #999; font-size: 12px;">2024.08.30</time>
+                    </div>
+                </article>
+
+                <article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+                    <img src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=250&fit=crop" alt="コラム5" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">職人の手仕事</h3>
+                        <p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">熟練の職人による丁寧な手作業から生まれる美しいジュエリーの制作過程をご紹介。</p>
+                        <time style="color: #999; font-size: 12px;">2024.08.25</time>
+                    </div>
+                </article>
+
+                <article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&h=250&fit=crop" alt="コラム6" style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">季節を纏うスタイリング</h3>
+                        <p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">四季の移ろいに合わせたジュエリーの選び方と着こなしのコツをお伝えします。</p>
+                        <time style="color: #999; font-size: 12px;">2024.08.20</time>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Men's Top Page -->
+    <div id="mens-top-page" style="display: none;">
+        <!-- Hero Section -->
+        <section class="hero" style="margin-top: 70px;">
+            <div class="hero-carousel">
+                <div class="slide active">
+                    <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=1200&h=600&fit=crop" alt="Men's Jewelry 1">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=1200&h=600&fit=crop" alt="Men's Jewelry 2">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=600&fit=crop" alt="Men's Jewelry 3">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&h=600&fit=crop" alt="Men's Jewelry 4">
+                </div>
+                <div class="carousel-dots">
+                    <div class="carousel-dot active" data-slide="0"></div>
+                    <div class="carousel-dot" data-slide="1"></div>
+                    <div class="carousel-dot" data-slide="2"></div>
+                    <div class="carousel-dot" data-slide="3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monthly Ranking -->
+        <section class="ranking-section" id="ranking">
+            <div class="container">
+                <h2 class="section-title">Monthly Ranking</h2>
+                <div class="ranking-scroll">
+                    <div class="ranking-item">
+                        <div class="ranking-number">1</div>
+                        <a href="#" class="ranking-link">
+                            <div class="ranking-image">
+                                <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=200&h=200&fit=crop" alt="メンズ 人気商品1">
+                            </div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">シルバー チェーンネックレス</div>
+                                <div class="ranking-price">￥3,980</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-number">2</div>
+                        <a href="#" class="ranking-link">
+                            <div class="ranking-image">
+                                <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=200&h=200&fit=crop" alt="メンズ 人気商品2">
+                            </div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">ブラック スタッドピアス</div>
+                                <div class="ranking-price">￥2,980</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-number">3</div>
+                        <a href="#" class="ranking-link">
+                            <div class="ranking-image">
+                                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop" alt="メンズ 人気商品3">
+                            </div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">レザー ウォレット</div>
+                                <div class="ranking-price">￥5,980</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-number">4</div>
+                        <a href="#" class="ranking-link">
+                            <div class="ranking-image">
+                                <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=200&h=200&fit=crop" alt="メンズ 人気商品4">
+                            </div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">ゴールド ペンダント</div>
+                                <div class="ranking-price">￥4,180</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-number">5</div>
+                        <a href="#" class="ranking-link">
+                            <div class="ranking-image">
+                                <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=200&h=200&fit=crop" alt="メンズ 人気商品5">
+                            </div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">シルバー フープピアス</div>
+                                <div class="ranking-price">￥3,180</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Section -->
+        <section class="media-section">
+            <div class="container">
+                <h2 class="section-title">Media</h2>
+                <div class="media-grid">
+                    <div class="media-item">
+                        <div class="media-image">
+                            <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=300&h=200&fit=crop" alt="メディア掲載">
+                        </div>
+                        <div class="media-caption">beginの10月号に掲載頂きました</div>
+                    </div>
+                    <div class="media-item">
+                        <div class="media-image">
+                            <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=300&h=200&fit=crop" alt="メディア掲載">
+                        </div>
+                        <div class="media-caption">美人百貨の9月号に掲載頂きました</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Item Categories -->
+        <section class="category-section" id="categories">
+            <div class="container">
+                <h2 class="section-title">Item Categories</h2>
+                <div class="category-grid">
+                    <a href="#mens-earrings-page" class="category-item" onclick="showPage('mens-earrings-page')">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=300&fit=crop" alt="ピアス">
+                        </div>
+                        <div class="category-name">Earrings</div>
+                    </a>
+                    <a href="#mens-necklaces-page" class="category-item" onclick="showPage('mens-necklaces-page')">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=300&h=300&fit=crop" alt="ネックレス">
+                        </div>
+                        <div class="category-name">Necklaces</div>
+                    </a>
+                    <a href="#mens-wallets-page" class="category-item" onclick="showPage('mens-wallets-page')">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop" alt="ウォレット">
+                        </div>
+                        <div class="category-name">Wallets</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Message -->
+        <section class="brand-message">
+            <div class="container">
+                <div class="message-container">
+                    <div class="message-text">
+                        <h2 class="message-title">
+                            力強く、<br>
+                            洗練された存在感。
+                        </h2>
+                        <p class="message-description">
+                            上質な素材と精緻なディテールで、あなたのスタイルに静かな自信と格別な風格をもたらします。シンプルでありながら存在感のあるデザインが、日常に特別な価値を添え、身に着ける人の内なる強さを引き出します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journal Content -->
+        <section class="journal-section" id="journal">
+            <div class="container">
+                <h2 class="section-title">Jewelry Content</h2>
+                <div class="journal-grid">
+                    <article class="journal-item">
+                        <div class="journal-image">
+                            <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=300&h=180&fit=crop" alt="メンズジュエリーケア">
+                        </div>
+                        <div class="journal-content">
+                            <h3 class="journal-title">メンズジュエリーのケア方法</h3>
+                        </div>
+                    </article>
+
+                    <article class="journal-item">
+                        <div class="journal-image">
+                            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&h=180&fit=crop" alt="ビジネススタイル">
+                        </div>
+                        <div class="journal-content">
+                            <h3 class="journal-title">ビジネスシーンでの着こなし</h3>
+                        </div>
+                    </article>
+
+                    <article class="journal-item mobile-hidden">
+                        <div class="journal-image">
+                            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=180&fit=crop" alt="メンズトレンド">
+                        </div>
+                        <div class="journal-content">
+                            <h3 class="journal-title">2024年メンズジュエリートレンド</h3>
+                        </div>
+                    </article>
+                </div>
+                <div class="journal-more">
+                    <a href="#column" class="journal-more-link">
+                        MORE
+                        <i data-lucide="arrow-right" size="16"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Section -->
+        <section class="instagram-section">
+            <div class="container">
+                <h2 class="section-title">Instagram</h2>
+                <div class="instagram-scroll">
+                    <div class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=300&h=300&fit=crop" alt="Instagram投稿">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&h=300&fit=crop" alt="Instagram投稿">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=300&fit=crop" alt="Instagram投稿">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop" alt="Instagram投稿">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=300&fit=crop" alt="Instagram投稿">
+                    </div>
+                    <div class="instagram-item">
+                        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=300&h=300&fit=crop" alt="Instagram投稿">
+                    </div>
+                </div>
+                <div class="instagram-link">
+                    <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">
+                        @aliba_official01 をフォロー
+                        <i data-lucide="external-link" size="16"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="/contact">お問い合わせ</a>
+                    <a href="/privacy">プライバシーポリシー</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2024 Éclat Femme. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
