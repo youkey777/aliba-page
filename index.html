@@ -16,7 +16,7 @@
 
     <style>
         :root {
-            /* Design Tokens */
+            /* Design Tokens - Ladies (Default) */
             --bg-dark: #0E0E10;
             --bg-light: #F8F5F2;
             --bg-white: #ffffff;
@@ -29,6 +29,26 @@
             --acc-gold-hover: #D4B689;
             --line: #E6DFD6;
             --border-light: #e5e5e5;
+
+            /* Mens Theme Colors */
+            --mens-bg-dark: #0A0A0B;
+            --mens-bg-section: #1A1D23;
+            --mens-accent: #B8C5D6;
+            --mens-accent-hover: #CDD8E7;
+            --mens-navy: #1C2541;
+            --mens-silver: #C0C0C0;
+            --mens-text: #E8E8E8;
+            --mens-text-secondary: #A0A0A0;
+
+            /* Aliva Luxe Theme Colors */
+            --luxe-bg-dark: #1A1612;
+            --luxe-bg-section: #2A2420;
+            --luxe-brown: #4A3728;
+            --luxe-gold: #D4AF37;
+            --luxe-gold-hover: #E5C158;
+            --luxe-black: #0D0C0A;
+            --luxe-text: #F5F1ED;
+            --luxe-text-secondary: #C4B5A0;
 
             /* Typography */
             --font-modern: 'Inter', sans-serif;
@@ -1187,57 +1207,153 @@
             }
         }
 
-        /* Aliva Luxe Dark Theme */
+        /* Mens Theme - Navy, Silver, Black */
+        .mens-theme {
+            background: var(--mens-bg-dark) !important;
+            color: var(--mens-text) !important;
+        }
+
+        .mens-theme .hero {
+            background: linear-gradient(135deg, var(--mens-bg-dark) 0%, var(--mens-navy) 100%) !important;
+        }
+
+        .mens-theme .section-title {
+            color: var(--mens-accent) !important;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .mens-theme .ranking-section,
+        .mens-theme .media-section,
+        .mens-theme .category-section,
+        .mens-theme .journal-section,
+        .mens-theme .instagram-section {
+            background: var(--mens-bg-section) !important;
+        }
+
+        .mens-theme .brand-message {
+            background: linear-gradient(135deg, var(--mens-navy) 0%, var(--mens-bg-dark) 100%) !important;
+        }
+
+        .mens-theme .message-title {
+            color: var(--mens-silver) !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .mens-theme .message-description {
+            color: var(--mens-text-secondary) !important;
+        }
+
+        .mens-theme .ranking-item,
+        .mens-theme .category-item,
+        .mens-theme .journal-item {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(184, 197, 214, 0.15) !important;
+        }
+
+        .mens-theme .ranking-item:hover,
+        .mens-theme .category-item:hover,
+        .mens-theme .journal-item:hover {
+            border-color: var(--mens-accent) !important;
+            box-shadow: 0 4px 20px rgba(184, 197, 214, 0.1) !important;
+        }
+
+        .mens-theme .ranking-number {
+            background: var(--mens-accent) !important;
+            color: var(--mens-bg-dark) !important;
+        }
+
+        .mens-theme .ranking-name,
+        .mens-theme .category-name,
+        .mens-theme .journal-title {
+            color: var(--mens-text) !important;
+        }
+
+        .mens-theme .ranking-price {
+            color: var(--mens-accent) !important;
+            font-weight: 600;
+        }
+
+        .mens-theme .footer {
+            background: var(--mens-bg-dark) !important;
+            border-top: 1px solid rgba(184, 197, 214, 0.2) !important;
+        }
+
+        .mens-theme .footer-logo {
+            color: var(--mens-silver) !important;
+        }
+
+        .mens-theme .footer-links a {
+            color: var(--mens-text-secondary) !important;
+        }
+
+        .mens-theme .footer-links a:hover {
+            color: var(--mens-accent) !important;
+        }
+
+        .mens-theme .footer-copyright {
+            color: rgba(160, 160, 160, 0.7) !important;
+        }
+
+        /* Aliva Luxe Theme - Brown, Gold, Black */
         .aliva-luxe-theme {
-            background: var(--bg-dark) !important;
-            color: var(--fg-dark) !important;
+            background: var(--luxe-bg-dark) !important;
+            color: var(--luxe-text) !important;
         }
 
         .aliva-luxe-theme .page-hero {
-            background: linear-gradient(135deg, #1a1a1c 0%, #2a2a2e 100%) !important;
+            background: linear-gradient(135deg, var(--luxe-black) 0%, var(--luxe-brown) 100%) !important;
         }
 
         .aliva-luxe-theme .page-title {
-            color: var(--acc-gold) !important;
+            color: var(--luxe-gold) !important;
+            text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
         }
 
         .aliva-luxe-theme .page-description {
-            color: var(--fg-dark) !important;
+            color: var(--luxe-text-secondary) !important;
         }
 
         .aliva-luxe-theme .product-card {
-            background: rgba(255, 255, 255, 0.05) !important;
-            border: 1px solid rgba(194, 165, 120, 0.2) !important;
+            background: var(--luxe-bg-section) !important;
+            border: 1px solid rgba(212, 175, 55, 0.2) !important;
             backdrop-filter: blur(10px);
         }
 
+        .aliva-luxe-theme .product-card:hover {
+            border-color: var(--luxe-gold) !important;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.15) !important;
+        }
+
         .aliva-luxe-theme .product-name {
-            color: var(--fg-dark) !important;
+            color: var(--luxe-text) !important;
         }
 
         .aliva-luxe-theme .product-price {
-            color: var(--acc-gold) !important;
+            color: var(--luxe-gold) !important;
+            font-weight: 600;
         }
 
         .aliva-luxe-theme .footer {
-            background: rgba(14, 14, 16, 0.95) !important;
-            border-top: 1px solid rgba(194, 165, 120, 0.3) !important;
+            background: var(--luxe-black) !important;
+            border-top: 1px solid rgba(212, 175, 55, 0.3) !important;
         }
 
         .aliva-luxe-theme .footer-logo {
-            color: var(--acc-gold) !important;
+            color: var(--luxe-gold) !important;
         }
 
         .aliva-luxe-theme .footer-links a {
-            color: var(--fg-dark) !important;
+            color: var(--luxe-text-secondary) !important;
         }
 
         .aliva-luxe-theme .footer-links a:hover {
-            color: var(--acc-gold) !important;
+            color: var(--luxe-gold) !important;
         }
 
         .aliva-luxe-theme .footer-copyright {
-            color: rgba(237, 234, 230, 0.7) !important;
+            color: rgba(196, 181, 160, 0.6) !important;
         }
 
         /* Page-specific styles */
@@ -1343,7 +1459,7 @@
     <header class="header">
         <div class="header-container">
             <a href="/" class="logo">
-                <img src="images/logo/1464×600サイズ.png" alt="Éclat Femme">
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=120&fit=crop" alt="Éclat Femme">
             </a>
 
             <nav class="nav">
@@ -1426,16 +1542,16 @@
         <section class="hero">
             <div class="hero-carousel">
                 <div class="slide active">
-                    <img src="images/hero/Gemini_Generated_Image_8lusth8lusth8lus.png" alt="Luxury Jewelry 1">
+                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=800&fit=crop" alt="Luxury Jewelry 1">
                 </div>
                 <div class="slide">
-                    <img src="images/hero/Generated Image September 16, 2025 - 1_43PM.png" alt="Luxury Jewelry 2">
+                    <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=1200&h=800&fit=crop" alt="Luxury Jewelry 2">
                 </div>
                 <div class="slide">
-                    <img src="images/hero/Gemini_Generated_Image_hn0e8shn0e8shn0e.png" alt="Luxury Jewelry 3">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=1200&h=800&fit=crop" alt="Luxury Jewelry 3">
                 </div>
                 <div class="slide">
-                    <img src="images/hero/S__48660552.jpg" alt="Luxury Jewelry 4">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&h=800&fit=crop" alt="Luxury Jewelry 4">
                 </div>
                 <div class="carousel-dots">
                     <div class="carousel-dot active" data-slide="0"></div>
@@ -1455,7 +1571,7 @@
                         <div class="ranking-number">1</div>
                         <a href="https://www.amazon.co.jp/dp/B0CP6KLS4X" target="_blank" class="ranking-link">
                             <div class="ranking-image">
-                                <img src="images/S__48734222.jpg" alt="エレガント ピアス&ネックレスセット">
+                                <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&h=600&fit=crop" alt="エレガント ピアス&ネックレスセット">
                             </div>
                             <div class="ranking-info">
                                 <div class="ranking-name">エレガント ピアス&ネックレスセット</div>
@@ -1468,7 +1584,7 @@
                         <div class="ranking-number">2</div>
                         <a href="https://www.amazon.co.jp/dp/B0CP6KJZ9H" target="_blank" class="ranking-link">
                             <div class="ranking-image">
-                                <img src="images/3.jpg" alt="クリスタル ペンダントセット">
+                                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&h=600&fit=crop" alt="クリスタル ペンダントセット">
                             </div>
                             <div class="ranking-info">
                                 <div class="ranking-name">クリスタル ペンダントセット</div>
@@ -1481,7 +1597,7 @@
                         <div class="ranking-number">3</div>
                         <a href="https://www.amazon.co.jp/dp/B09KTQ4QB1" target="_blank" class="ranking-link">
                             <div class="ranking-image">
-                                <img src="images/LINE_ALBUM_ピアスB_211227_6.jpg" alt="パール チェーンピアス">
+                                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop" alt="パール チェーンピアス">
                             </div>
                             <div class="ranking-info">
                                 <div class="ranking-name">パール チェーンピアス</div>
@@ -1494,7 +1610,7 @@
                         <div class="ranking-number">4</div>
                         <a href="https://www.amazon.co.jp/dp/B09KTKXBML" target="_blank" class="ranking-link">
                             <div class="ranking-image">
-                                <img src="images/LINE_ALBUM_ピアスD_211227_6.jpg" alt="リボン ジルコニアピアス">
+                                <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&h=600&fit=crop" alt="リボン ジルコニアピアス">
                             </div>
                             <div class="ranking-info">
                                 <div class="ranking-name">リボン ジルコニアピアス</div>
@@ -1507,7 +1623,7 @@
                         <div class="ranking-number">5</div>
                         <a href="https://www.amazon.co.jp/dp/B09KTHVDT6" target="_blank" class="ranking-link">
                             <div class="ranking-image">
-                                <img src="images/LINE_ALBUM_ピアスE_211227_6.jpg" alt="パール リボンピアス">
+                                <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop" alt="パール リボンピアス">
                             </div>
                             <div class="ranking-info">
                                 <div class="ranking-name">パール リボンピアス</div>
@@ -1526,13 +1642,13 @@
                 <div class="media-grid">
                     <div class="media-item">
                         <div class="media-image">
-                            <img src="images/news information/S__6463504_0.jpg" alt="メディア掲載">
+                            <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&h=300&fit=crop" alt="メディア掲載">
                         </div>
                         <div class="media-caption">美人百貨の9月号に掲載頂きました</div>
                     </div>
                     <div class="media-item">
                         <div class="media-image">
-                            <img src="images/news information/１.png" alt="メディア掲載">
+                            <img src="https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=400&h=300&fit=crop" alt="メディア掲載">
                         </div>
                         <div class="media-caption">beginの10月号に掲載頂きました</div>
                     </div>
@@ -1547,19 +1663,19 @@
                 <div class="category-grid">
                     <a href="#ladies-earrings-page" class="category-item" onclick="showPage('ladies-earrings-page')">
                         <div class="category-image">
-                            <img src="images/Gemini_Generated_Image_q40oqoq40oqoq40o.png" alt="ピアス">
+                            <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400&h=400&fit=crop" alt="ピアス">
                         </div>
                         <div class="category-name">Earrings</div>
                     </a>
                     <a href="#ladies-necklaces-page" class="category-item" onclick="showPage('ladies-necklaces-page')">
                         <div class="category-image">
-                            <img src="images/Gemini_Generated_Image_cfky9pcfky9pcfky.png" alt="ネックレス">
+                            <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=400&h=400&fit=crop" alt="ネックレス">
                         </div>
                         <div class="category-name">Necklaces</div>
                     </a>
                     <a href="#set-items-page" class="category-item" onclick="showPage('set-items-page')">
                         <div class="category-image">
-                            <img src="images/Gemini_Generated_Image_qczm40qczm40qczm.png" alt="セットアイテム">
+                            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=400&fit=crop" alt="セットアイテム">
                         </div>
                         <div class="category-name">Set Items</div>
                     </a>
@@ -1632,7 +1748,7 @@
                 <div class="items-grid">
                     <a href="https://www.amazon.co.jp/dp/B0CP6KLS4X" target="_blank" class="item-card">
                         <div class="item-image">
-                            <img src="images/S__48734222.jpg" alt="エレガント ピアス&ネックレスセット">
+                            <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&h=600&fit=crop" alt="エレガント ピアス&ネックレスセット">
                             <div class="item-badge">NEW</div>
                         </div>
                         <div class="item-info">
@@ -1643,7 +1759,7 @@
 
                     <a href="https://www.amazon.co.jp/dp/B0CP6KJZ9H" target="_blank" class="item-card">
                         <div class="item-image">
-                            <img src="images/3.jpg" alt="クリスタル ペンダントセット">
+                            <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&h=600&fit=crop" alt="クリスタル ペンダントセット">
                         </div>
                         <div class="item-info">
                             <div class="item-name">クリスタル ペンダントセット</div>
@@ -1653,7 +1769,7 @@
 
                     <a href="https://www.amazon.co.jp/dp/B09KTQ4QB1" target="_blank" class="item-card">
                         <div class="item-image">
-                            <img src="images/LINE_ALBUM_ピアスB_211227_6.jpg" alt="パール チェーンピアス">
+                            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop" alt="パール チェーンピアス">
                             <div class="item-badge">人気</div>
                         </div>
                         <div class="item-info">
@@ -1664,7 +1780,7 @@
 
                     <a href="https://www.amazon.co.jp/dp/B09KTKXBML" target="_blank" class="item-card">
                         <div class="item-image">
-                            <img src="images/LINE_ALBUM_ピアスD_211227_6.jpg" alt="リボン ジルコニアピアス">
+                            <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&h=600&fit=crop" alt="リボン ジルコニアピアス">
                         </div>
                         <div class="item-info">
                             <div class="item-name">リボン ジルコニアピアス</div>
@@ -1674,7 +1790,7 @@
 
                     <a href="https://www.amazon.co.jp/dp/B09KTHVDT6" target="_blank" class="item-card">
                         <div class="item-image">
-                            <img src="images/LINE_ALBUM_ピアスE_211227_6.jpg" alt="パール リボンピアス">
+                            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop" alt="パール リボンピアス">
                         </div>
                         <div class="item-info">
                             <div class="item-name">パール リボンピアス</div>
@@ -1684,7 +1800,7 @@
 
                     <a href="https://www.amazon.co.jp/dp/B09KTMRCNM" target="_blank" class="item-card">
                         <div class="item-image">
-                            <img src="images/LINE_ALBUM_ピアスF_211227_6.jpg" alt="シャープ ダイヤモンドピアス">
+                            <img src="https://images.unsplash.com/photo-1592444358392-b5c6e0a88ff2?w=600&h=600&fit=crop" alt="シャープ ダイヤモンドピアス">
                         </div>
                         <div class="item-info">
                             <div class="item-name">シャープ ダイヤモンドピアス</div>
@@ -1694,7 +1810,7 @@
 
                     <a href="https://www.amazon.co.jp/dp/B09KTMJPH3" target="_blank" class="item-card">
                         <div class="item-image">
-                            <img src="images/ariba_pierce_G_cata_004__001_1.jpg" alt="リボン フックピアス">
+                            <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&h=600&fit=crop" alt="リボン フックピアス">
                             <div class="item-badge">限定</div>
                         </div>
                         <div class="item-info">
@@ -1705,7 +1821,7 @@
 
                     <a href="https://www.amazon.co.jp/dp/B0CDVNXXXN" target="_blank" class="item-card">
                         <div class="item-image">
-                            <img src="images/S__36569094.jpg" alt="シンプル フープピアス">
+                            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=600&h=600&fit=crop" alt="シンプル フープピアス">
                         </div>
                         <div class="item-info">
                             <div class="item-name">シンプル フープピアス</div>
@@ -1715,7 +1831,7 @@
 
                     <a href="https://www.amazon.co.jp/dp/B0CDQX4PYD" target="_blank" class="item-card">
                         <div class="item-image">
-                            <img src="images/S__36577290.jpg" alt="エレガント ネックレス">
+                            <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&h=600&fit=crop" alt="エレガント ネックレス">
                             <div class="item-badge">NEW</div>
                         </div>
                         <div class="item-info">
@@ -1726,7 +1842,7 @@
 
                     <a href="https://www.amazon.co.jp/dp/B09KTMYXSF" target="_blank" class="item-card">
                         <div class="item-image">
-                            <img src="images/LINE_ALBUM_ピアスH_211227_6.jpg" alt="ダブル フープピアス">
+                            <img src="https://images.unsplash.com/photo-1629552889344-24f01c4e0c59?w=600&h=600&fit=crop" alt="ダブル フープピアス">
                         </div>
                         <div class="item-info">
                             <div class="item-name">ダブル フープピアス</div>
@@ -1754,7 +1870,7 @@
                 </p>
                 <div class="aliva-luxe-showcase">
                     <div class="aliva-luxe-image">
-                        <img src="images/alivaluxe/Generated Image September 16, 2025 - 4_42PM.png" alt="Aliva Luxe Collection">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=600&fit=crop" alt="Aliva Luxe Collection">
                     </div>
                 </div>
                 <button class="aliva-luxe-btn" onclick="window.location.hash='#aliva-luxe'">
@@ -1769,22 +1885,22 @@
                 <h2 class="section-title">Instagram</h2>
                 <div class="instagram-scroll">
                     <div class="instagram-item">
-                        <img src="images/instagram/DKedYx3TvY7-0.png" alt="ALIBA Instagram投稿">
+                        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=400&h=400&fit=crop" alt="ALIBA Instagram投稿">
                     </div>
                     <div class="instagram-item">
-                        <img src="images/instagram/DKw1rmkyf_a-0.png" alt="ALIBA Instagram投稿">
+                        <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=400&h=400&fit=crop" alt="ALIBA Instagram投稿">
                     </div>
                     <div class="instagram-item">
-                        <img src="images/instagram/DKY_ceYunIY-1.png" alt="ALIBA Instagram投稿">
+                        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&h=400&fit=crop" alt="ALIBA Instagram投稿">
                     </div>
                     <div class="instagram-item">
-                        <img src="images/instagram/Edits__________20250625_172943 - frame at 0m14s.jpg" alt="ALIBA Instagram投稿">
+                        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=400&fit=crop" alt="ALIBA Instagram投稿">
                     </div>
                     <div class="instagram-item">
-                        <img src="images/instagram/IMG_4718.jpeg" alt="ALIBA Instagram投稿">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop" alt="ALIBA Instagram投稿">
                     </div>
                     <div class="instagram-item">
-                        <img src="images/instagram/IMG_7593.jpeg" alt="ALIBA Instagram投稿">
+                        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400&h=400&fit=crop" alt="ALIBA Instagram投稿">
                     </div>
                 </div>
                 <div class="instagram-link">
@@ -2178,7 +2294,7 @@
             <div class="products-grid">
                 <a href="https://www.amazon.co.jp/dp/B09KTQ4QB1" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/LINE_ALBUM_ピアスB_211227_6.jpg" alt="パール チェーンピアス">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop" alt="パール チェーンピアス">
                     </div>
                     <div class="product-info">
                         <div class="product-name">パール チェーンピアス</div>
@@ -2187,7 +2303,7 @@
                 </a>
                 <a href="https://www.amazon.co.jp/dp/B09KTKXBML" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/LINE_ALBUM_ピアスD_211227_6.jpg" alt="リボン ジルコニアピアス">
+                        <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&h=600&fit=crop" alt="リボン ジルコニアピアス">
                     </div>
                     <div class="product-info">
                         <div class="product-name">リボン ジルコニアピアス</div>
@@ -2196,7 +2312,7 @@
                 </a>
                 <a href="https://www.amazon.co.jp/dp/B09KTHVDT6" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/LINE_ALBUM_ピアスE_211227_6.jpg" alt="パール リボンピアス">
+                        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop" alt="パール リボンピアス">
                     </div>
                     <div class="product-info">
                         <div class="product-name">パール リボンピアス</div>
@@ -2205,7 +2321,7 @@
                 </a>
                 <a href="https://www.amazon.co.jp/dp/B09KTMRCNM" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/LINE_ALBUM_ピアスF_211227_6.jpg" alt="シャープ ダイヤモンドピアス">
+                        <img src="https://images.unsplash.com/photo-1592444358392-b5c6e0a88ff2?w=600&h=600&fit=crop" alt="シャープ ダイヤモンドピアス">
                     </div>
                     <div class="product-info">
                         <div class="product-name">シャープ ダイヤモンドピアス</div>
@@ -2214,7 +2330,7 @@
                 </a>
                 <a href="https://www.amazon.co.jp/dp/B09KTMJPH3" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/ariba_pierce_G_cata_004__001_1.jpg" alt="リボン フックピアス">
+                        <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&h=600&fit=crop" alt="リボン フックピアス">
                     </div>
                     <div class="product-info">
                         <div class="product-name">リボン フックピアス</div>
@@ -2223,7 +2339,7 @@
                 </a>
                 <a href="https://www.amazon.co.jp/dp/B0CDVNXXXN" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/S__36569094.jpg" alt="シンプル フープピアス">
+                        <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=600&h=600&fit=crop" alt="シンプル フープピアス">
                     </div>
                     <div class="product-info">
                         <div class="product-name">シンプル フープピアス</div>
@@ -2232,7 +2348,7 @@
                 </a>
                 <a href="https://www.amazon.co.jp/dp/B09KTMYXSF" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/LINE_ALBUM_ピアスH_211227_6.jpg" alt="ダブル フープピアス">
+                        <img src="https://images.unsplash.com/photo-1629552889344-24f01c4e0c59?w=600&h=600&fit=crop" alt="ダブル フープピアス">
                     </div>
                     <div class="product-info">
                         <div class="product-name">ダブル フープピアス</div>
@@ -2268,7 +2384,7 @@
             <div class="products-grid">
                 <a href="https://www.amazon.co.jp/dp/B0CDQX4PYD" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/S__36577290.jpg" alt="エレガント ネックレス">
+                        <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&h=600&fit=crop" alt="エレガント ネックレス">
                     </div>
                     <div class="product-info">
                         <div class="product-name">エレガント ネックレス</div>
@@ -2709,7 +2825,7 @@
             <div class="products-grid">
                 <a href="https://www.amazon.co.jp/dp/B0CDFK1PCB" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/alivaluxe/S__35545111.jpg" alt="プレミアム フープピアス">
+                        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&h=600&fit=crop" alt="プレミアム フープピアス">
                     </div>
                     <div class="product-info">
                         <div class="product-name">プレミアム フープピアス</div>
@@ -2718,7 +2834,7 @@
                 </a>
                 <a href="https://www.amazon.co.jp/dp/B0C52F5GRF" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/alivaluxe/IMG_top1.jpg" alt="ダイヤモンド ネックレス">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=600&fit=crop" alt="ダイヤモンド ネックレス">
                     </div>
                     <div class="product-info">
                         <div class="product-name">ダイヤモンド ネックレス</div>
@@ -2727,7 +2843,7 @@
                 </a>
                 <a href="https://www.amazon.co.jp/dp/B0C4SVYJD2" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/alivaluxe/top2.jpg" alt="ホースシュー ネックレス">
+                        <img src="https://images.unsplash.com/photo-1599458448187-f6ef9184d8d2?w=600&h=600&fit=crop" alt="ホースシュー ネックレス">
                     </div>
                     <div class="product-info">
                         <div class="product-name">ホースシュー ネックレス</div>
@@ -2736,7 +2852,7 @@
                 </a>
                 <a href="https://www.amazon.co.jp/dp/B0BP7M8H1G" target="_blank" class="product-card">
                     <div class="product-image">
-                        <img src="images/alivaluxe/aliba_main_gold.jpg" alt="モアサナイト ホースシュー">
+                        <img src="https://images.unsplash.com/photo-1603561596112-0a132b757442?w=600&h=600&fit=crop" alt="モアサナイト ホースシュー">
                     </div>
                     <div class="product-info">
                         <div class="product-name">モアサナイト ホースシュー</div>
@@ -2870,7 +2986,7 @@
     </div>
 
     <!-- Men's Top Page -->
-    <div id="mens-top-page" style="display: none;">
+    <div id="mens-top-page" class="mens-theme" style="display: none;">
         <!-- Hero Section -->
         <section class="hero" style="margin-top: 70px;">
             <div class="hero-carousel">
