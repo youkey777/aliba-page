@@ -118,7 +118,7 @@
 
         .logo {
             display: block;
-            height: 45px;
+            height: 150px;
             width: auto;
         }
 
@@ -604,44 +604,11 @@
         }
 
         .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
             margin: 0 auto;
-        }
-
-        @media (min-width: 1024px) {
-            .category-item {
-                height: 337.5px; /* 画像270px + テキスト67.5px */
-                display: flex;
-                flex-direction: column;
-            }
-
-            .category-image {
-                height: 270px; /* 画像の高さ（8割） */
-                aspect-ratio: auto;
-            }
-
-            .category-name {
-                height: 67.5px; /* テキストエリア（2割） */
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 10px;
-                flex-shrink: 0;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .category-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-
-            .category-section {
-                padding: 60px 20px;
-            }
         }
 
         .category-item {
@@ -653,6 +620,9 @@
             cursor: pointer;
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            height: 180px;
         }
 
         .category-item:hover {
@@ -661,8 +631,9 @@
         }
 
         .category-image {
-            width: 100%;
-            aspect-ratio: 4/3;
+            width: 60%;
+            height: 100%;
+            flex-shrink: 0;
             overflow: hidden;
             background: #f5f5f5;
         }
@@ -679,11 +650,15 @@
         }
 
         .category-name {
-            padding: 18px 20px;
-            font-size: 16px;
+            flex: 1;
+            padding: 20px;
+            font-size: 18px;
             font-weight: 500;
             text-align: center;
             background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         @media (max-width: 767px) {
@@ -999,16 +974,45 @@
         }
 
         .aliva-luxe-showcase {
-            max-width: 400px;
+            max-width: 600px;
             margin: 0 auto 40px;
             position: relative;
         }
 
+        .aliva-luxe-logo-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 80%;
+            max-width: 400px;
+            opacity: 0.95;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+        }
+
+        .aliva-luxe-logo-overlay svg {
+            width: 100%;
+            height: auto;
+        }
+
         .aliva-luxe-image {
-            aspect-ratio: 4/3;
+            aspect-ratio: 16/9;
             border-radius: 16px;
             overflow: hidden;
             background: #333;
+            position: relative;
+        }
+
+        .aliva-luxe-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
         }
 
         .aliva-luxe-image img {
@@ -1202,6 +1206,15 @@
 
         .mens-theme .hero {
             background: linear-gradient(135deg, var(--mens-bg-dark) 0%, var(--mens-navy) 100%) !important;
+            height: 65vh;
+            min-height: 500px;
+        }
+
+        @media (max-width: 767px) {
+            .mens-theme .hero {
+                height: 45vh;
+                min-height: 350px;
+            }
         }
 
         .mens-theme .section-title {
@@ -1252,9 +1265,20 @@
         }
 
         .mens-theme .ranking-name,
-        .mens-theme .category-name,
+        .mens-theme .category-name {
+            color: var(--mens-text) !important;
+            background: var(--mens-bg-dark) !important;
+            font-weight: 600;
+        }
+
         .mens-theme .journal-title {
             color: var(--mens-text) !important;
+            font-weight: 600;
+        }
+
+        .mens-theme .journal-section .more-link {
+            color: var(--mens-accent) !important;
+            font-weight: 600;
         }
 
         .mens-theme .ranking-price {
@@ -1489,7 +1513,7 @@
         <div class="mobile-menu" id="mobile-menu">
             <div class="mobile-nav">
                 <div class="mobile-nav-item">
-                    <div class="mobile-nav-title">レディース</div>
+                    <a href="/" class="mobile-nav-title" onclick="event.preventDefault(); showMainContent(); document.getElementById('mobile-menu').classList.remove('active');">レディース</a>
                     <div class="mobile-nav-links">
                         <a href="#ladies-earrings">ピアス</a>
                         <a href="#ladies-necklaces">ネックレス</a>
@@ -1856,6 +1880,13 @@
                     世代を超えて愛され続ける、究極の美しさをお届けします。
                 </p>
                 <div class="aliva-luxe-showcase">
+                    <div class="aliva-luxe-logo-overlay">
+                        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                            <text x="400" y="120" font-family="'Brush Script MT', cursive" font-size="100" fill="#D4AF37" text-anchor="middle" style="font-style: italic;">jewelry</text>
+                            <text x="400" y="200" font-family="Georgia, serif" font-size="60" fill="#D4AF37" text-anchor="middle" letter-spacing="15">ALIVA</text>
+                            <text x="400" y="260" font-family="Georgia, serif" font-size="35" fill="#D4AF37" text-anchor="middle" letter-spacing="8">LUXE</text>
+                        </svg>
+                    </div>
                     <div class="aliva-luxe-image">
                         <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=600&fit=crop" alt="Aliva Luxe Collection">
                     </div>
@@ -1902,14 +1933,14 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2409,14 +2440,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2445,14 +2476,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2517,14 +2548,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2589,14 +2620,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2661,14 +2692,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2733,14 +2764,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2778,14 +2809,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2850,14 +2881,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2913,14 +2944,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2955,14 +2986,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -3276,14 +3307,14 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Éclat Femme</div>
+                <div class="footer-logo">Aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Éclat Femme. All rights reserved.
+                    © 2024 Aliba. All rights reserved.
                 </div>
             </div>
         </footer>
