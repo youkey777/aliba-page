@@ -118,7 +118,7 @@
 
         .logo {
             display: block;
-            height: 150px;
+            height: 80px;
             width: auto;
         }
 
@@ -356,8 +356,8 @@
 
         @media (max-width: 768px) {
             .hero {
-                height: 45vh;
-                min-height: 350px;
+                height: 60vh;
+                min-height: 450px;
             }
 
             .carousel-dots {
@@ -604,11 +604,34 @@
         }
 
         .category-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 800px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 900px;
             margin: 0 auto;
+        }
+
+        @media (max-width: 767px) {
+            .category-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                max-width: 800px;
+            }
+
+            .category-item {
+                display: flex;
+                align-items: center;
+                height: 180px;
+            }
+
+            .category-image {
+                width: 60%;
+            }
+
+            .category-name {
+                flex: 1;
+            }
         }
 
         .category-item {
@@ -620,9 +643,6 @@
             cursor: pointer;
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            height: 180px;
         }
 
         .category-item:hover {
@@ -631,9 +651,8 @@
         }
 
         .category-image {
-            width: 60%;
-            height: 100%;
-            flex-shrink: 0;
+            width: 100%;
+            aspect-ratio: 4/3;
             overflow: hidden;
             background: #f5f5f5;
         }
@@ -650,15 +669,11 @@
         }
 
         .category-name {
-            flex: 1;
             padding: 20px;
             font-size: 18px;
             font-weight: 500;
             text-align: center;
             background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         @media (max-width: 767px) {
@@ -973,27 +988,36 @@
             opacity: 0.9;
         }
 
-        .aliva-luxe-showcase {
-            max-width: 600px;
-            margin: 0 auto 40px;
+        .high-brand-section {
             position: relative;
         }
 
-        .aliva-luxe-logo-overlay {
+        .high-brand-section::before {
+            content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 2;
-            width: 80%;
-            max-width: 400px;
-            opacity: 0.95;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+            width: 400px;
+            height: 300px;
+            background-image: url('data:image/svg+xml,<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg"><text x="400" y="120" font-family="Brush Script MT, cursive" font-size="100" fill="%23D4AF37" text-anchor="middle" style="font-style: italic;">jewelry</text><text x="400" y="200" font-family="Georgia, serif" font-size="60" fill="%23D4AF37" text-anchor="middle" letter-spacing="15">ALIVA</text><text x="400" y="260" font-family="Georgia, serif" font-size="35" fill="%23D4AF37" text-anchor="middle" letter-spacing="8">LUXE</text></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .aliva-luxe-logo-overlay svg {
-            width: 100%;
-            height: auto;
+        .high-brand-section > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .aliva-luxe-showcase {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
         }
 
         .aliva-luxe-image {
@@ -1002,17 +1026,6 @@
             overflow: hidden;
             background: #333;
             position: relative;
-        }
-
-        .aliva-luxe-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.3);
-            z-index: 1;
         }
 
         .aliva-luxe-image img {
@@ -1212,8 +1225,8 @@
 
         @media (max-width: 767px) {
             .mens-theme .hero {
-                height: 45vh;
-                min-height: 350px;
+                height: 60vh;
+                min-height: 450px;
             }
         }
 
@@ -1264,7 +1277,11 @@
             color: var(--mens-bg-dark) !important;
         }
 
-        .mens-theme .ranking-name,
+        .mens-theme .ranking-name {
+            color: var(--mens-text) !important;
+            font-weight: 600;
+        }
+
         .mens-theme .category-name {
             color: var(--mens-text) !important;
             background: var(--mens-bg-dark) !important;
@@ -1277,8 +1294,16 @@
         }
 
         .mens-theme .journal-section .more-link {
-            color: var(--mens-accent) !important;
+            color: #FFFFFF !important;
+            background: var(--mens-accent) !important;
+            padding: 12px 32px !important;
             font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .mens-theme .journal-section .more-link:hover {
+            background: var(--mens-silver) !important;
+            color: var(--mens-bg-dark) !important;
         }
 
         .mens-theme .ranking-price {
@@ -1880,13 +1905,6 @@
                     世代を超えて愛され続ける、究極の美しさをお届けします。
                 </p>
                 <div class="aliva-luxe-showcase">
-                    <div class="aliva-luxe-logo-overlay">
-                        <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-                            <text x="400" y="120" font-family="'Brush Script MT', cursive" font-size="100" fill="#D4AF37" text-anchor="middle" style="font-style: italic;">jewelry</text>
-                            <text x="400" y="200" font-family="Georgia, serif" font-size="60" fill="#D4AF37" text-anchor="middle" letter-spacing="15">ALIVA</text>
-                            <text x="400" y="260" font-family="Georgia, serif" font-size="35" fill="#D4AF37" text-anchor="middle" letter-spacing="8">LUXE</text>
-                        </svg>
-                    </div>
                     <div class="aliva-luxe-image">
                         <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=600&fit=crop" alt="Aliva Luxe Collection">
                     </div>
@@ -1933,14 +1951,14 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2440,14 +2458,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2476,14 +2494,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2548,14 +2566,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2620,14 +2638,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2692,14 +2710,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2764,14 +2782,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2809,14 +2827,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2881,14 +2899,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2944,14 +2962,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -2986,14 +3004,14 @@
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -3307,14 +3325,14 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
-                <div class="footer-logo">Aliba</div>
+                <div class="footer-logo">aliba</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="/contact">お問い合わせ</a>
                     <a href="/privacy">プライバシーポリシー</a>
                 </div>
                 <div class="footer-copyright">
-                    © 2024 Aliba. All rights reserved.
+                    © 2024 aliba. All rights reserved.
                 </div>
             </div>
         </footer>
