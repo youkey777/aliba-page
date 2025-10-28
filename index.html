@@ -118,7 +118,7 @@
 
         .logo {
             display: block;
-            height: 80px;
+            height: 100px;
             width: auto;
         }
 
@@ -998,13 +998,13 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 400px;
-            height: 300px;
+            width: 600px;
+            height: 450px;
             background-image: url('data:image/svg+xml,<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg"><text x="400" y="120" font-family="Brush Script MT, cursive" font-size="100" fill="%23D4AF37" text-anchor="middle" style="font-style: italic;">jewelry</text><text x="400" y="200" font-family="Georgia, serif" font-size="60" fill="%23D4AF37" text-anchor="middle" letter-spacing="15">ALIVA</text><text x="400" y="260" font-family="Georgia, serif" font-size="35" fill="%23D4AF37" text-anchor="middle" letter-spacing="8">LUXE</text></svg>');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.15;
+            opacity: 0.5;
             pointer-events: none;
             z-index: 0;
         }
@@ -1293,15 +1293,19 @@
             font-weight: 600;
         }
 
-        .mens-theme .journal-section .more-link {
+        #mens-top-page .journal-section .journal-more-link {
             color: #FFFFFF !important;
-            background: var(--mens-accent) !important;
+            background: #2C3E50 !important;
             padding: 12px 32px !important;
             font-weight: 600;
             border-radius: 4px;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center;
+            gap: 8px;
         }
 
-        .mens-theme .journal-section .more-link:hover {
+        #mens-top-page .journal-section .journal-more-link:hover {
             background: var(--mens-silver) !important;
             color: var(--mens-bg-dark) !important;
         }
