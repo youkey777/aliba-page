@@ -1035,20 +1035,21 @@
         }
 
         .aliva-luxe-btn {
-            background: linear-gradient(135deg, #C2A578 0%, #D4B689 100%);
-            color: white;
-            border: none;
+            background: transparent;
+            color: #C2A578;
+            border: 2px solid #C2A578;
             padding: 16px 32px;
             border-radius: 8px;
             font-size: 18px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .aliva-luxe-btn:hover {
+            background: #C2A578;
+            color: white;
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(194, 165, 120, 0.3);
         }
@@ -1219,14 +1220,16 @@
 
         .mens-theme .hero {
             background: linear-gradient(135deg, var(--mens-bg-dark) 0%, var(--mens-navy) 100%) !important;
-            height: 65vh;
-            min-height: 500px;
+            height: 65vh !important;
+            min-height: 500px !important;
+            max-height: 500px !important;
         }
 
         @media (max-width: 767px) {
             .mens-theme .hero {
-                height: 60vh;
-                min-height: 450px;
+                height: 60vh !important;
+                min-height: 450px !important;
+                max-height: 450px !important;
             }
         }
 
@@ -1334,6 +1337,39 @@
 
         .mens-theme .footer-copyright {
             color: rgba(160, 160, 160, 0.7) !important;
+        }
+
+        /* Mens Theme - Page Hero Styles */
+        .mens-theme .page-hero {
+            background: linear-gradient(135deg, var(--mens-bg-dark) 0%, var(--mens-navy) 100%) !important;
+        }
+
+        .mens-theme .page-title {
+            color: var(--mens-accent) !important;
+            font-weight: 400 !important;
+        }
+
+        .mens-theme .page-description {
+            color: var(--mens-text) !important;
+        }
+
+        .mens-theme .product-card {
+            background: #1F2229 !important;
+            border-color: rgba(184, 197, 214, 0.2) !important;
+        }
+
+        .mens-theme .product-name {
+            color: #FFFFFF !important;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.02em;
+        }
+
+        .mens-theme .product-price {
+            color: #CDD8E7 !important;
+            font-weight: 600;
+            font-size: 19px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         }
 
         /* Aliva Luxe Theme - Brown, Gold, Black */
@@ -1492,6 +1528,161 @@
             font-weight: 600;
             color: var(--acc-gold);
         }
+
+        /* Memorial Theme - Elegant & Delicate Style (Light Silver) */
+        .memorial-theme {
+            background: linear-gradient(180deg, #F5F7FA 0%, #E8EDF2 100%) !important;
+            color: #4B5563 !important;
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* ページヒーロー - ガラス風グラデーション + ブルーの境界線 + 光の演出 */
+        .memorial-theme .page-hero {
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.75) 0%,
+                    rgba(245, 247, 250, 0.65) 25%,
+                    rgba(235, 240, 245, 0.6) 50%,
+                    rgba(245, 247, 250, 0.65) 75%,
+                    rgba(255, 255, 255, 0.75) 100%
+                ) !important;
+            -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(220, 230, 245, 0.5);
+            box-shadow:
+                0 8px 32px rgba(180, 200, 225, 0.25),
+                0 4px 16px rgba(220, 230, 245, 0.3),
+                inset 0 1px 2px rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        /* 大きな光の差し込み表現（ヒーローセクション専用） */
+        .memorial-theme .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                /* 左上からの光: ライトブルー系 */
+                radial-gradient(ellipse 900px 700px at 10% 20%,
+                    rgba(220, 230, 245, 0.95) 0%,
+                    rgba(200, 215, 235, 0.7) 20%,
+                    rgba(180, 200, 225, 0.4) 45%,
+                    transparent 75%),
+                /* 右下からの光: ラベンダー系 */
+                radial-gradient(ellipse 700px 600px at 90% 85%,
+                    rgba(235, 235, 245, 0.9) 0%,
+                    rgba(215, 215, 230, 0.6) 25%,
+                    rgba(192, 192, 210, 0.35) 55%,
+                    transparent 80%),
+                /* 中央の光: ゴールデンシルバー */
+                radial-gradient(circle 500px at 50% 50%,
+                    rgba(245, 245, 235, 0.8) 0%,
+                    rgba(230, 230, 220, 0.5) 35%,
+                    rgba(210, 210, 200, 0.25) 65%,
+                    transparent 85%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* キラキラ輝き系アニメーション（ヒーローセクション専用） */
+        .memorial-theme .page-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,%3Csvg width="600" height="600" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cfilter id="glow"%3E%3CfeGaussianBlur stdDeviation="1.5" result="coloredBlur"/%3E%3CfeMerge%3E%3CfeMergeNode in="coloredBlur"/%3E%3CfeMergeNode in="SourceGraphic"/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg filter="url(%23glow)"%3E%3C!-- 大きなキラキラ1 --%3E%3Cpath d="M100 80 L100 20 M100 80 L100 140 M100 80 L40 80 M100 80 L160 80" stroke="%23E0E8F5" stroke-width="2" opacity="0.8"/%3E%3Cpolygon points="100,60 105,75 120,80 105,85 100,100 95,85 80,80 95,75" fill="%23E0E8F5" opacity="0.85"/%3E%3C!-- 中くらいのキラキラ2 --%3E%3Cpath d="M280 120 L280 85 M280 120 L280 155 M280 120 L245 120 M280 120 L315 120" stroke="%23F5F5E8" stroke-width="1.5" opacity="0.75"/%3E%3Cpolygon points="280,105 283,115 293,120 283,125 280,135 277,125 267,120 277,115" fill="%23F5F5E8" opacity="0.8"/%3E%3C!-- 大きなキラキラ3 --%3E%3Cpath d="M480 200 L480 140 M480 200 L480 260 M480 200 L420 200 M480 200 L540 200" stroke="%23E8E0F5" stroke-width="2" opacity="0.8"/%3E%3Cpolygon points="480,180 485,195 500,200 485,205 480,220 475,205 460,200 475,195" fill="%23E8E0F5" opacity="0.85"/%3E%3C!-- 小さなキラキラ4 --%3E%3Cpath d="M150 300 L150 280 M150 300 L150 320 M150 300 L130 300 M150 300 L170 300" stroke="%23E0E8F5" stroke-width="1" opacity="0.7"/%3E%3Cpolygon points="150,292 152,298 158,300 152,302 150,308 148,302 142,300 148,298" fill="%23E0E8F5" opacity="0.75"/%3E%3C!-- 中くらいのキラキラ5 --%3E%3Cpath d="M380 380 L380 345 M380 380 L380 415 M380 380 L345 380 M380 380 L415 380" stroke="%23F5F5E8" stroke-width="1.5" opacity="0.75"/%3E%3Cpolygon points="380,365 383,375 393,380 383,385 380,395 377,385 367,380 377,375" fill="%23F5F5E8" opacity="0.8"/%3E%3C!-- 小さなキラキラ6 --%3E%3Cpath d="M200 480 L200 460 M200 480 L200 500 M200 480 L180 480 M200 480 L220 480" stroke="%23E8E0F5" stroke-width="1" opacity="0.7"/%3E%3Cpolygon points="200,472 202,478 208,480 202,482 200,488 198,482 192,480 198,478" fill="%23E8E0F5" opacity="0.75"/%3E%3C/g%3E%3C/svg%3E');
+            background-size: 600px 600px;
+            background-repeat: repeat;
+            opacity: 1;
+            pointer-events: none;
+            z-index: 0;
+            animation: sparkle 8s ease-in-out infinite;
+        }
+
+        .memorial-theme .page-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* タイトル - ブルーの輝きエフェクト */
+        .memorial-theme .page-title {
+            color: #8B92A0 !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.1em;
+            text-shadow:
+                0 0 20px rgba(220, 230, 245, 1),
+                0 0 40px rgba(200, 215, 235, 0.8),
+                0 0 60px rgba(180, 200, 225, 0.5),
+                0 3px 8px rgba(140, 150, 170, 0.3),
+                0 1px 2px rgba(255, 255, 255, 0.9);
+        }
+
+        .memorial-theme .page-description {
+            color: #6B7280 !important;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        /* 商品カード - ガラスモーフィズム + ブルーの境界線 */
+        .memorial-theme .product-card {
+            background: rgba(255, 255, 255, 0.55) !important;
+            border: 1px solid rgba(220, 230, 245, 0.6) !important;
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            backdrop-filter: blur(15px) saturate(180%);
+            box-shadow:
+                0 4px 16px rgba(180, 200, 225, 0.2),
+                0 2px 8px rgba(220, 230, 245, 0.25),
+                inset 0 1px 2px rgba(255, 255, 255, 1);
+            position: relative;
+            z-index: 3;
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .memorial-theme .product-card:hover {
+            background: rgba(255, 255, 255, 0.7) !important;
+            border-color: rgba(200, 215, 235, 0.8) !important;
+            box-shadow:
+                0 8px 32px rgba(180, 200, 225, 0.35),
+                0 4px 16px rgba(220, 230, 245, 0.4),
+                0 0 25px rgba(220, 230, 245, 0.5),
+                inset 0 1px 3px rgba(255, 255, 255, 1);
+            transform: translateY(-6px);
+        }
+
+        .memorial-theme .product-name {
+            color: #4B5563 !important;
+            font-weight: 500;
+        }
+
+        .memorial-theme .product-price {
+            color: #9CA3AF !important;
+            font-weight: 600;
+        }
+
+        .memorial-theme .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .memorial-theme .footer {
+            position: relative;
+            z-index: 2;
+        }
+
     </style>
 </head>
 <body>
@@ -1509,7 +1700,7 @@
                         <a href="#ladies-earrings">ピアス</a>
                         <a href="#ladies-necklaces">ネックレス</a>
                         <a href="#set-items">セットアイテム</a>
-                        <a href="#aliva-luxe">Aliva Luxe</a>
+                        <a href="#aliva-luxe">aliva luxe</a>
                     </div>
                 </div>
                 <div class="nav-item">
@@ -1522,7 +1713,7 @@
                 </div>
                 <a href="#pair-necklaces" class="nav-link">ペアネックレス</a>
                 <a href="#memorial" class="nav-link">遺骨ネックレス</a>
-                <a href="#aliva-luxe" class="nav-link">Aliva Luxe</a>
+                <a href="#aliva-luxe" class="nav-link">aliva luxe</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#column" class="nav-link">Column</a>
             </nav>
@@ -1547,7 +1738,7 @@
                         <a href="#ladies-earrings">ピアス</a>
                         <a href="#ladies-necklaces">ネックレス</a>
                         <a href="#set-items">セットアイテム</a>
-                        <a href="#aliva-luxe">Aliva Luxe</a>
+                        <a href="#aliva-luxe">aliva luxe</a>
                     </div>
                 </div>
                 <div class="mobile-nav-item">
@@ -1565,7 +1756,7 @@
                     <a href="#memorial" class="mobile-nav-title">遺骨ネックレス</a>
                 </div>
                 <div class="mobile-nav-item">
-                    <a href="#aliva-luxe" class="mobile-nav-title">Aliva Luxe</a>
+                    <a href="#aliva-luxe" class="mobile-nav-title">aliva luxe</a>
                 </div>
                 <div class="mobile-nav-item">
                     <a href="#about" class="mobile-nav-title">About</a>
@@ -1905,16 +2096,16 @@
             <div class="container">
                 <h2 class="high-brand-title">特別な輝きを放つハイブランド</h2>
                 <p class="high-brand-description">
-                    最高峰の技術と品質で創られた、Aliva Luxeコレクション。
+                    最高峰の技術と品質で創られた、aliva luxeコレクション。
                     世代を超えて愛され続ける、究極の美しさをお届けします。
                 </p>
                 <div class="aliva-luxe-showcase">
                     <div class="aliva-luxe-image">
-                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=600&fit=crop" alt="Aliva Luxe Collection">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=600&fit=crop" alt="aliva luxe Collection">
                     </div>
                 </div>
                 <button class="aliva-luxe-btn" onclick="window.location.hash='#aliva-luxe'">
-                    Aliva Luxe
+                    aliva luxe
                 </button>
             </div>
         </section>
@@ -2512,7 +2703,7 @@
     </div>
 
     <!-- Men's Earrings Page -->
-    <div id="mens-earrings-page" style="display: none;">
+    <div id="mens-earrings-page" class="mens-theme" style="display: none;">
         <div class="page-hero">
             <div class="page-hero-content">
                 <h1 class="page-title">Men's Earrings</h1>
@@ -2584,7 +2775,7 @@
     </div>
 
     <!-- Men's Necklaces Page -->
-    <div id="mens-necklaces-page" style="display: none;">
+    <div id="mens-necklaces-page" class="mens-theme" style="display: none;">
         <div class="page-hero">
             <div class="page-hero-content">
                 <h1 class="page-title">Men's Necklaces</h1>
@@ -2656,7 +2847,7 @@
     </div>
 
     <!-- Men's Wallets Page -->
-    <div id="mens-wallets-page" style="display: none;">
+    <div id="mens-wallets-page" class="mens-theme" style="display: none;">
         <div class="page-hero">
             <div class="page-hero-content">
                 <h1 class="page-title">Men's Wallets</h1>
@@ -2845,7 +3036,7 @@
     </div>
 
     <!-- Memorial Page -->
-    <div id="memorial-page" style="display: none;">
+    <div id="memorial-page" class="memorial-theme" style="display: none;">
         <div class="page-hero">
             <div class="page-hero-content">
                 <h1 class="page-title">Memorial</h1>
@@ -2916,11 +3107,11 @@
         </footer>
     </div>
 
-    <!-- Aliva Luxe Page -->
+    <!-- aliva luxe Page -->
     <div id="aliva-luxe-page" class="aliva-luxe-theme" style="display: none;">
         <div class="page-hero" style="margin-top: 70px;">
             <div class="page-hero-content">
-                <h1 class="page-title">Aliva Luxe</h1>
+                <h1 class="page-title">aliva luxe</h1>
                 <p class="page-description">最高級の素材と技術の粋を集めたプレミアムライン</p>
             </div>
         </div>
@@ -3094,16 +3285,16 @@
         <section class="hero" style="margin-top: 70px;">
             <div class="hero-carousel">
                 <div class="slide active">
-                    <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=1200&h=600&fit=crop" alt="Men's Jewelry 1">
+                    <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=1200&h=800&fit=crop" alt="Men's Jewelry 1">
                 </div>
                 <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=1200&h=600&fit=crop" alt="Men's Jewelry 2">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=1200&h=800&fit=crop" alt="Men's Jewelry 2">
                 </div>
                 <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=600&fit=crop" alt="Men's Jewelry 3">
+                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&h=800&fit=crop" alt="Men's Jewelry 3">
                 </div>
                 <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&h=600&fit=crop" alt="Men's Jewelry 4">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&h=800&fit=crop" alt="Men's Jewelry 4">
                 </div>
                 <div class="carousel-dots">
                     <div class="carousel-dot active" data-slide="0"></div>
