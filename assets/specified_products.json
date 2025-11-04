@@ -1,0 +1,190 @@
+{
+  "ladies_ranking": [
+    {
+      "order": 1,
+      "asin": "B09KTMJPH3",
+      "name": "リボンピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/61v8-y1kytL._AC_SX342_SY445_QL70_ML2_.jpg"
+    },
+    {
+      "order": 2,
+      "asin": "B09KTGZSZD",
+      "name": "ダブルリングフープピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/61RLziGmpfL._AC_SX679_.jpg"
+    },
+    {
+      "order": 3,
+      "asin": "B09N7LPTZR",
+      "name": "ツイストフープピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/61y5o3wd24L._AC_SY741_.jpg"
+    },
+    {
+      "order": 4,
+      "asin": "B0CDFLZ4TL",
+      "name": "モアサナイトピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/61l+-yflRvL._AC_SX679_.jpg"
+    },
+    {
+      "order": 5,
+      "asin": "B0C8FXYTVF",
+      "name": "モアサナイト×パール調ピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/71IWStsW16L._AC_SX679_.jpg"
+    }
+  ],
+  "ladies_all": [
+    {
+      "order": 1,
+      "asin": "B0C8FXYTVF",
+      "name": "モアサナイト×パール調ピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/71IWStsW16L._AC_SX679_.jpg"
+    },
+    {
+      "order": 2,
+      "asin": "B0BP7PL9XG",
+      "name": "モアサナイトホースシューピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/61myojoR+QL._AC_SX679_.jpg"
+    },
+    {
+      "order": 3,
+      "asin": "B0CP6KLS4X",
+      "name": "ピアス×ネックレスセット",
+      "image_fallback": "https://m.media-amazon.com/images/I/71QwPCHsQcL._AC_SX679_.jpg"
+    },
+    {
+      "order": 4,
+      "asin": "B0CP6LRKLH",
+      "name": "ピアス×ネックレスセット",
+      "image_fallback": "https://m.media-amazon.com/images/I/71qWEGSbzcL._AC_SX679_.jpg"
+    },
+    {
+      "order": 5,
+      "asin": "B0CP6LPFZQ",
+      "name": "ピアス×ネックレスセット",
+      "image_fallback": "https://m.media-amazon.com/images/I/61h9B2ShN0L._AC_SX679_.jpg"
+    },
+    {
+      "order": 6,
+      "asin": "B09KTHVDT6",
+      "name": "パール×ジルコニアピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/71oGLH2S9RL._AC_SX679_.jpg"
+    },
+    {
+      "order": 7,
+      "asin": "B0CDQZ494J",
+      "name": "リボンモチーフネックレス",
+      "image_fallback": "https://m.media-amazon.com/images/I/51FTV8CjWTL._AC_SX679_.jpg"
+    },
+    {
+      "order": 8,
+      "asin": "B0CP6KJZ9H",
+      "name": "ピアス×ネックレスセット",
+      "image_fallback": "https://m.media-amazon.com/images/I/71ti+Owxq0L._AC_SX679_.jpg"
+    },
+    {
+      "order": 9,
+      "asin": "B0C4SVYJD2",
+      "name": "ダイヤモンドホースシューピアス",
+      "image_fallback": "https://www.amazon.co.jp/dp/B0C4SVYJD2"
+    },
+    {
+      "order": 10,
+      "asin": "B09KTKXBML",
+      "name": "リボンモチーフジルコニアピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/71uf5l7hWVL._AC_SX679_.jpg"
+    }
+  ],
+  "mens_ranking": [
+    {
+      "order": 1,
+      "asin": "B096NNC6CR",
+      "name": "フェザーピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/71INKsMbJaL._AC_SX679_.jpg"
+    },
+    {
+      "order": 2,
+      "asin": "B099WFL3ZX",
+      "name": "サージカルステンレスネックレス",
+      "image_fallback": "https://m.media-amazon.com/images/I/61b2j41F-1L._AC_SX679_.jpg"
+    },
+    {
+      "order": 3,
+      "asin": "B09M2XH1C5",
+      "name": "ダブルリングフープピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/71p0FUFegIL._AC_SX679_.jpg"
+    },
+    {
+      "order": 4,
+      "asin": "B095GJ54B8",
+      "name": "ツイストデザインピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/61WULgt05VL._AC_SX679_.jpg"
+    },
+    {
+      "order": 5,
+      "asin": "B07VKCVTH2",
+      "name": "タングステンネックレス",
+      "image_fallback": "https://m.media-amazon.com/images/I/610S0ZEANzL._AC_SX679_.jpg"
+    }
+  ],
+  "mens_all": [
+    {
+      "order": 1,
+      "asin": "B087WL96KM",
+      "name": "カーボンレザー2つ折りウォレット",
+      "image_fallback": "https://m.media-amazon.com/images/I/71dX2DNCOSL._AC_SY300_SX300_QL70_ML2_.jpg"
+    },
+    {
+      "order": 2,
+      "asin": "B09MBKLRB7",
+      "name": "マルチリングピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/71ICtMSRnuL._AC_SY606_.jpg"
+    },
+    {
+      "order": 3,
+      "asin": "B0FKS84GYW",
+      "name": "アンティークピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/51GOBWgdpeL._AC_SX679_.jpg"
+    },
+    {
+      "order": 4,
+      "asin": "B0FKS1GX8V",
+      "name": "Hモチーフデザインピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/51z-HRSdbzL._AC_SX679_.jpg"
+    },
+    {
+      "order": 5,
+      "asin": "B0FKSGLZJR",
+      "name": "立体レリーフピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/51S6mQR7yQL._AC_SX679_.jpg"
+    },
+    {
+      "order": 6,
+      "asin": "B0FKSH152T",
+      "name": "中世デザインピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/51fo-ScvzZL._AC_SX679_.jpg"
+    },
+    {
+      "order": 7,
+      "asin": "B0FKSK4ZB1",
+      "name": "サイドジルコニアデザインピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/517ZyuN5KoL._AC_SX679_.jpg"
+    },
+    {
+      "order": 8,
+      "asin": "B0FKSR6XNW",
+      "name": "クロスリングピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/61EPIXMNmVL._AC_SX679_.jpg"
+    },
+    {
+      "order": 9,
+      "asin": "B0FKT829VQ",
+      "name": "ダブルリングジルコニアピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/61WxClbWIyL._AC_SX679_.jpg"
+    },
+    {
+      "order": 10,
+      "asin": "B096NQYWMV",
+      "name": "ヘキサゴンピアス",
+      "image_fallback": "https://m.media-amazon.com/images/I/612p5XUMb2L._AC_SX679_.jpg"
+    }
+  ]
+}

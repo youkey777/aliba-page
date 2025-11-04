@@ -1,0 +1,10 @@
+﻿{
+  "name": "aliva-luxe-mens",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx live-server --open=index.html",
+    "start": "npx serve .",
+    "build": "echo \"Static HTML project - build step not required\""
+  }
+}

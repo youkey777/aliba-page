@@ -1,0 +1,4496 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>aliba</title>
+<meta content="触れるたび、声にならない余韻。Éclat Femmeは上質な素材と職人の技で、あなただけの特別な瞬間を彩るジュエリーを創造します。" name="description"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700&amp;family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&amp;family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js">
+</script>
+<style>
+   :root {
+            /* Design Tokens - Ladies (Default) */
+            --bg-dark: #0E0E10;
+            --bg-light: #F8F5F2;
+            --bg-white: #ffffff;
+            --bg-section: #f9f9f9;
+            --fg-dark: #EDEAE6;
+            --fg-light: #161617;
+            --fg-primary: #333333;
+            --fg-secondary: #666666;
+            --acc-gold: #C2A578;
+            --acc-gold-hover: #D4B689;
+            --line: #E6DFD6;
+            --border-light: #e5e5e5;
+
+            /* Mens Theme Colors */
+            --mens-bg-dark: #0A0A0B;
+            --mens-bg-section: #1A1D23;
+            --mens-accent: #B8C5D6;
+            --mens-accent-hover: #CDD8E7;
+            --mens-navy: #1C2541;
+            --mens-silver: #C0C0C0;
+            --mens-text: #E8E8E8;
+            --mens-text-secondary: #A0A0A0;
+
+            /* Aliva Luxe Theme Colors */
+            --luxe-bg-dark: #1A1612;
+            --luxe-bg-section: #2A2420;
+            --luxe-brown: #4A3728;
+            --luxe-gold: #D4AF37;
+            --luxe-gold-hover: #E5C158;
+            --luxe-black: #0D0C0A;
+            --luxe-text: #F5F1ED;
+            --luxe-text-secondary: #C4B5A0;
+
+            /* Typography */
+            --font-modern: 'Inter', sans-serif;
+            --font-display: 'Poppins', sans-serif;
+            --font-serif: 'Noto Serif JP', serif;
+            --font-sans: 'Noto Sans JP', sans-serif;
+
+            /* Transitions */
+            --transition-smooth: 250ms cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-fast: 200ms ease-out;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.75;
+            letter-spacing: 0.01em;
+            background: var(--bg-white);
+            color: var(--fg-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 15px 0;
+            transition: all var(--transition-smooth);
+        }
+
+        .header.scrolled {
+            padding: 10px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: block;
+            height: 100px;
+            width: auto;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav {
+            display: none;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .nav { display: flex; }
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--fg-primary);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            padding: 10px 0;
+            display: block;
+        }
+
+        .nav-link:hover {
+            color: var(--acc-gold);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 10px 0;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 8px 20px;
+            color: var(--fg-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown a:hover {
+            color: var(--acc-gold);
+            background: rgba(194, 165, 120, 0.05);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .header-accent {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .accent-line {
+            width: 30px;
+            height: 1px;
+            background: var(--acc-gold);
+        }
+
+        .accent-text {
+            font-family: var(--font-modern);
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--acc-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .header-accent {
+                display: none;
+            }
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--fg-primary);
+            transition: color 0.3s ease;
+        }
+
+        .icon-btn:hover {
+            color: var(--acc-gold);
+        }
+
+        .mobile-menu-btn {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn { display: none; }
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid var(--border-light);
+            padding: 20px;
+            z-index: 999;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-nav-item {
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 15px;
+        }
+
+        .mobile-nav-item:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-nav-title {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--fg-primary);
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-left: 15px;
+        }
+
+        .mobile-nav-links a {
+            color: var(--fg-secondary);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 65vh;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-carousel .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-carousel .slide.active {
+            opacity: 1;
+        }
+
+        .hero-carousel .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            background: #000;
+        }
+
+        .hero {
+            margin-top: 0;
+        }
+
+        #mens-top-page .hero {
+            margin-top: 0;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+                min-height: 450px;
+            }
+
+            .carousel-dots {
+                bottom: 20px;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background: var(--acc-gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 18px;
+            transition: all var(--transition-fast);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--acc-gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--acc-gold);
+            color: var(--acc-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--acc-gold);
+            color: white;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            cursor: pointer;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .scroll-indicator .caption-text {
+            margin-bottom: 8px;
+            color: inherit;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+        }
+
+        .chevron-down {
+            animation: bounce 2s infinite;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section-bg {
+            background: var(--bg-section);
+        }
+
+        .section-title {
+            font-family: var(--font-modern);
+            font-size: 20px;
+            font-weight: 500;
+            text-align: left;
+            margin-bottom: 30px;
+            color: var(--fg-primary);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding-left: 0;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 22px;
+            }
+        }
+
+        /* Monthly Ranking */
+        .ranking-section {
+            padding: 40px 20px;
+            margin-top: 70px;
+        }
+
+        .ranking-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 10px 0 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .ranking-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .ranking-scroll::-webkit-scrollbar-track {
+            background: var(--border-light);
+            border-radius: 2px;
+        }
+
+        .ranking-scroll::-webkit-scrollbar-thumb {
+            background: var(--acc-gold);
+            border-radius: 2px;
+        }
+
+        .ranking-item {
+            flex-shrink: 0;
+            width: 200px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .ranking-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .ranking-number {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--acc-gold);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .ranking-image {
+            aspect-ratio: 1;
+            background: var(--bg-white);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .ranking-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .ranking-info {
+            padding: 15px;
+        }
+
+        .ranking-name {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--fg-primary);
+        }
+
+        .ranking-price {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--acc-gold);
+            margin-bottom: 10px;
+        }
+
+        .ranking-link {
+            text-decoration: none;
+        }
+
+        .ranking-link:hover {
+            text-decoration: none;
+        }
+
+        /* Media Section */
+        .media-section {
+            padding: 50px 20px;
+            background: var(--bg-section);
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .media-grid {
+                gap: 0;
+            }
+        }
+
+        .media-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .media-item:first-child {
+                border-right: none;
+            }
+        }
+
+        .media-image {
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .media-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .media-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .media-caption {
+            padding: 15px;
+            text-align: center;
+            color: var(--fg-secondary);
+            font-weight: 500;
+            font-size: 14px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Category Section */
+        .category-section {
+            padding: 70px 20px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 767px) {
+            .category-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                max-width: 800px;
+            }
+
+            .category-item {
+                display: flex;
+                align-items: center;
+                height: 180px;
+            }
+
+            .category-image {
+                width: 60%;
+            }
+
+            .category-name {
+                flex: 1;
+            }
+        }
+
+        .category-item {
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--fg-primary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .category-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .category-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-item:hover .category-image img {
+            transform: scale(1.05);
+        }
+
+        .category-name {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            text-align: center;
+            background: white;
+        }
+
+        @media (max-width: 767px) {
+            .category-item {
+                display: flex;
+                align-items: stretch;
+            }
+            .category-image {
+                flex: 0 0 65%;
+                width: auto;
+            }
+            .category-name {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 16px 14px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .items-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+
+            .item-image {
+                padding: 10px;
+            }
+
+            .item-info {
+                padding: 12px 8px 14px;
+            }
+
+            .category-name {
+                padding: 16px 15px;
+                font-size: 15px;
+            }
+        }
+
+        /* Brand Message */
+        .brand-message {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(194, 165, 120, 0.1) 0%, rgba(194, 165, 120, 0.05) 100%);
+        }
+
+        .message-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .message-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+        }
+
+        .message-text {
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .message-text {
+                text-align: left;
+            }
+        }
+
+        .message-title {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            color: var(--fg-primary);
+        }
+
+        .message-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--fg-secondary);
+            margin-bottom: 30px;
+        }
+
+        .message-image {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .message-image::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 50px;
+            background: linear-gradient(to right, rgba(194, 165, 120, 0.1), transparent);
+            z-index: 10;
+        }
+
+        .message-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Journal Content */
+        .journal-section {
+            padding: 40px 20px;
+            background: var(--bg-section);
+        }
+
+        .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        @media (min-width: 1024px) {
+            .journal-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+                max-width: 900px;
+            }
+        }
+
+        .journal-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease;
+        }
+
+        .journal-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .journal-image {
+            aspect-ratio: 16/9;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .journal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .journal-item:hover .journal-image img {
+            transform: scale(1.03);
+        }
+
+        .journal-content {
+            padding: 15px 18px;
+        }
+
+        .journal-title {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--fg-primary);
+        }
+
+        @media (min-width: 768px) {
+            .journal-title {
+                font-size: 15px;
+            }
+        }
+
+        .journal-more {
+            text-align: center;
+        }
+
+        .more-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--acc-gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .more-link:hover {
+            color: var(--acc-gold-hover);
+            transform: translateX(5px);
+        }
+
+        /* All Items */
+        .all-items-section {
+            padding: 60px 20px;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (min-width: 640px) {
+            .items-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .items-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .items-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .item-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-light);
+        }
+
+        .item-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Mobile: Show only first 6 items (3 rows x 2 columns) */
+        @media (max-width: 639px) {
+            .item-card:nth-child(n+7) {
+                display: none;
+            }
+
+            .item-card.show-more {
+                display: block;
+            }
+
+            .items-more {
+                display: block;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .items-more {
+                display: block;
+            }
+        }
+
+        .item-image {
+            aspect-ratio: 1;
+            background: var(--bg-white);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .item-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--acc-gold);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .items-more {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .item-info {
+            padding: 15px;
+        }
+
+        .item-name {
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--fg-primary);
+            line-height: 1.3;
+        }
+
+        .item-price {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--acc-gold);
+        }
+
+        /* High Brand - Aliva Luxe */
+        .high-brand-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .high-brand-title {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #C2A578 0%, #D4B689 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .high-brand-description {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .high-brand-section {
+            position: relative;
+        }
+
+        .high-brand-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 450px;
+            background-image: url('data:image/svg+xml,<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg"><text x="400" y="120" font-family="Brush Script MT, cursive" font-size="100" fill="%23D4AF37" text-anchor="middle" style="font-style: italic;">jewelry</text><text x="400" y="200" font-family="Georgia, serif" font-size="60" fill="%23D4AF37" text-anchor="middle" letter-spacing="15">ALIVA</text><text x="400" y="260" font-family="Georgia, serif" font-size="35" fill="%23D4AF37" text-anchor="middle" letter-spacing="8">LUXE</text></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .high-brand-section > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .aliva-luxe-showcase {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .aliva-luxe-image {
+            aspect-ratio: 16/9;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #333;
+            position: relative;
+        }
+
+        .aliva-luxe-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .aliva-luxe-btn {
+            background: transparent;
+            color: #C2A578;
+            border: 2px solid #C2A578;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .aliva-luxe-btn:hover {
+            background: #C2A578;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(194, 165, 120, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0E0E10;
+            color: rgba(255, 255, 255, 0.85);
+            padding: 40px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--acc-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--acc-gold);
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 13px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Instagram Section */
+        .instagram-section {
+            padding: 60px 20px;
+            background: var(--bg-light);
+        }
+
+        .instagram-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 10px 0 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .instagram-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .instagram-scroll::-webkit-scrollbar-track {
+            background: var(--border-light);
+            border-radius: 2px;
+        }
+
+        .instagram-scroll::-webkit-scrollbar-thumb {
+            background: var(--acc-gold);
+            border-radius: 2px;
+        }
+
+        .instagram-item {
+            flex-shrink: 0;
+            width: 240px;
+            aspect-ratio: 1;
+            scroll-snap-align: start;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            padding: 10px;
+        }
+
+        .instagram-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .instagram-item a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .instagram-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .instagram-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--acc-gold);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .instagram-link a:hover {
+            color: var(--acc-gold-hover);
+        }
+
+        @media (max-width: 768px) {
+            .instagram-item {
+                width: 200px;
+            }
+
+            .mobile-hidden {
+                display: none;
+            }
+        }
+
+        /* Mens Theme - Navy, Silver, Black */
+        .mens-theme {
+            background: var(--mens-bg-dark) !important;
+            color: var(--mens-text) !important;
+        }
+
+        .mens-theme .hero {
+            background: linear-gradient(135deg, var(--mens-bg-dark) 0%, var(--mens-navy) 100%) !important;
+        }
+
+        .mens-theme .section-title {
+            color: var(--mens-accent) !important;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .mens-theme .ranking-section,
+        .mens-theme .media-section,
+        .mens-theme .category-section,
+        .mens-theme .journal-section,
+        .mens-theme .instagram-section {
+            background: var(--mens-bg-section) !important;
+        }
+
+        .mens-theme .brand-message {
+            background: linear-gradient(135deg, var(--mens-navy) 0%, var(--mens-bg-dark) 100%) !important;
+        }
+
+        .mens-theme .message-title {
+            color: var(--mens-silver) !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .mens-theme .message-description {
+            color: var(--mens-text-secondary) !important;
+        }
+
+        .mens-theme .ranking-item,
+        .mens-theme .category-item,
+        .mens-theme .journal-item {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(184, 197, 214, 0.15) !important;
+        }
+
+        .mens-theme .ranking-item:hover,
+        .mens-theme .category-item:hover,
+        .mens-theme .journal-item:hover {
+            border-color: var(--mens-accent) !important;
+            box-shadow: 0 4px 20px rgba(184, 197, 214, 0.1) !important;
+        }
+
+        .mens-theme .ranking-number {
+            background: var(--mens-accent) !important;
+            color: var(--mens-bg-dark) !important;
+        }
+
+        .mens-theme .ranking-name {
+            color: var(--mens-text) !important;
+            font-weight: 600;
+        }
+
+        .mens-theme .category-name {
+            color: var(--mens-text) !important;
+            background: var(--mens-bg-dark) !important;
+            font-weight: 600;
+        }
+
+        .mens-theme .journal-title {
+            color: var(--mens-text) !important;
+            font-weight: 600;
+        }
+
+        #mens-top-page .journal-section .journal-more-link {
+            color: #FFFFFF !important;
+            background: #2C3E50 !important;
+            padding: 12px 32px !important;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #mens-top-page .journal-section .journal-more-link:hover {
+            background: var(--mens-silver) !important;
+            color: var(--mens-bg-dark) !important;
+        }
+
+        .mens-theme .ranking-price {
+            color: var(--mens-accent) !important;
+            font-weight: 600;
+        }
+
+        .mens-theme .footer {
+            background: transparent !important;
+            border-top: none !important;
+        }
+
+        .mens-theme .footer-logo {
+            color: var(--mens-silver) !important;
+        }
+
+        .mens-theme .footer-links a {
+            color: var(--mens-text-secondary) !important;
+        }
+
+        .mens-theme .footer-links a:hover {
+            color: var(--mens-accent) !important;
+        }
+
+        .mens-theme .footer-copyright {
+            color: rgba(160, 160, 160, 0.7) !important;
+        }
+
+        /* Mens Theme - Page Hero Styles */
+        .mens-theme .page-hero {
+            background: linear-gradient(135deg, var(--mens-bg-dark) 0%, var(--mens-navy) 100%) !important;
+        }
+
+        .mens-theme .page-title {
+            color: var(--mens-accent) !important;
+            font-weight: 400 !important;
+        }
+
+        .mens-theme .page-description {
+            color: var(--mens-text) !important;
+        }
+
+        .mens-theme .product-card {
+            background: #1F2229 !important;
+            border-color: rgba(184, 197, 214, 0.2) !important;
+        }
+
+        .mens-theme .product-name {
+            color: #FFFFFF !important;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.02em;
+        }
+
+        .mens-theme .product-price {
+            color: #CDD8E7 !important;
+            font-weight: 600;
+            font-size: 19px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Aliva Luxe Theme - Brown, Gold, Black */
+        .aliva-luxe-theme {
+            background: var(--luxe-bg-dark) !important;
+            color: var(--luxe-text) !important;
+        }
+
+        .aliva-luxe-theme .page-hero {
+            background: linear-gradient(135deg, var(--luxe-black) 0%, var(--luxe-brown) 100%) !important;
+        }
+
+        .aliva-luxe-theme .page-title {
+            color: var(--luxe-gold) !important;
+            text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+        }
+
+        .aliva-luxe-theme .page-description {
+            color: var(--luxe-text-secondary) !important;
+        }
+
+        .aliva-luxe-theme .product-card {
+            background: var(--luxe-bg-section) !important;
+            border: 1px solid rgba(212, 175, 55, 0.2) !important;
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+        }
+
+        .aliva-luxe-theme .product-card:hover {
+            border-color: var(--luxe-gold) !important;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.15) !important;
+        }
+
+        .aliva-luxe-theme .product-name {
+            color: var(--luxe-text) !important;
+        }
+
+        .aliva-luxe-theme .product-price {
+            color: var(--luxe-gold) !important;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .aliva-luxe-theme .footer {
+            background: transparent !important;
+            border-top: none !important;
+        }
+
+        .aliva-luxe-theme .footer-logo {
+            color: var(--luxe-gold) !important;
+        }
+
+        .aliva-luxe-theme .footer-links a {
+            color: var(--luxe-text-secondary) !important;
+        }
+
+        .aliva-luxe-theme .footer-links a:hover {
+            color: var(--luxe-gold) !important;
+        }
+
+        .aliva-luxe-theme .footer-copyright {
+            color: rgba(196, 181, 160, 0.6) !important;
+        }
+
+        /* Page-specific styles */
+        .page-hero {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-section) 0%, var(--bg-white) 100%);
+            margin-top: 70px;
+        }
+
+        .page-hero-content {
+            text-align: center;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 16px;
+            color: var(--fg-primary);
+        }
+
+        .page-description {
+            font-size: 16px;
+            color: var(--fg-secondary);
+            line-height: 1.6;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            aspect-ratio: 1;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .aliva-luxe-theme .product-image {
+            background: white;
+        }
+
+        .aliva-luxe-theme .product-image img {
+            object-fit: contain;
+            padding: 18px;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--fg-primary);
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--acc-gold);
+        }
+
+                .coming-soon-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px dashed rgba(255, 255, 255, 0.35);
+            border-radius: 16px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .coming-soon-card .coming-soon-label {
+            font-size: 16px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--fg-secondary);
+        }
+
+        .coming-soon-card .coming-soon-icon {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            border: 1px dashed rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .memorial-theme .coming-soon-card {
+            background: rgba(240, 244, 249, 0.35);
+            border-color: rgba(184, 197, 214, 0.5);
+        }
+
+        .memorial-theme .coming-soon-card .coming-soon-label {
+            color: #4B5563;
+        }
+
+        .memorial-theme .coming-soon-card .coming-soon-icon {
+            border-color: rgba(184, 197, 214, 0.6);
+            color: rgba(107, 114, 128, 0.9);
+        }
+
+                .coming-soon-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px dashed rgba(255, 255, 255, 0.35);
+            border-radius: 16px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .coming-soon-card .coming-soon-label {
+            font-size: 18px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--fg-primary);
+        }
+
+        .coming-soon-card .product-price {
+            font-size: 16px;
+            letter-spacing: 0.08em;
+            color: var(--fg-secondary);
+        }
+
+        .memorial-theme .coming-soon-card {
+            background: rgba(240, 244, 249, 0.35);
+            border-color: rgba(184, 197, 214, 0.5);
+        }
+
+        .memorial-theme .coming-soon-card .coming-soon-label {
+            color: #4B5563;
+        }
+
+        .memorial-theme .coming-soon-card .product-price {
+            color: #6B7280;
+        }
+
+        /* Memorial Theme - Elegant & Delicate Style (Light Silver) */
+        .memorial-theme {
+            background: linear-gradient(180deg, #F5F7FA 0%, #E8EDF2 100%) !important;
+            color: #4B5563 !important;
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* ページヒーロー - ガラス風グラデーション + ブルーの境界線 + 光の演出 */
+        .memorial-theme .page-hero {
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.75) 0%,
+                    rgba(245, 247, 250, 0.65) 25%,
+                    rgba(235, 240, 245, 0.6) 50%,
+                    rgba(245, 247, 250, 0.65) 75%,
+                    rgba(255, 255, 255, 0.75) 100%
+                ) !important;
+            -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(220, 230, 245, 0.5);
+            box-shadow:
+                0 8px 32px rgba(180, 200, 225, 0.25),
+                0 4px 16px rgba(220, 230, 245, 0.3),
+                inset 0 1px 2px rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        /* 大きな光の差し込み表現（ヒーローセクション専用） */
+        .memorial-theme .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                /* 左上からの光: ライトブルー系 */
+                radial-gradient(ellipse 900px 700px at 10% 20%,
+                    rgba(220, 230, 245, 0.95) 0%,
+                    rgba(200, 215, 235, 0.7) 20%,
+                    rgba(180, 200, 225, 0.4) 45%,
+                    transparent 75%),
+                /* 右下からの光: ラベンダー系 */
+                radial-gradient(ellipse 700px 600px at 90% 85%,
+                    rgba(235, 235, 245, 0.9) 0%,
+                    rgba(215, 215, 230, 0.6) 25%,
+                    rgba(192, 192, 210, 0.35) 55%,
+                    transparent 80%),
+                /* 中央の光: ゴールデンシルバー */
+                radial-gradient(circle 500px at 50% 50%,
+                    rgba(245, 245, 235, 0.8) 0%,
+                    rgba(230, 230, 220, 0.5) 35%,
+                    rgba(210, 210, 200, 0.25) 65%,
+                    transparent 85%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* キラキラ輝き系アニメーション（ヒーローセクション専用） */
+        .memorial-theme .page-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,%3Csvg width="600" height="600" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cfilter id="glow"%3E%3CfeGaussianBlur stdDeviation="1.5" result="coloredBlur"/%3E%3CfeMerge%3E%3CfeMergeNode in="coloredBlur"/%3E%3CfeMergeNode in="SourceGraphic"/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg filter="url(%23glow)"%3E%3C!-- 大きなキラキラ1 --%3E%3Cpath d="M100 80 L100 20 M100 80 L100 140 M100 80 L40 80 M100 80 L160 80" stroke="%23E0E8F5" stroke-width="2" opacity="0.8"/%3E%3Cpolygon points="100,60 105,75 120,80 105,85 100,100 95,85 80,80 95,75" fill="%23E0E8F5" opacity="0.85"/%3E%3C!-- 中くらいのキラキラ2 --%3E%3Cpath d="M280 120 L280 85 M280 120 L280 155 M280 120 L245 120 M280 120 L315 120" stroke="%23F5F5E8" stroke-width="1.5" opacity="0.75"/%3E%3Cpolygon points="280,105 283,115 293,120 283,125 280,135 277,125 267,120 277,115" fill="%23F5F5E8" opacity="0.8"/%3E%3C!-- 大きなキラキラ3 --%3E%3Cpath d="M480 200 L480 140 M480 200 L480 260 M480 200 L420 200 M480 200 L540 200" stroke="%23E8E0F5" stroke-width="2" opacity="0.8"/%3E%3Cpolygon points="480,180 485,195 500,200 485,205 480,220 475,205 460,200 475,195" fill="%23E8E0F5" opacity="0.85"/%3E%3C!-- 小さなキラキラ4 --%3E%3Cpath d="M150 300 L150 280 M150 300 L150 320 M150 300 L130 300 M150 300 L170 300" stroke="%23E0E8F5" stroke-width="1" opacity="0.7"/%3E%3Cpolygon points="150,292 152,298 158,300 152,302 150,308 148,302 142,300 148,298" fill="%23E0E8F5" opacity="0.75"/%3E%3C!-- 中くらいのキラキラ5 --%3E%3Cpath d="M380 380 L380 345 M380 380 L380 415 M380 380 L345 380 M380 380 L415 380" stroke="%23F5F5E8" stroke-width="1.5" opacity="0.75"/%3E%3Cpolygon points="380,365 383,375 393,380 383,385 380,395 377,385 367,380 377,375" fill="%23F5F5E8" opacity="0.8"/%3E%3C!-- 小さなキラキラ6 --%3E%3Cpath d="M200 480 L200 460 M200 480 L200 500 M200 480 L180 480 M200 480 L220 480" stroke="%23E8E0F5" stroke-width="1" opacity="0.7"/%3E%3Cpolygon points="200,472 202,478 208,480 202,482 200,488 198,482 192,480 198,478" fill="%23E8E0F5" opacity="0.75"/%3E%3C/g%3E%3C/svg%3E');
+            background-size: 600px 600px;
+            background-repeat: repeat;
+            opacity: 1;
+            pointer-events: none;
+            z-index: 0;
+            animation: sparkle 8s ease-in-out infinite;
+        }
+
+        .memorial-theme .page-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* タイトル - ブルーの輝きエフェクト */
+        .memorial-theme .page-title {
+            color: #8B92A0 !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.1em;
+            text-shadow:
+                0 0 20px rgba(220, 230, 245, 1),
+                0 0 40px rgba(200, 215, 235, 0.8),
+                0 0 60px rgba(180, 200, 225, 0.5),
+                0 3px 8px rgba(140, 150, 170, 0.3),
+                0 1px 2px rgba(255, 255, 255, 0.9);
+        }
+
+        .memorial-theme .page-description {
+            color: #6B7280 !important;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        /* 商品カード - ガラスモーフィズム + ブルーの境界線 */
+        .memorial-theme .product-card {
+            background: rgba(255, 255, 255, 0.55) !important;
+            border: 1px solid rgba(220, 230, 245, 0.6) !important;
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            backdrop-filter: blur(15px) saturate(180%);
+            box-shadow:
+                0 4px 16px rgba(180, 200, 225, 0.2),
+                0 2px 8px rgba(220, 230, 245, 0.25),
+                inset 0 1px 2px rgba(255, 255, 255, 1);
+            position: relative;
+            z-index: 3;
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .memorial-theme .product-card:hover {
+            background: rgba(255, 255, 255, 0.7) !important;
+            border-color: rgba(200, 215, 235, 0.8) !important;
+            box-shadow:
+                0 8px 32px rgba(180, 200, 225, 0.35),
+                0 4px 16px rgba(220, 230, 245, 0.4),
+                0 0 25px rgba(220, 230, 245, 0.5),
+                inset 0 1px 3px rgba(255, 255, 255, 1);
+            transform: translateY(-6px);
+        }
+
+        .memorial-theme .product-name {
+            color: #4B5563 !important;
+            font-weight: 500;
+        }
+
+        .memorial-theme .product-price {
+            color: #9CA3AF !important;
+            font-weight: 600;
+        }
+
+        .memorial-theme .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .memorial-theme .footer {
+            position: relative;
+            z-index: 2;
+        }
+
+    
+        .mens-theme .all-items-section {
+            background: var(--mens-bg-section) !important;
+        }
+        .mens-theme .all-items-section .section-title {
+            color: var(--mens-accent) !important;
+        }
+        .mens-theme .items-grid .item-card {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(184, 197, 214, 0.15) !important;
+        }
+        .mens-theme .items-grid .item-name {
+            color: var(--mens-text) !important;
+        }
+        .mens-theme .items-grid .item-price {
+            color: var(--mens-accent) !important;
+        }
+  </style>
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+<div class="header-container">
+<a class="logo" href="/">
+<img alt="aliba" src="logo.png"/>
+</a>
+<nav class="nav">
+<div class="nav-item">
+<a class="nav-link" href="#">
+       レディース
+      </a>
+<div class="dropdown">
+<a href="#ladies-earrings">
+        ピアス
+       </a>
+<a href="#ladies-necklaces">
+        ネックレス
+       </a>
+<a href="#set-items">
+        セットアイテム
+       </a>
+<a href="#aliva-luxe">
+        aliva luxe
+       </a>
+</div>
+</div>
+<div class="nav-item">
+<a class="nav-link" href="#mens-top">
+       メンズ
+      </a>
+<div class="dropdown">
+<a href="#mens-earrings">
+        ピアス
+       </a>
+<a href="#mens-necklaces">
+        ネックレス
+       </a>
+<a href="#mens-wallets">
+        ウォレット
+       </a>
+</div>
+</div>
+<a class="nav-link" href="#pair-necklaces">
+      ペアネックレス
+     </a>
+<a class="nav-link" href="#memorial">
+      遺骨ネックレス
+     </a>
+<a class="nav-link" href="#aliva-luxe">
+      aliva luxe
+     </a>
+<a class="nav-link" href="#about">
+      About
+     </a>
+<a class="nav-link" href="#column">
+      Column
+     </a>
+</nav>
+<div class="header-icons">
+<div class="header-accent">
+<span class="accent-line">
+</span>
+<span class="accent-text">
+       Luxury
+      </span>
+<span class="accent-line">
+</span>
+</div>
+<button class="icon-btn mobile-menu-btn" onclick="toggleMobileMenu()">
+<i data-lucide="menu" size="20">
+</i>
+</button>
+</div>
+</div>
+<div class="mobile-menu" id="mobile-menu">
+<div class="mobile-nav">
+<div class="mobile-nav-item">
+<a class="mobile-nav-title" href="/" onclick="event.preventDefault(); showMainContent(); document.getElementById('mobile-menu').classList.remove('active');">
+       レディース
+      </a>
+<div class="mobile-nav-links">
+<a href="#ladies-earrings">
+        ピアス
+       </a>
+<a href="#ladies-necklaces">
+        ネックレス
+       </a>
+<a href="#set-items">
+        セットアイテム
+       </a>
+<a href="#aliva-luxe">
+        aliva luxe
+       </a>
+</div>
+</div>
+<div class="mobile-nav-item">
+<a class="mobile-nav-title" href="#mens-top">
+       メンズ
+      </a>
+<div class="mobile-nav-links">
+<a href="#mens-earrings">
+        ピアス
+       </a>
+<a href="#mens-necklaces">
+        ネックレス
+       </a>
+<a href="#mens-wallets">
+        ウォレット
+       </a>
+</div>
+</div>
+<div class="mobile-nav-item">
+<a class="mobile-nav-title" href="#pair-necklaces">
+       ペアネックレス
+      </a>
+</div>
+<div class="mobile-nav-item">
+<a class="mobile-nav-title" href="#memorial">
+       遺骨ネックレス
+      </a>
+</div>
+<div class="mobile-nav-item">
+<a class="mobile-nav-title" href="#aliva-luxe">
+       aliva luxe
+      </a>
+</div>
+<div class="mobile-nav-item">
+<a class="mobile-nav-title" href="#about">
+       About
+      </a>
+</div>
+<div class="mobile-nav-item">
+<a class="mobile-nav-title" href="#column">
+       Column
+      </a>
+</div>
+</div>
+</div>
+</header>
+<main id="main-content">
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-carousel">
+<div class="slide active slide-ladies-1">
+<img alt="Ladies Carousel 1" src="assets/carousel/ladies-carousel-1.jpg"/>
+</div>
+<div class="slide slide-ladies-2">
+<img alt="Ladies Carousel 2" src="assets/carousel/ladies-carousel-2.jpg"/>
+</div>
+<div class="slide slide-ladies-3">
+<img alt="Ladies Carousel 3" src="assets/carousel/ladies-carousel-3.png"/>
+</div>
+<div class="slide slide-ladies-4">
+<img alt="Ladies Carousel 4" src="assets/carousel/ladies-carousel-4.jpg"/>
+</div>
+<div class="carousel-dots">
+<div class="carousel-dot active" data-slide="0">
+</div>
+<div class="carousel-dot" data-slide="1">
+</div>
+<div class="carousel-dot" data-slide="2">
+</div>
+<div class="carousel-dot" data-slide="3">
+</div>
+</div>
+</div>
+</section>
+<!-- Monthly Ranking -->
+<section class="ranking-section" id="ranking">
+<div class="container">
+<h2 class="section-title">
+      Monthly Ranking
+     </h2>
+<div class="ranking-scroll">
+  <div class="ranking-item">
+    <div class="ranking-number">1</div>
+    <a class="ranking-link" href="https://www.amazon.co.jp/dp/B09KTMJPH3" rel="noopener noreferrer" target="_blank">
+      <div class="ranking-image">
+      <img alt="リボンピアス" src="https://m.media-amazon.com/images/I/61v8-y1kytL._AC_SL1500_.jpg"/>
+      </div>
+      <div class="ranking-info">
+      <div class="ranking-name">リボンピアス</div>
+      <div class="ranking-price">¥4,380</div>
+      </div>
+    </a>
+  </div>
+  <div class="ranking-item">
+    <div class="ranking-number">2</div>
+    <a class="ranking-link" href="https://www.amazon.co.jp/dp/B09KTGZSZD" rel="noopener noreferrer" target="_blank">
+      <div class="ranking-image">
+      <img alt="ダブルリングフープピアス" src="https://m.media-amazon.com/images/I/61RLziGmpfL._AC_SL1500_.jpg"/>
+      </div>
+      <div class="ranking-info">
+      <div class="ranking-name">ダブルリングフープピアス</div>
+      <div class="ranking-price">¥3,680</div>
+      </div>
+    </a>
+  </div>
+  <div class="ranking-item">
+    <div class="ranking-number">3</div>
+    <a class="ranking-link" href="https://www.amazon.co.jp/dp/B09N7LPTZR" rel="noopener noreferrer" target="_blank">
+      <div class="ranking-image">
+      <img alt="ツイストフープピアス" src="https://m.media-amazon.com/images/I/61y5o3wd24L._AC_SL1500_.jpg"/>
+      </div>
+      <div class="ranking-info">
+      <div class="ranking-name">ツイストフープピアス</div>
+      <div class="ranking-price">¥3,480</div>
+      </div>
+    </a>
+  </div>
+  <div class="ranking-item">
+    <div class="ranking-number">4</div>
+    <a class="ranking-link" href="https://www.amazon.co.jp/dp/B0CDFLZ4TL" rel="noopener noreferrer" target="_blank">
+      <div class="ranking-image">
+      <img alt="モアサナイトピアス" src="https://m.media-amazon.com/images/I/61l+-yflRvL._AC_SL1500_.jpg"/>
+      </div>
+      <div class="ranking-info">
+      <div class="ranking-name">モアサナイトピアス</div>
+      <div class="ranking-price">¥4,980</div>
+      </div>
+    </a>
+  </div>
+  <div class="ranking-item">
+    <div class="ranking-number">5</div>
+    <a class="ranking-link" href="https://www.amazon.co.jp/dp/B0C8FXYTVF" rel="noopener noreferrer" target="_blank">
+      <div class="ranking-image">
+      <img alt="モアサナイト×パール調ピアス" src="https://m.media-amazon.com/images/I/71IWStsW16L._AC_SL1500_.jpg"/>
+      </div>
+      <div class="ranking-info">
+      <div class="ranking-name">モアサナイト×パール調ピアス</div>
+      <div class="ranking-price">¥5,980</div>
+      </div>
+    </a>
+  </div>
+</div>
+</div>
+</section>
+<!-- Media Section -->
+<section class="media-section">
+<div class="container">
+<h2 class="section-title">
+      Media
+     </h2>
+<div class="media-grid">
+<div class="media-item">
+<div class="media-image">
+<img alt="美人百花 掲載カット" src="assets/media/media-left.png"/>
+</div>
+<div class="media-caption">
+        美人百貨の9月号に掲載頂きました
+       </div>
+</div>
+<div class="media-item">
+<div class="media-image">
+<img alt="begin 掲載カット" src="assets/media/media-right.png"/>
+</div>
+<div class="media-caption">
+        beginの10月号に掲載頂きました
+       </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Item Categories -->
+<section class="category-section" id="categories">
+<div class="container">
+<h2 class="section-title">
+      Item Categories
+     </h2>
+<div class="category-grid">
+<a class="category-item" href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page')">
+<div class="category-image">
+<img alt="Ladies Piercings" src="assets/category/ladies-earrings.jpg"/>
+</div>
+<div class="category-name">
+        Piercings
+       </div>
+</a>
+<a class="category-item" href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page')">
+<div class="category-image">
+<img alt="Ladies Necklaces" src="assets/category/ladies-necklaces.jpg"/>
+</div>
+<div class="category-name">
+        Necklaces
+       </div>
+</a>
+<a class="category-item" href="#set-items-page" onclick="showPage('set-items-page')">
+<div class="category-image">
+<img alt="Ladies Set Items" src="assets/category/set-items.jpg"/>
+</div>
+<div class="category-name">
+        Set Items
+       </div>
+</a>
+</div>
+</div>
+</section>
+<!-- Brand Message -->
+<section class="brand-message">
+<div class="container">
+<div class="message-container">
+<div class="message-text">
+<h2 class="message-title">
+        触れるたび、
+        <br/>
+        声にならない余韻。
+       </h2>
+<p class="message-description">
+        上質な素材と職人の技で、あなただけの特別な瞬間を彩るジュエリーを創造します。一つ一つに込められた想いが、日常に静かな輝きをもたらし、身に着ける人の内なる美しさを引き出します。
+       </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Journal Content -->
+<section class="journal-section" id="journal">
+<div class="container">
+<h2 class="section-title">
+      Jewelry Content
+     </h2>
+<div class="journal-grid">
+<article class="journal-item">
+<div class="journal-image">
+<img alt="ジュエリーケアガイド" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&amp;h=180&amp;fit=crop"/>
+</div>
+<div class="journal-content">
+<h3 class="journal-title">
+         ジュエリーケアの極意
+        </h3>
+</div>
+</article>
+<article class="journal-item">
+<div class="journal-image">
+<img alt="エンゲージリング選び" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300&amp;h=180&amp;fit=crop"/>
+</div>
+<div class="journal-content">
+<h3 class="journal-title">
+         運命のエンゲージリング選び
+        </h3>
+</div>
+</article>
+<article class="journal-item mobile-hidden">
+<div class="journal-image">
+<img alt="ジュエリートレンド" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&amp;h=180&amp;fit=crop"/>
+</div>
+<div class="journal-content">
+<h3 class="journal-title">
+         2024年ジュエリートレンド
+        </h3>
+</div>
+</article>
+</div>
+<div class="journal-more">
+<a class="more-link" href="/column">
+       MORE
+       <i data-lucide="arrow-right" size="16">
+</i>
+</a>
+</div>
+</div>
+</section>
+<!-- All Items -->
+<section class="all-items-section" id="items">
+<div class="container">
+<h2 class="section-title">
+      All Items
+     </h2>
+<div class="items-grid">
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0C8FXYTVF" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="モアサナイト×パール調ピアス" src="https://m.media-amazon.com/images/I/71IWStsW16L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">モアサナイト×パール調ピアス</div>
+    <div class="item-price">¥5,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0BP7PL9XG" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="モアサナイトホースシューピアス" src="https://m.media-amazon.com/images/I/61myojoR+QL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">モアサナイトホースシューピアス</div>
+    <div class="item-price">¥4,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CP6KLS4X" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="ピアス×ネックレスセット" src="https://m.media-amazon.com/images/I/71QwPCHsQcL._AC_SL1280_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">ピアス×ネックレスセット</div>
+    <div class="item-price">¥2,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CP6LRKLH" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="ピアス×ネックレスセット" src="https://m.media-amazon.com/images/I/71qWEGSbzcL._AC_SL1280_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">ピアス×ネックレスセット</div>
+    <div class="item-price">¥2,544</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CP6LPFZQ" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="ピアス×ネックレスセット" src="https://m.media-amazon.com/images/I/61h9B2ShN0L._AC_SL1280_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">ピアス×ネックレスセット</div>
+    <div class="item-price">¥3,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KTHVDT6" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="パール×ジルコニアピアス" src="https://m.media-amazon.com/images/I/71oGLH2S9RL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">パール×ジルコニアピアス</div>
+    <div class="item-price">¥3,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CDQZ494J" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="リボンモチーフネックレス" src="https://m.media-amazon.com/images/I/51FTV8CjWTL._AC_SL1281_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">リボンモチーフネックレス</div>
+    <div class="item-price">¥3,480</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CP6KJZ9H" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="ピアス×ネックレスセット" src="https://m.media-amazon.com/images/I/71ti+Owxq0L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">ピアス×ネックレスセット</div>
+    <div class="item-price">¥2,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0C4SVYJD2" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="ダイヤモンドホースシューピアス" src="https://m.media-amazon.com/images/I/615VMr-ynRL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">ダイヤモンドホースシューピアス</div>
+    <div class="item-price">¥6,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KTKXBML" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="リボンモチーフジルコニアピアス" src="https://m.media-amazon.com/images/I/71uf5l7hWVL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">リボンモチーフジルコニアピアス</div>
+    <div class="item-price">¥3,180</div>
+    </div>
+  </a>
+</div>
+<div class="items-more">
+<a class="more-link" href="/items">
+       MORE
+       <i data-lucide="arrow-right" size="16">
+</i>
+</a>
+</div>
+</div>
+</section>
+<!-- Aliva Luxe -->
+<section class="high-brand-section">
+<div class="container">
+<h2 class="high-brand-title">
+      特別な輝きを放つハイブランド
+     </h2>
+<p class="high-brand-description">
+      最高峰の技術と品質で創られた、aliva luxeコレクション。
+                    世代を超えて愛され続ける、究極の美しさをお届けします。
+     </p>
+<div class="aliva-luxe-showcase">
+<div class="aliva-luxe-image">
+<img alt="aliva luxe Collection" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&amp;h=600&amp;fit=crop"/>
+</div>
+</div>
+<button class="aliva-luxe-btn" onclick="window.location.hash='#aliva-luxe'">
+      aliva luxe
+     </button>
+</div>
+</section>
+<!-- Instagram Section -->
+<section class="instagram-section">
+<div class="container">
+<h2 class="section-title">
+      Instagram
+     </h2>
+<div class="instagram-scroll">
+<div class="instagram-item">
+<a href="https://www.instagram.com/aliba_official01/reel/DD9LXnLv8_T/" rel="noopener noreferrer" target="_blank">
+<img alt="Instagram投稿 DD9LXnLv8_T" src="assets/instagram/insta-1.jpg"/>
+</a>
+</div>
+<div class="instagram-item">
+<a href="https://www.instagram.com/mii_san724/p/DI_Wod6T8ot/" rel="noopener noreferrer" target="_blank">
+<img alt="Instagram投稿 DI_Wod6T8ot" src="assets/instagram/insta-2.jpg"/>
+</a>
+</div>
+<div class="instagram-item">
+<a href="https://www.instagram.com/miho0617/p/C6s1Ckgu_Rf/" rel="noopener noreferrer" target="_blank">
+<img alt="Instagram投稿 C6s1Ckgu_Rf" src="assets/instagram/insta-3.jpg"/>
+</a>
+</div>
+<div class="instagram-item">
+<a href="https://www.instagram.com/mikitan123/reel/DFkmFeZSfTS/" rel="noopener noreferrer" target="_blank">
+<img alt="Instagram投稿 DFkmFeZSfTS" src="assets/instagram/insta-4.jpg"/>
+</a>
+</div>
+<div class="instagram-item">
+<a href="https://www.instagram.com/mii_san724/p/DFH9PjTzk5m/" rel="noopener noreferrer" target="_blank">
+<img alt="Instagram投稿 DFH9PjTzk5m" src="assets/instagram/insta-5.jpg"/>
+</a>
+</div>
+</div>
+<div class="instagram-link">
+<a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
+       @aliba_official01 をフォロー
+       <i data-lucide="external-link" size="16">
+</i>
+</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</main>
+<script>
+   
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Hero Carousel - Store state per carousel
+        const carouselState = {
+            main: { currentSlide: 0, interval: null, isFirst: true },
+            mens: { currentSlide: 0, interval: null, isFirst: true }
+        };
+
+        function getActiveCarousel() {
+            // Get the currently visible page's carousel and its state key
+            const mainContent = document.getElementById('main-content');
+            const mensTopPage = document.getElementById('mens-top-page');
+
+            if (mensTopPage && mensTopPage.style.display !== 'none') {
+                return { element: mensTopPage.querySelector('.hero-carousel'), key: 'mens' };
+            }
+            return { element: mainContent.querySelector('.hero-carousel'), key: 'main' };
+        }
+
+        function showSlide(index, stateKey) {
+            const carouselInfo = getActiveCarousel();
+            if (!carouselInfo.element) return;
+
+            const slides = carouselInfo.element.querySelectorAll('.slide');
+            const dots = carouselInfo.element.querySelectorAll('.carousel-dot');
+
+            if (index >= slides.length) index = 0;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+
+            carouselState[stateKey || carouselInfo.key].currentSlide = index;
+        }
+
+        function nextSlide() {
+            const carouselInfo = getActiveCarousel();
+            if (!carouselInfo.element) return;
+
+            const state = carouselState[carouselInfo.key];
+            const slides = carouselInfo.element.querySelectorAll('.slide');
+
+            state.currentSlide = (state.currentSlide + 1) % slides.length;
+            showSlide(state.currentSlide, carouselInfo.key);
+
+            // After first slide, restart with 2 second interval
+            if (state.isFirst) {
+                state.isFirst = false;
+                stopCarousel();
+                state.interval = setInterval(nextSlide, 2000);
+            }
+        }
+
+        function startCarousel() {
+            const carouselInfo = getActiveCarousel();
+            const state = carouselState[carouselInfo.key];
+
+            stopCarousel();
+            state.interval = setInterval(nextSlide, 1500);
+        }
+
+        function stopCarousel() {
+            Object.values(carouselState).forEach(state => {
+                if (state.interval) {
+                    clearInterval(state.interval);
+                    state.interval = null;
+                }
+            });
+        }
+
+        function restartCarousel() {
+            stopCarousel();
+            startCarousel();
+        }
+
+        // Initialize carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            startCarousel();
+
+            // Setup carousel event handlers for both carousels
+            function setupCarouselHandlers(carouselElement) {
+                if (!carouselElement) return;
+
+                // Dot click handlers
+                const dots = carouselElement.querySelectorAll('.carousel-dot');
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        showSlide(index);
+                        restartCarousel();
+                    });
+                });
+
+                // Touch/swipe support for mobile
+                let startX = 0;
+                let startY = 0;
+
+                carouselElement.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                    stopCarousel();
+                });
+
+                carouselElement.addEventListener('touchend', (e) => {
+                    const endX = e.changedTouches[0].clientX;
+                    const endY = e.changedTouches[0].clientY;
+                    const diffX = startX - endX;
+                    const diffY = startY - endY;
+
+                    // Detect horizontal swipe (more horizontal than vertical)
+                    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                        const carouselInfo = getActiveCarousel();
+                        const slides = carouselInfo.element.querySelectorAll('.slide');
+                        const state = carouselState[carouselInfo.key];
+
+                        if (diffX > 0) {
+                            // Swipe left - next slide
+                            nextSlide();
+                        } else {
+                            // Swipe right - previous slide
+                            state.currentSlide = (state.currentSlide - 1 + slides.length) % slides.length;
+                            showSlide(state.currentSlide, carouselInfo.key);
+                        }
+                    }
+
+                    restartCarousel();
+                });
+
+                // Mouse click support for desktop
+                carouselElement.addEventListener('click', (e) => {
+                    const rect = carouselElement.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const centerX = rect.width / 2;
+
+                    const carouselInfo = getActiveCarousel();
+                    const slides = carouselInfo.element.querySelectorAll('.slide');
+                    const state = carouselState[carouselInfo.key];
+
+                    if (clickX > centerX) {
+                        // Clicked right side - next slide
+                        nextSlide();
+                    } else {
+                        // Clicked left side - previous slide
+                        state.currentSlide = (state.currentSlide - 1 + slides.length) % slides.length;
+                        showSlide(state.currentSlide, carouselInfo.key);
+                    }
+
+                    restartCarousel();
+                });
+            }
+
+            // Setup handlers for both carousels
+            const mainCarousel = document.querySelector('#main-content .hero-carousel');
+            const mensCarousel = document.querySelector('#mens-top-page .hero-carousel');
+
+            setupCarouselHandlers(mainCarousel);
+            setupCarouselHandlers(mensCarousel);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const headerHeight = 70;
+                const targetPosition = section.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe fade-in elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            fadeInElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Page Navigation System
+        let mainContent = null;
+        let individualPages = null;
+
+        function initializePageSystem() {
+            mainContent = document.getElementById('main-content');
+            individualPages = document.querySelectorAll('[id$="-page"]');
+
+            // Ensure all individual pages are hidden by default
+            individualPages.forEach(page => {
+                page.style.display = 'none';
+            });
+        }
+
+        function showPage(pageId) {
+            if (!individualPages) {
+                console.error('individualPages not initialized');
+                return false;
+            }
+
+            // Hide main content
+            if (mainContent) {
+                mainContent.style.display = 'none';
+            }
+
+            // Hide all individual pages
+            individualPages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Show target page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.style.display = 'block';
+                // Add to browser history
+                const pageUrl = `#${pageId.replace('-page', '')}`;
+                if (window.location.hash !== pageUrl) {
+                    history.pushState({page: pageId}, '', pageUrl);
+                }
+                
+                // Scroll to top with slight delay to ensure DOM is updated
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: 'auto'
+                    });
+                }, 10);
+                // Reinitialize icons for the new page
+                lucide.createIcons();
+
+                // Reset and restart carousel for the new page
+                const carouselKey = pageId === 'mens-top-page' ? 'mens' : 'main';
+                carouselState[carouselKey].currentSlide = 0;
+                carouselState[carouselKey].isFirst = true;
+                showSlide(0, carouselKey);
+                restartCarousel();
+
+                return true;
+            } else {
+                console.error('Target page not found:', pageId);
+            }
+            return false;
+        }
+
+        function showMainContent() {
+            if (!individualPages) {
+                console.error('individualPages not initialized');
+                return;
+            }
+
+            // Hide all individual pages
+            individualPages.forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Show main content
+            if (mainContent) {
+                mainContent.style.display = 'block';
+            }
+
+            // Add to browser history (return to main page)
+            if (window.location.hash !== '') {
+                history.pushState({page: 'main'}, '', window.location.pathname);
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+
+            // Reset and restart carousel for main page
+            carouselState.main.currentSlide = 0;
+            carouselState.main.isFirst = true;
+            showSlide(0, 'main');
+            restartCarousel();
+        }
+
+        function handleNavigation(e) {
+            e.preventDefault();
+            const href = e.target.getAttribute('href');
+
+            if (href && href.startsWith('#')) {
+                const targetId = href.substring(1);
+                const pageId = targetId + '-page';
+
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('active');
+                }
+
+                // Special case for home/logo
+                if (href === '#' || href === '#home') {
+                    showMainContent();
+                    return;
+                }
+
+                // Try to show the specific page first
+                if (showPage(pageId)) {
+                    // Success - page navigation
+                    return;
+                }
+
+                // If page not found, try smooth scroll to section within main content
+                const targetSection = document.getElementById(targetId);
+                if (targetSection && mainContent && mainContent.style.display !== 'none') {
+                    const headerHeight = 70;
+                    const targetPosition = targetSection.offsetTop - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Neither page nor section found, show main content
+                    showMainContent();
+                }
+            }
+        }
+
+        // Initialize navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize page system first
+            initializePageSystem();
+
+            // Add click handlers to all navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', handleNavigation);
+            });
+
+            // Add click handler to logo to return to main content
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                logo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showMainContent();
+                });
+                logo.style.cursor = 'pointer';
+            }
+
+            // Handle back button / browser navigation
+            window.addEventListener('popstate', function() {
+                const hash = window.location.hash;
+                if (hash && hash.length > 1) {
+                    const pageId = hash.substring(1) + '-page';
+                    if (!showPage(pageId)) {
+                        showMainContent();
+                    }
+                } else {
+                    showMainContent();
+                }
+            });
+
+            // Handle initial page load with hash
+            const initialHash = window.location.hash;
+            if (initialHash && initialHash.length > 1) {
+                const pageId = initialHash.substring(1) + '-page';
+                if (!showPage(pageId)) {
+                    showMainContent();
+                }
+            } else {
+                // Ensure main content is shown by default
+                showMainContent();
+            }
+        });
+  </script>
+<!-- Individual Pages Content (Hidden by default, shown when navigating) -->
+<div id="ladies-earrings-page" style="display: none;">
+<div class="page-hero">
+<div class="page-hero-content">
+<h1 class="page-title">
+      Ladies Earrings
+     </h1>
+<p class="page-description">
+      エレガントで上品な女性用ピアスコレクション
+     </p>
+</div>
+</div>
+<div class="container">
+<div class="products-grid">
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KTMJPH3" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 金属アレルギー対応 女性 アクセサリー 誕生日プレゼント 記念日 シルバー925" src="https://m.media-amazon.com/images/I/61v8-y1kytL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥4,380</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B07YNJGG7P" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 アクセサリー 女性 シンプル 金属アレルギー対応 シルバー 925 フックピアス ブランド キュービックジルコニア" src="https://m.media-amazon.com/images/I/61x1N2QuWwL._AC_SL1200_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KTGZSZD" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース フープピアス 人気 金属アレルギー対応 リング リングピアス 女性 誕生日プレゼント 記念日…" src="https://m.media-amazon.com/images/I/61RLziGmpfL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,680</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KTMN92M" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース フープピアス 人気 金属アレルギー対応 リング リングピアス 女性 誕生日プレゼント 記念日" src="https://m.media-amazon.com/images/I/61Og1eD3JlL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,680</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KTMYXSF" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース フープピアス 人気 金属アレルギー対応 リング リングピアス 女性 誕生日プレゼント 記念日" src="https://m.media-amazon.com/images/I/61bdF54+jWL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,680</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09N7LPTZR" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース フープピアス 人気 金属アレルギー対応 サージカルステンレス リング リングピアス 女性" src="https://m.media-amazon.com/images/I/61y5o3wd24L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,480</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09N7MSN66" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース フープピアス 人気 金属アレルギー対応 サージカルステンレス リング リングピアス 女性" src="https://m.media-amazon.com/images/I/61HGB9gkcuL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,480</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09N7NTG34" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース フープピアス 人気 金属アレルギー対応 サージカルステンレス リング リングピアス 女性" src="https://m.media-amazon.com/images/I/51tOZtj8n4L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,480</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CDVP3KYV" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース フープピアス 金属アレルギー対応 リング フープ リングピアス 人気 女性 誕生日プレゼント 記念日 (シルバー)" src="https://m.media-amazon.com/images/I/61CQ21kxYXL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,280</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KTHVDT6" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 パールピアス 金属アレルギー対応 女性 誕生日プレゼント 記念日 シルバー925" src="https://m.media-amazon.com/images/I/71oGLH2S9RL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KTKXBML" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 金属アレルギー対応 女性 誕生日プレゼント キュービックジルコニア シルバー925" src="https://m.media-amazon.com/images/I/71uf5l7hWVL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KTQ4QB1" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 パールピアス 金属アレルギー対応 女性 チェーンピアス 誕生日プレゼントシルバー925" src="https://m.media-amazon.com/images/I/616Vs-Az94L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0B815CCXB" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 アクセサリー 女性 シンプル 金属アレルギー対応 シルバー 925 フックピアス ブランド キュービックジルコニア" src="https://m.media-amazon.com/images/I/61EcNuwlNnL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,944</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09M2N2BY1" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 金属アレルギー対応 サージカルステンレス 女性 アクセサリー 誕生日プレゼント 記念日" src="https://m.media-amazon.com/images/I/71OQF+xMDwL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,862</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KTN4ZWC" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 金属アレルギー対応 女性 アクセサリー 誕生日プレゼント 記念日 シルバー925" src="https://m.media-amazon.com/images/I/71WxYcepOkL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,786</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09M2YWQ6K" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 金属アレルギー対応 女性 アクセサリー 誕生日プレゼント 記念日 シルバー925" src="https://m.media-amazon.com/images/I/717DIBDm5DL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,682</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CDVNXXXN" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ピアス レディース フープピアス 金属アレルギー対応 リング フープ リングピアス 人気 女性 誕生日プレゼント 記念日 (ゴールド)" src="https://m.media-amazon.com/images/I/61NyaHXIgAL._AC_SL1281_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,680</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CDVPG2CT" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ピアス レディース フープピアス 金属アレルギー対応 リング フープ リングピアス 人気 女性 誕生日プレゼント 記念日 (ピンクゴールド)" src="https://m.media-amazon.com/images/I/61NCdJwVQXL._AC_SL1281_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,680</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B086LJ6WCB" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 フープピアス リング リングピアス 女性 アクセサリー シンプル ゴールド フープ ブランド キュービックジルコニア" src="https://m.media-amazon.com/images/I/71AQb45WRIL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,480</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B086M59SVY" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 フープピアス リング リングピアス 女性 アクセサリー シンプル シルバー フープ ブランド キュービックジルコニア" src="https://m.media-amazon.com/images/I/61+Fu2Aj3wL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,480</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KTMRCNM" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 金属アレルギー対応 女性 アクセサリー 誕生日プレゼント 記念日 シルバー925" src="https://m.media-amazon.com/images/I/61h3xdfQ6AL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥1,608</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KWYVGVN" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 パールピアス 金属アレルギー対応 女性 チェーンピアス 誕生日プレゼントシルバー925" src="https://m.media-amazon.com/images/I/51FmPMFKmGL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥1,580</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09KX76SSP" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 パールピアス 金属アレルギー対応 女性 チェーンピアス 誕生日プレゼントシルバー925" src="https://m.media-amazon.com/images/I/61U9ROLhziL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥1,580</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B07YF9GJDG" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 アクセサリー 女性 シンプル シルバー フックかわいい ブランド ツイストピアス 誕生日プレゼント 記念日 大人" src="https://m.media-amazon.com/images/I/51wzueLJ9qL._AC_SL1200_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥1,490</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B07YF9DFD9" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス レディース 人気 アクセサリー 女性 シンプル ゴールド フック かわいい ブランド ツイストピアス 誕生日プレゼント 記念日 大人" src="https://m.media-amazon.com/images/I/51qGACaVrSL._AC_SL1200_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥1,422</div>
+    </div>
+  </a>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+</div>
+<!-- Ladies Necklaces Page -->
+<div id="ladies-necklaces-page" style="display: none;">
+<div class="page-hero">
+<div class="page-hero-content">
+<h1 class="page-title">
+      Ladies Necklaces
+     </h1>
+<p class="page-description">
+      華やかで洗練された女性用ネックレスコレクション
+     </p>
+</div>
+</div>
+<div class="container">
+<div class="products-grid">
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CDQZ494J" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ネックレス レディース シルバー925 シルバーネックレス 金属アレルギー対応ネックレス 女性 人気 結婚式 38-45cm調整(プラチナ)" src="https://m.media-amazon.com/images/I/51FTV8CjWTL._AC_SL1281_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,480</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CDQX4PYD" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ネックレス レディース シルバー925 シルバーネックレス 金属アレルギー対応ネックレス 女性 人気 結婚式 38-45cm調整(ゴールド)" src="https://m.media-amazon.com/images/I/51q9U7OvVCL._AC_SL1305_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,380</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B083DQS17T" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ネックレス レディース 人気 アクセサリー ハート 女性 シンプル ブランド キュービックジルコニア 水波チェーン 誕生日 プレゼント ボックス付き" src="https://m.media-amazon.com/images/I/61aj0efGxIL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥980</div>
+    </div>
+  </a>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+</div>
+<!-- Men's Earrings Page -->
+<div class="mens-theme" id="mens-earrings-page" style="display: none;">
+<div class="page-hero">
+<div class="page-hero-content">
+<h1 class="page-title">
+      Men's Earrings
+     </h1>
+<p class="page-description">
+      モダンでスタイリッシュなメンズピアスコレクション
+     </p>
+</div>
+</div>
+<div class="container">
+<div class="products-grid">
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B096NNC6CR" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス メンズ フープピアス 金属アレルギー対応 メンズピアス リングピアス 片耳 シルバーアクセサリー シルバー925 フェザー" src="https://m.media-amazon.com/images/I/71INKsMbJaL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B095GJ54B8" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス メンズ フープピアス 金属アレルギー対応 メンズピアス リングピアス 片耳 シルバーアクセサリー シルバー925 スターリングシルバー" src="https://m.media-amazon.com/images/I/61WULgt05VL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,680</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B095G18YYF" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス メンズ フープピアス 金属アレルギー対応 メンズピアス リングピアス 片耳 シルバーアクセサリー シルバー925 スターリングシルバー" src="https://m.media-amazon.com/images/I/61jth9WjhUL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,280</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09MBJDMPL" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス メンズ フープピアス サージカルステンレス 金属アレルギー対応 メンズピアス リングピアス 片耳" src="https://m.media-amazon.com/images/I/61qLDQBkJbL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,280</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09MBKLRB7" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス メンズ フープピアス サージカルステンレス 金属アレルギー対応 メンズピアス リングピアス 片耳" src="https://m.media-amazon.com/images/I/71ICtMSRnuL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,280</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09M2XH1C5" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス メンズ フープピアス サージカルステンレス 金属アレルギー対応 メンズピアス リングピアス 片耳 (ゴールド)" src="https://m.media-amazon.com/images/I/71p0FUFegIL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09M31DNFL" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ピアス メンズ フープピアス サージカルステンレス 金属アレルギー対応 メンズピアス リングピアス 片耳 (シルバー)" src="https://m.media-amazon.com/images/I/61y1s-epn6L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKRJ5GCC" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] 【雑誌Begin掲載】 ピアス メンズ フープピアス つけっぱなし 金属アレルギー対応 サージカルステンレス リング 片耳 シルバー シンプル プレゼント" src="https://m.media-amazon.com/images/I/51qUNdun16L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKS1GX8V" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="【雑誌Begin掲載】 ピアス メンズ フープピアス つけっぱなし 金属アレルギー対応 サージカルステンレス リング 片耳 シルバー シンプル プレゼント" src="https://m.media-amazon.com/images/I/51z-HRSdbzL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKS7BGQG" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="【雑誌Begin掲載】 ピアス メンズ フープピアス つけっぱなし 金属アレルギー対応 サージカルステンレス リング 片耳 シルバー シンプル プレゼント" src="https://m.media-amazon.com/images/I/51vtDaTgEWL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKS84GYW" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="【雑誌Begin掲載】 ピアス メンズ フープピアス つけっぱなし 金属アレルギー対応 サージカルステンレス リング 片耳 シルバー シンプル プレゼント" src="https://m.media-amazon.com/images/I/51GOBWgdpeL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSBVL7W" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="メンズピアス（ダブルリング） (シルバー×シルバー)" src="https://m.media-amazon.com/images/I/51vrdPKQJyL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSGLZJR" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="【雑誌Begin掲載】 ピアス メンズ フープピアス つけっぱなし 金属アレルギー対応 サージカルステンレス リング 片耳 シルバー シンプル プレゼント" src="https://m.media-amazon.com/images/I/51S6mQR7yQL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSH152T" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="【雑誌Begin掲載】 ピアス メンズ フープピアス つけっぱなし 金属アレルギー対応 サージカルステンレス リング 片耳 シルバー シンプル プレゼント" src="https://m.media-amazon.com/images/I/51fo-ScvzZL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSK4ZB1" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] 【雑誌Begin掲載】 ピアス メンズ フープピアス つけっぱなし 金属アレルギー対応 サージカルステンレス リング 片耳 シルバー シンプル プレゼント" src="https://m.media-amazon.com/images/I/517ZyuN5KoL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSM6BBQ" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] メンズピアス（十字架デザイン） (シルバー×シルバー)" src="https://m.media-amazon.com/images/I/61U3jxInXWL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSQ1MVH" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] メンズピアス（十字架デザイン） (シルバー×ゴールド)" src="https://m.media-amazon.com/images/I/61U5IBwbj2L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSR6XNW" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] メンズピアス（十字架デザイン） (黒×シルバー)" src="https://m.media-amazon.com/images/I/61EPIXMNmVL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSXNZH4" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="【雑誌Begin掲載】 ピアス メンズ フープピアス つけっぱなし 金属アレルギー対応 サージカルステンレス リング 片耳 シルバー シンプル プレゼント" src="https://m.media-amazon.com/images/I/61yCn+sSIHL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSZGDBZ" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="メンズピアス（サイドジルコニア） (黒×シルバー)" src="https://m.media-amazon.com/images/I/61Gg-xhCBTL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKT829VQ" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="【雑誌Begin掲載】 ピアス メンズ フープピアス つけっぱなし 金属アレルギー対応 サージカルステンレス リング 片耳 シルバー シンプル プレゼント" src="https://m.media-amazon.com/images/I/61WxClbWIyL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKT8JKG4" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="メンズピアス（ダブルリング） (シルバー×ゴールド)" src="https://m.media-amazon.com/images/I/51eX2N-NSlL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B096NR6YX1" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス メンズ フープピアス 金属アレルギー対応 メンズピアス リングピアス シルバーアクセサリー シルバー925 スターリングシルバー 両耳セット" src="https://m.media-amazon.com/images/I/71bhpkSSjyL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,000</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B096NQ5C2T" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス メンズ フープピアス 金属アレルギー対応 メンズピアス リングピアス シルバーアクセサリー シルバー925 スターリングシルバー 両耳セット" src="https://m.media-amazon.com/images/I/612p5XUMb2L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥1,580</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B096NQYWMV" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス メンズ フープピアス 金属アレルギー対応 メンズピアス リングピアス シルバーアクセサリー シルバー925 スターリングシルバー 両耳セット" src="https://m.media-amazon.com/images/I/612p5XUMb2L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥1,580</div>
+    </div>
+  </a>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+</div>
+<!-- Men's Necklaces Page -->
+<div class="mens-theme" id="mens-necklaces-page" style="display: none;">
+<div class="page-hero">
+<div class="page-hero-content">
+<h1 class="page-title">
+      Men's Necklaces
+     </h1>
+<p class="page-description">
+      力強く洗練されたメンズネックレスコレクション
+     </p>
+</div>
+</div>
+<div class="container">
+<div class="products-grid">
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B07VKCVTH2" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ネックレス メンズ アクセサリー 人気 タングステン 金属アレルギー スティック ブランド 高級 プレゼント 誕生日 記念日 50cm チェーン" src="https://m.media-amazon.com/images/I/610S0ZEANzL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09B6VDTS9" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ネックレス ネックレスメンズ メンズ メンズネックレス ペンダント サージカルステンレス アクセサリー リング" src="https://m.media-amazon.com/images/I/61yqZr71NuL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,480</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09B6VL2F7" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ネックレス ネックレスメンズ メンズ メンズネックレス ペンダント サージカルステンレス アクセサリー リング" src="https://m.media-amazon.com/images/I/61vf22AF5gL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,480</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09B6W997P" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ネックレス ネックレスメンズ メンズ メンズネックレス ペンダント サージカルステンレス アクセサリー リング" src="https://m.media-amazon.com/images/I/61Tz69H28AL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,480</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B099WFL3ZX" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ネックレス ネックレスメンズ メンズネックレス ペンダント サージカルステンレス アクセサリー リング" src="https://m.media-amazon.com/images/I/61b2j41F-1L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09B6WJBH2" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ネックレス ネックレスメンズ メンズ メンズネックレス ペンダント サージカルステンレス アクセサリー リング" src="https://m.media-amazon.com/images/I/61oJy+1LBML._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,144</div>
+    </div>
+  </a>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+</div>
+<!-- Men's Wallets Page -->
+<div class="mens-theme" id="mens-wallets-page" style="display: none;">
+<div class="page-hero">
+<div class="page-hero-content">
+<h1 class="page-title">
+      Men's Wallets
+     </h1>
+<p class="page-description">
+      上質なレザーと金属アクセントのメンズウォレット
+     </p>
+</div>
+</div>
+<div class="container">
+<div class="products-grid">
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B08SCN86KS" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] 財布 メンズ 長財布 メンズ財布 男性 wallet men 革 人気 大容量 カーボンレザー ラウンドファスナー L字小銭入れ 誕生日" src="https://m.media-amazon.com/images/I/812tiEvKEGL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥4,780</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B08SCQFFKQ" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] 財布 メンズ 長財布 メンズ財布 男性 wallet men 革 人気 大容量 カーボンレザー ラウンドファスナー L字小銭入れ 誕生日" src="https://m.media-amazon.com/images/I/81a18kk2C3L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥4,780</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B087WL96KM" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] 財布 メンズ 二つ折り 二つ折り財布 男性 コンパクト 人気 大容量 wallet men メンズ財布 ボックス型小銭入れ 誕生日" src="https://m.media-amazon.com/images/I/71dX2DNCOSL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,504</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B08TVN9NV3" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] 財布 メンズ 二つ折り 二つ折り財布 男性 コンパクト 人気 大容量 wallet men メンズ財布 ボックス型小銭入れ 誕生日" src="https://m.media-amazon.com/images/I/71dX2DNCOSL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,504</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B087WWWTGW" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] 財布 メンズ 二つ折り 二つ折り財布 男性 コンパクト 人気 大容量 wallet men メンズ財布 ボックス型小銭入れ 誕生日" src="https://m.media-amazon.com/images/I/81fLqrUUJmL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,504</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B08TVNJL75" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] 財布 メンズ 二つ折り 本革 二つ折り財布 タイガ加工 男性 コンパクト 人気 大容量 wallet men メンズ財布 誕生日 プレゼント" src="https://m.media-amazon.com/images/I/81eOuUL9p0L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,042</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B08TVPMTFP" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] 財布 メンズ 二つ折り 本革 二つ折り財布 タイガ加工 男性 コンパクト 人気 大容量 wallet men メンズ財布 誕生日 プレゼント" src="https://m.media-amazon.com/images/I/819ThlZdYSL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,042</div>
+    </div>
+  </a>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+</div>
+<!-- Pair Items Page -->
+<div id="pair-necklaces-page" style="display: none;">
+<div class="page-hero">
+<div class="page-hero-content">
+<h1 class="page-title">
+      Pair Items
+     </h1>
+<p class="page-description">
+      二人の絆を象徴するペアジュエリーコレクション
+     </p>
+</div>
+</div>
+<div class="container">
+<div class="products-grid">
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B07YF8X1XN" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ペアネックレス ペアリング カップル 人気 誕生日プレゼント 刻印 おそろい 2個セット 記念日 ステンレスチェーン ジュエリーケース付き" src="https://m.media-amazon.com/images/I/61vVF6G6E2L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥4,380</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B099VY6MX8" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ペアネックレス ネックレス プレゼント カップル ペアリング サージカルステンレス 金属アレルギー対応 おそろい 誕生日プレゼント 上質 (平小豆チェーン)" src="https://m.media-amazon.com/images/I/71yOa991GsL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09B69G87F" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ペアネックレス ネックレス ペア プレゼント カップル ペアリング サージカルステンレス 金属アレルギー対応 おそろい 誕生日プレゼント 上質" src="https://m.media-amazon.com/images/I/7132A0lIh3L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09B6W6MF5" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ペアネックレス サージカルステンレス ペンダント 金属アレルギー対応 5Aジルコニア" src="https://m.media-amazon.com/images/I/71wFO+5M6rL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,280</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09B6V8XMX" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ペアネックレス サージカルステンレス ペンダント 金属アレルギー対応 5Aジルコニア" src="https://m.media-amazon.com/images/I/71QAjKbacnL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B099RXPRQZ" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ペアネックレス ネックレス ペア プレゼント カップル ペアリング サージカルステンレス 金属アレルギー対応 おそろい 誕生日プレゼント 上質" src="https://m.media-amazon.com/images/I/71mHPwS00QL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,786</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B099S4D6GK" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ペアネックレス ネックレス ペア プレゼント カップル ペアリング サージカルステンレス 金属アレルギー対応 おそろい 誕生日プレゼント 上質" src="https://m.media-amazon.com/images/I/71W+H5Ibt-L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,786</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0B81HX2Z6" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ペアネックレス ペアリング カップル 人気 誕生日プレゼント 刻印 おそろい 2個セット 記念日 ステンレスチェーン ジュエリーケース付き" src="https://m.media-amazon.com/images/I/71EX6u-+qRL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,786</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09B6V2G5R" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ペアネックレス ネックレス プレゼント カップル ペアリング ペンダント サージカルステンレス 金属アレルギー対応 おそろい 誕生日プレゼント" src="https://m.media-amazon.com/images/I/41pJuMd8LTL._AC_SX342_SY445_QL70_ML2_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,680</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09B6V6KFC" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ペアネックレス ネックレス プレゼント カップル ペアリング ペンダント サージカルステンレス 金属アレルギー対応 おそろい 誕生日プレゼント" src="https://m.media-amazon.com/images/I/71DFuxa28+L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,300</div>
+    </div>
+  </a>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+</div>
+<!-- Set Items Page -->
+<div id="set-items-page" style="display: none;">
+<div class="page-hero">
+<div class="page-hero-content">
+<h1 class="page-title">
+      Set Items
+     </h1>
+<p class="page-description">
+      コーディネートが楽しめるセットジュエリーコレクション
+     </p>
+</div>
+</div>
+<div class="container">
+<div class="products-grid">
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0C57WNMGN" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ネックレス ピアス ローズモチーフ" src="https://m.media-amazon.com/images/I/71KF3bbv6mL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥4,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CP6LPFZQ" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="[aliba] ピアス ネックレス レディース ペンダント 誕生日プレゼント 女性 人気 ブランド アクセサリー 最高級ジルコニア 40-45cm調整 プラチナコーティング" src="https://m.media-amazon.com/images/I/61h9B2ShN0L._AC_SL1280_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CP6LYFML" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス ネックレス レディース ペンダント 誕生日プレゼント 女性 人気 ブランド アクセサリー 最高級ジルコニア 40-45cm調整 ピンクゴールド" src="https://m.media-amazon.com/images/I/61Vy8w9M74L._AC_SL1280_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥3,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CP6KJZ9H" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス ネックレス レディース レディースネックレス プレゼント 女性 人気 結婚式 パーティ アクセサリー 最高級ジルコニア 40-45cm調整" src="https://m.media-amazon.com/images/I/71ti+Owxq0L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CP6KLS4X" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス ネックレス レディース ペンダント 誕生日プレゼント 女性 人気 ブランド アクセサリー 最高級ジルコニア 40-45cm調整" src="https://m.media-amazon.com/images/I/71QwPCHsQcL._AC_SL1280_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CP6L382C" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス ネックレス レディース ペンダント 誕生日プレゼント 女性 人気 ブランド アクセサリー 最高級ジルコニア 40-45cm調整 プラチナコーティング" src="https://m.media-amazon.com/images/I/71HhThCXXkL._AC_SL1280_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,980</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CP6LDJQC" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス ネックレス レディース ペンダント 誕生日プレゼント 女性 人気 ブランド アクセサリー 最高級ジルコニア 40-45cm調整 プラチナコーティング" src="https://m.media-amazon.com/images/I/61lfX-G5I5L._AC_SL1280_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,544</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0CP6LRKLH" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="aliba ピアス ネックレス レディース ペンダント 誕生日プレゼント 女性 人気 ブランド アクセサリー 最高級ジルコニア 40-45cm調整 ピンクゴールド" src="https://m.media-amazon.com/images/I/71qWEGSbzcL._AC_SL1280_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-price">¥2,544</div>
+    </div>
+  </a>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+</div>
+<!-- Memorial Page -->
+<div class="memorial-theme" id="memorial-page" style="display: none;">
+<div class="page-hero">
+<div class="page-hero-content">
+<h1 class="page-title">
+      Memorial
+     </h1>
+<p class="page-description">
+      大切な想い出を永遠に刻むメモリアルジュエリー
+     </p>
+</div>
+</div>
+<div class="container">
+<div class="products-grid">
+  <div class="product-card coming-soon-card">
+    <div class="product-image">
+    <div class="coming-soon-icon" aria-hidden="true">◇</div>
+    </div>
+    <div class="product-info">
+    <div class="coming-soon-label">Coming Soon</div>
+    </div>
+  </div>
+  <div class="product-card coming-soon-card">
+    <div class="product-image">
+    <div class="coming-soon-icon" aria-hidden="true">◇</div>
+    </div>
+    <div class="product-info">
+    <div class="coming-soon-label">Coming Soon</div>
+    </div>
+  </div>
+  <div class="product-card coming-soon-card">
+    <div class="product-image">
+    <div class="coming-soon-icon" aria-hidden="true">◇</div>
+    </div>
+    <div class="product-info">
+    <div class="coming-soon-label">Coming Soon</div>
+    </div>
+  </div>
+  <div class="product-card coming-soon-card">
+    <div class="product-image">
+    <div class="coming-soon-icon" aria-hidden="true">◇</div>
+    </div>
+    <div class="product-info">
+    <div class="coming-soon-label">Coming Soon</div>
+    </div>
+  </div>
+  <div class="product-card coming-soon-card">
+    <div class="product-image">
+    <div class="coming-soon-icon" aria-hidden="true">◇</div>
+    </div>
+    <div class="product-info">
+    <div class="coming-soon-label">Coming Soon</div>
+    </div>
+  </div>
+  <div class="product-card coming-soon-card">
+    <div class="product-image">
+    <div class="coming-soon-icon" aria-hidden="true">◇</div>
+    </div>
+    <div class="product-info">
+    <div class="coming-soon-label">Coming Soon</div>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+</div>
+<!-- aliva luxe Page -->
+<div class="aliva-luxe-theme" id="aliva-luxe-page" style="display: none;">
+<div class="page-hero" style="margin-top: 70px;">
+<div class="page-hero-content">
+<h1 class="page-title">
+      aliva luxe
+     </h1>
+<p class="page-description">
+      最高級の素材と技術の粋を集めたプレミアムライン
+     </p>
+</div>
+</div>
+<div class="container">
+<div class="products-grid">
+  <a class="product-card" href="https://www.amazon.co.jp/dp/B0C4SVYJD2" target="_blank">
+    <div class="product-image">
+    <img alt="alivaluxe ネックレス レディース サージカルステンレス 金属アレルギー対応ネックレス 女性 人気 ホースシュー ダイヤモンド 38-45cm" src="https://m.media-amazon.com/images/I/615VMr-ynRL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="product-info">
+    <div class="product-price">¥6,980</div>
+    </div>
+  </a>
+  <a class="product-card" href="https://www.amazon.co.jp/dp/B0C52FBHZ7" target="_blank">
+    <div class="product-image">
+    <img alt="alivaluxe ネックレス レディース シルバー925 金属アレルギー対応ネックレス レディースネックレス 女性 人気 ダイヤモンド 38-45cm調整" src="https://m.media-amazon.com/images/I/511XN8wHPiL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="product-info">
+    <div class="product-price">¥6,980</div>
+    </div>
+  </a>
+  <a class="product-card" href="https://www.amazon.co.jp/dp/B0C8FXYTVF" target="_blank">
+    <div class="product-image">
+    <img alt="alivaluxe ピアス レディース 金属アレルギー対応 サージカルステンレス つけっぱなし モアサナイト 人気 スタッドピアス 女性 誕生日プレゼント" src="https://m.media-amazon.com/images/I/71IWStsW16L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="product-info">
+    <div class="product-price">¥5,980</div>
+    </div>
+  </a>
+  <a class="product-card" href="https://www.amazon.co.jp/dp/B0CDFGPQB2" target="_blank">
+    <div class="product-image">
+    <img alt="alivaluxe ピアス レディース フープピアス リング フープ 金属アレルギー対応 リングピアス モアサナイト 人気 女性 誕生日プレゼント 記念日 (ピンクゴールド)" src="https://m.media-amazon.com/images/I/516cJKLjY6L._AC_SL1280_.jpg"/>
+    </div>
+    <div class="product-info">
+    <div class="product-price">¥5,980</div>
+    </div>
+  </a>
+  <a class="product-card" href="https://www.amazon.co.jp/dp/B0BP7NZ1GD" target="_blank">
+    <div class="product-image">
+    <img alt="alivaluxe ネックレス レディース プレゼント 人気 ホースシュー モアサナイト サージカルステンレス 女性 記念日 38-45cm" src="https://m.media-amazon.com/images/I/61ccck7gGnL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="product-info">
+    <div class="product-price">¥4,980</div>
+    </div>
+  </a>
+  <a class="product-card" href="https://www.amazon.co.jp/dp/B0BP7PL9XG" target="_blank">
+    <div class="product-image">
+    <img alt="alivaluxe ネックレス レディース プレゼント 人気 ホースシュー モアサナイト サージカルステンレス 女性 記念日 38-45cm" src="https://m.media-amazon.com/images/I/61myojoR+QL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="product-info">
+    <div class="product-price">¥4,980</div>
+    </div>
+  </a>
+  <a class="product-card" href="https://www.amazon.co.jp/dp/B0CDFLZ4TL" target="_blank">
+    <div class="product-image">
+    <img alt="alivaluxe ピアス レディース フープピアス リング フープ 金属アレルギー対応 リングピアス モアサナイト 人気 女性 誕生日プレゼント 記念日 (シルバー)" src="https://m.media-amazon.com/images/I/61l+-yflRvL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="product-info">
+    <div class="product-price">¥4,980</div>
+    </div>
+  </a>
+  <a class="product-card" href="https://www.amazon.co.jp/dp/B0CDFRB4MR" target="_blank">
+    <div class="product-image">
+    <img alt="alivaluxe ピアス レディース フープピアス リング フープ 金属アレルギー対応 リングピアス モアサナイト 人気 女性 誕生日プレゼント 記念日 (ゴールド)" src="https://m.media-amazon.com/images/I/61hzSPyZlNL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="product-info">
+    <div class="product-price">¥4,980</div>
+    </div>
+  </a>
+  <a class="product-card" href="https://www.amazon.co.jp/dp/B0C52SFMJR" target="_blank">
+    <div class="product-image">
+    <img alt="alivaluxe ネックレス レディース シルバー925 金属アレルギー対応ネックレス レディースネックレス 女性 人気 ダイヤモンド 38-45cm調整" src="https://m.media-amazon.com/images/I/610Jn1lujOL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="product-info">
+    <div class="product-price">¥4,780</div>
+    </div>
+  </a>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+</div>
+<!-- About Page -->
+<div id="about-page" style="display: none;">
+<div class="page-hero">
+<div class="page-hero-content">
+<h1 class="page-title">
+      About
+     </h1>
+<p class="page-description">
+      Éclat Femmeの物語と哲学
+     </p>
+</div>
+</div>
+<div class="container" style="padding: 60px 20px;">
+<div style="max-width: 800px; margin: 0 auto; line-height: 1.8; color: #333;">
+<h2 style="font-family: var(--font-serif); font-size: 32px; margin-bottom: 30px; color: var(--acc-gold);">
+      私たちの物語
+     </h2>
+<p style="margin-bottom: 30px;">
+      触れるたび、声にならない余韻。Éclat Femmeは、上質な素材と職人の技で、あなただけの特別な瞬間を彩るジュエリーを創造します。
+     </p>
+<p style="margin-bottom: 30px;">
+      2015年に設立されたÉclat Femmeは、伝統的なジュエリー制作技術と現代的なデザインセンスを融合させ、世界中の女性たちに愛される美しい作品を生み出し続けています。
+     </p>
+<h3 style="font-family: var(--font-serif); font-size: 24px; margin: 40px 0 20px; color: var(--acc-gold);">
+      私たちの理念
+     </h3>
+<ul style="margin-bottom: 30px; padding-left: 20px;">
+<li style="margin-bottom: 10px;">
+       一つひとつ手作業で仕上げる職人のクラフトマンシップ
+      </li>
+<li style="margin-bottom: 10px;">
+       厳選された最高品質の素材のみを使用
+      </li>
+<li style="margin-bottom: 10px;">
+       持続可能で環境に配慮した製造プロセス
+      </li>
+<li style="margin-bottom: 10px;">
+       お客様一人ひとりのストーリーを大切にしたカスタマイズ
+      </li>
+</ul>
+<h3 style="font-family: var(--font-serif); font-size: 24px; margin: 40px 0 20px; color: var(--acc-gold);">
+      アトリエ
+     </h3>
+<p style="margin-bottom: 30px;">
+      私たちのアトリエは東京の静かな街角にあり、熟練した職人たちが一つひとつの作品に魂を込めて制作しています。伝統的な技法と最新の技術を組み合わせることで、時代を超えて愛される美しいジュエリーを創り上げています。
+     </p>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+<!-- Column Page -->
+<div id="column-page" style="display: none;">
+<div class="page-hero">
+<div class="page-hero-content">
+<h1 class="page-title">
+      Column
+     </h1>
+<p class="page-description">
+      ジュエリーと美しい暮らしのためのコラム
+     </p>
+</div>
+</div>
+<div class="container" style="padding: 60px 20px;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+<img alt="コラム1" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
+<div style="padding: 24px;">
+<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
+        ジュエリーケアの極意
+       </h3>
+<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+        大切なジュエリーを美しく保つための正しいお手入れ方法をご紹介します。
+       </p>
+<time style="color: #999; font-size: 12px;">
+        2024.09.15
+       </time>
+</div>
+</article>
+<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+<img alt="コラム2" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
+<div style="padding: 24px;">
+<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
+        運命のエンゲージリング選び
+       </h3>
+<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+        一生に一度の特別な瞬間にふさわしいリング選びのポイントをお教えします。
+       </p>
+<time style="color: #999; font-size: 12px;">
+        2024.09.10
+       </time>
+</div>
+</article>
+<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+<img alt="コラム3" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
+<div style="padding: 24px;">
+<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
+        持続可能なジュエリー
+       </h3>
+<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+        環境に配慮したエシカルなジュエリー制作への私たちの取り組みについて。
+       </p>
+<time style="color: #999; font-size: 12px;">
+        2024.09.05
+       </time>
+</div>
+</article>
+<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+<img alt="コラム4" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
+<div style="padding: 24px;">
+<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
+        宝石に込められた想い
+       </h3>
+<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+        古来より人々に愛され続ける宝石たちの持つ意味とパワーについて探ります。
+       </p>
+<time style="color: #999; font-size: 12px;">
+        2024.08.30
+       </time>
+</div>
+</article>
+<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+<img alt="コラム5" src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
+<div style="padding: 24px;">
+<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
+        職人の手仕事
+       </h3>
+<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+        熟練の職人による丁寧な手作業から生まれる美しいジュエリーの制作過程をご紹介。
+       </p>
+<time style="color: #999; font-size: 12px;">
+        2024.08.25
+       </time>
+</div>
+</article>
+<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
+<img alt="コラム6" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
+<div style="padding: 24px;">
+<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
+        季節を纏うスタイリング
+       </h3>
+<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+        四季の移ろいに合わせたジュエリーの選び方と着こなしのコツをお伝えします。
+       </p>
+<time style="color: #999; font-size: 12px;">
+        2024.08.20
+       </time>
+</div>
+</article>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+<!-- Men's Top Page -->
+<div class="mens-theme" id="mens-top-page" style="display: none;">
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-carousel">
+<div class="slide active">
+<img alt="Men's Jewelry 1" src="assets/carousel/mens-carousel-1.png"/>
+</div>
+<div class="slide">
+<img alt="Men's Jewelry 2" src="assets/carousel/mens-carousel-2.png"/>
+</div>
+<div class="slide">
+<img alt="Men's Jewelry 3" src="assets/carousel/mens-carousel-3.png"/>
+</div>
+<div class="slide">
+<img alt="Men's Jewelry 4" src="assets/carousel/mens-carousel-4.png"/>
+</div>
+<div class="carousel-dots">
+<div class="carousel-dot active" data-slide="0">
+</div>
+<div class="carousel-dot" data-slide="1">
+</div>
+<div class="carousel-dot" data-slide="2">
+</div>
+<div class="carousel-dot" data-slide="3">
+</div>
+</div>
+</div>
+</section>
+<!-- Monthly Ranking -->
+<section class="ranking-section" id="ranking">
+<div class="container">
+<h2 class="section-title">
+      Monthly Ranking
+     </h2>
+<div class="ranking-scroll">
+  <div class="ranking-item">
+    <div class="ranking-number">1</div>
+    <a class="ranking-link" href="https://www.amazon.co.jp/dp/B096NNC6CR" rel="noopener noreferrer" target="_blank">
+      <div class="ranking-image">
+      <img alt="フェザーピアス" src="https://m.media-amazon.com/images/I/71INKsMbJaL._AC_SL1500_.jpg"/>
+      </div>
+      <div class="ranking-info">
+      <div class="ranking-name">フェザーピアス</div>
+      <div class="ranking-price">¥3,980</div>
+      </div>
+    </a>
+  </div>
+  <div class="ranking-item">
+    <div class="ranking-number">2</div>
+    <a class="ranking-link" href="https://www.amazon.co.jp/dp/B099WFL3ZX" rel="noopener noreferrer" target="_blank">
+      <div class="ranking-image">
+      <img alt="サージカルステンレスネックレス" src="https://m.media-amazon.com/images/I/61b2j41F-1L._AC_SL1500_.jpg"/>
+      </div>
+      <div class="ranking-info">
+      <div class="ranking-name">サージカルステンレスネックレス</div>
+      <div class="ranking-price">¥2,980</div>
+      </div>
+    </a>
+  </div>
+  <div class="ranking-item">
+    <div class="ranking-number">3</div>
+    <a class="ranking-link" href="https://www.amazon.co.jp/dp/B09M2XH1C5" rel="noopener noreferrer" target="_blank">
+      <div class="ranking-image">
+      <img alt="ダブルリングフープピアス" src="https://m.media-amazon.com/images/I/71p0FUFegIL._AC_SL1500_.jpg"/>
+      </div>
+      <div class="ranking-info">
+      <div class="ranking-name">ダブルリングフープピアス</div>
+      <div class="ranking-price">¥2,980</div>
+      </div>
+    </a>
+  </div>
+  <div class="ranking-item">
+    <div class="ranking-number">4</div>
+    <a class="ranking-link" href="https://www.amazon.co.jp/dp/B095GJ54B8" rel="noopener noreferrer" target="_blank">
+      <div class="ranking-image">
+      <img alt="ツイストデザインピアス" src="https://m.media-amazon.com/images/I/61WULgt05VL._AC_SL1500_.jpg"/>
+      </div>
+      <div class="ranking-info">
+      <div class="ranking-name">ツイストデザインピアス</div>
+      <div class="ranking-price">¥3,680</div>
+      </div>
+    </a>
+  </div>
+  <div class="ranking-item">
+    <div class="ranking-number">5</div>
+    <a class="ranking-link" href="https://www.amazon.co.jp/dp/B07VKCVTH2" rel="noopener noreferrer" target="_blank">
+      <div class="ranking-image">
+      <img alt="タングステンネックレス" src="https://m.media-amazon.com/images/I/610S0ZEANzL._AC_SL1500_.jpg"/>
+      </div>
+      <div class="ranking-info">
+      <div class="ranking-name">タングステンネックレス</div>
+      <div class="ranking-price">¥3,980</div>
+      </div>
+    </a>
+  </div>
+</div>
+</div>
+</section>
+<!-- Media Section -->
+<section class="media-section">
+<div class="container">
+<h2 class="section-title">
+      Media
+     </h2>
+<div class="media-grid">
+<div class="media-item">
+<div class="media-image">
+<img alt="begin 掲載カット" src="assets/media/media-right.png"/>
+</div>
+<div class="media-caption">
+        beginの10月号に掲載頂きました
+       </div>
+</div>
+<div class="media-item">
+<div class="media-image">
+<img alt="美人百貨 掲載カット" src="assets/media/media-left.png"/>
+</div>
+<div class="media-caption">
+        美人百貨の9月号に掲載頂きました
+       </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Item Categories -->
+<section class="category-section" id="categories">
+<div class="container">
+<h2 class="section-title">
+      Item Categories
+     </h2>
+<div class="category-grid">
+<a class="category-item" href="#mens-earrings-page" onclick="showPage('mens-earrings-page')">
+<div class="category-image">
+<img alt="Men's Piercings" src="assets/category/mens-earrings.jpg"/>
+</div>
+<div class="category-name">
+        Piercings
+       </div>
+</a>
+<a class="category-item" href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page')">
+<div class="category-image">
+<img alt="Men's Necklaces" src="assets/category/mens-necklaces.jpg"/>
+</div>
+<div class="category-name">
+        Necklaces
+       </div>
+</a>
+<a class="category-item" href="#mens-wallets-page" onclick="showPage('mens-wallets-page')">
+<div class="category-image">
+<img alt="Men's Wallets" src="assets/category/mens-wallets.jpg"/>
+</div>
+<div class="category-name">
+        Wallets
+       </div>
+</a>
+</div>
+</div>
+</section>
+<!-- Brand Message -->
+<section class="brand-message">
+<div class="container">
+<div class="message-container">
+<div class="message-text">
+<h2 class="message-title">
+        力強く、
+        <br/>
+        洗練された存在感。
+       </h2>
+<p class="message-description">
+        上質な素材と精緻なディテールで、あなたのスタイルに静かな自信と格別な風格をもたらします。シンプルでありながら存在感のあるデザインが、日常に特別な価値を添え、身に着ける人の内なる強さを引き出します。
+       </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Journal Content -->
+<section class="all-items-section" id="mens-items"><div class="container"><h2 class="section-title">All Items</h2><div class="items-grid">
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B087WL96KM" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="カーボンレザー2つ折りウォレット" src="https://m.media-amazon.com/images/I/71dX2DNCOSL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">カーボンレザー2つ折りウォレット</div>
+    <div class="item-price">¥3,504</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B09MBKLRB7" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="マルチリングピアス" src="https://m.media-amazon.com/images/I/71ICtMSRnuL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">マルチリングピアス</div>
+    <div class="item-price">¥3,280</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKS84GYW" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="アンティークピアス" src="https://m.media-amazon.com/images/I/51GOBWgdpeL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">アンティークピアス</div>
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKS1GX8V" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="Hモチーフデザインピアス" src="https://m.media-amazon.com/images/I/51z-HRSdbzL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">Hモチーフデザインピアス</div>
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSGLZJR" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="立体レリーフピアス" src="https://m.media-amazon.com/images/I/51S6mQR7yQL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">立体レリーフピアス</div>
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSH152T" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="中世デザインピアス" src="https://m.media-amazon.com/images/I/51fo-ScvzZL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">中世デザインピアス</div>
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSK4ZB1" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="サイドジルコニアデザインピアス" src="https://m.media-amazon.com/images/I/517ZyuN5KoL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">サイドジルコニアデザインピアス</div>
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKSR6XNW" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="クロスリングピアス" src="https://m.media-amazon.com/images/I/61EPIXMNmVL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">クロスリングピアス</div>
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B0FKT829VQ" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="ダブルリングジルコニアピアス" src="https://m.media-amazon.com/images/I/61WxClbWIyL._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">ダブルリングジルコニアピアス</div>
+    <div class="item-price">¥2,180</div>
+    </div>
+  </a>
+  <a class="item-card" href="https://www.amazon.co.jp/dp/B096NQYWMV" rel="noopener noreferrer" target="_blank">
+    <div class="item-image">
+    <img alt="ヘキサゴンピアス" src="https://m.media-amazon.com/images/I/612p5XUMb2L._AC_SL1500_.jpg"/>
+    </div>
+    <div class="item-info">
+    <div class="item-name">ヘキサゴンピアス</div>
+    <div class="item-price">¥1,580</div>
+    </div>
+  </a>
+</div></div></section><section class="journal-section" id="journal">
+<div class="container">
+<h2 class="section-title">
+      Jewelry Content
+     </h2>
+<div class="journal-grid">
+<article class="journal-item">
+<div class="journal-image">
+<img alt="メンズジュエリーケア" src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=300&amp;h=180&amp;fit=crop"/>
+</div>
+<div class="journal-content">
+<h3 class="journal-title">
+         メンズジュエリーのケア方法
+        </h3>
+</div>
+</article>
+<article class="journal-item">
+<div class="journal-image">
+<img alt="ビジネススタイル" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&amp;h=180&amp;fit=crop"/>
+</div>
+<div class="journal-content">
+<h3 class="journal-title">
+         ビジネスシーンでの着こなし
+        </h3>
+</div>
+</article>
+<article class="journal-item mobile-hidden">
+<div class="journal-image">
+<img alt="メンズトレンド" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&amp;h=180&amp;fit=crop"/>
+</div>
+<div class="journal-content">
+<h3 class="journal-title">
+         2024年メンズジュエリートレンド
+        </h3>
+</div>
+</article>
+</div>
+<div class="journal-more">
+<a class="journal-more-link" href="#column">
+       MORE
+       <i data-lucide="arrow-right" size="16">
+</i>
+</a>
+</div>
+</div>
+</section>
+<!-- Instagram Section -->
+<section class="instagram-section">
+<div class="container">
+<h2 class="section-title">
+      Instagram
+     </h2>
+<div class="instagram-scroll"><div class="instagram-item"><a href="https://www.instagram.com/p/DLUS3-lzNZw/" rel="noopener noreferrer" target="_blank"><img alt="Instagram投稿 1" src="assets/instagram/mens-1.jpg"/></a></div><div class="instagram-item"><a href="https://www.instagram.com/p/DKi1GRQzSBq/" rel="noopener noreferrer" target="_blank"><img alt="Instagram投稿 2" src="assets/instagram/mens-2.jpg"/></a></div><div class="instagram-item"><a href="https://www.instagram.com/p/DEeRwk8v2ab/?img_index=1" rel="noopener noreferrer" target="_blank"><img alt="Instagram投稿 3" src="assets/instagram/mens-3.jpg"/></a></div><div class="instagram-item"><a href="https://www.instagram.com/p/DEMPsxlSaHk/?img_index=1" rel="noopener noreferrer" target="_blank"><img alt="Instagram投稿 4" src="assets/instagram/mens-4.jpg"/></a></div><div class="instagram-item"><a href="https://www.instagram.com/p/DD_PLIfShmj/?img_index=1" rel="noopener noreferrer" target="_blank"><img alt="Instagram投稿 5" src="assets/instagram/mens-5.jpg"/></a></div></div>
+<div class="instagram-link">
+<a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
+       @aliba_official01 をフォロー
+       <i data-lucide="external-link" size="16">
+</i>
+</a>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">
+      aliba
+     </div>
+<div class="footer-links">
+<a href="#about">
+       About
+      </a>
+<a href="/contact">
+       お問い合わせ
+      </a>
+<a href="/privacy">
+       プライバシーポリシー
+      </a>
+</div>
+<div class="footer-copyright">
+      © 2024 aliba. All rights reserved.
+     </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+{
+  "ladies_ranking": [
+    {
+      "order": 1,
+      "image": "https://m.media-amazon.com/images/I/61v8-y1kytL._AC_SX342_SY445_QL70_ML2_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B09KTMJPH3",
+      "name": "リボンピアス",
+      "price": "¥3,504"
+    },
+    {
+      "order": 2,
+      "image": "https://m.media-amazon.com/images/I/61RLziGmpfL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B09KTGZSZD",
+      "name": "ダブルリングフープピアス",
+      "price": "¥2,944"
+    },
+    {
+      "order": 3,
+      "image": "https://m.media-amazon.com/images/I/61y5o3wd24L._AC_SY741_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B09N7LPTZR",
+      "name": "ツイストフープピアス",
+      "price": "¥2,784"
+    },
+    {
+      "order": 4,
+      "image": "https://m.media-amazon.com/images/I/61l+-yflRvL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0CDFLZ4TL",
+      "name": "モアサナイトピアス",
+      "price": "¥3,486"
+    },
+    {
+      "order": 5,
+      "image": "https://m.media-amazon.com/images/I/71IWStsW16L._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0C8FXYTVF",
+      "name": "モアサナイト×パール調ピアス",
+      "price": "¥5,980"
+    }
+  ],
+  "ladies_items": [
+    {
+      "order": 1,
+      "image": "https://m.media-amazon.com/images/I/71IWStsW16L._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0C8FXYTVF",
+      "name": "モアサナイト×パール調ピアス",
+      "price": "¥5,980"
+    },
+    {
+      "order": 2,
+      "image": "https://m.media-amazon.com/images/I/61myojoR+QL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0BP7PL9XG",
+      "name": "モアサナイトホースシューピアス",
+      "price": "¥4,980"
+    },
+    {
+      "order": 3,
+      "image": "https://m.media-amazon.com/images/I/71QwPCHsQcL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0CP6KLS4X",
+      "name": "ピアス×ネックレスセット",
+      "price": "¥2,980"
+    },
+    {
+      "order": 4,
+      "image": "https://m.media-amazon.com/images/I/71qWEGSbzcL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0CP6LRKLH",
+      "name": "ピアス×ネックレスセット",
+      "price": "¥2,544"
+    },
+    {
+      "order": 5,
+      "image": "https://m.media-amazon.com/images/I/61h9B2ShN0L._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0CP6LPFZQ?th=1",
+      "name": "ピアス×ネックレスセット",
+      "price": "¥3,180"
+    },
+    {
+      "order": 6,
+      "image": "https://m.media-amazon.com/images/I/71oGLH2S9RL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B09KTHVDT6",
+      "name": "パール×ジルコニアピアス",
+      "price": "¥2,682"
+    },
+    {
+      "order": 7,
+      "image": "https://m.media-amazon.com/images/I/51FTV8CjWTL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0CDQZ494J",
+      "name": "リボンモチーフネックレス",
+      "price": "¥2,142"
+    },
+    {
+      "order": 8,
+      "image": "https://m.media-amazon.com/images/I/71ti+Owxq0L._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0CP6KJZ9H",
+      "name": "ピアス×ネックレスセット",
+      "price": "¥2,980"
+    },
+    {
+      "order": 9,
+      "image": "https://m.media-amazon.com/images/I/615VMr-ynRL._AC_SL1500_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0C4SVYJD2",
+      "name": "ダイヤモンドホースシューピアス",
+      "price": "¥6,980"
+    },
+    {
+      "order": 10,
+      "image": "https://m.media-amazon.com/images/I/71uf5l7hWVL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B09KTKXBML",
+      "name": "リボンモチーフジルコニアピアス",
+      "price": "¥2,862"
+    }
+  ],
+  "mens_ranking": [
+    {
+      "order": 1,
+      "image": "https://m.media-amazon.com/images/I/71INKsMbJaL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B096NNC6CR",
+      "name": "フェザーピアス",
+      "price": "¥3,184"
+    },
+    {
+      "order": 2,
+      "image": "https://m.media-amazon.com/images/I/61b2j41F-1L._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B099WFL3ZX",
+      "name": "サージカルステンレスネックレス",
+      "price": "¥2,384"
+    },
+    {
+      "order": 3,
+      "image": "https://m.media-amazon.com/images/I/71p0FUFegIL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B09M2XH1C5",
+      "name": "ダブルリングフープピアス",
+      "price": "¥2,384"
+    },
+    {
+      "order": 4,
+      "image": "https://m.media-amazon.com/images/I/61WULgt05VL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B095GJ54B8",
+      "name": "ツイストデザインピアス",
+      "price": "¥2,576"
+    },
+    {
+      "order": 5,
+      "image": "https://m.media-amazon.com/images/I/610S0ZEANzL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B07VKCVTH2",
+      "name": "タングステンネックレス",
+      "price": "¥2,786"
+    }
+  ],
+  "mens_items": [
+    {
+      "order": 1,
+      "image": "https://m.media-amazon.com/images/I/71dX2DNCOSL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B087WL96KM",
+      "name": "カーボンレザー2つ折りウォレット",
+      "price": "¥3,504"
+    },
+    {
+      "order": 2,
+      "image": "https://m.media-amazon.com/images/I/71ICtMSRnuL._AC_SY606_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B09MBKLRB7",
+      "name": "マルチリングピアス",
+      "price": "¥2,624"
+    },
+    {
+      "order": 3,
+      "image": "https://m.media-amazon.com/images/I/51GOBWgdpeL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0FKS84GYW",
+      "name": "アンティークピアス",
+      "price": "¥2,198"
+    },
+    {
+      "order": 4,
+      "image": "https://m.media-amazon.com/images/I/51z-HRSdbzL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0FKS1GX8V",
+      "name": "Hモチーフデザインピアス",
+      "price": "¥2,430"
+    },
+    {
+      "order": 5,
+      "image": "https://m.media-amazon.com/images/I/51S6mQR7yQL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0FKSGLZJR",
+      "name": "立体レリーフピアス",
+      "price": "¥2,180"
+    },
+    {
+      "order": 6,
+      "image": "https://m.media-amazon.com/images/I/51fo-ScvzZL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0FKSH152T",
+      "name": "中世デザインピアス",
+      "price": "¥2,198"
+    },
+    {
+      "order": 7,
+      "image": "https://m.media-amazon.com/images/I/517ZyuN5KoL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0FKSK4ZB1",
+      "name": "サイドジルコニアデザインピアス",
+      "price": "¥2,180"
+    },
+    {
+      "order": 8,
+      "image": "https://m.media-amazon.com/images/I/61EPIXMNmVL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0FKSR6XNW",
+      "name": "クロスリングピアス",
+      "price": "¥2,180"
+    },
+    {
+      "order": 9,
+      "image": "https://m.media-amazon.com/images/I/61WxClbWIyL._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B0FKT829VQ?th=1",
+      "name": "ダブルリングジルコニアピアス",
+      "price": "¥2,180"
+    },
+    {
+      "order": 10,
+      "image": "https://m.media-amazon.com/images/I/612p5XUMb2L._AC_SX679_.jpg",
+      "link": "https://www.amazon.co.jp/dp/B096NQYWMV",
+      "name": "ヘキサゴンピアス",
+      "price": "¥1,580"
+    }
+  ]
+}
