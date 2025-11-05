@@ -296,19 +296,21 @@
 
         /* Hero Section */
         .hero {
+            height: 65vh;
+            min-height: 500px;
             position: relative;
-            width: 100%;
-            max-width: 2400px;
-            margin: 0 auto;
-            aspect-ratio: 8 / 3;
-            max-height: 900px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-carousel {
             position: relative;
             width: 100%;
             height: 100%;
+            max-width: 1900px;
+            margin: 0 auto;
         }
 
         .hero-carousel .slide {
@@ -318,6 +320,10 @@
             width: 100%;
             height: 100%;
             opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-dark);
             transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -332,12 +338,11 @@
             object-position: center;
         }
 
-        .hero {
-            margin-top: 0;
-        }
-
-        #mens-top-page .hero {
-            margin-top: 0;
+        @media (max-width: 767px) {
+            .hero {
+                height: 60vh;
+                min-height: 450px;
+            }
         }
 
         .carousel-dots {
@@ -820,27 +825,25 @@
 
         .journal-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 600px;
-            margin: 0 auto 25px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 18px;
         }
 
         @media (min-width: 1024px) {
             .journal-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 30px;
-                max-width: 900px;
+                gap: 28px;
             }
         }
 
         .journal-item {
             background: white;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease;
             text-decoration: none;
             color: inherit;
-            transition: transform 0.3s ease;
         }
 
         .journal-item:hover {
@@ -848,7 +851,7 @@
         }
 
         .journal-image {
-            aspect-ratio: 16/9;
+            aspect-ratio: 4 / 3;
             background: #f5f5f5;
             overflow: hidden;
         }
@@ -865,7 +868,7 @@
         }
 
         .journal-content {
-            padding: 15px 18px;
+            padding: 14px 16px;
         }
 
         .journal-title {
@@ -873,24 +876,21 @@
             font-weight: 500;
             line-height: 1.4;
             color: var(--fg-primary);
-            margin-bottom: 8px;
+            text-align: left;
         }
 
         .journal-description {
-            font-size: 12px;
-            font-weight: 300;
-            line-height: 1.5;
+            display: block;
+            margin-top: 10px;
+            font-size: 13px;
+            line-height: 1.6;
             color: var(--fg-secondary);
-            margin: 0;
+            text-align: left;
         }
 
         @media (min-width: 768px) {
             .journal-title {
                 font-size: 15px;
-            }
-
-            .journal-description {
-                font-size: 13px;
             }
         }
 
@@ -961,7 +961,7 @@
 
         /* Mobile: Show only first 6 items (3 rows x 2 columns) */
         @media (max-width: 639px) {
-            .item-card:nth-child(n+7) {
+            .all-items-section .items-grid .item-card:nth-child(n+7) {
                 display: none;
             }
 
@@ -1305,6 +1305,12 @@
 
         .mens-theme .hero {
             background: linear-gradient(135deg, var(--mens-bg-dark) 0%, var(--mens-navy) 100%) !important;
+            margin-bottom: 0;
+        }
+
+        .mens-theme .ranking-section {
+            margin-top: 0;
+            padding-top: 50px;
         }
 
         .mens-theme .section-title {
@@ -1490,11 +1496,11 @@
         .aliva-luxe-theme .product-price {
             color: var(--luxe-gold) !important;
             font-family: 'Poppins', 'Noto Serif JP', serif;
-            font-size: 32px;
+            font-size: 18px;
             font-weight: 300;
-            letter-spacing: 2px;
+            letter-spacing: 0;
             text-decoration: none;
-            margin-top: 20px;
+            margin-top: 12px;
         }
 
         .aliva-luxe-theme .footer {
@@ -2272,7 +2278,7 @@
       ペアネックレス
      </a>
 <a class="nav-link" href="#memorial">
-      メモリアルアイテム
+      メモリアルジュエリー
      </a>
 <a class="nav-link" href="#aliva-luxe">
       aliva luxe
@@ -2344,7 +2350,7 @@
 </div>
 <div class="mobile-nav-item">
 <a class="mobile-nav-title" href="#memorial">
-       メモリアルアイテム
+       メモリアルジュエリー
       </a>
 </div>
 <div class="mobile-nav-item">
@@ -2639,7 +2645,7 @@
   </a>
 </div>
 <div class="items-more">
-<a class="more-link" href="/items">
+<a class="more-link" href="#ladies-all-items">
        MORE
        <i data-lucide="arrow-right" size="16">
 </i>
@@ -2654,37 +2660,43 @@
       Jewelry Content
      </h2>
 <div class="journal-grid">
-<a href="#column-article-1" class="journal-item">
+<a class="journal-item" href="#column-article-1">
 <div class="journal-image">
-<img alt="季節とジュエリーの調和" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300&amp;h=180&amp;fit=crop"/>
+<img alt="季節とジュエリーの調和" src="assets/journal/ladies-1.jpg"/>
 </div>
 <div class="journal-content">
 <h3 class="journal-title">
          季節とジュエリーの調和
         </h3>
-<p class="journal-description">季節の光で映えるレディースアクセとメンズジュエリー活用術ヒント集案内</p>
+<p class="journal-description">
+         季節の光で映えるレディースアクセとメンズジュエリー活用術ヒント集案内
+        </p>
 </div>
 </a>
-<a href="#column-article-2" class="journal-item">
+<a class="journal-item" href="#column-article-2">
 <div class="journal-image">
-<img alt="ペアで楽しむシェアアクセ" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&amp;h=180&amp;fit=crop"/>
+<img alt="ペアで楽しむシェアアクセ" src="assets/journal/ladies-2.jpg"/>
 </div>
 <div class="journal-content">
 <h3 class="journal-title">
          ペアで楽しむシェアアクセ
         </h3>
-<p class="journal-description">性別超えて楽しむレディースアクセとメンズアクセのシェア術案内ガイド集記</p>
+<p class="journal-description">
+         性別超えて楽しむレディースアクセとメンズアクセのシェア術案内ガイド集記
+        </p>
 </div>
 </a>
-<a href="#column-article-3" class="journal-item mobile-hidden">
+<a class="journal-item mobile-hidden" href="#column-article-3">
 <div class="journal-image">
-<img alt="素材別・長持ちケア術" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&amp;h=180&amp;fit=crop"/>
+<img alt="素材別・長持ちケア術" src="assets/journal/ladies-3.jpg"/>
 </div>
 <div class="journal-content">
 <h3 class="journal-title">
          素材別・長持ちケア術
         </h3>
-<p class="journal-description">素材別ケアで守るレディースジュエリーとメンズアクセの長持ち術記ガイド集案</p>
+<p class="journal-description">
+         素材別ケアで守るレディースジュエリーとメンズアクセの長持ち術記ガイド集案
+        </p>
 </div>
 </a>
 </div>
@@ -3100,6 +3112,73 @@
             restartCarousel();
         }
 
+        function createProductCard(item) {
+            const card = document.createElement('a');
+            card.className = 'item-card';
+            card.href = item.url;
+            card.target = '_blank';
+            card.rel = 'noopener noreferrer';
+
+            const imageWrapper = document.createElement('div');
+            imageWrapper.className = 'item-image';
+
+            const img = document.createElement('img');
+            img.src = item.image;
+            img.alt = item.name;
+            imageWrapper.appendChild(img);
+
+            const info = document.createElement('div');
+            info.className = 'item-info';
+
+            const name = document.createElement('div');
+            name.className = 'item-name';
+            name.textContent = item.name;
+
+            const price = document.createElement('div');
+            price.className = 'item-price';
+            price.textContent = item.price;
+
+            info.appendChild(name);
+            info.appendChild(price);
+            card.appendChild(imageWrapper);
+            card.appendChild(info);
+
+            return card;
+        }
+
+        function buildAllItemsPage(targetKey, data, categories) {
+            const container = document.querySelector(`[data-all-items="${targetKey}"]`);
+            if (!container || container.children.length > 0) {
+                return;
+            }
+
+            categories.forEach(({ key, title }) => {
+                const items = data[key];
+                if (!items || !items.length) {
+                    return;
+                }
+
+                const section = document.createElement('section');
+                section.className = 'all-items-category';
+
+                const heading = document.createElement('h2');
+                heading.className = 'all-items-category-title';
+                heading.textContent = title;
+                section.appendChild(heading);
+
+                const grid = document.createElement('div');
+                grid.className = 'items-grid';
+
+                items.forEach(item => {
+                    grid.appendChild(createProductCard(item));
+                });
+
+                section.appendChild(grid);
+                container.appendChild(section);
+            });
+        }
+
+
         function handleNavigation(e) {
             e.preventDefault();
             const href = e.currentTarget.getAttribute('href');
@@ -3194,6 +3273,37 @@
                 // Ensure main content is shown by default
                 showMainContent();
             }
+
+            fetch('assets/compiled_products.json')
+                .then(response => response.json())
+                .then(data => {
+                    buildAllItemsPage('ladies', data, [
+                        { key: 'ladies_earrings', title: 'Piercings' },
+                        { key: 'ladies_necklaces', title: 'Necklaces' },
+                        { key: 'set_items', title: 'Set Items' },
+                        { key: 'pair_necklaces', title: 'Pair Necklaces' },
+                        { key: 'aliva_luxe', title: 'aliva luxe' }
+                    ]);
+
+                    buildAllItemsPage('mens', data, [
+                        { key: 'mens_earrings', title: 'Piercings' },
+                        { key: 'mens_necklaces', title: 'Necklaces' },
+                        { key: 'mens_wallets', title: 'Wallets & Cases' },
+                        { key: 'mens_tiepins', title: 'Tie Pins' }
+                    ]);
+                })
+                .catch(error => {
+                    console.error('Failed to load product data:', error);
+                    document.querySelectorAll('[data-all-items]').forEach(container => {
+                        if (container.children.length === 0) {
+                            const message = document.createElement('p');
+                            message.className = 'all-items-error';
+                            message.textContent = '商品情報を読み込めませんでした。時間を置いて再度お試しください。';
+                            container.appendChild(message);
+                        }
+                    });
+                });
+
         });
   </script>
 <!-- Individual Pages Content (Hidden by default, shown when navigating) -->
@@ -4177,6 +4287,70 @@
 </footer>
 </div>
 </div>
+<!-- Ladies All Items Page -->
+<div id="ladies-all-items-page" class="all-items-page" style="display: none;">
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-title">All Items - Ladies</h1>
+      <p class="page-description">レディースアクセサリーの全ラインナップ</p>
+    </div>
+  </section>
+
+  <section class="all-items-content">
+    <div class="container">
+      <div class="all-items-intro">
+        <p>毎日のスタイルを彩るピアスやネックレス、ギフトに選ばれるセットジュエリー、特別な <span style="font-style: italic;">aliva luxe</span> のシリーズまで、レディースカテゴリのアイテムをすべてご覧いただけます。</p>
+      </div>
+      <div class="all-items-collection" data-all-items="ladies"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('about-page'); return false;">About</a>
+        <a href="#" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+        <a href="#" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#" onclick="showPage('support-page'); return false;">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+</div>
+</footer>
+</div>
+<!-- Mens All Items Page -->
+<div id="mens-all-items-page" class="all-items-page" style="display: none;">
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-title">All Items - Mens</h1>
+      <p class="page-description">メンズジュエリーとファッション小物のフルラインナップ</p>
+    </div>
+  </section>
+
+  <section class="all-items-content">
+    <div class="container">
+      <div class="all-items-intro">
+        <p>存在感のあるピアスやニュアンスの効いたネックレス、実用的なウォレットやタイピンまで、メンズカテゴリーのアイテムをまとめてチェックいただけます。</p>
+      </div>
+      <div class="all-items-collection" data-all-items="mens"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('about-page'); return false;">About</a>
+        <a href="#" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+        <a href="#" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#" onclick="showPage('support-page'); return false;">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
 <!-- Memorial Page -->
 <div class="memorial-theme" id="memorial-page" style="display: none;">
 <div class="page-hero">
@@ -4389,176 +4563,33 @@
 <div id="about-page" style="display: none;">
 <div class="page-hero">
 <div class="page-hero-content">
-<h1 class="page-title">
-      About
-     </h1>
-<p class="page-description">
-      alibaの世界観と哲学
-     </p>
+<h1 class="page-title">alibaについて</h1>
+<p class="page-description">ブランドの想いとこだわり</p>
 </div>
 </div>
 <div class="container" style="padding: 60px 20px;">
-<div style="max-width: 800px; margin: 0 auto; line-height: 1.8; color: #333;">
-<h2 style="font-family: var(--font-serif); font-size: 32px; margin-bottom: 30px; color: var(--acc-gold);">
-      私たちの物語
-     </h2>
-<p style="margin-bottom: 30px;">
-      触れるたび、声にならない余韻。Éclat Femmeは、上質な素材と職人の技で、あなただけの特別な瞬間を彩るジュエリーを創造します。
-     </p>
-<p style="margin-bottom: 30px;">
-      2015年に設立されたÉclat Femmeは、伝統的なジュエリー制作技術と現代的なデザインセンスを融合させ、世界中の女性たちに愛される美しい作品を生み出し続けています。
-     </p>
-<h3 style="font-family: var(--font-serif); font-size: 24px; margin: 40px 0 20px; color: var(--acc-gold);">
-      私たちの理念
-     </h3>
-<ul style="margin-bottom: 30px; padding-left: 20px;">
-<li style="margin-bottom: 10px;">
-       一つひとつ手作業で仕上げる職人のクラフトマンシップ
-      </li>
-<li style="margin-bottom: 10px;">
-       厳選された最高品質の素材のみを使用
-      </li>
-<li style="margin-bottom: 10px;">
-       持続可能で環境に配慮した製造プロセス
-      </li>
-<li style="margin-bottom: 10px;">
-       お客様一人ひとりのストーリーを大切にしたカスタマイズ
-      </li>
-</ul>
-<h3 style="font-family: var(--font-serif); font-size: 24px; margin: 40px 0 20px; color: var(--acc-gold);">
-      アトリエ
-     </h3>
-<p style="margin-bottom: 30px;">
-      私たちのアトリエは東京の静かな街角にあり、熟練した職人たちが一つひとつの作品に魂を込めて制作しています。伝統的な技法と最新の技術を組み合わせることで、時代を超えて愛される美しいジュエリーを創り上げています。
-     </p>
-</div>
-</div>
-<footer class="footer">
-<div class="container">
-<div class="footer-logo">
-      aliba
-     </div>
-<div class="footer-links">
-<a href="#about">
-       About
-      </a>
-<a href="#contact">
-       お問い合わせ
-      </a>
-<a href="#terms">
-       利用規約/プライバシーポリシー
-      </a>
-<a href="https://www.instagram.com/aliba_official01/" target="_blank">
-       Instagram
-      </a>
-<a href="#support">
-       アフターサポート
-      </a>
-</div>
-<div class="footer-copyright">
-      © 2024 aliba. All rights reserved.
-     </div>
-</div>
-</footer>
-</div>
-<!-- Column Page -->
-<div id="column-page" style="display: none;">
-<div class="page-hero">
-<div class="page-hero-content">
-<h1 class="page-title">
-      Column
-     </h1>
-<p class="page-description">
-      ジュエリーと美しい暮らしのためのコラム
-     </p>
-</div>
-</div>
-<div class="container" style="padding: 60px 20px;">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
-<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
-<img alt="コラム1" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
-<div style="padding: 24px;">
-<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
-        ジュエリーケアの極意
-       </h3>
-<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
-        大切なジュエリーを美しく保つための正しいお手入れ方法をご紹介します。
-       </p>
-<time style="color: #999; font-size: 12px;">
-        2024.09.15
-       </time>
-</div>
-</article>
-<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
-<img alt="コラム2" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
-<div style="padding: 24px;">
-<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
-        運命のエンゲージリング選び
-       </h3>
-<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
-        一生に一度の特別な瞬間にふさわしいリング選びのポイントをお教えします。
-       </p>
-<time style="color: #999; font-size: 12px;">
-        2024.09.10
-       </time>
-</div>
-</article>
-<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
-<img alt="コラム3" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
-<div style="padding: 24px;">
-<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
-        持続可能なジュエリー
-       </h3>
-<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
-        環境に配慮したエシカルなジュエリー制作への私たちの取り組みについて。
-       </p>
-<time style="color: #999; font-size: 12px;">
-        2024.09.05
-       </time>
-</div>
-</article>
-<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
-<img alt="コラム4" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
-<div style="padding: 24px;">
-<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
-        宝石に込められた想い
-       </h3>
-<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
-        古来より人々に愛され続ける宝石たちの持つ意味とパワーについて探ります。
-       </p>
-<time style="color: #999; font-size: 12px;">
-        2024.08.30
-       </time>
-</div>
-</article>
-<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
-<img alt="コラム5" src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
-<div style="padding: 24px;">
-<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
-        職人の手仕事
-       </h3>
-<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
-        熟練の職人による丁寧な手作業から生まれる美しいジュエリーの制作過程をご紹介。
-       </p>
-<time style="color: #999; font-size: 12px;">
-        2024.08.25
-       </time>
-</div>
-</article>
-<article style="border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: white;">
-<img alt="コラム6" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&amp;h=250&amp;fit=crop" style="width: 100%; height: 250px; object-fit: cover;"/>
-<div style="padding: 24px;">
-<h3 style="font-size: 18px; margin-bottom: 12px; color: #333;">
-        季節を纏うスタイリング
-       </h3>
-<p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
-        四季の移ろいに合わせたジュエリーの選び方と着こなしのコツをお伝えします。
-       </p>
-<time style="color: #999; font-size: 12px;">
-        2024.08.20
-       </time>
-</div>
-</article>
+<div style="max-width: 880px; margin: 0 auto; line-height: 1.9; color: #333;">
+<section style="margin-bottom: 60px;">
+<h2 style="font-family: var(--font-serif); font-size: 26px; margin-bottom: 24px; color: var(--acc-gold); letter-spacing: 0.05em;">コンセプト</h2>
+<p style="margin-bottom: 20px;">alibaの世界観は、日常に寄り添う上質さをそっと届けることから生まれました。選び抜いた素材に指先まで気を配ったデザインを重ね、身につけるたびに心がほどけるようなジュエリーを目指しています。</p>
+<p style="margin-bottom: 0;">私たちは、丁寧なものづくりと手に届く価格の両立に真剣です。作り手の想いを込めた一点一点を大切にしながら、価格が無理なく感じられるよう工夫を重ねています。alibaを選ぶ時間が、あなたの感性と響き合う小さな高揚になるよう願っています。</p>
+</section>
+<section style="margin-bottom: 60px;">
+<h2 style="font-family: var(--font-serif); font-size: 26px; margin-bottom: 24px; color: var(--acc-gold); letter-spacing: 0.05em;">私たちの物語</h2>
+<p style="margin-bottom: 20px;">alibaは「本当に良いものを、正直な価格で。」という信念とともに歩み始めました。名前に込めたのは、毎日の装いをそっと支えるアクセサリーほど心を注ぎたいという想いです。妥協のない素材選びと、細部まで丁寧に仕上げる姿勢を守り続けています。</p>
+<p style="margin-bottom: 20px;">より多くの人に手に取ってもらうために、私たちは作り方や届け方を日々磨き直しています。数量をこなすだけでなく、作り手の熱を保ちながらも手に届く価格帯を実現できる体制を整えてきました。</p>
+<p style="margin-bottom: 0;">alibaのジュエリーがあなたの毎日に寄り添い、ふと笑みがこぼれる瞬間を生む存在でありたいと願っています。</p>
+</section>
+<section style="margin-bottom: 60px;">
+<h2 style="font-family: var(--font-serif); font-size: 26px; margin-bottom: 24px; color: var(--acc-gold); letter-spacing: 0.05em;">コレクションのこだわり</h2>
+<p style="margin-bottom: 20px;">alibaのコレクションは、毎日使える特別感を大切にしています。シンプルなラインから存在感のあるアイテムまで、どれも身に着け方を変えるだけで表情が変わるよう設計されています。</p>
+<p style="margin-bottom: 0;">単品でも重ねてもバランスが取れるよう、ボリュームや光り方の差し引きまで考え抜きました。一つひとつのジュエリーが、あなたの日常を穏やかに彩る相棒となることを目指し、心地よさと美しさのバランスを追求し続けています。</p>
+</section>
+<section>
+<h2 style="font-family: var(--font-serif); font-size: 26px; margin-bottom: 24px; color: var(--acc-gold); letter-spacing: 0.05em;">素材と仕立て</h2>
+<p style="margin-bottom: 20px;">手に触れる瞬間のやさしいなじみと、金属アレルギーや敏感な肌にも寄り添える素材選定を徹底しています。磨きや仕上げの工程まで丁寧に調整し、装いのジャンルを問わず活躍できるよう細部を整えています。</p>
+<p style="margin-bottom: 0;">作業を担う職人たちは、同じ工程を繰り返す中でも微妙な差異を見逃さず、最後の光沢まで責任を持って仕上げます。快適さを長く保つためのテストも重ね、季節や気候を問わず安心して身につけられる状態を確かめています。</p>
+</section>
 </div>
 </div>
 <footer class="footer">
@@ -4765,8 +4796,13 @@
 </div>
 </div>
 </section>
-<!-- Journal Content -->
-<section class="all-items-section" id="mens-items"><div class="container"><h2 class="section-title">All Items</h2><div class="items-grid">
+<!-- All Items -->
+<section class="all-items-section" id="mens-items">
+<div class="container">
+<h2 class="section-title">
+      All Items
+     </h2>
+<div class="items-grid">
   <a class="item-card" href="https://www.amazon.co.jp/dp/B087WL96KM" rel="noopener noreferrer" target="_blank">
     <div class="item-image">
     <img alt="カーボンレザー2つ折り財布" src="https://m.media-amazon.com/images/I/71dX2DNCOSL._AC_SL1500_.jpg"/>
@@ -4857,48 +4893,65 @@
     <div class="item-price">¥1,580</div>
     </div>
   </a>
-</div></div></section><section class="journal-section" id="journal">
+</div>
+<div class="items-more">
+<a class="more-link" href="#mens-all-items">
+       MORE
+       <i data-lucide="arrow-right" size="16">
+</i>
+</a>
+</div>
+</div>
+</section>
+<!-- Journal Content -->
+<section class="journal-section" id="journal">
 <div class="container">
 <h2 class="section-title">
       Jewelry Content
      </h2>
 <div class="journal-grid">
-<a href="#column-article-4" class="journal-item">
+<a class="journal-item" href="#column-article-1">
 <div class="journal-image">
-<img alt="ワークシーンの洗練アクセ" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&amp;h=180&amp;fit=crop"/>
+<img alt="季節とジュエリーの調和" src="assets/journal/mens-1.jpg"/>
 </div>
 <div class="journal-content">
 <h3 class="journal-title">
-         ワークシーンの洗練アクセ
+         季節とジュエリーの調和
         </h3>
-<p class="journal-description">ワークシーン映えレディースアクセとメンズジュエリー印象派ガイド案内容集</p>
+<p class="journal-description">
+         季節の光で映えるレディースアクセとメンズジュエリー活用術ヒント集案内
+        </p>
 </div>
 </a>
-<a href="#column-article-5" class="journal-item">
+<a class="journal-item" href="#column-article-2">
 <div class="journal-image">
-<img alt="旅先で輝くミニマルセット" src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=300&amp;h=180&amp;fit=crop"/>
+<img alt="ペアで楽しむシェアアクセ" src="assets/journal/mens-2.jpg"/>
 </div>
 <div class="journal-content">
 <h3 class="journal-title">
-         旅先で輝くミニマルセット
+         ペアで楽しむシェアアクセ
         </h3>
-<p class="journal-description">旅支度を軽くするレディースネックレスとメンズブレスレット提案術録ガイド</p>
+<p class="journal-description">
+         性別超えて楽しむレディースアクセとメンズアクセのシェア術案内ガイド集記
+        </p>
 </div>
 </a>
-<a href="#column-article-6" class="journal-item mobile-hidden">
+<a class="journal-item mobile-hidden" href="#column-article-3">
 <div class="journal-image">
-<img alt="ジェンダーレスな重ね付け術" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&amp;h=180&amp;fit=crop"/>
+<img alt="素材別・長持ちケア術" src="assets/journal/mens-3.png"/>
 </div>
 <div class="journal-content">
 <h3 class="journal-title">
-         ジェンダーレスな重ね付け術
+         素材別・長持ちケア術
         </h3>
-<p class="journal-description">重ね付けで映えるレディースリングとメンズリングの自由レイヤード記集案内</p>
+<p class="journal-description">
+         素材別ケアで守るレディースジュエリーとメンズアクセの長持ち術記ガイド集案
+        </p>
 </div>
 </a>
 </div>
 <div class="journal-more">
-<a class="journal-more-link" href="#column">
+<a class="more-link" href="#column">
        MORE
        <i data-lucide="arrow-right" size="16">
 </i>
@@ -4962,66 +5015,66 @@
     <!-- Article 1 -->
     <a href="#column-article-1" class="column-card">
       <div class="column-card-image">
-        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=400&fit=crop" alt="季節とジュエリーの調和">
+        <img src="assets/journal/ladies-1.jpg" alt="季節とジュエリーの調和">
       </div>
       <div class="column-card-content">
         <h3 class="column-card-title">季節とジュエリーの調和</h3>
-        <p class="column-card-excerpt">四季折々の装いに合わせたジュエリー選びのコツをご紹介します。</p>
+        <p class="column-card-excerpt">季節の光で映えるレディースアクセとメンズジュエリー活用術ヒント集案内</p>
       </div>
     </a>
 
     <!-- Article 2 -->
     <a href="#column-article-2" class="column-card">
       <div class="column-card-image">
-        <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&h=400&fit=crop" alt="ペアで楽しむシェアアクセ">
+        <img src="assets/journal/ladies-2.jpg" alt="ペアで楽しむシェアアクセ">
       </div>
       <div class="column-card-content">
         <h3 class="column-card-title">ペアで楽しむシェアアクセ</h3>
-        <p class="column-card-excerpt">大切な人と共有できるジュエリーの新しい楽しみ方をご提案します。</p>
+        <p class="column-card-excerpt">性別超えて楽しむレディースアクセとメンズアクセのシェア術案内ガイド集記</p>
       </div>
     </a>
 
     <!-- Article 3 -->
     <a href="#column-article-3" class="column-card">
       <div class="column-card-image">
-        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&h=400&fit=crop" alt="素材別・長持ちケア術">
+        <img src="assets/journal/ladies-3.jpg" alt="素材別・長持ちケア術">
       </div>
       <div class="column-card-content">
         <h3 class="column-card-title">素材別・長持ちケア術</h3>
-        <p class="column-card-excerpt">シルバー、ゴールド、プラチナそれぞれのお手入れ方法を詳しく解説します。</p>
+        <p class="column-card-excerpt">素材別ケアで守るレディースジュエリーとメンズアクセの長持ち術記ガイド集案</p>
       </div>
     </a>
 
     <!-- Article 4 -->
     <a href="#column-article-4" class="column-card">
       <div class="column-card-image">
-        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=400&fit=crop" alt="ワークシーンの洗練アクセ">
+        <img src="assets/journal/mens-1.jpg" alt="ワークシーンの洗練アクセ">
       </div>
       <div class="column-card-content">
         <h3 class="column-card-title">ワークシーンの洗練アクセ</h3>
-        <p class="column-card-excerpt">ビジネスシーンで輝く、品格あるジュエリーの選び方をご紹介します。</p>
+        <p class="column-card-excerpt">ワークシーン映えレディースアクセとメンズジュエリー印象派ガイド案内容集</p>
       </div>
     </a>
 
     <!-- Article 5 -->
     <a href="#column-article-5" class="column-card">
       <div class="column-card-image">
-        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&h=400&fit=crop" alt="旅先で輝くミニマルセット">
+        <img src="assets/journal/mens-2.jpg" alt="旅先で輝くミニマルセット">
       </div>
       <div class="column-card-content">
         <h3 class="column-card-title">旅先で輝くミニマルセット</h3>
-        <p class="column-card-excerpt">旅行に最適な、少ないアイテムで多彩なスタイルを楽しむコツをお伝えします。</p>
+        <p class="column-card-excerpt">旅支度を軽くするレディースネックレスとメンズブレスレット提案術録ガイド</p>
       </div>
     </a>
 
     <!-- Article 6 -->
     <a href="#column-article-6" class="column-card">
       <div class="column-card-image">
-        <img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?w=600&h=400&fit=crop" alt="ジェンダーレスな重ね付け術">
+        <img src="assets/journal/mens-3.png" alt="ジェンダーレスな重ね付け術">
       </div>
       <div class="column-card-content">
         <h3 class="column-card-title">ジェンダーレスな重ね付け術</h3>
-        <p class="column-card-excerpt">性別を超えて楽しめる、モダンな重ね付けスタイルをご提案します。</p>
+        <p class="column-card-excerpt">重ね付けで映えるレディースリングとメンズリングの自由レイヤード記集案内</p>
       </div>
     </a>
   </div>
@@ -5062,9 +5115,9 @@
       </div>
 
       <footer class="article-footer">
-        <a href="#" class="article-cta">
-          コレクションを見る
-          <i data-lucide="arrow-right" size="18"></i>
+        <a href="#column" class="article-cta">
+          コラム一覧に戻る
+          <i data-lucide="arrow-left" size="18"></i>
         </a>
       </footer>
     </article>
@@ -5106,9 +5159,9 @@
       </div>
 
       <footer class="article-footer">
-        <a href="#" class="article-cta">
-          シェアアクセを探す
-          <i data-lucide="arrow-right" size="18"></i>
+        <a href="#column" class="article-cta">
+          コラム一覧に戻る
+          <i data-lucide="arrow-left" size="18"></i>
         </a>
       </footer>
     </article>
@@ -5150,9 +5203,9 @@
       </div>
 
       <footer class="article-footer">
-        <a href="#" class="article-cta">
-          ケアグッズを見る
-          <i data-lucide="arrow-right" size="18"></i>
+        <a href="#column" class="article-cta">
+          コラム一覧に戻る
+          <i data-lucide="arrow-left" size="18"></i>
         </a>
       </footer>
     </article>
@@ -5194,9 +5247,9 @@
       </div>
 
       <footer class="article-footer">
-        <a href="#" class="article-cta">
-          ビジネスジュエリーを探す
-          <i data-lucide="arrow-right" size="18"></i>
+        <a href="#column" class="article-cta">
+          コラム一覧に戻る
+          <i data-lucide="arrow-left" size="18"></i>
         </a>
       </footer>
     </article>
@@ -5238,9 +5291,9 @@
       </div>
 
       <footer class="article-footer">
-        <a href="#" class="article-cta">
-          トラベルジュエリーを見る
-          <i data-lucide="arrow-right" size="18"></i>
+        <a href="#column" class="article-cta">
+          コラム一覧に戻る
+          <i data-lucide="arrow-left" size="18"></i>
         </a>
       </footer>
     </article>
@@ -5282,9 +5335,9 @@
       </div>
 
       <footer class="article-footer">
-        <a href="#" class="article-cta">
-          レイヤードアイテムを探す
-          <i data-lucide="arrow-right" size="18"></i>
+        <a href="#column" class="article-cta">
+          コラム一覧に戻る
+          <i data-lucide="arrow-left" size="18"></i>
         </a>
       </footer>
     </article>
@@ -5310,248 +5363,157 @@
 <div id="terms-page" style="display: none;">
   <div class="page-hero">
     <div class="page-hero-content">
-      <h1 class="page-title">利用規約 / プライバシーポリシー</h1>
-      <p class="page-description">Terms of Service & Privacy Policy</p>
+      <h1 class="page-title">利用規約/プライバシーポリシー</h1>
+      <p class="page-description">最終確定日：2024年4月13日</p>
     </div>
   </div>
   <div class="container" style="padding: 60px 20px;">
-    <div style="max-width: 900px; margin: 0 auto;">
+    <div style="max-width: 900px; margin: 0 auto; line-height: 1.9; color: #333;">
+      <section style="margin-bottom: 60px;">
+        <h2 style="font-family: var(--font-serif); font-size: 32px; color: var(--acc-gold); margin-bottom: 30px; text-align: center;">利用規約</h2>
 
-      <!-- 利用規約セクション -->
-      <div class="legal-section" style="margin-bottom: 80px;">
-        <h2 style="font-family: var(--font-serif); font-size: 36px; margin-bottom: 40px; color: var(--acc-gold); text-align: center; border-bottom: 2px solid var(--acc-gold); padding-bottom: 20px;">利用規約</h2>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第1条（適用範囲）</h3>
+          <p style="margin-bottom: 12px;">本利用規約（以下「本規約」）は、aliba（以下「当店」）が提供するウェブサイト（以下「本サイト」）の利用条件を定めるものです。</p>
+          <p style="margin-bottom: 0;">本サイトに掲載するガイドラインや注意事項も本規約の一部を構成します。本サイトの利用者は、本規約に同意したものとみなします。</p>
+        </article>
 
-        <div style="line-height: 2; color: #333;">
-          <!-- 第1条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第1条（適用範囲）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              本規約は、aliba（以下「当ブランド」といいます）が提供するすべての商品およびサービスの利用に関して、お客様と当ブランドとの間の権利義務関係を定めることを目的とし、お客様と当ブランドとの一切の関係に適用されます。
-            </p>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第2条（本サイトの閲覧と商品案内）</h3>
+          <p style="margin-bottom: 12px;">当店は、本サイトを通じてブランド情報、商品情報、コラム等を提供し、当店が出品するAmazon、楽天市場などの公認オンラインストア（以下「公式取扱ストア」）での商品購入をご案内します。</p>
+          <p style="margin-bottom: 0;">商品購入・決済・配送・返品その他の取引は、公式取扱ストアの利用規約・ガイドラインに従い、利用者と各プラットフォームとの間で行われます。</p>
+        </article>
 
-          <!-- 第2条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第2条（定義）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">本規約において使用する用語の定義は、以下のとおりとします。</p>
-            <ol style="padding-left: 40px; margin-bottom: 15px;">
-              <li style="margin-bottom: 10px;">「本サービス」とは、当ブランドが運営するECサイトおよび関連するサービスを意味します。</li>
-              <li style="margin-bottom: 10px;">「お客様」とは、本サービスを利用する全ての個人または法人を意味します。</li>
-              <li style="margin-bottom: 10px;">「商品」とは、当ブランドが本サービスを通じて販売するジュエリー製品を意味します。</li>
-            </ol>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第3条（情報の正確性）</h3>
+          <p style="margin-bottom: 0;">当店は、掲載情報の正確性・最新性に努めますが、完全性や有用性を保証するものではありません。商品仕様・販売条件等の詳細は、必ず公式取扱ストアにてご確認ください。</p>
+        </article>
 
-          <!-- 第3条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第3条（本規約への同意）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              お客様は、本規約の全ての内容に同意した上で、本サービスを利用するものとします。本サービスの利用をもって、お客様が本規約に同意したものとみなします。
-            </p>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第4条（公式取扱ストアの利用）</h3>
+          <p style="margin-bottom: 12px;">公式取扱ストアでの商品購入には、それぞれの利用規約・プライバシーポリシー等が適用されます。</p>
+          <p style="margin-bottom: 0;">当店は、各プラットフォームのシステム障害・規約変更等に起因する損害について責任を負いませんが、利用者からのご連絡に対しては誠実に対応します。</p>
+        </article>
 
-          <!-- 第4条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第4条（ご注文とご契約の成立）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              1. お客様が当ブランドの指定する方法により商品の注文を行い、当ブランドがこれを承諾した時点で、売買契約が成立するものとします。
-            </p>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              2. 当ブランドは、以下のいずれかに該当する場合、お客様からの注文を承諾しないことがあります。
-            </p>
-            <ul style="padding-left: 40px; margin-bottom: 15px;">
-              <li style="margin-bottom: 10px;">お客様が過去に本規約に違反したことがある場合</li>
-              <li style="margin-bottom: 10px;">商品の在庫がない場合</li>
-              <li style="margin-bottom: 10px;">お客様の登録情報に虚偽の記載がある場合</li>
-              <li style="margin-bottom: 10px;">その他、当ブランドが不適切と判断した場合</li>
-            </ul>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第5条（返品・交換・返金保証）</h3>
+          <p style="margin-bottom: 12px;">当店は、公式取扱ストアで購入された当店商品のうち、商品到着日から30日以内のものについて全額返金または交換を承ります。</p>
+          <p style="margin-bottom: 12px;">手続きは各プラットフォームの返品・交換手順に沿って行ってください。当店から追加案内が必要な場合は、本サイトのお問い合わせフォームにてご連絡いただきます。</p>
+          <p style="margin-bottom: 12px;">当店負担での返送が必要な際は、当店がご案内する方法（着払い伝票等）をご利用ください。</p>
+          <p style="margin-bottom: 0;">使用済み・破損品・付属品欠品など、各プラットフォームの規約や当店ポリシーで返品不可とされている場合は、お受けできません。</p>
+        </article>
 
-          <!-- 第5条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第5条（お支払い方法）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              お客様は、商品の代金を、当ブランドが指定する方法により、指定された期日までにお支払いいただくものとします。お支払い方法は、各販売プラットフォーム（Amazon、楽天市場等）の規定に従います。
-            </p>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第6条（禁止事項）</h3>
+          <p style="margin-bottom: 12px;">利用者は、本サイトの利用にあたり以下の行為をしてはなりません。</p>
+          <ul style="margin-bottom: 0; padding-left: 20px; list-style: disc;">
+            <li style="margin-bottom: 6px;">本サイトの運営を妨げる行為</li>
+            <li style="margin-bottom: 6px;">不正アクセス、情報改ざん、ウイルス等の送信行為</li>
+            <li style="margin-bottom: 6px;">本サイト掲載情報の無断複製・転載</li>
+            <li style="margin-bottom: 6px;">法令または公序良俗に反する行為</li>
+            <li>当店が不適切と判断する行為</li>
+          </ul>
+        </article>
 
-          <!-- 第6条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第6条（配送・納期）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              1. 商品の配送は、当ブランドが指定する配送業者により行います。
-            </p>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              2. 配送料は各販売プラットフォームの規定に従います。
-            </p>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              3. 天災地変、交通事情その他当ブランドの責めに帰すことのできない事由により配送が遅延した場合、当ブランドは責任を負いません。
-            </p>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第7条（知的財産権）</h3>
+          <p style="margin-bottom: 0;">本サイトに掲載される文章・画像・ロゴ・デザイン等の知的財産権は、当店または正当な権利者に帰属します。無断利用を禁止します。</p>
+        </article>
 
-          <!-- 第7条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第7条（返品・交換・キャンセル）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              1. 商品の返品・交換については、各販売プラットフォーム（Amazon、楽天市場等）の返品ポリシーに従います。
-            </p>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              2. 以下の場合、返品・交換をお受けできませんのでご注意ください。
-            </p>
-            <ul style="padding-left: 40px; margin-bottom: 15px;">
-              <li style="margin-bottom: 10px;">お客様の都合による開封後の返品</li>
-              <li style="margin-bottom: 10px;">使用済みまたは破損した商品</li>
-              <li style="margin-bottom: 10px;">商品到着後、一定期間を経過した場合</li>
-              <li style="margin-bottom: 10px;">オーダーメイド商品等、特別にお客様のために製作した商品</li>
-            </ul>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第8条（免責事項）</h3>
+          <p style="margin-bottom: 12px;">当店は、本サイトの利用により生じた損害について、当店の故意または重大な過失がない限り責任を負いません。</p>
+          <p style="margin-bottom: 12px;">商品写真は可能な限り実物に近づけていますが、閲覧環境等により色味・質感が異なる場合があります。</p>
+          <p style="margin-bottom: 0;">各プラットフォームのシステムや配送事情による遅延・障害について、当店は責任を負いません。</p>
+        </article>
 
-          <!-- 第8条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第8条（知的財産権）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              本サービスに関する一切の知的財産権は、当ブランドまたは当ブランドにライセンスを許諾している第三者に帰属します。お客様は、これらを無断で使用、複製、改変、公衆送信等することはできません。
-            </p>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第9条（本規約の変更）</h3>
+          <p style="margin-bottom: 0;">当店は、必要に応じて本規約を変更します。変更後の本規約は、本サイトに掲載された時点で効力を生じます。</p>
+        </article>
 
-          <!-- 第9条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第9条（免責事項）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              1. 当ブランドは、本サービスの内容や商品情報について、その完全性、正確性、有用性等について、いかなる保証も行いません。
-            </p>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              2. 当ブランドは、お客様による本サービスの利用により生じた損害について、一切の責任を負いません。ただし、当ブランドの故意または重過失による場合はこの限りではありません。
-            </p>
-          </div>
+        <article style="margin-bottom: 0;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第10条（準拠法・管轄）</h3>
+          <p style="margin-bottom: 0;">本規約は日本法に準拠します。本サイトの利用に関して当店と利用者との間で紛争が生じた場合、当店所在地を管轄する裁判所を第一審の専属的合意管轄裁判所とします。</p>
+        </article>
+      </section>
 
-          <!-- 第10条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第10条（本規約の変更）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              当ブランドは、お客様の事前の承諾を得ることなく、本規約をいつでも変更できるものとします。変更後の規約は、本サービス上に掲載した時点で効力を生じるものとします。
-            </p>
-          </div>
+      <section>
+        <h2 style="font-family: var(--font-serif); font-size: 32px; color: var(--acc-gold); margin-bottom: 30px; text-align: center;">プライバシーポリシー</h2>
 
-          <!-- 第11条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第11条（準拠法・管轄裁判所）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              1. 本規約の解釈および適用については、日本法に準拠するものとします。
-            </p>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              2. 本サービスに関する一切の紛争については、東京地方裁判所を第一審の専属的合意管轄裁判所とします。
-            </p>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第1条（基本方針）</h3>
+          <p style="margin-bottom: 0;">aliba（以下「当店」）は、利用者の個人情報を適切に保護するため、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定め、法令・その他規範を遵守します。</p>
+        </article>
 
-          <p style="text-align: right; color: #666; margin-top: 40px;">制定日：2024年1月1日</p>
-        </div>
-      </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第2条（取得する情報）</h3>
+          <p style="margin-bottom: 12px;">当店が本サイトおよび問い合わせ対応等で取得する情報は次のとおりです。</p>
+          <ul style="margin-bottom: 0; padding-left: 20px; list-style: disc;">
+            <li style="margin-bottom: 6px;">氏名、メールアドレス、電話番号等、問い合わせ対応に必要な連絡先情報</li>
+            <li style="margin-bottom: 6px;">公式取扱ストアでの注文番号、購入日時、商品名、返品状況など、各プラットフォームから提供を受ける必要最低限の情報</li>
+            <li style="margin-bottom: 6px;">アクセスログ、クッキー、端末情報等のサイト利用状況データ</li>
+            <li>その他、問い合わせ内容に付随して利用者が提供した情報</li>
+          </ul>
+        </article>
 
-      <!-- プライバシーポリシーセクション -->
-      <div class="legal-section">
-        <h2 style="font-family: var(--font-serif); font-size: 36px; margin-bottom: 40px; color: var(--acc-gold); text-align: center; border-bottom: 2px solid var(--acc-gold); padding-bottom: 20px;">プライバシーポリシー</h2>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第3条（利用目的）</h3>
+          <p style="margin-bottom: 12px;">取得した情報は以下の目的で利用します。</p>
+          <ul style="margin-bottom: 0; padding-left: 20px; list-style: disc;">
+            <li style="margin-bottom: 6px;">購入商品のアフターサポート（返品・交換対応、商品に関するお問い合わせ等）</li>
+            <li style="margin-bottom: 6px;">問い合わせ対応および履歴管理</li>
+            <li style="margin-bottom: 6px;">新商品やキャンペーン等のご案内</li>
+            <li style="margin-bottom: 6px;">サイト利用状況の分析、サービス改善</li>
+            <li style="margin-bottom: 6px;">不正行為の防止・対応</li>
+            <li>法令に基づく対応</li>
+          </ul>
+        </article>
 
-        <div style="line-height: 2; color: #333;">
-          <!-- 前文 -->
-          <div style="margin-bottom: 40px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
-            <p style="margin-bottom: 15px;">
-              aliba（以下「当ブランド」といいます）は、お客様の個人情報の保護を重要な責務と認識し、個人情報の保護に関する法律（個人情報保護法）およびその他の関連法令を遵守し、以下のとおりプライバシーポリシーを定め、適切に取り扱います。
-            </p>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第4条（公式取扱ストアからの情報取得）</h3>
+          <p style="margin-bottom: 12px;">当店は、Amazonや楽天市場などの公式取扱ストアの規約に従い、返品・交換対応に必要な範囲で利用者情報の提供を受けることがあります。</p>
+          <p style="margin-bottom: 0;">公式取扱ストアにおける個人情報の取扱いは、各プラットフォームのプライバシーポリシーが適用されます。</p>
+        </article>
 
-          <!-- 第1条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第1条（個人情報の定義）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              「個人情報」とは、個人情報保護法に定める個人情報を指し、生存する個人に関する情報であって、当該情報に含まれる氏名、生年月日、住所、電話番号、メールアドレス、購入履歴その他の記述等により特定の個人を識別できる情報をいいます。
-            </p>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第5条（クッキー等の利用）</h3>
+          <p style="margin-bottom: 0;">当店は、サイトの利便性向上やアクセス解析のため、クッキー等を利用する場合があります。利用者はブラウザ設定によりクッキーを無効化できますが、一部機能が利用できなくなることがあります。</p>
+        </article>
 
-          <!-- 第2条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第2条（個人情報の収集方法）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">当ブランドは、以下の方法によりお客様の個人情報を収集します。</p>
-            <ul style="padding-left: 40px; margin-bottom: 15px;">
-              <li style="margin-bottom: 10px;">商品購入時の各ECプラットフォームを通じた情報提供</li>
-              <li style="margin-bottom: 10px;">お問い合わせフォームからの情報提供</li>
-              <li style="margin-bottom: 10px;">メールでのお問い合わせ</li>
-              <li style="margin-bottom: 10px;">SNSを通じたコミュニケーション</li>
-              <li style="margin-bottom: 10px;">アフターサポートのご利用</li>
-            </ul>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第6条（第三者提供・委託）</h3>
+          <p style="margin-bottom: 12px;">当店は、法令に基づく場合を除き、利用者の同意なく個人情報を第三者に提供しません。</p>
+          <p style="margin-bottom: 0;">当店は、メール配信やシステム保守等を外部委託する場合があります。委託先には契約等により適切な管理を義務付け、必要な監督を行います。</p>
+        </article>
 
-          <!-- 第3条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第3条（個人情報の利用目的）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">当ブランドは、お客様から取得した個人情報を以下の目的で利用します。</p>
-            <ol style="padding-left: 40px; margin-bottom: 15px;">
-              <li style="margin-bottom: 10px;">商品の配送、代金決済、返品対応等、商品の販売に関する業務遂行のため</li>
-              <li style="margin-bottom: 10px;">お客様からのお問い合わせへの対応のため</li>
-              <li style="margin-bottom: 10px;">商品やサービスに関する情報提供のため</li>
-              <li style="margin-bottom: 10px;">アフターサポートの提供のため</li>
-              <li style="margin-bottom: 10px;">マーケティング調査、統計分析のため（個人を識別できない形式に加工して利用）</li>
-              <li style="margin-bottom: 10px;">商品開発、サービス改善のため</li>
-              <li style="margin-bottom: 10px;">キャンペーン、プロモーション情報の配信のため（お客様の同意がある場合）</li>
-            </ol>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第7条（安全管理措置）</h3>
+          <p style="margin-bottom: 0;">当店は、個人情報の漏えい・紛失・毀損を防止するため、アクセス権限管理、暗号化、監視体制の整備など、合理的な安全管理措置を講じます。</p>
+        </article>
 
-          <!-- 第4条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第4条（個人情報の第三者提供）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">当ブランドは、以下の場合を除き、お客様の同意なく個人情報を第三者に提供しません。</p>
-            <ul style="padding-left: 40px; margin-bottom: 15px;">
-              <li style="margin-bottom: 10px;">法令に基づく場合</li>
-              <li style="margin-bottom: 10px;">人の生命、身体または財産の保護のために必要がある場合であって、お客様の同意を得ることが困難な場合</li>
-              <li style="margin-bottom: 10px;">公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合であって、お客様の同意を得ることが困難な場合</li>
-              <li style="margin-bottom: 10px;">国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、お客様の同意を得ることにより当該事務の遂行に支障を及ぼすおそれがある場合</li>
-              <li style="margin-bottom: 10px;">配送業務、決済代行業務等、業務遂行に必要な範囲で委託先に提供する場合</li>
-            </ul>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第8条（保存期間）</h3>
+          <p style="margin-bottom: 0;">取得した個人情報は、利用目的の達成に必要な期間保管し、不要となった場合は適切な方法で削除または匿名化します。ただし、法令等で保存が義務づけられている情報については当該期間保管します。</p>
+        </article>
 
-          <!-- 第5条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第5条（個人情報の安全管理）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              当ブランドは、お客様の個人情報を正確かつ最新の内容に保つよう努め、不正なアクセス、漏洩、紛失、破損、改ざん等を防止するため、適切な安全管理措置を講じます。
-            </p>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第9条（開示・訂正等の請求）</h3>
+          <p style="margin-bottom: 0;">利用者は、当店が保有する自己の個人情報について、開示・訂正・追加・削除・利用停止・第三者提供停止を求めることができます。手続きは第11条の窓口にご連絡ください。</p>
+        </article>
 
-          <!-- 第6条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第6条（個人情報の開示・訂正・削除）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              お客様は、当ブランドが保有するご自身の個人情報について、開示、訂正、削除を求めることができます。その場合は、下記の問い合わせ先までご連絡ください。
-            </p>
-          </div>
+        <article style="margin-bottom: 28px;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第10条（本ポリシーの変更）</h3>
+          <p style="margin-bottom: 0;">当店は、法令改正その他必要性に応じ、本ポリシーを変更します。変更後の内容は本サイトに掲示し、公表した時点から効力を生じます。</p>
+        </article>
 
-          <!-- 第7条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第7条（Cookie等の利用）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              当ブランドは、お客様により良いサービスを提供するため、Cookie等の技術を使用することがあります。Cookieは、お客様のブラウザ設定により無効化することができます。
-            </p>
-          </div>
-
-          <!-- 第8条 -->
-          <div style="margin-bottom: 40px;">
-            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第8条（プライバシーポリシーの変更）</h3>
-            <p style="margin-bottom: 15px; padding-left: 20px;">
-              当ブランドは、法令の変更、事業内容の変更等に応じて、本プライバシーポリシーを予告なく変更することがあります。変更後のプライバシーポリシーは、本サービス上に掲載した時点で効力を生じるものとします。
-            </p>
-          </div>
-
-          <!-- お問い合わせ先 -->
-          <div style="margin-top: 60px; padding: 30px; background: #f9f9f9; border-radius: 8px; border: 2px solid var(--acc-gold);">
-            <h3 style="font-size: 20px; font-weight: 600; color: var(--acc-gold); margin-bottom: 20px; text-align: center;">お問い合わせ先</h3>
-            <p style="margin-bottom: 10px; text-align: center;">個人情報の取り扱いに関するお問い合わせは、以下までご連絡ください。</p>
-            <p style="text-align: center; font-size: 18px; color: var(--acc-gold); font-weight: 500; margin-top: 20px;">Email: h.amazon.y@gmail.com</p>
-          </div>
-
-          <p style="text-align: right; color: #666; margin-top: 40px;">制定日：2024年1月1日<br/>最終改定日：2024年1月1日</p>
-        </div>
-      </div>
-
+        <article style="margin-bottom: 0;">
+          <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第11条（お問い合わせ窓口）</h3>
+          <p style="margin-bottom: 0;">個人情報の取扱いに関するお問い合わせは、本サイトのお問い合わせフォームよりご連絡ください。内容を確認のうえ、適切な方法でご返答いたします。</p>
+        </article>
+      </section>
     </div>
+
   </div>
   <footer class="footer">
     <div class="container">
@@ -5589,7 +5551,12 @@
         </p>
       </div>
 
-      <form id="contact-form" style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+      <form id="contact-form" action="https://formsubmit.co/h.amazon.y0@gmail.com" method="POST" style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+
+        <input type="hidden" name="_subject" value="aliba お問い合わせ"/>
+        <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。&#10;&#10;本メールは自動送信です。内容を確認次第、担当よりご連絡いたします。"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="hidden" name="_captcha" value="false"/>
 
         <!-- お名前 -->
         <div style="margin-bottom: 30px;">
@@ -5649,17 +5616,6 @@
         <div id="form-message" style="display: none; margin-top: 30px; padding: 20px; border-radius: 8px; text-align: center; font-size: 15px;"></div>
 
       </form>
-
-      <div style="margin-top: 50px; padding: 30px; background: #f9f9f9; border-radius: 8px; text-align: center;">
-        <h3 style="font-size: 18px; color: #333; margin-bottom: 15px;">その他のお問い合わせ方法</h3>
-        <p style="font-size: 14px; color: #666; line-height: 1.8; margin-bottom: 10px;">
-          直接メールでのお問い合わせも受け付けております
-        </p>
-        <p style="font-size: 16px; color: var(--acc-gold); font-weight: 500;">
-          <a href="mailto:h.amazon.y@gmail.com" style="color: var(--acc-gold); text-decoration: none;">h.amazon.y@gmail.com</a>
-        </p>
-      </div>
-
     </div>
   </div>
   <footer class="footer">
@@ -5682,42 +5638,61 @@
 document.addEventListener('DOMContentLoaded', function() {
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    const formMessage = document.getElementById('form-message');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+
+    contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      const formData = {
-        name: document.getElementById('contact-name').value,
-        email: document.getElementById('contact-email').value,
-        order_number: document.getElementById('contact-order').value,
-        platform: document.getElementById('contact-platform').value,
-        message: document.getElementById('contact-message').value
-      };
+      if (formMessage) {
+        formMessage.style.display = 'none';
+        formMessage.textContent = '';
+      }
 
-      // Create mailto link
-      const subject = encodeURIComponent('お問い合わせ - ' + formData.name);
-      let body = encodeURIComponent(
-        'お名前: ' + formData.name + '\n' +
-        'メールアドレス: ' + formData.email + '\n' +
-        (formData.order_number ? '注文番号: ' + formData.order_number + '\n' : '') +
-        (formData.platform ? '購入プラットフォーム: ' + formData.platform + '\n' : '') +
-        '\nお問い合わせ内容:\n' + formData.message
-      );
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = '送信中...';
+      }
 
-      // Open mailto
-      window.location.href = 'mailto:h.amazon.y@gmail.com?subject=' + subject + '&body=' + body;
+      const formData = new FormData(contactForm);
 
-      // Show success message
-      const formMessage = document.getElementById('form-message');
-      formMessage.style.display = 'block';
-      formMessage.style.background = '#d4edda';
-      formMessage.style.color = '#155724';
-      formMessage.style.border = '1px solid #c3e6cb';
-      formMessage.textContent = 'メールクライアントが開きました。送信を完了してください。';
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/h.amazon.y0@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: formData
+        });
 
-      // Reset form
-      setTimeout(function() {
+        if (!response.ok) {
+          throw new Error('Failed to submit form');
+        }
+
+        if (formMessage) {
+          formMessage.style.display = 'block';
+          formMessage.style.background = '#d4edda';
+          formMessage.style.color = '#155724';
+          formMessage.style.border = '1px solid #c3e6cb';
+          formMessage.textContent = '送信が完了しました。内容を確認のうえ、2営業日以内にご連絡いたします。';
+        }
+
         contactForm.reset();
-      }, 1000);
+      } catch (error) {
+        if (formMessage) {
+          formMessage.style.display = 'block';
+          formMessage.style.background = '#f8d7da';
+          formMessage.style.color = '#721c24';
+          formMessage.style.border = '1px solid #f5c6cb';
+          formMessage.textContent = '送信に失敗しました。お手数ですが時間をおいて再度お試しください。';
+        }
+        console.error('Contact form submission failed:', error);
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = '送信する';
+        }
+      }
     });
 
     // Input focus effects
@@ -5826,340 +5801,69 @@ document.addEventListener('DOMContentLoaded', function() {
   </footer>
 </div>
 
-<!-- Contact Page -->
-<div id="contact-page" class="contact-page" style="display: none;">
-  <section class="contact-hero">
-    <div class="container">
-      <h1 class="page-title">お問い合わせ</h1>
-      <p class="page-subtitle">ご質問やご要望がございましたら、お気軽にお問い合わせください。</p>
-    </div>
-  </section>
-
-  <section class="contact-form-section">
-    <div class="container">
-      <form class="contact-form" action="mailto:h.amazon.y@gmail.com" method="post" enctype="text/plain">
-        <div class="form-group">
-          <label for="contact-name">お名前 <span class="required">必須</span></label>
-          <input type="text" id="contact-name" name="name" required placeholder="山田 太郎">
-        </div>
-
-        <div class="form-group">
-          <label for="contact-email">メールアドレス <span class="required">必須</span></label>
-          <input type="email" id="contact-email" name="email" required placeholder="example@email.com">
-        </div>
-
-        <div class="form-group">
-          <label for="contact-order-number">注文番号 <span class="optional">任意</span></label>
-          <input type="text" id="contact-order-number" name="order-number" placeholder="000-0000000-0000000">
-          <small>ご注文に関するお問い合わせの場合は、注文番号をご記入ください。</small>
-        </div>
-
-        <div class="form-group">
-          <label for="contact-platform">購入プラットフォーム <span class="optional">任意</span></label>
-          <select id="contact-platform" name="platform">
-            <option value="">選択してください</option>
-            <option value="amazon">Amazon</option>
-            <option value="rakuten">楽天市場</option>
-            <option value="other">その他</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="contact-message">お問い合わせ内容 <span class="required">必須</span></label>
-          <textarea id="contact-message" name="message" rows="6" required placeholder="お問い合わせ内容をご記入ください。"></textarea>
-        </div>
-
-        <div class="form-notice">
-          <p>※ お問い合わせ内容によっては、回答にお時間をいただく場合がございます。</p>
-          <p>※ 3営業日以内に返信がない場合は、お手数ですが再度お問い合わせください。</p>
-        </div>
-
-        <button type="submit" class="submit-btn">送信する</button>
-      </form>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-logo">aliba</div>
-      <div class="footer-links">
-        <a href="#" onclick="showPage('about-page'); return false;">About</a>
-        <a href="#" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
-        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-        <a href="#" onclick="showPage('support-page'); return false;">アフターサポート</a>
-      </div>
-      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
-    </div>
-  </footer>
-</div>
-
-<!-- Terms & Privacy Page -->
-<div id="terms-page" class="terms-page" style="display: none;">
-  <section class="terms-hero">
-    <div class="container">
-      <h1 class="page-title">利用規約・プライバシーポリシー</h1>
-      <p class="page-subtitle">最終更新日：2024年11月5日</p>
-    </div>
-  </section>
-
-  <section class="terms-content">
-    <div class="container">
-      <div class="terms-section">
-        <h2 class="section-title">利用規約</h2>
-
-        <div class="terms-article">
-          <h3>第1条（適用）</h3>
-          <p>本規約は、aliba（以下「当店」といいます）がAmazon、楽天市場等のプラットフォームを通じて提供するジュエリー販売サービス（以下「本サービス」といいます）の利用条件を定めるものです。ご購入いただくお客様（以下「ユーザー」といいます）は、本規約に同意したものとみなします。</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第2条（商品・価格）</h3>
-          <p>1. 当店は、ウェブサイトおよび各プラットフォームに掲載された商品を販売します。</p>
-          <p>2. 商品の価格は、各プラットフォームに表示された価格とします。価格には消費税が含まれます。</p>
-          <p>3. 送料は、各プラットフォームの規定に従います。</p>
-          <p>4. 商品の仕様、デザイン、価格は予告なく変更される場合があります。</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第3条（注文・契約の成立）</h3>
-          <p>1. ユーザーは、各プラットフォームの定める方法に従い、商品を注文するものとします。</p>
-          <p>2. 当店がユーザーの注文を承諾し、注文確認メールを送信した時点で、売買契約が成立するものとします。</p>
-          <p>3. 在庫状況により、ご注文をお受けできない場合があります。その場合は、速やかにご連絡いたします。</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第4条（支払い方法）</h3>
-          <p>お支払い方法は、各プラットフォームが提供する決済方法に従います。クレジットカード、コンビニ払い、代金引換などがご利用いただけます（プラットフォームにより異なります）。</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第5条（配送）</h3>
-          <p>1. 商品は、ご注文確認後、原則として3〜7営業日以内に発送いたします。</p>
-          <p>2. 配送日時の指定がある場合は、可能な限り対応いたしますが、配送業者の都合により遅延する場合があります。</p>
-          <p>3. 天災、交通事情、その他不可抗力により配送が遅延した場合、当店は責任を負いません。</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第6条（返品・交換）</h3>
-          <p>1. 商品到着後7日以内に限り、未使用・未開封の商品に限り返品を承ります。</p>
-          <p>2. お客様都合による返品の場合、返送料はお客様負担となります。</p>
-          <p>3. 商品に不良がある場合、または注文と異なる商品が届いた場合は、当店負担にて交換または返品対応いたします。</p>
-          <p>4. セール品、名入れ商品など、一部返品・交換をお受けできない商品があります。</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第7条（免責事項）</h3>
-          <p>1. 商品の色、質感は、お使いのモニター環境により実物と異なる場合があります。</p>
-          <p>2. 金属アレルギーについては個人差があるため、当店は責任を負いかねます。ご心配な方は事前にお問い合わせください。</p>
-          <p>3. 当店は、本サービスの中断、停止、終了により生じた損害について責任を負いません。</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第8条（規約の変更）</h3>
-          <p>当店は、本規約を予告なく変更することがあります。変更後の規約は、当ウェブサイトに掲載した時点で効力を生じるものとします。</p>
-        </div>
-      </div>
-
-      <div class="terms-section">
-        <h2 class="section-title">プライバシーポリシー</h2>
-
-        <div class="terms-article">
-          <h3>第1条（個人情報の定義）</h3>
-          <p>本プライバシーポリシーにおいて「個人情報」とは、お客様個人を識別できる情報（氏名、住所、電話番号、メールアドレス、購入履歴等）を指します。</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第2条（個人情報の取得）</h3>
-          <p>当店は、以下の方法で個人情報を取得します。</p>
-          <p>1. 商品購入時の注文情報</p>
-          <p>2. お問い合わせフォームからのご連絡</p>
-          <p>3. 各プラットフォーム（Amazon、楽天市場等）を通じた情報</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第3条（個人情報の利用目的）</h3>
-          <p>当店は、取得した個人情報を以下の目的で利用します。</p>
-          <p>1. 商品の発送、配送</p>
-          <p>2. ご注文内容の確認、お問い合わせへの回答</p>
-          <p>3. アフターサービスの提供</p>
-          <p>4. 新商品やキャンペーンのご案内（ご同意いただいた場合のみ）</p>
-          <p>5. サービス改善のための統計データ作成（個人を特定できない形式）</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第4条（個人情報の第三者提供）</h3>
-          <p>当店は、以下の場合を除き、個人情報を第三者に提供いたしません。</p>
-          <p>1. お客様の同意がある場合</p>
-          <p>2. 法令に基づく場合</p>
-          <p>3. 配送業者等、サービス提供に必要な業務委託先への提供（適切な管理のもと）</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第5条（個人情報の管理）</h3>
-          <p>当店は、個人情報の漏洩、紛失、改ざんを防止するため、適切なセキュリティ対策を講じます。また、個人情報へのアクセスは必要最小限の担当者に限定し、厳重に管理します。</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第6条（個人情報の開示・訂正・削除）</h3>
-          <p>お客様は、当店が保有する個人情報について、開示、訂正、削除を請求することができます。ご希望の場合は、お問い合わせフォームよりご連絡ください。</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第7条（Cookie等の利用）</h3>
-          <p>当店は、サービス向上のため、Cookie等の技術を使用する場合があります。これにより個人を特定することはありません。ブラウザの設定でCookieを無効にすることも可能ですが、一部機能が制限される場合があります。</p>
-        </div>
-
-        <div class="terms-article">
-          <h3>第8条（プライバシーポリシーの変更）</h3>
-          <p>当店は、法令の変更等に伴い、本プライバシーポリシーを変更することがあります。変更後のポリシーは、当ウェブサイトに掲載した時点で効力を生じます。</p>
-        </div>
-      </div>
-
-      <div class="terms-contact">
-        <h3>お問い合わせ先</h3>
-        <p>個人情報の取扱いに関するお問い合わせは、以下までご連絡ください。</p>
-        <p><strong>aliba カスタマーサポート</strong></p>
-        <p>Email: h.amazon.y@gmail.com</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-logo">aliba</div>
-      <div class="footer-links">
-        <a href="#" onclick="showPage('about-page'); return false;">About</a>
-        <a href="#" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
-        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-        <a href="#" onclick="showPage('support-page'); return false;">アフターサポート</a>
-      </div>
-      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
-    </div>
-  </footer>
-</div>
-
 <!-- Support Page -->
 <div id="support-page" class="support-page" style="display: none;">
   <section class="support-hero">
     <div class="container">
       <h1 class="page-title">アフターサポート</h1>
-      <p class="page-subtitle">末永くご愛用いただくために</p>
+      <p class="page-subtitle">30日間の安心保証と丁寧なサポートで、お客様の大切なジュエリー選びをサポートいたします。</p>
     </div>
   </section>
 
   <section class="support-content">
     <div class="container">
-      <div class="support-section">
-        <h2 class="section-title">修理・メンテナンス</h2>
-        <div class="support-text">
-          <p>alibaでは、お買い上げいただいた商品の修理・メンテナンスサービスを提供しております。</p>
-          <p>チェーンの交換、留め具の修理、サイズ調整など、お気軽にご相談ください。</p>
+      <div class="support-intro">
+        <p>alibaでは、安心してジュエリーをお選びいただけるよう、公式取扱ストアでご購入いただいた商品に対し、以下のサポートをご用意しています。</p>
+      </div>
 
-          <h3>対応可能な修理内容</h3>
-          <ul>
-            <li>チェーンの交換・修理</li>
-            <li>留め具（クラスプ）の交換・調整</li>
-            <li>リングのサイズ調整（一部商品を除く）</li>
-            <li>石の留め直し</li>
-            <li>研磨・クリーニング</li>
-          </ul>
-
-          <h3>修理の流れ</h3>
-          <ol>
-            <li><a href="#" onclick="showPage('contact-page'); return false;">お問い合わせフォーム</a>よりご連絡ください</li>
-            <li>修理内容と費用のお見積りをご案内します</li>
-            <li>お見積りにご納得いただけましたら、商品をご郵送ください</li>
-            <li>修理完了後、商品をお届けします（通常2〜3週間）</li>
-          </ol>
-
-          <p class="notice">※ 修理費用は内容により異なります。まずはお問い合わせください。</p>
-        </div>
+      <div class="support-grid">
+        <article class="support-card">
+          <h2>30日間の全額返金</h2>
+          <p>商品がお手元に届いた日を含む30日以内であれば、理由を問わず全額返金を承ります。まずはご購入いただいた公式取扱ストア（Amazon、楽天市場など）の注文履歴から返品リクエストをお送りください。</p>
+          <p>各プラットフォームの案内に沿って手続きを開始後、必要に応じて当店がお手伝いします。</p>
+        </article>
+        <article class="support-card">
+          <h2>交換サポート</h2>
+          <p>サイズや色のイメージ違いなども、30日以内であれば交換が可能です。同一商品または在庫状況に応じた代替品をご案内いたします。</p>
+          <p>交換をご希望の際も、各プラットフォームの手順に沿ってお申し込みください。</p>
+        </article>
+        <article class="support-card">
+          <h2>返送送料は当店負担</h2>
+          <p>返品・交換に伴う商品の返送送料は当店が負担します。お申し出いただいた後、当店がご案内する着払い伝票や返送方法をご利用ください。</p>
+        </article>
       </div>
 
       <div class="support-section">
-        <h2 class="section-title">保証について</h2>
-        <div class="support-text">
-          <p>商品到着後7日以内の初期不良については、無償で交換または修理対応いたします。</p>
-
-          <h3>保証対象</h3>
-          <ul>
-            <li>製造上の不具合（チェーンの破損、留め具の不良など）</li>
-            <li>明らかな品質不良</li>
-          </ul>
-
-          <h3>保証対象外</h3>
-          <ul>
-            <li>お客様の過失による破損（落下、強い衝撃など）</li>
-            <li>通常使用による経年劣化</li>
-            <li>誤った使用方法による損傷</li>
-            <li>他店での修理・改造が行われた商品</li>
-          </ul>
-
-          <p class="notice">※ 保証をご希望の場合は、ご注文番号と購入日が確認できる情報をご用意ください。</p>
-        </div>
+        <h3>返品・交換をお受けできない場合</h3>
+        <ul>
+          <li>使用済み、または使用の痕跡が確認できる商品</li>
+          <li>お客様の責任で破損・汚損が生じた商品</li>
+          <li>付属品（化粧箱・タグ等）が不足している商品</li>
+          <li>各プラットフォームの規約により返品不可とされている商品</li>
+        </ul>
       </div>
 
       <div class="support-section">
-        <h2 class="section-title">お手入れ方法</h2>
-        <div class="support-text">
-          <p>ジュエリーを美しく保つため、日頃のお手入れが大切です。</p>
+        <h3>手続きの流れ</h3>
+        <ol>
+          <li>公式取扱ストアの注文履歴から返品／交換リクエストを送信</li>
+          <li>プラットフォームの指示に従い必要事項を入力</li>
+          <li>当店から追加案内がある場合は、本サイトの「お問い合わせフォーム」よりご案内</li>
+          <li>商品をご返送</li>
+          <li>当店で検品のうえ、返金処理または交換品を発送（結果はプラットフォーム経由またはメールでお知らせします）</li>
+        </ol>
+      </div>
 
-          <h3>日常のお手入れ</h3>
-          <ul>
-            <li>使用後は柔らかい布で軽く拭いてください</li>
-            <li>水や汗がついた場合は、すぐに拭き取ってください</li>
-            <li>保管時は、個別の袋やケースに入れてください</li>
-            <li>直射日光や高温多湿を避けて保管してください</li>
-          </ul>
-
-          <h3>避けていただきたいこと</h3>
-          <ul>
-            <li>入浴時、プールや温泉での着用</li>
-            <li>香水、化粧品、ヘアスプレーなどの化学物質との接触</li>
-            <li>スポーツや重労働時の着用</li>
-            <li>他のジュエリーと一緒に保管すること（傷の原因）</li>
-          </ul>
-
-          <p>詳しいお手入れ方法は、<a href="#" onclick="showColumnArticle('column-article-3'); return false;">こちらのコラム</a>をご覧ください。</p>
-        </div>
+      <div class="support-note">
+        <p>手続きやご不明点がある場合は、本サイトの「お問い合わせフォーム」からご連絡ください。注文番号・購入プラットフォーム名・商品名をご記入いただくとご案内がスムーズです。</p>
       </div>
 
       <div class="support-section">
-        <h2 class="section-title">よくあるご質問</h2>
-        <div class="faq-list">
-          <div class="faq-item">
-            <h3 class="faq-question">金属アレルギーが心配です。大丈夫でしょうか？</h3>
-            <div class="faq-answer">
-              <p>alibaの商品は、ステンレススチール、シルバー925、真鍮などを使用しており、比較的アレルギーが起きにくい素材を選んでいます。ただし、金属アレルギーは個人差が大きいため、ご心配な方は事前にパッチテストを行うか、かかりつけの医師にご相談ください。</p>
-              <p>また、各商品ページには使用素材を明記しておりますので、ご確認のうえご購入ください。</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">リングのサイズ調整は可能ですか？</h3>
-            <div class="faq-answer">
-              <p>商品によって対応可能なものと不可能なものがございます。デザインや素材により、サイズ調整が難しい場合もありますので、まずは<a href="#" onclick="showPage('contact-page'); return false;">お問い合わせフォーム</a>よりご相談ください。</p>
-              <p>サイズ調整が可能な場合、費用と納期をご案内いたします。</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">ギフトラッピングは対応していますか？</h3>
-            <div class="faq-answer">
-              <p>申し訳ございませんが、現在ギフトラッピングサービスは行っておりません。商品は簡易包装にてお届けしております。</p>
-              <p>プレゼント用のラッピングをご希望の場合は、市販のジュエリーボックスやギフトバッグをご利用いただくことをおすすめいたします。</p>
-            </div>
-          </div>
-        </div>
+        <h3>ポリシーの更新について</h3>
+        <p>各プラットフォームの規約変更や法令改正等に合わせ、サポート内容を見直す場合があります。最新の情報は本ページでご確認ください。</p>
       </div>
 
-      <div class="support-contact">
-        <h3>その他のご質問</h3>
-        <p>上記以外のご質問や、個別のご相談がございましたら、お気軽にお問い合わせください。</p>
-        <a href="#" onclick="showPage('contact-page'); return false;" class="support-contact-btn">お問い合わせフォームへ</a>
-      </div>
+      <p class="support-closing">30日間の安心保証と丁寧なサポートで、お客様の大切なジュエリー選びをサポートいたします。</p>
     </div>
   </section>
 
@@ -6170,7 +5874,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <a href="#" onclick="showPage('about-page'); return false;">About</a>
         <a href="#" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
         <a href="#" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
-        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
         <a href="#" onclick="showPage('support-page'); return false;">アフターサポート</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
@@ -6490,6 +6194,75 @@ document.addEventListener('DOMContentLoaded', function() {
   font-weight: 600;
 }
 
+/* All Items Page Styles */
+.all-items-page {
+  background: var(--bg-white);
+  min-height: 100vh;
+}
+
+.all-items-content {
+  padding: 80px 20px;
+  background: var(--bg-white);
+}
+
+.all-items-intro {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
+  color: var(--fg-primary);
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+.all-items-intro span {
+  color: var(--acc-gold);
+}
+
+.all-items-collection {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.all-items-error {
+  text-align: center;
+  color: var(--fg-secondary);
+  font-size: 14px;
+  margin: 20px auto 0;
+}
+
+.all-items-category {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.all-items-category-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--acc-gold);
+  letter-spacing: 0.08em;
+}
+
+.all-items-category .items-grid {
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .all-items-content {
+    padding: 60px 16px;
+  }
+
+  .all-items-collection {
+    gap: 40px;
+  }
+
+  .all-items-category-title {
+    font-size: 20px;
+  }
+}
+
 /* Support Page Styles */
 .support-page {
   background: var(--bg-white);
@@ -6501,161 +6274,131 @@ document.addEventListener('DOMContentLoaded', function() {
   background: var(--bg-white);
 }
 
-.support-section {
-  max-width: 900px;
-  margin: 0 auto 80px;
+.support-intro {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
 }
 
-.support-text {
-  line-height: 2;
-}
-
-.support-text p {
-  color: var(--fg-primary);
-  margin-bottom: 20px;
-  font-size: 15px;
-}
-
-.support-text h3 {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--fg-primary);
-  margin: 40px 0 20px;
-}
-
-.support-text ul,
-.support-text ol {
-  margin: 20px 0 20px 24px;
-  color: var(--fg-primary);
-}
-
-.support-text li {
-  margin-bottom: 12px;
-  line-height: 1.8;
-}
-
-.support-text a {
-  color: var(--acc-gold);
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.support-text a:hover {
-  color: var(--acc-gold-hover);
-}
-
-.notice {
-  background: #fffbf0;
-  padding: 16px;
-  border-left: 4px solid var(--acc-gold);
-  margin: 20px 0;
-  font-size: 14px;
-  color: var(--fg-primary);
-}
-
-.faq-list {
-  margin-top: 30px;
-}
-
-.faq-item {
-  margin-bottom: 30px;
-  padding: 30px;
-  background: var(--bg-section);
-  border-radius: 12px;
-  transition: box-shadow 0.3s ease;
-}
-
-.faq-item:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-}
-
-.faq-question {
-  font-family: var(--font-serif);
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--acc-gold);
-  margin-bottom: 16px;
-  display: flex;
-  align-items: flex-start;
-}
-
-.faq-question::before {
-  content: "Q.";
-  font-weight: 600;
-  margin-right: 8px;
-  flex-shrink: 0;
-}
-
-.faq-answer {
-  padding-left: 28px;
-}
-
-.faq-answer p {
-  color: var(--fg-primary);
+.support-intro p {
+  font-size: 16px;
   line-height: 1.9;
-  margin-bottom: 12px;
-  font-size: 15px;
+  color: var(--fg-primary);
 }
 
-.faq-answer p:last-child {
+.support-grid {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.support-card {
+  background: #f9f6f0;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.support-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.08);
+}
+
+.support-card h2 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--acc-gold);
+  margin-bottom: 18px;
+}
+
+.support-card p {
+  color: var(--fg-primary);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.support-card p:last-child {
   margin-bottom: 0;
 }
 
-.faq-answer a {
-  color: var(--acc-gold);
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.faq-answer a:hover {
-  color: var(--acc-gold-hover);
-}
-
-.support-contact {
+.support-section {
   max-width: 900px;
-  margin: 60px auto 0;
-  padding: 50px 40px;
-  background: linear-gradient(135deg, #f8f5f2 0%, #ffffff 100%);
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin: 60px auto;
 }
 
-.support-contact h3 {
+.support-section h3 {
   font-family: var(--font-serif);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--acc-gold);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
-.support-contact p {
+.support-section ul,
+.support-section ol {
+  margin-left: 20px;
   color: var(--fg-primary);
-  line-height: 1.8;
-  margin-bottom: 30px;
-  font-size: 16px;
+  line-height: 1.9;
 }
 
-.support-contact-btn {
-  display: inline-block;
-  padding: 16px 40px;
-  background: var(--acc-gold);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 16px;
-  transition: all 0.3s ease;
+.support-section li {
+  margin-bottom: 10px;
+}
+
+.support-note {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px 28px;
+  background: linear-gradient(135deg, #f9f4eb 0%, #ffffff 100%);
+  border-left: 4px solid var(--acc-gold);
+  border-radius: 12px;
+}
+
+.support-note p {
+  color: var(--fg-primary);
+  font-size: 15px;
+  line-height: 1.9;
+  margin: 0;
+}
+
+.support-closing {
+  max-width: 900px;
+  margin: 80px auto 0;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--acc-gold);
   letter-spacing: 0.05em;
 }
 
-.support-contact-btn:hover {
-  background: var(--acc-gold-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(194, 165, 120, 0.3);
-}
+@media (max-width: 768px) {
+  .support-content {
+    padding: 60px 16px;
+  }
 
+  .support-card {
+    padding: 24px;
+  }
+
+  .support-section {
+    margin: 40px auto;
+  }
+
+  .support-section ul,
+  .support-section ol {
+    margin-left: 16px;
+  }
+
+  .support-closing {
+    font-size: 16px;
+    margin-top: 60px;
+  }
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .page-title {
