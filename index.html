@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="ja">
 <head>
@@ -296,9 +296,9 @@
 
         /* Hero Section */
         .hero {
-            height: 65vh;
-            min-height: 500px;
             position: relative;
+            width: 100%;
+            aspect-ratio: 8 / 3;
             overflow: hidden;
         }
 
@@ -325,9 +325,8 @@
         .hero-carousel .slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center;
-            background: #000;
         }
 
         .hero {
@@ -364,8 +363,7 @@
 
         @media (max-width: 768px) {
             .hero {
-                height: 60vh;
-                min-height: 450px;
+                aspect-ratio: 4 / 3;
             }
 
             .carousel-dots {
@@ -549,7 +547,7 @@
 
         .ranking-price {
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 300;
             color: var(--acc-gold);
             margin-bottom: 10px;
         }
@@ -1016,7 +1014,7 @@
 
         .item-price {
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 300;
             color: var(--acc-gold);
         }
 
@@ -1297,7 +1295,7 @@
             color: var(--mens-accent) !important;
             text-transform: uppercase;
             letter-spacing: 3px;
-            font-weight: 600;
+            font-weight: 300;
         }
 
         .mens-theme .ranking-section,
@@ -1342,25 +1340,25 @@
 
         .mens-theme .ranking-name {
             color: var(--mens-text) !important;
-            font-weight: 600;
+            font-weight: 300;
         }
 
         .mens-theme .category-name {
             color: var(--mens-text) !important;
-            background: var(--mens-bg-dark) !important;
-            font-weight: 600;
+            background: var(--mens-navy) !important;
+            font-weight: 300;
         }
 
         .mens-theme .journal-title {
             color: var(--mens-text) !important;
-            font-weight: 600;
+            font-weight: 300;
         }
 
         #mens-top-page .journal-section .journal-more-link {
             color: #FFFFFF !important;
             background: #2C3E50 !important;
             padding: 12px 32px !important;
-            font-weight: 600;
+            font-weight: 300;
             border-radius: 4px;
             text-decoration: none !important;
             display: inline-flex !important;
@@ -1375,7 +1373,7 @@
 
         .mens-theme .ranking-price {
             color: var(--mens-accent) !important;
-            font-weight: 600;
+            font-weight: 300;
         }
 
         .mens-theme .footer {
@@ -1427,7 +1425,7 @@
 
         .mens-theme .product-price {
             color: #CDD8E7 !important;
-            font-weight: 600;
+            font-weight: 300;
             font-size: 19px;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         }
@@ -1469,8 +1467,12 @@
 
         .aliva-luxe-theme .product-price {
             color: var(--luxe-gold) !important;
-            font-weight: 600;
+            font-family: 'Poppins', 'Noto Serif JP', serif;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 2px;
             text-decoration: none;
+            margin-top: 20px;
         }
 
         .aliva-luxe-theme .footer {
@@ -1596,7 +1598,7 @@
 
         .product-price {
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 300;
             color: var(--acc-gold);
         }
 
@@ -1826,7 +1828,7 @@
 
         .memorial-theme .product-price {
             color: #9CA3AF !important;
-            font-weight: 600;
+            font-weight: 300;
         }
 
         .memorial-theme .container {
@@ -1837,9 +1839,108 @@
         .memorial-theme .footer {
             position: relative;
             z-index: 2;
+            background: linear-gradient(180deg, #E8EDF2 0%, #D6DFE8 100%) !important;
+            color: #4B5563 !important;
         }
 
-    
+        .memorial-theme .footer-logo {
+            color: #6B7280 !important;
+        }
+
+        .memorial-theme .footer-links a {
+            color: #6B7280 !important;
+        }
+
+        .memorial-theme .footer-links a:hover {
+            color: #4B5563 !important;
+        }
+
+        .memorial-theme .footer-copyright {
+            color: #9CA3AF !important;
+        }
+
+        /* Pair Necklaces & Set Items Page Footer - Light Theme */
+        #pair-necklaces-page .footer,
+        #set-items-page .footer {
+            background: var(--bg-light) !important;
+            color: #4B5563 !important;
+        }
+
+        #pair-necklaces-page .footer-logo,
+        #set-items-page .footer-logo {
+            color: var(--acc-gold) !important;
+        }
+
+        #pair-necklaces-page .footer-links a,
+        #set-items-page .footer-links a {
+            color: #6B7280 !important;
+        }
+
+        #pair-necklaces-page .footer-links a:hover,
+        #set-items-page .footer-links a:hover {
+            color: var(--acc-gold) !important;
+        }
+
+        #pair-necklaces-page .footer-copyright,
+        #set-items-page .footer-copyright {
+            color: #9CA3AF !important;
+        }
+
+        /* About & Column Pages Footer - Light Theme */
+        #about-page .footer,
+        #column-page .footer {
+            background: var(--bg-light) !important;
+            color: #4B5563 !important;
+        }
+
+        #about-page .footer-logo,
+        #column-page .footer-logo {
+            color: var(--acc-gold) !important;
+        }
+
+        #about-page .footer-links a,
+        #column-page .footer-links a {
+            color: #6B7280 !important;
+        }
+
+        #about-page .footer-links a:hover,
+        #column-page .footer-links a:hover {
+            color: var(--acc-gold) !important;
+        }
+
+        #about-page .footer-copyright,
+        #column-page .footer-copyright {
+            color: #9CA3AF !important;
+        }
+
+        /* Ladies Pages Footer - Light Theme */
+        #ladies-earrings-page .footer,
+        #ladies-necklaces-page .footer {
+            background: var(--bg-light) !important;
+            color: #4B5563 !important;
+        }
+
+        #ladies-earrings-page .footer-logo,
+        #ladies-necklaces-page .footer-logo {
+            color: var(--acc-gold) !important;
+        }
+
+        #ladies-earrings-page .footer-links a,
+        #ladies-necklaces-page .footer-links a {
+            color: #6B7280 !important;
+        }
+
+        #ladies-earrings-page .footer-links a:hover,
+        #ladies-necklaces-page .footer-links a:hover {
+            color: var(--acc-gold) !important;
+        }
+
+        #ladies-earrings-page .footer-copyright,
+        #ladies-necklaces-page .footer-copyright {
+            color: #9CA3AF !important;
+        }
+
+
         .mens-theme .all-items-section {
             background: var(--mens-bg-section) !important;
         }
@@ -1855,6 +1956,250 @@
         }
         .mens-theme .items-grid .item-price {
             color: var(--mens-accent) !important;
+        }
+
+        /* Column/Blog Pages Styles */
+        .column-page {
+            padding-top: 140px;
+            min-height: 100vh;
+            background: var(--bg-light);
+        }
+
+        .column-hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .column-hero h1 {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            font-weight: 500;
+            color: var(--fg-primary);
+            margin-bottom: 20px;
+        }
+
+        .column-hero .subtitle {
+            font-size: 16px;
+            color: var(--fg-secondary);
+            letter-spacing: 0.05em;
+        }
+
+        .column-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        @media (min-width: 768px) {
+            .column-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .column-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .column-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .column-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .column-card-image {
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
+        }
+
+        .column-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .column-card:hover .column-card-image img {
+            transform: scale(1.08);
+        }
+
+        .column-card-content {
+            padding: 25px;
+        }
+
+        .column-card-title {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--fg-primary);
+            margin-bottom: 12px;
+        }
+
+        .column-card-excerpt {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--fg-secondary);
+        }
+
+        /* Article Page Styles */
+        .article-page {
+            padding-top: 140px;
+            min-height: 100vh;
+            background: white;
+        }
+
+        .article-container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 60px 30px 100px;
+        }
+
+        .article-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--acc-gold);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+        }
+
+        .article-back-link:hover {
+            color: var(--acc-gold-hover);
+        }
+
+        .article-header {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .article-title {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--fg-primary);
+            margin-bottom: 20px;
+        }
+
+        .article-subtitle {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--fg-secondary);
+            font-weight: 300;
+        }
+
+        .article-body {
+            font-size: 16px;
+            line-height: 2;
+            color: var(--fg-primary);
+        }
+
+        .article-body p {
+            margin-bottom: 28px;
+        }
+
+        .article-body h2 {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            font-weight: 500;
+            color: var(--fg-primary);
+            margin: 50px 0 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .article-body h3 {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--fg-primary);
+            margin: 35px 0 18px;
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 25px 0;
+            padding-left: 25px;
+        }
+
+        .article-body li {
+            margin-bottom: 12px;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+            color: var(--acc-gold);
+        }
+
+        .article-footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .article-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            background: var(--acc-gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .article-cta:hover {
+            background: var(--acc-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(194, 165, 120, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .column-hero h1 {
+                font-size: 32px;
+            }
+
+            .article-container {
+                padding: 40px 20px 80px;
+            }
+
+            .article-title {
+                font-size: 28px;
+            }
+
+            .article-subtitle {
+                font-size: 16px;
+            }
+
+            .article-body {
+                font-size: 15px;
+            }
+
+            .article-body h2 {
+                font-size: 22px;
+            }
         }
   </style>
 </head>
@@ -1897,7 +2242,7 @@
         ネックレス
        </a>
 <a href="#mens-wallets">
-        ウォレット
+        財布
        </a>
 </div>
 </div>
@@ -1905,7 +2250,7 @@
       ペアネックレス
      </a>
 <a class="nav-link" href="#memorial">
-      遺骨ネックレス
+      メモリアルアイテム
      </a>
 <a class="nav-link" href="#aliva-luxe">
       aliva luxe
@@ -1966,7 +2311,7 @@
         ネックレス
        </a>
 <a href="#mens-wallets">
-        ウォレット
+        財布
        </a>
 </div>
 </div>
@@ -1977,7 +2322,7 @@
 </div>
 <div class="mobile-nav-item">
 <a class="mobile-nav-title" href="#memorial">
-       遺骨ネックレス
+       メモリアルアイテム
       </a>
 </div>
 <div class="mobile-nav-item">
@@ -2173,53 +2518,6 @@
 </div>
 </div>
 </section>
-<!-- Journal Content -->
-<section class="journal-section" id="journal">
-<div class="container">
-<h2 class="section-title">
-      Jewelry Content
-     </h2>
-<div class="journal-grid">
-<article class="journal-item">
-<div class="journal-image">
-<img alt="ジュエリーケアガイド" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&amp;h=180&amp;fit=crop"/>
-</div>
-<div class="journal-content">
-<h3 class="journal-title">
-         ジュエリーケアの極意
-        </h3>
-</div>
-</article>
-<article class="journal-item">
-<div class="journal-image">
-<img alt="エンゲージリング選び" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300&amp;h=180&amp;fit=crop"/>
-</div>
-<div class="journal-content">
-<h3 class="journal-title">
-         運命のエンゲージリング選び
-        </h3>
-</div>
-</article>
-<article class="journal-item mobile-hidden">
-<div class="journal-image">
-<img alt="ジュエリートレンド" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&amp;h=180&amp;fit=crop"/>
-</div>
-<div class="journal-content">
-<h3 class="journal-title">
-         2024年ジュエリートレンド
-        </h3>
-</div>
-</article>
-</div>
-<div class="journal-more">
-<a class="more-link" href="/column">
-       MORE
-       <i data-lucide="arrow-right" size="16">
-</i>
-</a>
-</div>
-</div>
-</section>
 <!-- All Items -->
 <section class="all-items-section" id="items">
 <div class="container">
@@ -2327,6 +2625,53 @@
 </div>
 </div>
 </section>
+<!-- Journal Content -->
+<section class="journal-section" id="journal">
+<div class="container">
+<h2 class="section-title">
+      Jewelry Content
+     </h2>
+<div class="journal-grid">
+<a href="#column-article-3" class="journal-item">
+<div class="journal-image">
+<img alt="素材別・長持ちケア術" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&amp;h=180&amp;fit=crop"/>
+</div>
+<div class="journal-content">
+<h3 class="journal-title">
+         素材別・長持ちケア術
+        </h3>
+</div>
+</a>
+<a href="#column-article-1" class="journal-item">
+<div class="journal-image">
+<img alt="季節とジュエリーの調和" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300&amp;h=180&amp;fit=crop"/>
+</div>
+<div class="journal-content">
+<h3 class="journal-title">
+         季節とジュエリーの調和
+        </h3>
+</div>
+</a>
+<a href="#column-article-2" class="journal-item mobile-hidden">
+<div class="journal-image">
+<img alt="ペアで楽しむシェアアクセ" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&amp;h=180&amp;fit=crop"/>
+</div>
+<div class="journal-content">
+<h3 class="journal-title">
+         ペアで楽しむシェアアクセ
+        </h3>
+</div>
+</a>
+</div>
+<div class="journal-more">
+<a class="more-link" href="#column">
+       MORE
+       <i data-lucide="arrow-right" size="16">
+</i>
+</a>
+</div>
+</div>
+</section>
 <!-- Aliva Luxe -->
 <section class="high-brand-section">
 <div class="container">
@@ -2399,11 +2744,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -3038,11 +3389,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -3100,11 +3457,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -3338,11 +3701,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -3424,11 +3793,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -3446,7 +3821,7 @@
       Men's Wallets
      </h1>
 <p class="page-description">
-      上質なレザーと金属アクセントのメンズウォレット
+      上質なレザーと金属アクセントのメンズ財布
      </p>
 </div>
 </div>
@@ -3518,11 +3893,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -3636,11 +4017,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -3738,11 +4125,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -3824,11 +4217,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -3934,11 +4333,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -3956,7 +4361,7 @@
       About
      </h1>
 <p class="page-description">
-      Éclat Femmeの物語と哲学
+      alibaの世界観と哲学
      </p>
 </div>
 </div>
@@ -4005,11 +4410,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -4127,11 +4538,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -4320,10 +4737,10 @@
 <section class="all-items-section" id="mens-items"><div class="container"><h2 class="section-title">All Items</h2><div class="items-grid">
   <a class="item-card" href="https://www.amazon.co.jp/dp/B087WL96KM" rel="noopener noreferrer" target="_blank">
     <div class="item-image">
-    <img alt="カーボンレザー2つ折りウォレット" src="https://m.media-amazon.com/images/I/71dX2DNCOSL._AC_SL1500_.jpg"/>
+    <img alt="カーボンレザー2つ折り財布" src="https://m.media-amazon.com/images/I/71dX2DNCOSL._AC_SL1500_.jpg"/>
     </div>
     <div class="item-info">
-    <div class="item-name">カーボンレザー2つ折りウォレット</div>
+    <div class="item-name">カーボンレザー2つ折り財布</div>
     <div class="item-price">¥3,504</div>
     </div>
   </a>
@@ -4414,36 +4831,36 @@
       Jewelry Content
      </h2>
 <div class="journal-grid">
-<article class="journal-item">
+<a href="#column-article-3" class="journal-item">
 <div class="journal-image">
-<img alt="メンズジュエリーケア" src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=300&amp;h=180&amp;fit=crop"/>
+<img alt="素材別・長持ちケア術" src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=300&amp;h=180&amp;fit=crop"/>
 </div>
 <div class="journal-content">
 <h3 class="journal-title">
-         メンズジュエリーのケア方法
+         素材別・長持ちケア術
         </h3>
 </div>
-</article>
-<article class="journal-item">
+</a>
+<a href="#column-article-4" class="journal-item">
 <div class="journal-image">
-<img alt="ビジネススタイル" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&amp;h=180&amp;fit=crop"/>
+<img alt="ワークシーンの洗練アクセ" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=300&amp;h=180&amp;fit=crop"/>
 </div>
 <div class="journal-content">
 <h3 class="journal-title">
-         ビジネスシーンでの着こなし
+         ワークシーンの洗練アクセ
         </h3>
 </div>
-</article>
-<article class="journal-item mobile-hidden">
+</a>
+<a href="#column-article-6" class="journal-item mobile-hidden">
 <div class="journal-image">
-<img alt="メンズトレンド" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&amp;h=180&amp;fit=crop"/>
+<img alt="ジェンダーレスな重ね付け術" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&amp;h=180&amp;fit=crop"/>
 </div>
 <div class="journal-content">
 <h3 class="journal-title">
-         2024年メンズジュエリートレンド
+         ジェンダーレスな重ね付け術
         </h3>
 </div>
-</article>
+</a>
 </div>
 <div class="journal-more">
 <a class="journal-more-link" href="#column">
@@ -4479,11 +4896,17 @@
 <a href="#about">
        About
       </a>
-<a href="/contact">
+<a href="#contact">
        お問い合わせ
       </a>
-<a href="/privacy">
-       プライバシーポリシー
+<a href="#terms">
+       利用規約/プライバシーポリシー
+      </a>
+<a href="https://www.instagram.com/aliba_official01/" target="_blank">
+       Instagram
+      </a>
+<a href="#support">
+       アフターサポート
       </a>
 </div>
 <div class="footer-copyright">
@@ -4492,5 +4915,2118 @@
 </div>
 </footer>
 </div>
+
+<!-- Column List Page -->
+<div id="column-page" class="column-page" style="display: none;">
+  <div class="column-hero">
+    <h1>Jewelry Column</h1>
+    <p class="subtitle">ジュエリーと暮らしをより豊かにするコラム</p>
+  </div>
+
+  <div class="column-grid">
+    <!-- Article 1 -->
+    <a href="#column-article-1" class="column-card">
+      <div class="column-card-image">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=400&fit=crop" alt="季節とジュエリーの調和">
+      </div>
+      <div class="column-card-content">
+        <h3 class="column-card-title">季節とジュエリーの調和</h3>
+        <p class="column-card-excerpt">四季折々の装いに合わせたジュエリー選びのコツをご紹介します。</p>
+      </div>
+    </a>
+
+    <!-- Article 2 -->
+    <a href="#column-article-2" class="column-card">
+      <div class="column-card-image">
+        <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&h=400&fit=crop" alt="ペアで楽しむシェアアクセ">
+      </div>
+      <div class="column-card-content">
+        <h3 class="column-card-title">ペアで楽しむシェアアクセ</h3>
+        <p class="column-card-excerpt">大切な人と共有できるジュエリーの新しい楽しみ方をご提案します。</p>
+      </div>
+    </a>
+
+    <!-- Article 3 -->
+    <a href="#column-article-3" class="column-card">
+      <div class="column-card-image">
+        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&h=400&fit=crop" alt="素材別・長持ちケア術">
+      </div>
+      <div class="column-card-content">
+        <h3 class="column-card-title">素材別・長持ちケア術</h3>
+        <p class="column-card-excerpt">シルバー、ゴールド、プラチナそれぞれのお手入れ方法を詳しく解説します。</p>
+      </div>
+    </a>
+
+    <!-- Article 4 -->
+    <a href="#column-article-4" class="column-card">
+      <div class="column-card-image">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=400&fit=crop" alt="ワークシーンの洗練アクセ">
+      </div>
+      <div class="column-card-content">
+        <h3 class="column-card-title">ワークシーンの洗練アクセ</h3>
+        <p class="column-card-excerpt">ビジネスシーンで輝く、品格あるジュエリーの選び方をご紹介します。</p>
+      </div>
+    </a>
+
+    <!-- Article 5 -->
+    <a href="#column-article-5" class="column-card">
+      <div class="column-card-image">
+        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&h=400&fit=crop" alt="旅先で輝くミニマルセット">
+      </div>
+      <div class="column-card-content">
+        <h3 class="column-card-title">旅先で輝くミニマルセット</h3>
+        <p class="column-card-excerpt">旅行に最適な、少ないアイテムで多彩なスタイルを楽しむコツをお伝えします。</p>
+      </div>
+    </a>
+
+    <!-- Article 6 -->
+    <a href="#column-article-6" class="column-card">
+      <div class="column-card-image">
+        <img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?w=600&h=400&fit=crop" alt="ジェンダーレスな重ね付け術">
+      </div>
+      <div class="column-card-content">
+        <h3 class="column-card-title">ジェンダーレスな重ね付け術</h3>
+        <p class="column-card-excerpt">性別を超えて楽しめる、モダンな重ね付けスタイルをご提案します。</p>
+      </div>
+    </a>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#terms">利用規約/プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#support">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Article 1: 季節とジュエリーの調和 -->
+<div id="column-article-1" class="article-page" style="display: none;">
+  <div class="article-container">
+    <a href="#column" class="article-back-link">
+      <i data-lucide="arrow-left" size="16"></i>
+      コラム一覧に戻る
+    </a>
+
+    <article>
+      <header class="article-header">
+        <h1 class="article-title">季節とジュエリーの調和</h1>
+        <p class="article-subtitle">四季折々の装いに合わせたジュエリー選び</p>
+      </header>
+
+      <div class="article-body">
+        <p>日本には美しい四季があり、それぞれの季節に合わせた装いを楽しむ文化があります。ジュエリーもまた、季節感を大切にすることで、より洗練されたスタイリングが可能になります。</p>
+
+        <h2>春 - 軽やかさと華やかさ</h2>
+        <p>春は新しい始まりの季節。桜や新緑をイメージさせる<strong>淡いピンクゴールド</strong>や<strong>ローズカットのジュエリー</strong>がおすすめです。軽やかなチェーンネックレスや、繊細なデザインのピアスが春の装いに映えます。</p>
+        <p>特に、重ね付けを楽しむなら、細身のリングを複数合わせることで、春らしい軽やかさを演出できます。素材は柔らかな輝きのシルバーや、温かみのあるゴールドが最適です。</p>
+
+        <h2>夏 - 清涼感と輝き</h2>
+        <p>夏は開放的な季節。<strong>シルバーやホワイトゴールド</strong>の爽やかな輝きが、夏の装いに清涼感をもたらします。大ぶりのフープピアスや、シンプルなバングルなど、存在感のあるデザインも夏ならではの楽しみ方です。</p>
+        <p>また、水辺のシーンでは、錆びにくい<strong>ステンレススチール</strong>や<strong>チタン製</strong>のジュエリーを選ぶと、美しさを長く保つことができます。</p>
+
+        <h2>秋 - 深みと重厚感</h2>
+        <p>秋は色彩が豊かな季節。<strong>イエローゴールドやアンティーク調</strong>のジュエリーが、秋の装いに深みを加えます。重ね付けも、春夏よりボリューム感を意識すると、季節感が出ます。</p>
+        <p>レイヤードネックレスや、テクスチャーのあるリングを組み合わせることで、秋らしい重厚感のあるスタイリングが完成します。</p>
+
+        <h2>冬 - 輝きと温もり</h2>
+        <p>冬は光と温もりの季節。<strong>ダイヤモンド</strong>や<strong>ジルコニア</strong>が煌めくジュエリーが、冬の装いに華やかさをもたらします。また、温かみのあるローズゴールドも冬のコーディネートに最適です。</p>
+        <p>タートルネックやニットに合わせるなら、長めのペンダントネックレスがおすすめ。首元にアクセントを加え、冬のファッションを格上げします。</p>
+
+        <h2>季節を超えた定番アイテム</h2>
+        <p>もちろん、<strong>シンプルなスタッドピアス</strong>や<strong>細身のリング</strong>など、季節を問わず使える定番アイテムも大切です。これらをベースに、季節感のあるアイテムを加えることで、一年を通して洗練されたジュエリースタイルを楽しむことができます。</p>
+
+        <p>季節ごとのジュエリー選びは、ファッションをより楽しむための素敵な習慣です。ぜひ、四季の移ろいと共に、ジュエリーの魅力を再発見してみてください。</p>
+      </div>
+
+      <footer class="article-footer">
+        <a href="#" class="article-cta">
+          コレクションを見る
+          <i data-lucide="arrow-right" size="18"></i>
+        </a>
+      </footer>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#terms">利用規約/プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#support">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Article 2: ペアで楽しむシェアアクセ -->
+<div id="column-article-2" class="article-page" style="display: none;">
+  <div class="article-container">
+    <a href="#column" class="article-back-link">
+      <i data-lucide="arrow-left" size="16"></i>
+      コラム一覧に戻る
+    </a>
+
+    <article>
+      <header class="article-header">
+        <h1 class="article-title">ペアで楽しむシェアアクセ</h1>
+        <p class="article-subtitle">大切な人と共有するジュエリーの新しい形</p>
+      </header>
+
+      <div class="article-body">
+        <p>近年、カップルや友人、家族の間で「シェアアクセサリー」が注目を集めています。従来のペアアクセサリーとは異なり、同じアイテムを共有して使うという新しいジュエリーの楽しみ方です。</p>
+
+        <h2>シェアアクセの魅力</h2>
+        <p>シェアアクセの最大の魅力は、<strong>経済的</strong>であることと、<strong>絆を感じられる</strong>ことです。一つのアイテムを共有することで、相手への思いやりや親密さが深まります。また、相手が身に着けていたジュエリーを自分も身に着けることで、特別な繋がりを感じることができます。</p>
+
+        <h2>シェアに最適なアイテム</h2>
+
+        <h3>1. シンプルなリング</h3>
+        <p><strong>ユニセックスデザイン</strong>のシンプルなリングは、シェアアクセの定番です。幅広タイプやシグネットリングなど、性別を問わず使えるデザインが人気です。サイズ調整可能なものを選ぶと、より快適にシェアできます。</p>
+
+        <h3>2. チェーンネックレス</h3>
+        <p>長さ調整が可能な<strong>チェーンネックレス</strong>は、体格差があっても共有しやすいアイテムです。シンプルなデザインほど、どんなスタイルにも合わせやすく、日常的に使えます。</p>
+
+        <h3>3. スタッドピアス</h3>
+        <p>小ぶりの<strong>スタッドピアス</strong>は、男女問わず人気のアイテム。シルバーやゴールドのシンプルなデザインなら、オンオフ問わず使えます。</p>
+
+        <h3>4. ブレスレット</h3>
+        <p>調整可能な<strong>チェーンブレスレット</strong>や<strong>バングル</strong>は、手首のサイズが異なっても共有しやすいアイテムです。</p>
+
+        <h2>シェアアクセを選ぶポイント</h2>
+        <p>シェアアクセを選ぶ際は、以下のポイントを意識すると良いでしょう：</p>
+        <ul>
+          <li><strong>サイズ調整が可能</strong>なデザインを選ぶ</li>
+          <li><strong>ユニセックス</strong>で使いやすいデザインを選ぶ</li>
+          <li><strong>普段使いできる</strong>シンプルなデザインを選ぶ</li>
+          <li><strong>丈夫で手入れしやすい</strong>素材を選ぶ</li>
+        </ul>
+
+        <h2>シェアアクセのルール</h2>
+        <p>シェアアクセを楽しむためには、いくつかのルールを決めておくとスムーズです：</p>
+        <ul>
+          <li>使用後は必ず<strong>クリーニング</strong>してから返す</li>
+          <li>どちらが使うか、<strong>スケジュールを共有</strong>する</li>
+          <li>紛失や破損には<strong>責任を持つ</strong></li>
+          <li>お互いの<strong>使い方を尊重</strong>する</li>
+        </ul>
+
+        <h2>シェアから始まる新しい関係</h2>
+        <p>シェアアクセは、単なるジュエリーの共有以上の意味を持ちます。相手への思いやりや、お互いを大切にする気持ちを育む、素敵なコミュニケーションツールになり得るのです。</p>
+
+        <p>ぜひ、大切な人とシェアアクセを楽しんでみてください。きっと、新しい絆が生まれるはずです。</p>
+      </div>
+
+      <footer class="article-footer">
+        <a href="#" class="article-cta">
+          シェアアクセを探す
+          <i data-lucide="arrow-right" size="18"></i>
+        </a>
+      </footer>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#terms">利用規約/プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#support">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Article 3: 素材別・長持ちケア術 -->
+<div id="column-article-3" class="article-page" style="display: none;">
+  <div class="article-container">
+    <a href="#column" class="article-back-link">
+      <i data-lucide="arrow-left" size="16"></i>
+      コラム一覧に戻る
+    </a>
+
+    <article>
+      <header class="article-header">
+        <h1 class="article-title">素材別・長持ちケア術</h1>
+        <p class="article-subtitle">ジュエリーを美しく保つためのお手入れ方法</p>
+      </header>
+
+      <div class="article-body">
+        <p>大切なジュエリーを長く美しく保つためには、素材に合わせた適切なケアが必要です。今回は、代表的な素材ごとのお手入れ方法をご紹介します。</p>
+
+        <h2>シルバージュエリーのケア</h2>
+        <p>シルバーは美しい輝きを持つ一方、<strong>変色しやすい</strong>という特性があります。空気中の硫黄成分と反応して黒ずんでしまうため、定期的なケアが必要です。</p>
+
+        <h3>日常のケア</h3>
+        <ul>
+          <li>使用後は<strong>柔らかい布で拭く</strong>ことで、汗や皮脂を除去します</li>
+          <li>密閉できる<strong>ジップロックやジュエリーケース</strong>に保管し、空気との接触を最小限にします</li>
+          <li>温泉や海水浴では外すようにしましょう</li>
+        </ul>
+
+        <h3>変色してしまったら</h3>
+        <p>シルバー専用のクリーニングクロスで優しく磨きます。重度の変色には、<strong>シルバー専用クリーナー</strong>を使用しますが、使用後は必ず水でよく洗い流し、完全に乾燥させてください。</p>
+
+        <h2>ゴールドジュエリーのケア</h2>
+        <p>ゴールドは比較的<strong>変色しにくい</strong>素材ですが、皮脂や汚れが付着すると輝きが鈍くなります。</p>
+
+        <h3>日常のケア</h3>
+        <ul>
+          <li>使用後は柔らかい布で拭き、<strong>皮脂や汗を除去</strong>します</li>
+          <li>化粧品や香水は、ジュエリーを着ける<strong>前に</strong>使用しましょう</li>
+          <li>家事や運動時は外すことをおすすめします</li>
+        </ul>
+
+        <h3>クリーニング方法</h3>
+        <p>ぬるま湯に中性洗剤を少量溶かし、<strong>柔らかい歯ブラシ</strong>で優しく洗います。その後、水でよく洗い流し、柔らかい布で水分を完全に拭き取ります。月に1回程度のクリーニングがおすすめです。</p>
+
+        <h2>プラチナジュエリーのケア</h2>
+        <p>プラチナは<strong>最も変色しにくい</strong>貴金属ですが、小傷が付きやすいという特徴があります。</p>
+
+        <h3>日常のケア</h3>
+        <ul>
+          <li>他のジュエリーと<strong>分けて保管</strong>し、傷を防ぎます</li>
+          <li>使用後は柔らかい布で拭きます</li>
+          <li>重い物を持つ作業時は外しましょう</li>
+        </ul>
+
+        <h3>クリーニング方法</h3>
+        <p>ゴールドと同様、ぬるま湯と中性洗剤で洗浄できます。ただし、プラチナは柔らかいため、<strong>ゴシゴシ磨かない</strong>よう注意してください。</p>
+
+        <h2>ステンレススチールのケア</h2>
+        <p>ステンレスは<strong>錆びにくく丈夫</strong>で、日常使いに最適な素材です。</p>
+
+        <h3>日常のケア</h3>
+        <ul>
+          <li>使用後は水で洗い流し、<strong>完全に乾燥</strong>させます</li>
+          <li>海水や塩素には長時間触れないようにしましょう</li>
+        </ul>
+
+        <h3>クリーニング方法</h3>
+        <p>中性洗剤を溶かしたぬるま湯で洗い、柔らかい布で拭きます。頑固な汚れには、<strong>重曹ペースト</strong>を使って優しく磨くと効果的です。</p>
+
+        <h2>保管のポイント</h2>
+        <p>すべてのジュエリーに共通する保管のポイントは以下の通りです：</p>
+        <ul>
+          <li><strong>直射日光を避ける</strong></li>
+          <li><strong>湿気の少ない場所</strong>に保管する</li>
+          <li>ジュエリー同士が<strong>触れ合わないよう</strong>に個別に保管する</li>
+          <li>定期的に<strong>点検</strong>し、緩みや破損がないか確認する</li>
+        </ul>
+
+        <h2>プロのクリーニングもおすすめ</h2>
+        <p>自宅でのケアに加えて、<strong>年に1〜2回</strong>はジュエリーショップでプロのクリーニングを受けることをおすすめします。専門家による点検とメンテナンスで、ジュエリーをより長く美しく保つことができます。</p>
+
+        <p>適切なケアで、大切なジュエリーを一生涯の宝物として楽しみましょう。</p>
+      </div>
+
+      <footer class="article-footer">
+        <a href="#" class="article-cta">
+          ケアグッズを見る
+          <i data-lucide="arrow-right" size="18"></i>
+        </a>
+      </footer>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#terms">利用規約/プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#support">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Article 4: ワークシーンの洗練アクセ -->
+<div id="column-article-4" class="article-page" style="display: none;">
+  <div class="article-container">
+    <a href="#column" class="article-back-link">
+      <i data-lucide="arrow-left" size="16"></i>
+      コラム一覧に戻る
+    </a>
+
+    <article>
+      <header class="article-header">
+        <h1 class="article-title">ワークシーンの洗練アクセ</h1>
+        <p class="article-subtitle">ビジネスで輝く品格あるジュエリー選び</p>
+      </header>
+
+      <div class="article-body">
+        <p>ビジネスシーンでのジュエリーは、<strong>品格と洗練さ</strong>を演出する重要なアイテムです。派手すぎず、しかし存在感のあるジュエリー選びのポイントをご紹介します。</p>
+
+        <h2>ビジネスジュエリーの基本原則</h2>
+        <p>ビジネスシーンでジュエリーを身に着ける際の基本原則は、<strong>控えめながら品質の良いものを選ぶ</strong>ことです。派手な装飾よりも、素材の良さとデザインの美しさで勝負しましょう。</p>
+
+        <h3>避けるべきデザイン</h3>
+        <ul>
+          <li>大きすぎる装飾や派手な色石</li>
+          <li>音が鳴るような大ぶりのブレスレット</li>
+          <li>過度な重ね付け</li>
+          <li>カジュアルすぎるデザイン</li>
+        </ul>
+
+        <h2>アイテム別おすすめデザイン</h2>
+
+        <h3>ピアス・イヤリング</h3>
+        <p><strong>スタッドピアス</strong>や<strong>小ぶりのフープピアス</strong>が最適です。シルバーやゴールドのシンプルなデザインなら、どんなビジネススタイルにも合わせやすいでしょう。</p>
+        <p>おすすめは直径<strong>5mm〜8mm程度</strong>のスタッドピアス。さりげなく耳元を華やかにしつつ、主張しすぎない絶妙なサイズ感です。</p>
+
+        <h3>ネックレス</h3>
+        <p><strong>細いチェーンネックレス</strong>や<strong>小さなペンダント</strong>がビジネスシーンに適しています。長さは40〜45cm程度が理想的で、襟元から少し覗く程度がエレガントです。</p>
+        <p>シャツやブラウスの第一ボタンを開けたときに見える程度の存在感が、洗練された印象を与えます。</p>
+
+        <h3>リング</h3>
+        <p><strong>シンプルなバンドリング</strong>や<strong>小粒の一粒ダイヤモンド</strong>のリングが上品です。複数付ける場合は、同じトーン（すべてゴールド、すべてシルバーなど）で統一すると、まとまりのある印象になります。</p>
+        <p>指一本に一つまでを目安にし、最大でも<strong>両手で3つまで</strong>に抑えるのが好ましいでしょう。</p>
+
+        <h3>ブレスレット・バングル</h3>
+        <p><strong>細身のチェーンブレスレット</strong>や<strong>シンプルなバングル</strong>なら、ビジネスシーンでも問題ありません。ただし、キーボード操作や書類を扱う際に音が鳴らないよう、<strong>ぴったりフィットするサイズ</strong>を選びましょう。</p>
+
+        <h2>シーン別スタイリング</h2>
+
+        <h3>商談・プレゼンテーション</h3>
+        <p>信頼感を与えるため、<strong>最小限のジュエリー</strong>に留めます。スタッドピアスと細いネックレス、もしくは腕時計のみでも十分です。シルバーやプラチナなど、<strong>クールな印象の素材</strong>がおすすめです。</p>
+
+        <h3>社内ミーティング</h3>
+        <p>少し個性を出しても良いシーンです。小ぶりのフープピアスや、デザイン性のあるリングなど、<strong>控えめながら自分らしさ</strong>を表現できるアイテムを選びましょう。</p>
+
+        <h3>クライアントとのディナー</h3>
+        <p>昼間より少し華やかにしても構いません。<strong>小粒のダイヤモンドや上質なパール</strong>など、照明に映える素材を選ぶと、エレガントな印象になります。</p>
+
+        <h2>素材選びのポイント</h2>
+        <p>ビジネスシーンでは、素材の質が重要です。<strong>K14以上のゴールド</strong>、<strong>シルバー925</strong>、<strong>プラチナ</strong>など、本物の貴金属を選びましょう。質の良い素材は、見る人が見れば分かりますし、長く使えるという利点もあります。</p>
+
+        <h2>服装との調和</h2>
+        <p>ジュエリーは服装と調和してこそ、その魅力が引き立ちます：</p>
+        <ul>
+          <li><strong>スーツ</strong>：シンプルでモダンなデザイン</li>
+          <li><strong>ブラウス＆パンツ</strong>：やや華やかなデザインもOK</li>
+          <li><strong>シャツスタイル</strong>：細身のネックレスやバングル</li>
+          <li><strong>ワンピース</strong>：首元か手元、どちらかにポイントを置く</li>
+        </ul>
+
+        <h2>季節感も意識して</h2>
+        <p>夏はシルバーやホワイトゴールドの清涼感、冬はイエローゴールドやローズゴールドの温かみなど、<strong>季節に合わせた素材選び</strong>も洗練された印象を与えます。</p>
+
+        <p>ビジネスシーンでのジュエリーは、あなたの<strong>センスとプロフェッショナリズム</strong>を静かに語る大切な要素です。上品で質の良いアイテムを選び、自信を持ってビジネスに臨みましょう。</p>
+      </div>
+
+      <footer class="article-footer">
+        <a href="#" class="article-cta">
+          ビジネスジュエリーを探す
+          <i data-lucide="arrow-right" size="18"></i>
+        </a>
+      </footer>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#terms">利用規約/プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#support">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Article 5: 旅先で輝くミニマルセット -->
+<div id="column-article-5" class="article-page" style="display: none;">
+  <div class="article-container">
+    <a href="#column" class="article-back-link">
+      <i data-lucide="arrow-left" size="16"></i>
+      コラム一覧に戻る
+    </a>
+
+    <article>
+      <header class="article-header">
+        <h1 class="article-title">旅先で輝くミニマルセット</h1>
+        <p class="article-subtitle">少ないアイテムで多彩なスタイルを楽しむ旅のジュエリー術</p>
+      </header>
+
+      <div class="article-body">
+        <p>旅行中は荷物を最小限にしたいもの。でも、おしゃれは楽しみたい。そんな方におすすめなのが、<strong>少数精鋭のジュエリーセット</strong>です。今回は、旅先で活躍する最小限のジュエリー選びをご紹介します。</p>
+
+        <h2>旅行に最適なジュエリーの条件</h2>
+        <p>旅行用ジュエリーを選ぶ際は、以下の条件を満たすアイテムがおすすめです：</p>
+        <ul>
+          <li><strong>汎用性が高い</strong>：どんな服装にも合わせやすい</li>
+          <li><strong>軽量</strong>：持ち運びに負担がない</li>
+          <li><strong>丈夫</strong>：壊れにくく、手入れが簡単</li>
+          <li><strong>紛失リスクが低い</strong>：高価すぎず、しっかり留められる</li>
+          <li><strong>組み合わせ可能</strong>：重ね付けでアレンジできる</li>
+        </ul>
+
+        <h2>旅のミニマルジュエリーセット</h2>
+        <p>旅行には、<strong>5〜7アイテム</strong>あれば十分です。これらを組み合わせることで、多彩なスタイリングが可能になります。</p>
+
+        <h3>必須アイテム3点</h3>
+        <p>まず、どんな旅行でも持っていきたい必須アイテムをご紹介します。</p>
+
+        <p><strong>1. スタッドピアス（シルバーまたはゴールド）</strong></p>
+        <p>小ぶりのスタッドピアスは、<strong>昼夜問わず使える</strong>万能アイテム。シンプルなデザインなら、カジュアルからフォーマルまで対応できます。紛失リスクも低く、安心して持ち歩けます。</p>
+
+        <p><strong>2. 細いチェーンネックレス</strong></p>
+        <p>40〜45cm程度の<strong>シンプルなチェーンネックレス</strong>は、Tシャツからドレスまで、あらゆるスタイルに合います。トップが付いていないシンプルなチェーンなら、ペンダントを付け替えて楽しむこともできます。</p>
+
+        <p><strong>3. シンプルなリング</strong></p>
+        <p>細身のバンドリングや小さな一粒石のリングは、<strong>さりげないアクセント</strong>として活躍します。複数持っていけば、重ね付けのアレンジも楽しめます。</p>
+
+        <h3>プラスアルファのアイテム</h3>
+        <p>余裕があれば、以下のアイテムも加えると、スタイリングの幅が広がります。</p>
+
+        <p><strong>4. 小ぶりのフープピアス</strong></p>
+        <p>スタッドピアスとは違う印象を楽しめます。カジュアルな日中の観光にぴったりです。</p>
+
+        <p><strong>5. 細身のチェーンブレスレット</strong></p>
+        <p>手元に華やかさをプラス。重ね付けにも最適です。</p>
+
+        <p><strong>6. 小さなペンダントトップ</strong></p>
+        <p>チェーンネックレスに付け替えることで、印象を変えられます。軽量で小さなものを選びましょう。</p>
+
+        <p><strong>7. シンプルなバングル</strong></p>
+        <p>ディナーやちょっとしたお出かけに、品のあるアクセントとして活躍します。</p>
+
+        <h2>旅行先別おすすめセット</h2>
+
+        <h3>ビーチリゾート</h3>
+        <p><strong>ステンレススチール</strong>や<strong>チタン</strong>製のジュエリーがおすすめ。海水や汗に強く、錆びにくい素材です。フープピアス、シンプルなネックレス、バングルの組み合わせで、リゾート感のあるスタイルを楽しめます。</p>
+
+        <h3>都市観光</h3>
+        <p><strong>シルバー</strong>や<strong>ゴールド</strong>のシンプルなアイテムが活躍します。スタッドピアス、チェーンネックレス、リング2〜3本で、カフェやミュージアム巡りも快適です。</p>
+
+        <h3>登山・アウトドア</h3>
+        <p>ジュエリーは最小限に。スタッドピアスと細いリング程度にしておくと、アクティビティの邪魔になりません。素材は<strong>丈夫なステンレス</strong>がおすすめです。</p>
+
+        <h3>ビジネストリップ</h3>
+        <p>品の良いアイテムを選びましょう。スタッドピアス、細いネックレス、シンプルなリング、バングルの4点セットで、ビジネスからディナーまで対応できます。</p>
+
+        <h2>旅先でのケアと保管</h2>
+        <p>旅行中も、ジュエリーのケアを忘れずに：</p>
+        <ul>
+          <li>使用後は<strong>柔らかい布で拭く</strong></li>
+          <li><strong>ジュエリーポーチ</strong>に個別に収納する</li>
+          <li>海や温泉では必ず<strong>外す</strong></li>
+          <li>ホテルの金庫を利用して<strong>安全に保管</strong>する</li>
+        </ul>
+
+        <h2>おすすめのジュエリーポーチ</h2>
+        <p>旅行用には、<strong>コンパクトで仕切りのあるポーチ</strong>が便利です。ロールタイプなら、さらに省スペースで持ち運べます。内側が柔らかい素材のものを選ぶと、ジュエリーを傷から守ることができます。</p>
+
+        <h2>旅先でのアレンジを楽しむ</h2>
+        <p>少ないアイテムでも、<strong>組み合わせ次第</strong>で多彩なスタイルが楽しめます：</p>
+        <ul>
+          <li>昼はスタッドピアスのみ、夜はフープピアスに変更</li>
+          <li>ネックレスとブレスレットを重ね付け</li>
+          <li>リングを複数組み合わせてレイヤードスタイル</li>
+        </ul>
+
+        <p>旅先でも、ミニマルなジュエリーセットで、あなたらしいスタイルを楽しんでください。少ない荷物で、最大限のおしゃれを実現しましょう。</p>
+      </div>
+
+      <footer class="article-footer">
+        <a href="#" class="article-cta">
+          トラベルジュエリーを見る
+          <i data-lucide="arrow-right" size="18"></i>
+        </a>
+      </footer>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#terms">利用規約/プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#support">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Article 6: ジェンダーレスな重ね付け術 -->
+<div id="column-article-6" class="article-page" style="display: none;">
+  <div class="article-container">
+    <a href="#column" class="article-back-link">
+      <i data-lucide="arrow-left" size="16"></i>
+      コラム一覧に戻る
+    </a>
+
+    <article>
+      <header class="article-header">
+        <h1 class="article-title">ジェンダーレスな重ね付け術</h1>
+        <p class="article-subtitle">性別を超えて楽しむモダンなレイヤードスタイル</p>
+      </header>
+
+      <div class="article-body">
+        <p>近年、ファッションの世界では<strong>ジェンダーレス</strong>なスタイルが注目を集めています。ジュエリーもまた例外ではなく、性別を超えた自由な表現が可能になっています。今回は、誰もが楽しめる重ね付けスタイルをご紹介します。</p>
+
+        <h2>ジェンダーレスジュエリーとは</h2>
+        <p>ジェンダーレスジュエリーとは、<strong>性別による区別を超えた</strong>デザインのジュエリーを指します。華奢すぎず、かといって無骨すぎない、絶妙なバランスのアイテムが特徴です。</p>
+
+        <h3>ジェンダーレスデザインの特徴</h3>
+        <ul>
+          <li><strong>シンプルで洗練された</strong>デザイン</li>
+          <li><strong>ユニバーサルなサイズ感</strong></li>
+          <li>性別を連想させない<strong>中性的な印象</strong></li>
+          <li><strong>機能的</strong>で日常使いしやすい</li>
+        </ul>
+
+        <h2>重ね付けの基本ルール</h2>
+        <p>ジェンダーレスな重ね付けを楽しむための基本ルールをご紹介します。</p>
+
+        <h3>1. トーンを統一する</h3>
+        <p>シルバーならシルバー、ゴールドならゴールドと、<strong>金属のトーンを統一</strong>することで、まとまりのある印象になります。慣れてきたら、シルバーとゴールドのミックスも楽しめます。</p>
+
+        <h3>2. サイズに変化をつける</h3>
+        <p>同じサイズのアイテムを重ねるより、<strong>大小のメリハリ</strong>をつけた方が、リズム感のあるスタイリングになります。</p>
+
+        <h3>3. バランスを意識する</h3>
+        <p>全体のバランスを見ながら、<strong>重心</strong>を考えましょう。首元にボリュームがあるなら手元はシンプルに、など、メリハリをつけることが大切です。</p>
+
+        <h3>4. 奇数の法則</h3>
+        <p>アイテムを<strong>3つ、5つ、7つ</strong>といった奇数で組み合わせると、視覚的に安定した印象になります。</p>
+
+        <h2>部位別レイヤードスタイル</h2>
+
+        <h3>リングの重ね付け</h3>
+        <p>リングの重ね付けは、ジェンダーレススタイルの定番です。</p>
+
+        <p><strong>スタイル1：シンプル派</strong></p>
+        <p>細身のバンドリングを<strong>2〜3本</strong>重ねるだけで、さりげないおしゃれが完成します。すべて同じ指に付けても、複数の指に分散させても素敵です。</p>
+
+        <p><strong>スタイル2：ミックス派</strong></p>
+        <p>細身のバンドリングと、少しボリュームのあるリングを組み合わせます。<strong>異なる質感やデザイン</strong>をミックスすることで、個性的なスタイルが生まれます。</p>
+
+        <p><strong>スタイル3：アシンメトリー派</strong></p>
+        <p>左右の手で<strong>違う組み合わせ</strong>を楽しむスタイル。右手は1本、左手は3本など、バランスの違いが面白いアクセントになります。</p>
+
+        <h3>ネックレスのレイヤード</h3>
+        <p>ネックレスのレイヤードは、上級者向けですが、コツを掴めば誰でも楽しめます。</p>
+
+        <p><strong>長さを変える</strong></p>
+        <p>40cm、45cm、50cmなど、<strong>5cm刻みで長さを変えた</strong>ネックレスを重ねると、美しい階層が生まれます。3本までにしておくと、バランスが良いでしょう。</p>
+
+        <p><strong>デザインにメリハリを</strong></p>
+        <p>細いチェーンと太めのチェーン、シンプルなチェーンとペンダント付きなど、<strong>デザインにメリハリ</strong>をつけることで、視覚的に面白いスタイルになります。</p>
+
+        <h3>ブレスレットの重ね付け</h3>
+        <p>手首のレイヤードは、動くたびに視線を集める魅力的なスタイリングです。</p>
+
+        <p><strong>チェーンを重ねる</strong></p>
+        <p>細いチェーンブレスレットを<strong>2〜3本</strong>重ねるだけで、洗練された印象に。長さを少しずつ変えることで、立体感が生まれます。</p>
+
+        <p><strong>バングルとチェーンのミックス</strong></p>
+        <p>シンプルなバングルに、細いチェーンブレスレットを組み合わせると、<strong>硬軟のコントラスト</strong>が面白いスタイルに。</p>
+
+        <h2>おすすめの組み合わせ例</h2>
+
+        <h3>ミニマルスタイル</h3>
+        <ul>
+          <li>シルバーのバンドリング × 3本（異なる指に）</li>
+          <li>細いチェーンネックレス × 1本</li>
+          <li>小さなスタッドピアス</li>
+        </ul>
+
+        <h3>モダンスタイル</h3>
+        <ul>
+          <li>ゴールドのリング × 5本（複数の指に）</li>
+          <li>チェーンネックレス × 2本（長さ違い）</li>
+          <li>細いチェーンブレスレット × 2本</li>
+          <li>小ぶりのフープピアス</li>
+        </ul>
+
+        <h3>エッジの効いたスタイル</h3>
+        <ul>
+          <li>シルバーのリング × 7本（片手に集中）</li>
+          <li>太めのチェーンネックレス × 1本</li>
+          <li>バングル × 1本</li>
+          <li>シンプルなスタッドピアス</li>
+        </ul>
+
+        <h2>素材とテクスチャーで遊ぶ</h2>
+        <p>同じトーンでも、<strong>異なる素材やテクスチャー</strong>を組み合わせることで、深みのあるスタイルが生まれます。</p>
+        <ul>
+          <li>マットとポリッシュの組み合わせ</li>
+          <li>ツイストチェーンとストレートチェーン</li>
+          <li>槌目加工とスムース仕上げ</li>
+        </ul>
+
+        <h2>シーン別スタイリング</h2>
+
+        <h3>カジュアルシーン</h3>
+        <p>リングを<strong>複数重ね付け</strong>し、ネックレスは1本に留めるなど、どこかに重点を置くスタイルがおすすめです。</p>
+
+        <h3>ビジネスシーン</h3>
+        <p>重ね付けは<strong>控えめに</strong>。リング2〜3本、もしくは細いネックレス2本程度に抑えましょう。</p>
+
+        <h3>パーティーシーン</h3>
+        <p>重ね付けを<strong>存分に楽しめる</strong>シーン。ただし、全体のバランスを見て、やりすぎないよう注意しましょう。</p>
+
+        <h2>自分らしさを表現する</h2>
+        <p>ジェンダーレスな重ね付けの魅力は、<strong>自由な自己表現</strong>ができることです。ルールはあくまでガイドライン。自分が心地よく、楽しめるスタイルを見つけてください。</p>
+
+        <p>性別や年齢、スタイルの枠を超えて、ジュエリーの新しい楽しみ方を発見しましょう。あなただけの個性的なレイヤードスタイルを、ぜひ表現してみてください。</p>
+      </div>
+
+      <footer class="article-footer">
+        <a href="#" class="article-cta">
+          レイヤードアイテムを探す
+          <i data-lucide="arrow-right" size="18"></i>
+        </a>
+      </footer>
+    </article>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#terms">利用規約/プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#support">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- Terms & Privacy Page -->
+<div id="terms-page" style="display: none;">
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-title">利用規約 / プライバシーポリシー</h1>
+      <p class="page-description">Terms of Service & Privacy Policy</p>
+    </div>
+  </div>
+  <div class="container" style="padding: 60px 20px;">
+    <div style="max-width: 900px; margin: 0 auto;">
+
+      <!-- 利用規約セクション -->
+      <div class="legal-section" style="margin-bottom: 80px;">
+        <h2 style="font-family: var(--font-serif); font-size: 36px; margin-bottom: 40px; color: var(--acc-gold); text-align: center; border-bottom: 2px solid var(--acc-gold); padding-bottom: 20px;">利用規約</h2>
+
+        <div style="line-height: 2; color: #333;">
+          <!-- 第1条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第1条（適用範囲）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              本規約は、aliba（以下「当ブランド」といいます）が提供するすべての商品およびサービスの利用に関して、お客様と当ブランドとの間の権利義務関係を定めることを目的とし、お客様と当ブランドとの一切の関係に適用されます。
+            </p>
+          </div>
+
+          <!-- 第2条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第2条（定義）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">本規約において使用する用語の定義は、以下のとおりとします。</p>
+            <ol style="padding-left: 40px; margin-bottom: 15px;">
+              <li style="margin-bottom: 10px;">「本サービス」とは、当ブランドが運営するECサイトおよび関連するサービスを意味します。</li>
+              <li style="margin-bottom: 10px;">「お客様」とは、本サービスを利用する全ての個人または法人を意味します。</li>
+              <li style="margin-bottom: 10px;">「商品」とは、当ブランドが本サービスを通じて販売するジュエリー製品を意味します。</li>
+            </ol>
+          </div>
+
+          <!-- 第3条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第3条（本規約への同意）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              お客様は、本規約の全ての内容に同意した上で、本サービスを利用するものとします。本サービスの利用をもって、お客様が本規約に同意したものとみなします。
+            </p>
+          </div>
+
+          <!-- 第4条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第4条（ご注文とご契約の成立）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              1. お客様が当ブランドの指定する方法により商品の注文を行い、当ブランドがこれを承諾した時点で、売買契約が成立するものとします。
+            </p>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              2. 当ブランドは、以下のいずれかに該当する場合、お客様からの注文を承諾しないことがあります。
+            </p>
+            <ul style="padding-left: 40px; margin-bottom: 15px;">
+              <li style="margin-bottom: 10px;">お客様が過去に本規約に違反したことがある場合</li>
+              <li style="margin-bottom: 10px;">商品の在庫がない場合</li>
+              <li style="margin-bottom: 10px;">お客様の登録情報に虚偽の記載がある場合</li>
+              <li style="margin-bottom: 10px;">その他、当ブランドが不適切と判断した場合</li>
+            </ul>
+          </div>
+
+          <!-- 第5条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第5条（お支払い方法）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              お客様は、商品の代金を、当ブランドが指定する方法により、指定された期日までにお支払いいただくものとします。お支払い方法は、各販売プラットフォーム（Amazon、楽天市場等）の規定に従います。
+            </p>
+          </div>
+
+          <!-- 第6条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第6条（配送・納期）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              1. 商品の配送は、当ブランドが指定する配送業者により行います。
+            </p>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              2. 配送料は各販売プラットフォームの規定に従います。
+            </p>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              3. 天災地変、交通事情その他当ブランドの責めに帰すことのできない事由により配送が遅延した場合、当ブランドは責任を負いません。
+            </p>
+          </div>
+
+          <!-- 第7条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第7条（返品・交換・キャンセル）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              1. 商品の返品・交換については、各販売プラットフォーム（Amazon、楽天市場等）の返品ポリシーに従います。
+            </p>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              2. 以下の場合、返品・交換をお受けできませんのでご注意ください。
+            </p>
+            <ul style="padding-left: 40px; margin-bottom: 15px;">
+              <li style="margin-bottom: 10px;">お客様の都合による開封後の返品</li>
+              <li style="margin-bottom: 10px;">使用済みまたは破損した商品</li>
+              <li style="margin-bottom: 10px;">商品到着後、一定期間を経過した場合</li>
+              <li style="margin-bottom: 10px;">オーダーメイド商品等、特別にお客様のために製作した商品</li>
+            </ul>
+          </div>
+
+          <!-- 第8条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第8条（知的財産権）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              本サービスに関する一切の知的財産権は、当ブランドまたは当ブランドにライセンスを許諾している第三者に帰属します。お客様は、これらを無断で使用、複製、改変、公衆送信等することはできません。
+            </p>
+          </div>
+
+          <!-- 第9条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第9条（免責事項）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              1. 当ブランドは、本サービスの内容や商品情報について、その完全性、正確性、有用性等について、いかなる保証も行いません。
+            </p>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              2. 当ブランドは、お客様による本サービスの利用により生じた損害について、一切の責任を負いません。ただし、当ブランドの故意または重過失による場合はこの限りではありません。
+            </p>
+          </div>
+
+          <!-- 第10条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第10条（本規約の変更）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              当ブランドは、お客様の事前の承諾を得ることなく、本規約をいつでも変更できるものとします。変更後の規約は、本サービス上に掲載した時点で効力を生じるものとします。
+            </p>
+          </div>
+
+          <!-- 第11条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第11条（準拠法・管轄裁判所）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              1. 本規約の解釈および適用については、日本法に準拠するものとします。
+            </p>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              2. 本サービスに関する一切の紛争については、東京地方裁判所を第一審の専属的合意管轄裁判所とします。
+            </p>
+          </div>
+
+          <p style="text-align: right; color: #666; margin-top: 40px;">制定日：2024年1月1日</p>
+        </div>
+      </div>
+
+      <!-- プライバシーポリシーセクション -->
+      <div class="legal-section">
+        <h2 style="font-family: var(--font-serif); font-size: 36px; margin-bottom: 40px; color: var(--acc-gold); text-align: center; border-bottom: 2px solid var(--acc-gold); padding-bottom: 20px;">プライバシーポリシー</h2>
+
+        <div style="line-height: 2; color: #333;">
+          <!-- 前文 -->
+          <div style="margin-bottom: 40px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+            <p style="margin-bottom: 15px;">
+              aliba（以下「当ブランド」といいます）は、お客様の個人情報の保護を重要な責務と認識し、個人情報の保護に関する法律（個人情報保護法）およびその他の関連法令を遵守し、以下のとおりプライバシーポリシーを定め、適切に取り扱います。
+            </p>
+          </div>
+
+          <!-- 第1条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第1条（個人情報の定義）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              「個人情報」とは、個人情報保護法に定める個人情報を指し、生存する個人に関する情報であって、当該情報に含まれる氏名、生年月日、住所、電話番号、メールアドレス、購入履歴その他の記述等により特定の個人を識別できる情報をいいます。
+            </p>
+          </div>
+
+          <!-- 第2条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第2条（個人情報の収集方法）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">当ブランドは、以下の方法によりお客様の個人情報を収集します。</p>
+            <ul style="padding-left: 40px; margin-bottom: 15px;">
+              <li style="margin-bottom: 10px;">商品購入時の各ECプラットフォームを通じた情報提供</li>
+              <li style="margin-bottom: 10px;">お問い合わせフォームからの情報提供</li>
+              <li style="margin-bottom: 10px;">メールでのお問い合わせ</li>
+              <li style="margin-bottom: 10px;">SNSを通じたコミュニケーション</li>
+              <li style="margin-bottom: 10px;">アフターサポートのご利用</li>
+            </ul>
+          </div>
+
+          <!-- 第3条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第3条（個人情報の利用目的）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">当ブランドは、お客様から取得した個人情報を以下の目的で利用します。</p>
+            <ol style="padding-left: 40px; margin-bottom: 15px;">
+              <li style="margin-bottom: 10px;">商品の配送、代金決済、返品対応等、商品の販売に関する業務遂行のため</li>
+              <li style="margin-bottom: 10px;">お客様からのお問い合わせへの対応のため</li>
+              <li style="margin-bottom: 10px;">商品やサービスに関する情報提供のため</li>
+              <li style="margin-bottom: 10px;">アフターサポートの提供のため</li>
+              <li style="margin-bottom: 10px;">マーケティング調査、統計分析のため（個人を識別できない形式に加工して利用）</li>
+              <li style="margin-bottom: 10px;">商品開発、サービス改善のため</li>
+              <li style="margin-bottom: 10px;">キャンペーン、プロモーション情報の配信のため（お客様の同意がある場合）</li>
+            </ol>
+          </div>
+
+          <!-- 第4条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第4条（個人情報の第三者提供）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">当ブランドは、以下の場合を除き、お客様の同意なく個人情報を第三者に提供しません。</p>
+            <ul style="padding-left: 40px; margin-bottom: 15px;">
+              <li style="margin-bottom: 10px;">法令に基づく場合</li>
+              <li style="margin-bottom: 10px;">人の生命、身体または財産の保護のために必要がある場合であって、お客様の同意を得ることが困難な場合</li>
+              <li style="margin-bottom: 10px;">公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合であって、お客様の同意を得ることが困難な場合</li>
+              <li style="margin-bottom: 10px;">国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、お客様の同意を得ることにより当該事務の遂行に支障を及ぼすおそれがある場合</li>
+              <li style="margin-bottom: 10px;">配送業務、決済代行業務等、業務遂行に必要な範囲で委託先に提供する場合</li>
+            </ul>
+          </div>
+
+          <!-- 第5条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第5条（個人情報の安全管理）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              当ブランドは、お客様の個人情報を正確かつ最新の内容に保つよう努め、不正なアクセス、漏洩、紛失、破損、改ざん等を防止するため、適切な安全管理措置を講じます。
+            </p>
+          </div>
+
+          <!-- 第6条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第6条（個人情報の開示・訂正・削除）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              お客様は、当ブランドが保有するご自身の個人情報について、開示、訂正、削除を求めることができます。その場合は、下記の問い合わせ先までご連絡ください。
+            </p>
+          </div>
+
+          <!-- 第7条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第7条（Cookie等の利用）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              当ブランドは、お客様により良いサービスを提供するため、Cookie等の技術を使用することがあります。Cookieは、お客様のブラウザ設定により無効化することができます。
+            </p>
+          </div>
+
+          <!-- 第8条 -->
+          <div style="margin-bottom: 40px;">
+            <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid var(--acc-gold);">第8条（プライバシーポリシーの変更）</h3>
+            <p style="margin-bottom: 15px; padding-left: 20px;">
+              当ブランドは、法令の変更、事業内容の変更等に応じて、本プライバシーポリシーを予告なく変更することがあります。変更後のプライバシーポリシーは、本サービス上に掲載した時点で効力を生じるものとします。
+            </p>
+          </div>
+
+          <!-- お問い合わせ先 -->
+          <div style="margin-top: 60px; padding: 30px; background: #f9f9f9; border-radius: 8px; border: 2px solid var(--acc-gold);">
+            <h3 style="font-size: 20px; font-weight: 600; color: var(--acc-gold); margin-bottom: 20px; text-align: center;">お問い合わせ先</h3>
+            <p style="margin-bottom: 10px; text-align: center;">個人情報の取り扱いに関するお問い合わせは、以下までご連絡ください。</p>
+            <p style="text-align: center; font-size: 18px; color: var(--acc-gold); font-weight: 500; margin-top: 20px;">Email: h.amazon.y@gmail.com</p>
+          </div>
+
+          <p style="text-align: right; color: #666; margin-top: 40px;">制定日：2024年1月1日<br/>最終改定日：2024年1月1日</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#terms">利用規約/プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#support">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Contact Page -->
+<div id="contact-page" style="display: none;">
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-title">お問い合わせ</h1>
+      <p class="page-description">Contact Us</p>
+    </div>
+  </div>
+  <div class="container" style="padding: 60px 20px;">
+    <div style="max-width: 700px; margin: 0 auto;">
+
+      <div style="text-align: center; margin-bottom: 50px;">
+        <p style="font-size: 16px; line-height: 1.8; color: #666;">
+          商品に関するご質問、アフターサポート、その他お問い合わせは<br/>
+          以下のフォームよりお気軽にご連絡ください。
+        </p>
+        <p style="font-size: 14px; line-height: 1.8; color: #999; margin-top: 15px;">
+          ※ 通常、2営業日以内にご返信いたします。
+        </p>
+      </div>
+
+      <form id="contact-form" style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+
+        <!-- お名前 -->
+        <div style="margin-bottom: 30px;">
+          <label for="contact-name" style="display: block; font-weight: 500; margin-bottom: 8px; color: #333; font-size: 15px;">
+            お名前 <span style="color: #C2A578; font-size: 12px;">*必須</span>
+          </label>
+          <input type="text" id="contact-name" name="name" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; font-family: inherit; transition: border-color 0.3s;" />
+        </div>
+
+        <!-- メールアドレス -->
+        <div style="margin-bottom: 30px;">
+          <label for="contact-email" style="display: block; font-weight: 500; margin-bottom: 8px; color: #333; font-size: 15px;">
+            メールアドレス <span style="color: #C2A578; font-size: 12px;">*必須</span>
+          </label>
+          <input type="email" id="contact-email" name="email" required style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; font-family: inherit; transition: border-color 0.3s;" />
+        </div>
+
+        <!-- 注文番号 -->
+        <div style="margin-bottom: 30px;">
+          <label for="contact-order" style="display: block; font-weight: 500; margin-bottom: 8px; color: #333; font-size: 15px;">
+            注文番号 <span style="color: #999; font-size: 12px;">（任意）</span>
+          </label>
+          <input type="text" id="contact-order" name="order_number" placeholder="例: 123-4567890-1234567" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; font-family: inherit; transition: border-color 0.3s;" />
+          <p style="font-size: 13px; color: #999; margin-top: 5px;">※ 商品に関するお問い合わせの場合はご記入ください</p>
+        </div>
+
+        <!-- 購入プラットフォーム -->
+        <div style="margin-bottom: 30px;">
+          <label for="contact-platform" style="display: block; font-weight: 500; margin-bottom: 8px; color: #333; font-size: 15px;">
+            購入プラットフォーム <span style="color: #999; font-size: 12px;">（任意）</span>
+          </label>
+          <select id="contact-platform" name="platform" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; font-family: inherit; background: white; transition: border-color 0.3s; cursor: pointer;">
+            <option value="">選択してください</option>
+            <option value="amazon">Amazon</option>
+            <option value="rakuten">楽天市場</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+
+        <!-- お問い合わせ内容 -->
+        <div style="margin-bottom: 30px;">
+          <label for="contact-message" style="display: block; font-weight: 500; margin-bottom: 8px; color: #333; font-size: 15px;">
+            お問い合わせ内容 <span style="color: #C2A578; font-size: 12px;">*必須</span>
+          </label>
+          <textarea id="contact-message" name="message" required rows="8" style="width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; font-family: inherit; resize: vertical; transition: border-color 0.3s;"></textarea>
+          <p style="font-size: 13px; color: #999; margin-top: 5px;">できるだけ詳しくお書きください</p>
+        </div>
+
+        <!-- 送信ボタン -->
+        <div style="text-align: center; margin-top: 40px;">
+          <button type="submit" style="background: var(--acc-gold); color: white; border: none; padding: 16px 60px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(194, 165, 120, 0.3);">
+            送信する
+          </button>
+        </div>
+
+        <!-- フォーム送信後のメッセージ -->
+        <div id="form-message" style="display: none; margin-top: 30px; padding: 20px; border-radius: 8px; text-align: center; font-size: 15px;"></div>
+
+      </form>
+
+      <div style="margin-top: 50px; padding: 30px; background: #f9f9f9; border-radius: 8px; text-align: center;">
+        <h3 style="font-size: 18px; color: #333; margin-bottom: 15px;">その他のお問い合わせ方法</h3>
+        <p style="font-size: 14px; color: #666; line-height: 1.8; margin-bottom: 10px;">
+          直接メールでのお問い合わせも受け付けております
+        </p>
+        <p style="font-size: 16px; color: var(--acc-gold); font-weight: 500;">
+          <a href="mailto:h.amazon.y@gmail.com" style="color: var(--acc-gold); text-decoration: none;">h.amazon.y@gmail.com</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#terms">利用規約/プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#support">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+// Contact form JavaScript handler
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = {
+        name: document.getElementById('contact-name').value,
+        email: document.getElementById('contact-email').value,
+        order_number: document.getElementById('contact-order').value,
+        platform: document.getElementById('contact-platform').value,
+        message: document.getElementById('contact-message').value
+      };
+
+      // Create mailto link
+      const subject = encodeURIComponent('お問い合わせ - ' + formData.name);
+      let body = encodeURIComponent(
+        'お名前: ' + formData.name + '\n' +
+        'メールアドレス: ' + formData.email + '\n' +
+        (formData.order_number ? '注文番号: ' + formData.order_number + '\n' : '') +
+        (formData.platform ? '購入プラットフォーム: ' + formData.platform + '\n' : '') +
+        '\nお問い合わせ内容:\n' + formData.message
+      );
+
+      // Open mailto
+      window.location.href = 'mailto:h.amazon.y@gmail.com?subject=' + subject + '&body=' + body;
+
+      // Show success message
+      const formMessage = document.getElementById('form-message');
+      formMessage.style.display = 'block';
+      formMessage.style.background = '#d4edda';
+      formMessage.style.color = '#155724';
+      formMessage.style.border = '1px solid #c3e6cb';
+      formMessage.textContent = 'メールクライアントが開きました。送信を完了してください。';
+
+      // Reset form
+      setTimeout(function() {
+        contactForm.reset();
+      }, 1000);
+    });
+
+    // Input focus effects
+    const inputs = contactForm.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.style.borderColor = '#C2A578';
+        this.style.boxShadow = '0 0 0 3px rgba(194, 165, 120, 0.1)';
+      });
+      input.addEventListener('blur', function() {
+        this.style.borderColor = '#ddd';
+        this.style.boxShadow = 'none';
+      });
+    });
+  }
+});
+</script>
+
+<!-- About Page -->
+<div id="about-page" class="about-page" style="display: none;">
+  <section class="about-hero">
+    <div class="container">
+      <h1 class="page-title">alibaについて</h1>
+      <p class="page-subtitle">上質なジュエリーを、もっと身近に。</p>
+    </div>
+  </section>
+
+  <section class="about-intro">
+    <div class="container">
+      <h2 class="section-title">私たちの想い</h2>
+      <div class="about-content">
+        <p>alibaは、「上質なジュエリーをもっと身近に」という想いから生まれたブランドです。</p>
+        <p>高品質な素材と職人の技術を大切にしながら、お求めやすい価格を実現することで、特別な日だけでなく、日常にも輝きを添えるジュエリーをお届けしています。</p>
+        <p>私たちは、一つひとつの商品に心を込めて、お客様の大切な瞬間を彩るお手伝いをしたいと考えています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-story">
+    <div class="container">
+      <h2 class="section-title">ブランドストーリー</h2>
+      <div class="about-content">
+        <p>「なぜ、上質なジュエリーはこんなにも高価なのだろう？」</p>
+        <p>この疑問から、alibaの挑戦が始まりました。</p>
+        <p>従来のジュエリー業界では、複雑な流通経路や高額な広告費用が価格に上乗せされていました。私たちはこれらの中間コストを徹底的に見直し、オンライン販売を中心とすることで、品質を落とすことなく、価格を抑えることに成功しました。</p>
+        <p>また、Amazon、楽天市場などの信頼できるプラットフォームを通じて、お客様に安心してお買い物いただける環境を整えています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-philosophy">
+    <div class="container">
+      <h2 class="section-title">コレクション理念</h2>
+      <div class="philosophy-grid">
+        <div class="philosophy-item">
+          <h3>日常に輝きを</h3>
+          <p>特別な日だけでなく、毎日身につけたくなるデザインを追求しています。シンプルでありながら存在感のあるジュエリーは、あなたの日常をさりげなく華やかに彩ります。</p>
+        </div>
+        <div class="philosophy-item">
+          <h3>時代を超える美しさ</h3>
+          <p>流行に左右されない、普遍的な美しさを大切にしています。長く愛用できるタイムレスなデザインは、世代を超えて受け継がれる価値を持っています。</p>
+        </div>
+        <div class="philosophy-item">
+          <h3>お求めやすい価格</h3>
+          <p>中間コストを徹底的に削減することで、高品質なジュエリーをお求めやすい価格で提供しています。品質を妥協することなく、適正価格を実現しました。</p>
+        </div>
+        <div class="philosophy-item">
+          <h3>安心のサポート</h3>
+          <p>ご購入後も末永くご愛用いただけるよう、アフターサポート体制を整えています。修理・メンテナンスのご相談も承っておりますので、お気軽にお問い合わせください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-craftsmanship">
+    <div class="container">
+      <h2 class="section-title">素材とこだわり</h2>
+      <div class="about-content">
+        <h3>厳選された素材</h3>
+        <p>alibaのジュエリーには、高品質なステンレススチール、シルバー925、真鍮などを使用しています。これらの素材は、美しい輝きを保ちながら、日常使いにも適した耐久性を備えています。</p>
+
+        <h3>職人の技術</h3>
+        <p>繊細なデザインを形にするため、熟練した職人の技術を活かした製造工程を採用しています。一つひとつ丁寧に仕上げられた商品は、細部まで美しく、長くご愛用いただけます。</p>
+
+        <h3>品質管理</h3>
+        <p>すべての商品は、厳しい品質基準をクリアしたものだけをお届けしています。お客様に安心してご使用いただけるよう、検品体制を整えています。</p>
+
+        <h3>環境への配慮</h3>
+        <p>持続可能な社会の実現に向けて、環境に配慮した素材選びと製造プロセスを心がけています。美しさだけでなく、地球にも優しいジュエリーづくりを目指しています。</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('about-page'); return false;">About</a>
+        <a href="#" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+        <a href="#" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        <a href="#" onclick="showPage('support-page'); return false;">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Contact Page -->
+<div id="contact-page" class="contact-page" style="display: none;">
+  <section class="contact-hero">
+    <div class="container">
+      <h1 class="page-title">お問い合わせ</h1>
+      <p class="page-subtitle">ご質問やご要望がございましたら、お気軽にお問い合わせください。</p>
+    </div>
+  </section>
+
+  <section class="contact-form-section">
+    <div class="container">
+      <form class="contact-form" action="mailto:h.amazon.y@gmail.com" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="contact-name">お名前 <span class="required">必須</span></label>
+          <input type="text" id="contact-name" name="name" required placeholder="山田 太郎">
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">メールアドレス <span class="required">必須</span></label>
+          <input type="email" id="contact-email" name="email" required placeholder="example@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="contact-order-number">注文番号 <span class="optional">任意</span></label>
+          <input type="text" id="contact-order-number" name="order-number" placeholder="000-0000000-0000000">
+          <small>ご注文に関するお問い合わせの場合は、注文番号をご記入ください。</small>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-platform">購入プラットフォーム <span class="optional">任意</span></label>
+          <select id="contact-platform" name="platform">
+            <option value="">選択してください</option>
+            <option value="amazon">Amazon</option>
+            <option value="rakuten">楽天市場</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message">お問い合わせ内容 <span class="required">必須</span></label>
+          <textarea id="contact-message" name="message" rows="6" required placeholder="お問い合わせ内容をご記入ください。"></textarea>
+        </div>
+
+        <div class="form-notice">
+          <p>※ お問い合わせ内容によっては、回答にお時間をいただく場合がございます。</p>
+          <p>※ 3営業日以内に返信がない場合は、お手数ですが再度お問い合わせください。</p>
+        </div>
+
+        <button type="submit" class="submit-btn">送信する</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('about-page'); return false;">About</a>
+        <a href="#" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+        <a href="#" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        <a href="#" onclick="showPage('support-page'); return false;">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Terms & Privacy Page -->
+<div id="terms-page" class="terms-page" style="display: none;">
+  <section class="terms-hero">
+    <div class="container">
+      <h1 class="page-title">利用規約・プライバシーポリシー</h1>
+      <p class="page-subtitle">最終更新日：2024年11月5日</p>
+    </div>
+  </section>
+
+  <section class="terms-content">
+    <div class="container">
+      <div class="terms-section">
+        <h2 class="section-title">利用規約</h2>
+
+        <div class="terms-article">
+          <h3>第1条（適用）</h3>
+          <p>本規約は、aliba（以下「当店」といいます）がAmazon、楽天市場等のプラットフォームを通じて提供するジュエリー販売サービス（以下「本サービス」といいます）の利用条件を定めるものです。ご購入いただくお客様（以下「ユーザー」といいます）は、本規約に同意したものとみなします。</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第2条（商品・価格）</h3>
+          <p>1. 当店は、ウェブサイトおよび各プラットフォームに掲載された商品を販売します。</p>
+          <p>2. 商品の価格は、各プラットフォームに表示された価格とします。価格には消費税が含まれます。</p>
+          <p>3. 送料は、各プラットフォームの規定に従います。</p>
+          <p>4. 商品の仕様、デザイン、価格は予告なく変更される場合があります。</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第3条（注文・契約の成立）</h3>
+          <p>1. ユーザーは、各プラットフォームの定める方法に従い、商品を注文するものとします。</p>
+          <p>2. 当店がユーザーの注文を承諾し、注文確認メールを送信した時点で、売買契約が成立するものとします。</p>
+          <p>3. 在庫状況により、ご注文をお受けできない場合があります。その場合は、速やかにご連絡いたします。</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第4条（支払い方法）</h3>
+          <p>お支払い方法は、各プラットフォームが提供する決済方法に従います。クレジットカード、コンビニ払い、代金引換などがご利用いただけます（プラットフォームにより異なります）。</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第5条（配送）</h3>
+          <p>1. 商品は、ご注文確認後、原則として3〜7営業日以内に発送いたします。</p>
+          <p>2. 配送日時の指定がある場合は、可能な限り対応いたしますが、配送業者の都合により遅延する場合があります。</p>
+          <p>3. 天災、交通事情、その他不可抗力により配送が遅延した場合、当店は責任を負いません。</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第6条（返品・交換）</h3>
+          <p>1. 商品到着後7日以内に限り、未使用・未開封の商品に限り返品を承ります。</p>
+          <p>2. お客様都合による返品の場合、返送料はお客様負担となります。</p>
+          <p>3. 商品に不良がある場合、または注文と異なる商品が届いた場合は、当店負担にて交換または返品対応いたします。</p>
+          <p>4. セール品、名入れ商品など、一部返品・交換をお受けできない商品があります。</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第7条（免責事項）</h3>
+          <p>1. 商品の色、質感は、お使いのモニター環境により実物と異なる場合があります。</p>
+          <p>2. 金属アレルギーについては個人差があるため、当店は責任を負いかねます。ご心配な方は事前にお問い合わせください。</p>
+          <p>3. 当店は、本サービスの中断、停止、終了により生じた損害について責任を負いません。</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第8条（規約の変更）</h3>
+          <p>当店は、本規約を予告なく変更することがあります。変更後の規約は、当ウェブサイトに掲載した時点で効力を生じるものとします。</p>
+        </div>
+      </div>
+
+      <div class="terms-section">
+        <h2 class="section-title">プライバシーポリシー</h2>
+
+        <div class="terms-article">
+          <h3>第1条（個人情報の定義）</h3>
+          <p>本プライバシーポリシーにおいて「個人情報」とは、お客様個人を識別できる情報（氏名、住所、電話番号、メールアドレス、購入履歴等）を指します。</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第2条（個人情報の取得）</h3>
+          <p>当店は、以下の方法で個人情報を取得します。</p>
+          <p>1. 商品購入時の注文情報</p>
+          <p>2. お問い合わせフォームからのご連絡</p>
+          <p>3. 各プラットフォーム（Amazon、楽天市場等）を通じた情報</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第3条（個人情報の利用目的）</h3>
+          <p>当店は、取得した個人情報を以下の目的で利用します。</p>
+          <p>1. 商品の発送、配送</p>
+          <p>2. ご注文内容の確認、お問い合わせへの回答</p>
+          <p>3. アフターサービスの提供</p>
+          <p>4. 新商品やキャンペーンのご案内（ご同意いただいた場合のみ）</p>
+          <p>5. サービス改善のための統計データ作成（個人を特定できない形式）</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第4条（個人情報の第三者提供）</h3>
+          <p>当店は、以下の場合を除き、個人情報を第三者に提供いたしません。</p>
+          <p>1. お客様の同意がある場合</p>
+          <p>2. 法令に基づく場合</p>
+          <p>3. 配送業者等、サービス提供に必要な業務委託先への提供（適切な管理のもと）</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第5条（個人情報の管理）</h3>
+          <p>当店は、個人情報の漏洩、紛失、改ざんを防止するため、適切なセキュリティ対策を講じます。また、個人情報へのアクセスは必要最小限の担当者に限定し、厳重に管理します。</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第6条（個人情報の開示・訂正・削除）</h3>
+          <p>お客様は、当店が保有する個人情報について、開示、訂正、削除を請求することができます。ご希望の場合は、お問い合わせフォームよりご連絡ください。</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第7条（Cookie等の利用）</h3>
+          <p>当店は、サービス向上のため、Cookie等の技術を使用する場合があります。これにより個人を特定することはありません。ブラウザの設定でCookieを無効にすることも可能ですが、一部機能が制限される場合があります。</p>
+        </div>
+
+        <div class="terms-article">
+          <h3>第8条（プライバシーポリシーの変更）</h3>
+          <p>当店は、法令の変更等に伴い、本プライバシーポリシーを変更することがあります。変更後のポリシーは、当ウェブサイトに掲載した時点で効力を生じます。</p>
+        </div>
+      </div>
+
+      <div class="terms-contact">
+        <h3>お問い合わせ先</h3>
+        <p>個人情報の取扱いに関するお問い合わせは、以下までご連絡ください。</p>
+        <p><strong>aliba カスタマーサポート</strong></p>
+        <p>Email: h.amazon.y@gmail.com</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('about-page'); return false;">About</a>
+        <a href="#" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+        <a href="#" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        <a href="#" onclick="showPage('support-page'); return false;">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- Support Page -->
+<div id="support-page" class="support-page" style="display: none;">
+  <section class="support-hero">
+    <div class="container">
+      <h1 class="page-title">アフターサポート</h1>
+      <p class="page-subtitle">末永くご愛用いただくために</p>
+    </div>
+  </section>
+
+  <section class="support-content">
+    <div class="container">
+      <div class="support-section">
+        <h2 class="section-title">修理・メンテナンス</h2>
+        <div class="support-text">
+          <p>alibaでは、お買い上げいただいた商品の修理・メンテナンスサービスを提供しております。</p>
+          <p>チェーンの交換、留め具の修理、サイズ調整など、お気軽にご相談ください。</p>
+
+          <h3>対応可能な修理内容</h3>
+          <ul>
+            <li>チェーンの交換・修理</li>
+            <li>留め具（クラスプ）の交換・調整</li>
+            <li>リングのサイズ調整（一部商品を除く）</li>
+            <li>石の留め直し</li>
+            <li>研磨・クリーニング</li>
+          </ul>
+
+          <h3>修理の流れ</h3>
+          <ol>
+            <li><a href="#" onclick="showPage('contact-page'); return false;">お問い合わせフォーム</a>よりご連絡ください</li>
+            <li>修理内容と費用のお見積りをご案内します</li>
+            <li>お見積りにご納得いただけましたら、商品をご郵送ください</li>
+            <li>修理完了後、商品をお届けします（通常2〜3週間）</li>
+          </ol>
+
+          <p class="notice">※ 修理費用は内容により異なります。まずはお問い合わせください。</p>
+        </div>
+      </div>
+
+      <div class="support-section">
+        <h2 class="section-title">保証について</h2>
+        <div class="support-text">
+          <p>商品到着後7日以内の初期不良については、無償で交換または修理対応いたします。</p>
+
+          <h3>保証対象</h3>
+          <ul>
+            <li>製造上の不具合（チェーンの破損、留め具の不良など）</li>
+            <li>明らかな品質不良</li>
+          </ul>
+
+          <h3>保証対象外</h3>
+          <ul>
+            <li>お客様の過失による破損（落下、強い衝撃など）</li>
+            <li>通常使用による経年劣化</li>
+            <li>誤った使用方法による損傷</li>
+            <li>他店での修理・改造が行われた商品</li>
+          </ul>
+
+          <p class="notice">※ 保証をご希望の場合は、ご注文番号と購入日が確認できる情報をご用意ください。</p>
+        </div>
+      </div>
+
+      <div class="support-section">
+        <h2 class="section-title">お手入れ方法</h2>
+        <div class="support-text">
+          <p>ジュエリーを美しく保つため、日頃のお手入れが大切です。</p>
+
+          <h3>日常のお手入れ</h3>
+          <ul>
+            <li>使用後は柔らかい布で軽く拭いてください</li>
+            <li>水や汗がついた場合は、すぐに拭き取ってください</li>
+            <li>保管時は、個別の袋やケースに入れてください</li>
+            <li>直射日光や高温多湿を避けて保管してください</li>
+          </ul>
+
+          <h3>避けていただきたいこと</h3>
+          <ul>
+            <li>入浴時、プールや温泉での着用</li>
+            <li>香水、化粧品、ヘアスプレーなどの化学物質との接触</li>
+            <li>スポーツや重労働時の着用</li>
+            <li>他のジュエリーと一緒に保管すること（傷の原因）</li>
+          </ul>
+
+          <p>詳しいお手入れ方法は、<a href="#" onclick="showColumnArticle('column-article-3'); return false;">こちらのコラム</a>をご覧ください。</p>
+        </div>
+      </div>
+
+      <div class="support-section">
+        <h2 class="section-title">よくあるご質問</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question">金属アレルギーが心配です。大丈夫でしょうか？</h3>
+            <div class="faq-answer">
+              <p>alibaの商品は、ステンレススチール、シルバー925、真鍮などを使用しており、比較的アレルギーが起きにくい素材を選んでいます。ただし、金属アレルギーは個人差が大きいため、ご心配な方は事前にパッチテストを行うか、かかりつけの医師にご相談ください。</p>
+              <p>また、各商品ページには使用素材を明記しておりますので、ご確認のうえご購入ください。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">リングのサイズ調整は可能ですか？</h3>
+            <div class="faq-answer">
+              <p>商品によって対応可能なものと不可能なものがございます。デザインや素材により、サイズ調整が難しい場合もありますので、まずは<a href="#" onclick="showPage('contact-page'); return false;">お問い合わせフォーム</a>よりご相談ください。</p>
+              <p>サイズ調整が可能な場合、費用と納期をご案内いたします。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">ギフトラッピングは対応していますか？</h3>
+            <div class="faq-answer">
+              <p>申し訳ございませんが、現在ギフトラッピングサービスは行っておりません。商品は簡易包装にてお届けしております。</p>
+              <p>プレゼント用のラッピングをご希望の場合は、市販のジュエリーボックスやギフトバッグをご利用いただくことをおすすめいたします。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="support-contact">
+        <h3>その他のご質問</h3>
+        <p>上記以外のご質問や、個別のご相談がございましたら、お気軽にお問い合わせください。</p>
+        <a href="#" onclick="showPage('contact-page'); return false;" class="support-contact-btn">お問い合わせフォームへ</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('about-page'); return false;">About</a>
+        <a href="#" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+        <a href="#" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        <a href="#" onclick="showPage('support-page'); return false;">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<style>
+/* About Page Styles */
+.about-page {
+  background: var(--bg-white);
+  min-height: 100vh;
+}
+
+.about-hero,
+.contact-hero,
+.terms-hero,
+.support-hero {
+  background: linear-gradient(135deg, #f8f5f2 0%, #ffffff 100%);
+  padding: 120px 20px 60px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.page-title {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--fg-primary);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.page-subtitle {
+  font-size: 18px;
+  color: var(--fg-secondary);
+  font-weight: 300;
+}
+
+.about-intro,
+.about-story,
+.about-philosophy,
+.about-craftsmanship {
+  padding: 80px 20px;
+}
+
+.about-intro {
+  background: var(--bg-white);
+}
+
+.about-story {
+  background: var(--bg-section);
+}
+
+.about-philosophy {
+  background: var(--bg-white);
+}
+
+.about-craftsmanship {
+  background: var(--bg-section);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--acc-gold);
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 2;
+}
+
+.about-content p {
+  margin-bottom: 24px;
+  color: var(--fg-primary);
+  font-size: 16px;
+}
+
+.about-content h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--fg-primary);
+  margin: 40px 0 20px;
+}
+
+.philosophy-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.philosophy-item {
+  padding: 30px;
+  background: var(--bg-white);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.philosophy-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.philosophy-item h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--acc-gold);
+  margin-bottom: 16px;
+}
+
+.philosophy-item p {
+  color: var(--fg-primary);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* Contact Page Styles */
+.contact-page {
+  background: var(--bg-white);
+  min-height: 100vh;
+}
+
+.contact-form-section {
+  padding: 80px 20px;
+  background: var(--bg-section);
+}
+
+.contact-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--bg-white);
+  padding: 50px 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  color: var(--fg-primary);
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.required {
+  color: #e74c3c;
+  font-size: 13px;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.optional {
+  color: var(--fg-secondary);
+  font-size: 13px;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: var(--font-sans);
+  transition: all 0.3s ease;
+  background: var(--bg-white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--acc-gold);
+  box-shadow: 0 0 0 3px rgba(194, 165, 120, 0.1);
+}
+
+.form-group small {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--fg-secondary);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-notice {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.form-notice p {
+  font-size: 14px;
+  color: var(--fg-secondary);
+  margin-bottom: 8px;
+}
+
+.form-notice p:last-child {
+  margin-bottom: 0;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--acc-gold);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+.submit-btn:hover {
+  background: var(--acc-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(194, 165, 120, 0.3);
+}
+
+/* Terms Page Styles */
+.terms-page {
+  background: var(--bg-white);
+  min-height: 100vh;
+}
+
+.terms-content {
+  padding: 80px 20px;
+  background: var(--bg-white);
+}
+
+.terms-section {
+  max-width: 900px;
+  margin: 0 auto 80px;
+}
+
+.terms-section:last-of-type {
+  margin-bottom: 40px;
+}
+
+.terms-article {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.terms-article:last-child {
+  border-bottom: none;
+}
+
+.terms-article h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--fg-primary);
+  margin-bottom: 16px;
+}
+
+.terms-article p {
+  color: var(--fg-primary);
+  line-height: 2;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.terms-article p:last-child {
+  margin-bottom: 0;
+}
+
+.terms-contact {
+  max-width: 900px;
+  margin: 60px auto 0;
+  padding: 40px;
+  background: var(--bg-section);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.terms-contact h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--acc-gold);
+  margin-bottom: 20px;
+}
+
+.terms-contact p {
+  color: var(--fg-primary);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.terms-contact p strong {
+  font-weight: 600;
+}
+
+/* Support Page Styles */
+.support-page {
+  background: var(--bg-white);
+  min-height: 100vh;
+}
+
+.support-content {
+  padding: 80px 20px;
+  background: var(--bg-white);
+}
+
+.support-section {
+  max-width: 900px;
+  margin: 0 auto 80px;
+}
+
+.support-text {
+  line-height: 2;
+}
+
+.support-text p {
+  color: var(--fg-primary);
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.support-text h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--fg-primary);
+  margin: 40px 0 20px;
+}
+
+.support-text ul,
+.support-text ol {
+  margin: 20px 0 20px 24px;
+  color: var(--fg-primary);
+}
+
+.support-text li {
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+
+.support-text a {
+  color: var(--acc-gold);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.support-text a:hover {
+  color: var(--acc-gold-hover);
+}
+
+.notice {
+  background: #fffbf0;
+  padding: 16px;
+  border-left: 4px solid var(--acc-gold);
+  margin: 20px 0;
+  font-size: 14px;
+  color: var(--fg-primary);
+}
+
+.faq-list {
+  margin-top: 30px;
+}
+
+.faq-item {
+  margin-bottom: 30px;
+  padding: 30px;
+  background: var(--bg-section);
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.faq-question {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--acc-gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.faq-question::before {
+  content: "Q.";
+  font-weight: 600;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.faq-answer {
+  padding-left: 28px;
+}
+
+.faq-answer p {
+  color: var(--fg-primary);
+  line-height: 1.9;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-answer a {
+  color: var(--acc-gold);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.faq-answer a:hover {
+  color: var(--acc-gold-hover);
+}
+
+.support-contact {
+  max-width: 900px;
+  margin: 60px auto 0;
+  padding: 50px 40px;
+  background: linear-gradient(135deg, #f8f5f2 0%, #ffffff 100%);
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.support-contact h3 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--acc-gold);
+  margin-bottom: 16px;
+}
+
+.support-contact p {
+  color: var(--fg-primary);
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.support-contact-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--acc-gold);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+.support-contact-btn:hover {
+  background: var(--acc-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(194, 165, 120, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 32px;
+  }
+
+  .page-subtitle {
+    font-size: 16px;
+  }
+
+  .about-hero,
+  .contact-hero,
+  .terms-hero,
+  .support-hero {
+    padding: 100px 20px 40px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .about-intro,
+  .about-story,
+  .about-philosophy,
+  .about-craftsmanship,
+  .contact-form-section,
+  .terms-content,
+  .support-content {
+    padding: 50px 20px;
+  }
+
+  .philosophy-grid {
+    gap: 30px;
+  }
+
+  .philosophy-item {
+    padding: 24px;
+  }
+
+  .contact-form {
+    padding: 30px 24px;
+  }
+
+  .support-contact,
+  .terms-contact {
+    padding: 30px 24px;
+  }
+
+  .faq-item {
+    padding: 24px;
+  }
+}
+</style>
+
 </body>
 </html>
