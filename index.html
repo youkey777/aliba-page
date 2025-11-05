@@ -617,6 +617,13 @@
             background: var(--bg-white);
             border: 1px solid var(--border-light);
             overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .media-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         }
 
         @media (min-width: 768px) {
@@ -1099,7 +1106,7 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.5;
+            opacity: 0;
             pointer-events: none;
             z-index: 0;
         }
@@ -1406,6 +1413,7 @@
             display: inline-flex !important;
             align-items: center;
             gap: 8px;
+            margin-top: 30px;
         }
 
         #mens-top-page .journal-section .journal-more-link:hover {
@@ -2049,6 +2057,34 @@
             .ranking-item {
                 width: 160px;
             }
+
+            .ranking-section {
+                margin-top: 0 !important;
+                padding-top: 40px;
+            }
+
+            .hero-carousel .slide img {
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .carousel-dots {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            html {
+                scroll-behavior: auto !important;
+            }
+
+            .category-item {
+                height: 160px !important;
+            }
+
+            .page-title {
+                font-size: 28px !important;
+                line-height: 1.4;
+            }
         }
 
         @media (min-width: 768px) {
@@ -2518,7 +2554,7 @@
       Media
      </h2>
 <div class="media-grid">
-<div class="media-item">
+<div class="media-item" onclick="showPage('media-bijinhyakka-page')">
 <div class="media-image">
 <img alt="美人百花 掲載カット" src="assets/media/media-left.png"/>
 </div>
@@ -2526,7 +2562,7 @@
         美人百貨の9月号に掲載頂きました
        </div>
 </div>
-<div class="media-item">
+<div class="media-item" onclick="showPage('media-begin-page')">
 <div class="media-image">
 <img alt="begin 掲載カット" src="assets/media/media-right.png"/>
 </div>
@@ -3172,15 +3208,10 @@
             const info = document.createElement('div');
             info.className = 'item-info';
 
-            const name = document.createElement('div');
-            name.className = 'item-name';
-            name.textContent = item.name;
-
             const price = document.createElement('div');
             price.className = 'item-price';
             price.textContent = item.price;
 
-            info.appendChild(name);
             info.appendChild(price);
             card.appendChild(imageWrapper);
             card.appendChild(info);
@@ -4762,7 +4793,7 @@ function buildAllItemsPage(targetKey, data) {
       Media
      </h2>
 <div class="media-grid">
-<div class="media-item">
+<div class="media-item" onclick="showPage('media-begin-page')">
 <div class="media-image">
 <img alt="begin 掲載カット" src="assets/media/media-right.png"/>
 </div>
@@ -4770,7 +4801,7 @@ function buildAllItemsPage(targetKey, data) {
         beginの10月号に掲載頂きました
        </div>
 </div>
-<div class="media-item">
+<div class="media-item" onclick="showPage('media-bijinhyakka-page')">
 <div class="media-image">
 <img alt="美人百貨 掲載カット" src="assets/media/media-left.png"/>
 </div>
@@ -5395,11 +5426,74 @@ function buildAllItemsPage(targetKey, data) {
 </div>
 
 
+<!-- Media Detail Pages -->
+<div id="media-begin-page" style="display: none;">
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-title">Begin掲載</h1>
+      <p class="page-description">ネットで買えるGOODなプロダクトとして掲載されました</p>
+    </div>
+  </div>
+  <div class="container" style="padding: 60px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <img src="assets/media/media-right.png" alt="Begin掲載" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+      <div style="text-align: center; margin-top: 40px;">
+        <p style="font-size: 18px; color: #666; line-height: 1.8;">ネットで買えるGOODなプロダクトとして掲載されました</p>
+        <button onclick="history.back()" style="margin-top: 30px; padding: 14px 36px; background: #C2A578; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;">戻る</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#terms">利用規約・プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#support">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<div id="media-bijinhyakka-page" style="display: none;">
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-title">美人百貨掲載</h1>
+      <p class="page-description">Beauty Selectionのベストアイテム7として掲載されました</p>
+    </div>
+  </div>
+  <div class="container" style="padding: 60px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <img src="assets/media/media-left.png" alt="美人百貨掲載" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+      <div style="text-align: center; margin-top: 40px;">
+        <p style="font-size: 18px; color: #666; line-height: 1.8;">Beauty Selectionのベストアイテム7として掲載されました</p>
+        <button onclick="history.back()" style="margin-top: 30px; padding: 14px 36px; background: #C2A578; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;">戻る</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">aliba</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="#terms">利用規約・プライバシーポリシー</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#support">アフターサポート</a>
+      </div>
+      <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
 <!-- Terms & Privacy Page -->
 <div id="terms-page" style="display: none;">
   <div class="page-hero">
     <div class="page-hero-content">
-      <h1 class="page-title">利用規約・プライバシーポリシー</h1>
+      <h1 class="page-title">利用規約<br>プライバシーポリシー</h1>
       <p class="page-description">最終確定日：2024年4月13日</p>
     </div>
   </div>
