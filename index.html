@@ -358,9 +358,13 @@
 
             .hero-carousel .slide img {
                 object-fit: contain;
-                padding: 0 10px;
                 height: auto;
                 max-height: 100%;
+                width: 100%;
+                max-width: 100%;
+                margin: 0 auto;
+                padding: 0;
+                display: block;
             }
         }
 
@@ -490,6 +494,13 @@
         .ranking-section {
             padding: 40px 20px;
             margin-top: 70px;
+        }
+
+        @media (max-width: 767px) {
+            .ranking-section {
+                margin-top: 0;
+                padding-top: 30px;
+            }
         }
 
         .ranking-scroll {
