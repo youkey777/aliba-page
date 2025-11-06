@@ -88,6 +88,15 @@
             text-rendering: optimizeLegibility;
         }
 
+        .page-transition {
+            opacity: 0;
+            transition: opacity 0.35s ease-in-out;
+        }
+
+        .page-transition.is-active {
+            opacity: 1;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -321,6 +330,12 @@
             margin: 0 auto;
         }
 
+        @media (max-width: 1023px) {
+            .hero-carousel {
+                max-width: none;
+            }
+        }
+
         .hero-carousel .slide {
             position: absolute;
             top: 0;
@@ -332,11 +347,18 @@
             align-items: center;
             justify-content: center;
             background: var(--bg-dark);
-            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 1.4s ease-in-out, transform 1.8s ease-in-out;
+            transform: scale(1.02);
+            will-change: opacity, transform;
         }
 
         .hero-carousel .slide.active {
             opacity: 1;
+            transform: scale(1);
+        }
+
+        .hero-carousel .slide:not(.active) {
+            pointer-events: none;
         }
 
         .hero-carousel .slide img {
@@ -1564,12 +1586,27 @@
 
         /* Page-specific styles */
         .page-hero {
-            height: 50vh;
+            min-height: 260px;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 70px 20px 60px;
             background: linear-gradient(135deg, var(--bg-section) 0%, var(--bg-white) 100%);
             margin-top: 70px;
+        }
+
+        @media (max-width: 1023px) {
+            .page-hero {
+                padding: 60px 20px 50px;
+                min-height: 230px;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .page-hero {
+                padding: 55px 18px 45px;
+                min-height: 210px;
+            }
         }
 
         .page-hero-content {
@@ -2335,7 +2372,7 @@
         aliva luxe
        </a>
 <a href="#ladies-all-items-page">
-        all item
+        All Item
        </a>
 </div>
 </div>
@@ -2354,7 +2391,7 @@
         財布
        </a>
 <a href="#mens-all-items-page">
-        all item
+        All Item
        </a>
 </div>
 </div>
@@ -2410,7 +2447,7 @@
         aliva luxe
        </a>
 <a href="#ladies-all-items-page">
-        all item
+        All Item
        </a>
 </div>
 </div>
@@ -2429,7 +2466,7 @@
         財布
        </a>
 <a href="#mens-all-items-page">
-        all item
+        All Item
        </a>
 </div>
 </div>
@@ -3109,13 +3146,54 @@
         // Page Navigation System
         let mainContent = null;
         let individualPages = null;
+        const PAGE_FADE_DURATION = 360;
+
+        function prepareTransitionElement(element) {
+            if (!element) return;
+            if (!element.dataset.originalDisplay) {
+                const computedDisplay = window.getComputedStyle(element).display;
+                element.dataset.originalDisplay = computedDisplay === 'none' ? 'block' : computedDisplay;
+            }
+            element.classList.add('page-transition');
+        }
+
+        function fadeInElement(element) {
+            if (!element) return;
+            prepareTransitionElement(element);
+            element.style.display = element.dataset.originalDisplay || 'block';
+            requestAnimationFrame(() => {
+                element.classList.add('is-active');
+            });
+        }
+
+        function fadeOutElement(element) {
+            if (!element) return;
+            prepareTransitionElement(element);
+            if (window.getComputedStyle(element).display === 'none') {
+                element.classList.remove('is-active');
+                element.style.display = 'none';
+                return;
+            }
+            element.classList.remove('is-active');
+            setTimeout(() => {
+                element.style.display = 'none';
+            }, PAGE_FADE_DURATION);
+        }
 
         function initializePageSystem() {
             mainContent = document.getElementById('main-content');
             individualPages = document.querySelectorAll('[id$="-page"], [id^="column-article-"]');
 
+            if (mainContent) {
+                prepareTransitionElement(mainContent);
+                mainContent.style.display = 'block';
+                requestAnimationFrame(() => mainContent.classList.add('is-active'));
+            }
+
             // Ensure all individual pages are hidden by default
             individualPages.forEach(page => {
+                prepareTransitionElement(page);
+                page.classList.remove('is-active');
                 page.style.display = 'none';
             });
         }
@@ -3127,19 +3205,23 @@
             }
 
             // Hide main content
-            if (mainContent) {
-                mainContent.style.display = 'none';
+            if (mainContent && window.getComputedStyle(mainContent).display !== 'none') {
+                fadeOutElement(mainContent);
             }
 
             // Hide all individual pages
             individualPages.forEach(page => {
-                page.style.display = 'none';
+                if (page.id !== pageId && window.getComputedStyle(page).display !== 'none') {
+                    fadeOutElement(page);
+                } else if (page.id !== pageId) {
+                    page.classList.remove('is-active');
+                }
             });
 
             // Show target page
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
-                targetPage.style.display = 'block';
+                fadeInElement(targetPage);
                 // Add to browser history
                 const pageUrl = pageId.endsWith('-page') ? `#${pageId.replace('-page', '')}` : `#${pageId}`;
                 if (window.location.hash !== pageUrl) {
@@ -3179,12 +3261,12 @@
 
             // Hide all individual pages
             individualPages.forEach(page => {
-                page.style.display = 'none';
+                fadeOutElement(page);
             });
 
             // Show main content
             if (mainContent) {
-                mainContent.style.display = 'block';
+                fadeInElement(mainContent);
             }
 
             // Add to browser history (return to main page)
