@@ -68,7 +68,7 @@
 
         html {
             font-size: 16px;
-            scroll-behavior: smooth;
+            scroll-behavior: auto;
             overflow-x: hidden;
             width: 100%;
             max-width: 100vw;
@@ -313,26 +313,45 @@
 
         /* Hero Section */
         .hero {
-            height: 65vh;
-            min-height: 500px;
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .hero-carousel {
             position: relative;
             width: 100%;
-            height: 100%;
-            max-width: 1900px;
             margin: 0 auto;
+            aspect-ratio: 750 / 563;
         }
 
-        @media (max-width: 1023px) {
+        @media (min-width: 1024px) {
             .hero-carousel {
-                max-width: none;
+                aspect-ratio: 44 / 23;
+            }
+
+            .hero-carousel:has(.slide-ladies-2.active) {
+                aspect-ratio: 8 / 3;
+            }
+
+            .hero-carousel:has(.slide-ladies-3.active) {
+                aspect-ratio: 1024 / 383;
+            }
+
+            .hero-carousel:has(.slide-ladies-4.active) {
+                aspect-ratio: 8 / 5;
+            }
+
+            .hero-carousel:has(.slide-mens-1.active),
+            .hero-carousel:has(.slide-mens-2.active) {
+                aspect-ratio: 1500 / 563;
+            }
+
+            .hero-carousel:has(.slide-mens-3.active) {
+                aspect-ratio: 7 / 4;
+            }
+
+            .hero-carousel:has(.slide-mens-4.active) {
+                aspect-ratio: 51 / 20;
             }
         }
 
@@ -347,20 +366,18 @@
             align-items: center;
             justify-content: center;
             background: var(--bg-dark);
-            transition: opacity 1.4s ease-in-out, transform 1.8s ease-in-out;
-            transform: scale(1.02);
-            will-change: opacity, transform;
+            transition: opacity 1.4s ease-in-out;
         }
 
         .hero-carousel .slide.active {
             opacity: 1;
-            transform: scale(1);
         }
 
         .hero-carousel .slide:not(.active) {
             pointer-events: none;
         }
 
+        .hero-carousel .slide picture,
         .hero-carousel .slide img {
             width: 100%;
             height: 100%;
@@ -368,25 +385,17 @@
             object-position: center;
         }
 
+        .hero-carousel .slide picture {
+            display: block;
+        }
+
         @media (max-width: 767px) {
-            .hero {
-                height: 55vh;
-                min-height: 360px;
+            .hero-carousel {
+                width: 100%;
             }
 
             .hero-carousel .slide {
                 background: var(--bg-section);
-            }
-
-            .hero-carousel .slide img {
-                object-fit: contain;
-                height: auto;
-                max-height: 100%;
-                width: 100%;
-                max-width: 100%;
-                margin: 0 auto;
-                padding: 0;
-                display: block;
             }
         }
 
@@ -420,11 +429,7 @@
             transform: scale(1.2);
         }
 
-        @media (max-width: 768px) {
-            .hero {
-                aspect-ratio: 4 / 3;
-            }
-
+        @media (max-width: 767px) {
             .carousel-dots {
                 bottom: 20px;
             }
@@ -1586,12 +1591,10 @@
 
         /* Page-specific styles */
         .page-hero {
-            min-height: 340px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 0 20px;
+            min-height: 360px;
+            display: grid;
+            place-items: center;
+            padding: 60px 20px;
             background: linear-gradient(135deg, var(--bg-section) 0%, var(--bg-white) 100%);
             margin-top: 80px;
         }
@@ -1606,7 +1609,7 @@
         @media (max-width: 639px) {
             .page-hero {
                 min-height: 260px;
-                padding: 0 16px;
+                padding: 40px 16px;
             }
         }
 
@@ -1618,7 +1621,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 16px;
         }
 
         .page-title {
@@ -2121,6 +2124,7 @@
             .hero-carousel .slide img {
                 object-fit: cover;
                 object-position: center;
+                height: 100%;
             }
 
             .carousel-dots {
@@ -2509,13 +2513,19 @@
 <section class="hero">
 <div class="hero-carousel">
 <div class="slide active slide-ladies-1">
+<picture>
+<source media="(max-width: 767px)" srcset="assets/carousel/ladies-carousel-1.jpg"/>
 <img alt="Ladies Carousel 1" src="assets/carousel/ladies-carousel-1.png"/>
+</picture>
 </div>
 <div class="slide slide-ladies-2">
+<picture>
+<source media="(max-width: 767px)" srcset="assets/carousel/ladies-carousel-2.jpg"/>
 <img alt="Ladies Carousel 2" src="assets/carousel/ladies-carousel-2.jpg"/>
+</picture>
 </div>
 <div class="slide slide-ladies-3">
-<img alt="Ladies Carousel 3" src="assets/carousel/ladies-carousel-3.png"/>
+<img alt="Ladies Carousel 3" src="assets/carousel/ladies-carousel-3.jpg"/>
 </div>
 <div class="slide slide-ladies-4">
 <img alt="Ladies Carousel 4" src="assets/carousel/ladies-carousel-4.png"/>
@@ -2603,13 +2613,13 @@
 </div>
 </section>
 <!-- Media Section -->
-<section class="media-section">
+<section class="media-section" id="media">
 <div class="container">
 <h2 class="section-title">
       Media
      </h2>
 <div class="media-grid">
-<div class="media-item" onclick="showPage('media-bijinhyakka-page')">
+<div class="media-item" onclick="navigateToPage('media-bijinhyakka-page', '#media')">
 <div class="media-image">
 <img alt="美人百花 掲載カット" src="assets/media/media-left.png"/>
 </div>
@@ -2617,7 +2627,7 @@
         美人百貨の9月号に掲載頂きました
        </div>
 </div>
-<div class="media-item" onclick="showPage('media-begin-page')">
+<div class="media-item" onclick="navigateToPage('media-begin-page', '#media')">
 <div class="media-image">
 <img alt="begin 掲載カット" src="assets/media/media-right.png"/>
 </div>
@@ -2939,10 +2949,20 @@
         lucide.createIcons();
 
         // Hero Carousel - Store state per carousel
+        const CAROUSEL_FIRST_DELAY = 2000;
+        const CAROUSEL_DELAY = 2500;
+
         const carouselState = {
-            main: { currentSlide: 0, interval: null, isFirst: true },
-            mens: { currentSlide: 0, interval: null, isFirst: true }
+            main: { currentSlide: 0, timer: null, isFirst: true },
+            mens: { currentSlide: 0, timer: null, isFirst: true }
         };
+
+        function getCarouselElementByKey(key) {
+            if (key === 'mens') {
+                return document.querySelector('#mens-top-page .hero-carousel');
+            }
+            return document.querySelector('#main-content .hero-carousel');
+        }
 
         function getActiveCarousel() {
             // Get the currently visible page's carousel and its state key
@@ -2950,13 +2970,20 @@
             const mensTopPage = document.getElementById('mens-top-page');
 
             if (mensTopPage && mensTopPage.style.display !== 'none') {
-                return { element: mensTopPage.querySelector('.hero-carousel'), key: 'mens' };
+                return { element: getCarouselElementByKey('mens'), key: 'mens' };
             }
-            return { element: mainContent.querySelector('.hero-carousel'), key: 'main' };
+            return { element: getCarouselElementByKey('main'), key: 'main' };
+        }
+
+        function normalizeHash(target) {
+            if (!target || typeof target !== 'string') return null;
+            const trimmed = target.trim();
+            if (!trimmed || trimmed === '#') return null;
+            return trimmed.startsWith('#') ? trimmed : `#${trimmed}`;
         }
 
         function showSlide(index, stateKey) {
-            const carouselInfo = getActiveCarousel();
+            const carouselInfo = stateKey ? { element: getCarouselElementByKey(stateKey), key: stateKey } : getActiveCarousel();
             if (!carouselInfo.element) return;
 
             const slides = carouselInfo.element.querySelectorAll('.slide');
@@ -2970,11 +2997,11 @@
             slides[index].classList.add('active');
             dots[index].classList.add('active');
 
-            carouselState[stateKey || carouselInfo.key].currentSlide = index;
+            carouselState[carouselInfo.key].currentSlide = index;
         }
 
-        function nextSlide() {
-            const carouselInfo = getActiveCarousel();
+        function playNextSlide(stateKey) {
+            const carouselInfo = stateKey ? { element: getCarouselElementByKey(stateKey), key: stateKey } : getActiveCarousel();
             if (!carouselInfo.element) return;
 
             const state = carouselState[carouselInfo.key];
@@ -2982,39 +3009,60 @@
 
             state.currentSlide = (state.currentSlide + 1) % slides.length;
             showSlide(state.currentSlide, carouselInfo.key);
+            state.isFirst = false;
 
-            // After first slide, restart with 2 second interval
-            if (state.isFirst) {
-                state.isFirst = false;
-                stopCarousel();
-                state.interval = setInterval(nextSlide, 2000);
-            }
+            scheduleCarousel(carouselInfo.key);
         }
 
-        function startCarousel() {
-            const carouselInfo = getActiveCarousel();
-            const state = carouselState[carouselInfo.key];
-
-            stopCarousel();
-            state.interval = setInterval(nextSlide, 1500);
+        function nextSlide(stateKey) {
+            playNextSlide(stateKey);
         }
 
         function stopCarousel() {
             Object.values(carouselState).forEach(state => {
-                if (state.interval) {
-                    clearInterval(state.interval);
-                    state.interval = null;
+                if (state.timer) {
+                    clearTimeout(state.timer);
+                    state.timer = null;
                 }
             });
         }
 
+        function scheduleCarousel(stateKey) {
+            const state = carouselState[stateKey];
+            if (!state) return;
+
+            if (state.timer) {
+                clearTimeout(state.timer);
+            }
+
+            const delay = state.isFirst ? CAROUSEL_FIRST_DELAY : CAROUSEL_DELAY;
+            state.timer = setTimeout(() => {
+                playNextSlide(stateKey);
+            }, delay);
+        }
+
+        function startCarousel() {
+            const carouselInfo = getActiveCarousel();
+            if (!carouselInfo.element) return;
+
+            stopCarousel();
+            scheduleCarousel(carouselInfo.key);
+        }
+
         function restartCarousel() {
             stopCarousel();
-            startCarousel();
+            const carouselInfo = getActiveCarousel();
+            if (carouselInfo.element) {
+                scheduleCarousel(carouselInfo.key);
+            }
         }
 
         // Initialize carousel
         document.addEventListener('DOMContentLoaded', function() {
+            if (!history.state || !history.state.page) {
+                const baseUrl = window.location.pathname + window.location.search + window.location.hash;
+                history.replaceState({ page: 'main' }, '', baseUrl);
+            }
             startCarousel();
 
             // Setup carousel event handlers for both carousels
@@ -3026,6 +3074,10 @@
                 dots.forEach((dot, index) => {
                     dot.addEventListener('click', () => {
                         showSlide(index);
+                        const active = getActiveCarousel();
+                        if (active && active.key) {
+                            carouselState[active.key].isFirst = false;
+                        }
                         restartCarousel();
                     });
                 });
@@ -3060,6 +3112,7 @@
                             state.currentSlide = (state.currentSlide - 1 + slides.length) % slides.length;
                             showSlide(state.currentSlide, carouselInfo.key);
                         }
+                        state.isFirst = false;
                     }
 
                     restartCarousel();
@@ -3084,6 +3137,7 @@
                         showSlide(state.currentSlide, carouselInfo.key);
                     }
 
+                    state.isFirst = false;
                     restartCarousel();
                 });
             }
@@ -3120,7 +3174,8 @@
                 const targetPosition = section.offsetTop - headerHeight;
                 window.scrollTo({
                     top: targetPosition,
-                    behavior: 'smooth'
+                    left: 0,
+                    behavior: 'auto'
                 });
             }
         }
@@ -3204,7 +3259,10 @@
             });
         }
 
-        function showPage(pageId) {
+        function showPage(pageId, options = {}) {
+            const { skipHistory = false, returnTarget = null } = options;
+            const normalizedReturnTarget = normalizeHash(returnTarget);
+
             if (!individualPages) {
                 console.error('individualPages not initialized');
                 return false;
@@ -3229,11 +3287,17 @@
             if (targetPage) {
                 fadeInElement(targetPage);
                 // Add to browser history
-                const pageUrl = pageId.endsWith('-page') ? `#${pageId.replace('-page', '')}` : `#${pageId}`;
-                if (window.location.hash !== pageUrl) {
-                    history.pushState({page: pageId}, '', pageUrl);
+                if (!skipHistory) {
+                    const pageUrl = pageId.endsWith('-page') ? `#${pageId.replace('-page', '')}` : `#${pageId}`;
+                    if (window.location.hash !== pageUrl || !history.state || history.state.page !== pageId) {
+                        const stateData = { page: pageId };
+                        if (normalizedReturnTarget) {
+                            stateData.scrollTarget = normalizedReturnTarget;
+                        }
+                        history.pushState(stateData, '', pageUrl);
+                    }
                 }
-                
+
                 // Scroll to top with slight delay to ensure DOM is updated
                 setTimeout(() => {
                     window.scrollTo({
@@ -3259,7 +3323,10 @@
             return false;
         }
 
-        function showMainContent() {
+        function showMainContent(scrollTarget = null, options = {}) {
+            const { skipHistory = false, maintainHash = false } = options;
+            const normalizedTarget = normalizeHash(scrollTarget);
+
             if (!individualPages) {
                 console.error('individualPages not initialized');
                 return;
@@ -3276,18 +3343,57 @@
             }
 
             // Add to browser history (return to main page)
-            if (window.location.hash !== '') {
-                history.pushState({page: 'main'}, '', window.location.pathname);
+            if (!skipHistory) {
+                const baseUrl = window.location.pathname + window.location.search;
+                const stateData = { page: 'main' };
+                if (normalizedTarget) {
+                    stateData.scrollTarget = normalizedTarget;
+                    history.pushState(stateData, '', `${baseUrl}${normalizedTarget}`);
+                } else if (!maintainHash && window.location.hash !== '') {
+                    history.pushState(stateData, '', baseUrl);
+                }
             }
 
-            // Scroll to top
-            window.scrollTo(0, 0);
+            // Scroll after fade transition
+            setTimeout(() => {
+                if (normalizedTarget) {
+                    const targetElement = document.querySelector(normalizedTarget);
+                    if (targetElement) {
+                        const headerHeight = 70;
+                        const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        window.scrollTo({
+                            top: Math.max(offsetTop, 0),
+                            left: 0,
+                            behavior: 'auto'
+                        });
+                        return;
+                    }
+                }
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'auto'
+                });
+            }, PAGE_FADE_DURATION);
 
             // Reset and restart carousel for main page
             carouselState.main.currentSlide = 0;
             carouselState.main.isFirst = true;
             showSlide(0, 'main');
             restartCarousel();
+        }
+
+        function navigateToPage(pageId, returnTarget) {
+            const normalizedTarget = normalizeHash(returnTarget);
+            if (normalizedTarget) {
+                const baseUrl = window.location.pathname + window.location.search;
+                const existingState = history.state && history.state.page === 'main'
+                    ? Object.assign({}, history.state)
+                    : { page: 'main' };
+                existingState.scrollTarget = normalizedTarget;
+                history.replaceState(existingState, '', `${baseUrl}${normalizedTarget}`);
+            }
+            showPage(pageId, { returnTarget: normalizedTarget });
         }
 
         function createProductCard(item) {
@@ -3407,7 +3513,8 @@ function buildAllItemsPage(targetKey, data) {
 
                     window.scrollTo({
                         top: targetPosition,
-                        behavior: 'smooth'
+                        left: 0,
+                        behavior: 'auto'
                     });
                 } else {
                     // Neither page nor section found, show main content
@@ -3437,15 +3544,26 @@ function buildAllItemsPage(targetKey, data) {
             }
 
             // Handle back button / browser navigation
-            window.addEventListener('popstate', function() {
+            window.addEventListener('popstate', function(event) {
+                const state = event.state;
                 const hash = window.location.hash;
+                if (state && state.page) {
+                    if (state.page === 'main') {
+                        showMainContent(state.scrollTarget || hash, { skipHistory: true, maintainHash: true });
+                        return;
+                    }
+                    if (showPage(state.page, { skipHistory: true })) {
+                        return;
+                    }
+                }
+
                 if (hash && hash.length > 1) {
                     const pageId = hash.substring(1) + '-page';
-                    if (!showPage(pageId)) {
-                        showMainContent();
+                    if (!showPage(pageId, { skipHistory: true })) {
+                        showMainContent(hash, { skipHistory: true, maintainHash: true });
                     }
                 } else {
-                    showMainContent();
+                    showMainContent(null, { skipHistory: true });
                 }
             });
 
@@ -4803,22 +4921,22 @@ function buildAllItemsPage(targetKey, data) {
 <!-- Hero Section -->
 <section class="hero">
 <div class="hero-carousel">
-<div class="slide active">
+<div class="slide active slide-mens-1">
 <picture>
 <source media="(max-width: 767px)" srcset="assets/carousel/mens-carousel-1-mobile.jpg"/>
 <img alt="Men's Jewelry 1" src="assets/carousel/mens-carousel-1.png"/>
 </picture>
 </div>
-<div class="slide">
+<div class="slide slide-mens-2">
 <picture>
 <source media="(max-width: 767px)" srcset="assets/carousel/mens-carousel-2-mobile.jpg"/>
 <img alt="Men's Jewelry 2" src="assets/carousel/mens-carousel-2.png"/>
 </picture>
 </div>
-<div class="slide">
+<div class="slide slide-mens-3">
 <img alt="Men's Jewelry 3" src="assets/carousel/mens-carousel-3.png"/>
 </div>
-<div class="slide">
+<div class="slide slide-mens-4">
 <img alt="Men's Jewelry 4" src="assets/carousel/mens-carousel-4.png"/>
 </div>
 <div class="carousel-dots">
@@ -4904,13 +5022,13 @@ function buildAllItemsPage(targetKey, data) {
 </div>
 </section>
 <!-- Media Section -->
-<section class="media-section">
+<section class="media-section" id="mens-media">
 <div class="container">
 <h2 class="section-title">
       Media
      </h2>
 <div class="media-grid">
-<div class="media-item" onclick="showPage('media-begin-page')">
+<div class="media-item" onclick="navigateToPage('media-begin-page', '#mens-media')">
 <div class="media-image">
 <img alt="begin 掲載カット" src="assets/media/media-right.png"/>
 </div>
@@ -4918,7 +5036,7 @@ function buildAllItemsPage(targetKey, data) {
         beginの10月号に掲載頂きました
        </div>
 </div>
-<div class="media-item" onclick="showPage('media-bijinhyakka-page')">
+<div class="media-item" onclick="navigateToPage('media-bijinhyakka-page', '#mens-media')">
 <div class="media-image">
 <img alt="美人百貨 掲載カット" src="assets/media/media-left.png"/>
 </div>
