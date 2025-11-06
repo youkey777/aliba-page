@@ -2331,11 +2331,11 @@
 <a href="#set-items">
         セットアイテム
        </a>
-<a href="#ladies-all-items-page">
-        オールアイテム
-       </a>
 <a href="#aliva-luxe">
         aliva luxe
+       </a>
+<a href="#ladies-all-items-page">
+        all item
        </a>
 </div>
 </div>
@@ -2354,7 +2354,7 @@
         財布
        </a>
 <a href="#mens-all-items-page">
-        オールアイテム
+        all item
        </a>
 </div>
 </div>
@@ -2406,11 +2406,11 @@
 <a href="#set-items">
         セットアイテム
        </a>
-<a href="#ladies-all-items-page">
-        オールアイテム
-       </a>
 <a href="#aliva-luxe">
         aliva luxe
+       </a>
+<a href="#ladies-all-items-page">
+        all item
        </a>
 </div>
 </div>
@@ -2429,7 +2429,7 @@
         財布
        </a>
 <a href="#mens-all-items-page">
-        オールアイテム
+        all item
        </a>
 </div>
 </div>
@@ -3239,7 +3239,18 @@ function buildAllItemsPage(targetKey, data) {
                 return;
             }
 
-            const blocks = Array.isArray(data[targetKey]) ? data[targetKey] : [];
+            const rawBlocks = Array.isArray(data[targetKey]) ? data[targetKey] : [];
+            const blocks = rawBlocks.slice();
+
+            if (targetKey === 'mens' && blocks.length) {
+                const categoryOrder = { 'Piercings': 0, 'Necklaces': 1 };
+                blocks.sort((a, b) => {
+                    const orderA = Object.prototype.hasOwnProperty.call(categoryOrder, a?.title) ? categoryOrder[a.title] : 2;
+                    const orderB = Object.prototype.hasOwnProperty.call(categoryOrder, b?.title) ? categoryOrder[b.title] : 2;
+                    return orderA - orderB;
+                });
+            }
+
             blocks.forEach(block => {
                 const items = Array.isArray(block.items) ? block.items : [];
                 if (!items.length) return;
