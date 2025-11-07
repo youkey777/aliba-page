@@ -144,25 +144,13 @@
             object-fit: contain;
         }
 
-        @media (max-width: 767px) {
-            .header {
-                padding: 8px 0;
-            }
-
-            .logo {
-                height: 70px;
-            }
-        }
-
         .nav {
-            display: none !important;
+            display: none;
             gap: 30px;
         }
 
         @media (min-width: 768px) {
-            .nav { 
-                display: flex !important; 
-            }
+            .nav { display: flex; }
         }
 
         .nav-item {
@@ -264,13 +252,11 @@
         }
 
         .mobile-menu-btn {
-            display: block !important;
+            display: block;
         }
 
         @media (min-width: 768px) {
-            .mobile-menu-btn { 
-                display: none !important; 
-            }
+            .mobile-menu-btn { display: none; }
         }
 
         .mobile-menu {
@@ -395,9 +381,6 @@
         
 
         @media (max-width: 767px) {
-            .hero-carousel .slide {
-                background: var(--bg-light) !important;
-            }
             .mens-theme .hero-carousel .slide {
                 background: var(--mens-bg-section) !important;
             }
