@@ -321,7 +321,7 @@
             position: relative;
             width: 100%;
             margin: 0 auto;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 4 / 3;
         }
 
         @media (min-width: 1024px) {
@@ -363,6 +363,13 @@
 
         .hero-carousel .slide picture {
             display: block;
+        }
+
+        @media (max-width: 1023px) {
+            .hero-carousel .slide picture,
+            .hero-carousel .slide img {
+                object-fit: contain;
+            }
         }
 
         @media (min-width: 1024px) {
