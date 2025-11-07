@@ -145,12 +145,14 @@
         }
 
         .nav {
-            display: none;
+            display: none !important;
             gap: 30px;
         }
 
         @media (min-width: 768px) {
-            .nav { display: flex; }
+            .nav { 
+                display: flex !important; 
+            }
         }
 
         .nav-item {
@@ -252,11 +254,13 @@
         }
 
         .mobile-menu-btn {
-            display: block;
+            display: block !important;
         }
 
         @media (min-width: 768px) {
-            .mobile-menu-btn { display: none; }
+            .mobile-menu-btn { 
+                display: none !important; 
+            }
         }
 
         .mobile-menu {
@@ -381,6 +385,9 @@
         
 
         @media (max-width: 767px) {
+            .hero-carousel .slide {
+                background: var(--bg-light) !important;
+            }
             .mens-theme .hero-carousel .slide {
                 background: var(--mens-bg-section) !important;
             }
