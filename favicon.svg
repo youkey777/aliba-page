@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80">
+  <!-- Blue circle -->
+  <circle cx="40" cy="40" r="32" fill="#4A90E2"/>
+  <!-- Light blue circle -->
+  <circle cx="100" cy="40" r="32" fill="#50C8E8"/>
+  <!-- Yellow circle -->
+  <circle cx="160" cy="40" r="32" fill="#F5D547"/>
+</svg>
