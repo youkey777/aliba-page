@@ -3013,6 +3013,9 @@
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
       </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
+      </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
       </a>
@@ -3909,7 +3912,8 @@ function buildAllItemsPage(targetKey, data) {
                 }
 
                 if (hash && hash.length > 1) {
-                    const pageId = hash.substring(1) + '-page';
+                    const hashValue = hash.substring(1);
+                    const pageId = hashValue.endsWith('-page') ? hashValue : hashValue + '-page';
                     if (!showPage(pageId, { skipHistory: true })) {
                         showMainContent(hash, { skipHistory: true, maintainHash: true });
                     }
@@ -3921,7 +3925,8 @@ function buildAllItemsPage(targetKey, data) {
             // Handle initial page load with hash
             const initialHash = window.location.hash;
             if (initialHash && initialHash.length > 1) {
-                const pageId = initialHash.substring(1) + '-page';
+                const hashValue = initialHash.substring(1);
+                const pageId = hashValue.endsWith('-page') ? hashValue : hashValue + '-page';
                 if (!showPage(pageId)) {
                     showMainContent();
                 }
@@ -4214,6 +4219,9 @@ function buildAllItemsPage(targetKey, data) {
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
       </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
+      </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
       </a>
@@ -4308,6 +4316,9 @@ function buildAllItemsPage(targetKey, data) {
       </a>
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
+      </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
       </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
@@ -4567,6 +4578,9 @@ function buildAllItemsPage(targetKey, data) {
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
       </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
+      </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
       </a>
@@ -4673,6 +4687,9 @@ function buildAllItemsPage(targetKey, data) {
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
       </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
+      </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
       </a>
@@ -4753,7 +4770,7 @@ function buildAllItemsPage(targetKey, data) {
   </a>
   <a class="item-card" href="https://www.amazon.co.jp/dp/B08TVPMTFP" rel="noopener noreferrer" target="_blank">
     <div class="item-image">
-    <img alt="[aliba] 財布 メンズ 二つ折り 本革 二つ折り財布 タイガ加工 男性 コンパクト 人気 大容量 wallet men メンズ財布 誕生日 プレゼント" src="https://m.media-amazon.com/images/I/819ThlZdYSL._AC_SL1500_.jpg"/>
+    <img alt="[aliba] 財布 メンズ 二つ折り 本革 二つ折り財布 タイガ加工 男性 コンパクト 人気 大容量 wallet men メンズ財布 誕生日 プレゼント" src="https://m.media-amazon.com/images/I/61xJcNKKLXL.jpg"/>
     </div>
     <div class="item-info">
     <div class="item-price">¥3,042</div>
@@ -4786,6 +4803,9 @@ function buildAllItemsPage(targetKey, data) {
       </a>
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
+      </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
       </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
@@ -4938,6 +4958,9 @@ function buildAllItemsPage(targetKey, data) {
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
       </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
+      </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
       </a>
@@ -5073,6 +5096,9 @@ function buildAllItemsPage(targetKey, data) {
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
       </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
+      </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
       </a>
@@ -5113,7 +5139,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
 </div>
@@ -5148,7 +5175,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -5243,6 +5271,9 @@ function buildAllItemsPage(targetKey, data) {
       </a>
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
+      </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
       </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
@@ -5368,6 +5399,9 @@ function buildAllItemsPage(targetKey, data) {
       </a>
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
+      </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
       </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
@@ -5555,6 +5589,9 @@ function buildAllItemsPage(targetKey, data) {
       </a>
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
+      </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
       </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
@@ -5964,6 +6001,9 @@ function buildAllItemsPage(targetKey, data) {
 <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">
        ペアアイテム
       </a>
+<a href="#about-page" onclick="showPage('about-page'); return false;">
+       About
+      </a>
 <a href="https://www.instagram.com/aliba_official01/" rel="noopener noreferrer" target="_blank">
        Instagram
       </a>
@@ -6061,7 +6101,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6108,7 +6149,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6155,7 +6197,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6202,7 +6245,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6249,7 +6293,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6296,7 +6341,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6343,7 +6389,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6379,7 +6426,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6413,7 +6461,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6587,7 +6636,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6693,7 +6743,8 @@ function buildAllItemsPage(targetKey, data) {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6945,7 +6996,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
         <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
         <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank">Instagram</a>
+        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
