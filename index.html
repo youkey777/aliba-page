@@ -1274,20 +1274,47 @@
 
         .footer-links {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .footer-links-main {
+            display: flex;
             justify-content: center;
             gap: 24px;
-            margin-bottom: 24px;
             flex-wrap: wrap;
         }
 
-        .footer-links a {
+        .footer-links-main a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: color 0.3s ease;
+            font-size: 15px;
         }
 
-        .footer-links a:hover {
+        .footer-links-main a:hover {
             color: var(--acc-gold);
+        }
+
+        .footer-links-secondary {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .footer-links-secondary a {
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 9px;
+        }
+
+        .footer-links-secondary a:hover {
+            color: rgba(255, 255, 255, 0.65);
         }
 
         .footer-copyright {
@@ -1535,12 +1562,20 @@
             color: var(--mens-silver) !important;
         }
 
-        .mens-theme .footer-links a {
+        .mens-theme .footer-links-main a {
             color: var(--mens-text-secondary) !important;
         }
 
-        .mens-theme .footer-links a:hover {
+        .mens-theme .footer-links-main a:hover {
             color: var(--mens-accent) !important;
+        }
+
+        .mens-theme .footer-links-secondary a {
+            color: rgba(255, 255, 255, 0.35) !important;
+        }
+
+        .mens-theme .footer-links-secondary a:hover {
+            color: rgba(255, 255, 255, 0.55) !important;
         }
 
         .mens-theme .footer-copyright {
@@ -1638,12 +1673,20 @@
             color: var(--luxe-gold) !important;
         }
 
-        .aliva-luxe-theme .footer-links a {
+        .aliva-luxe-theme .footer-links-main a {
             color: var(--luxe-text-secondary) !important;
         }
 
-        .aliva-luxe-theme .footer-links a:hover {
+        .aliva-luxe-theme .footer-links-main a:hover {
             color: var(--luxe-gold) !important;
+        }
+
+        .aliva-luxe-theme .footer-links-secondary a {
+            color: rgba(255, 255, 255, 0.35) !important;
+        }
+
+        .aliva-luxe-theme .footer-links-secondary a:hover {
+            color: rgba(255, 255, 255, 0.55) !important;
         }
 
         .aliva-luxe-theme .footer-copyright {
@@ -1687,16 +1730,20 @@
 
         .page-title {
             font-family: var(--font-serif);
-            font-size: 36px;
-            font-weight: 300;
-            margin-bottom: 16px;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 12px;
             color: var(--fg-primary);
+            letter-spacing: 0.02em;
+            line-height: 1.4;
         }
 
         .page-description {
-            font-size: 16px;
+            font-size: 14px;
             color: var(--fg-secondary);
-            line-height: 1.6;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .products-grid {
@@ -2020,12 +2067,20 @@
             color: #6B7280 !important;
         }
 
-        .memorial-theme .footer-links a {
+        .memorial-theme .footer-links-main a {
             color: #6B7280 !important;
         }
 
-        .memorial-theme .footer-links a:hover {
+        .memorial-theme .footer-links-main a:hover {
             color: #4B5563 !important;
+        }
+
+        .memorial-theme .footer-links-secondary a {
+            color: rgba(107, 114, 128, 0.5) !important;
+        }
+
+        .memorial-theme .footer-links-secondary a:hover {
+            color: rgba(107, 114, 128, 0.7) !important;
         }
 
         .memorial-theme .footer-copyright {
@@ -2044,14 +2099,24 @@
             color: var(--acc-gold) !important;
         }
 
-        #pair-necklaces-page .footer-links a,
-        #set-items-page .footer-links a {
+        #pair-necklaces-page .footer-links-main a,
+        #set-items-page .footer-links-main a {
             color: #6B7280 !important;
         }
 
-        #pair-necklaces-page .footer-links a:hover,
-        #set-items-page .footer-links a:hover {
+        #pair-necklaces-page .footer-links-main a:hover,
+        #set-items-page .footer-links-main a:hover {
             color: var(--acc-gold) !important;
+        }
+
+        #pair-necklaces-page .footer-links-secondary a,
+        #set-items-page .footer-links-secondary a {
+            color: rgba(107, 114, 128, 0.5) !important;
+        }
+
+        #pair-necklaces-page .footer-links-secondary a:hover,
+        #set-items-page .footer-links-secondary a:hover {
+            color: rgba(107, 114, 128, 0.7) !important;
         }
 
         #pair-necklaces-page .footer-copyright,
@@ -2071,14 +2136,24 @@
             color: var(--acc-gold) !important;
         }
 
-        #about-page .footer-links a,
-        #column-page .footer-links a {
+        #about-page .footer-links-main a,
+        #column-page .footer-links-main a {
             color: #6B7280 !important;
         }
 
-        #about-page .footer-links a:hover,
-        #column-page .footer-links a:hover {
+        #about-page .footer-links-main a:hover,
+        #column-page .footer-links-main a:hover {
             color: var(--acc-gold) !important;
+        }
+
+        #about-page .footer-links-secondary a,
+        #column-page .footer-links-secondary a {
+            color: rgba(107, 114, 128, 0.5) !important;
+        }
+
+        #about-page .footer-links-secondary a:hover,
+        #column-page .footer-links-secondary a:hover {
+            color: rgba(107, 114, 128, 0.7) !important;
         }
 
         #about-page .footer-copyright,
@@ -2098,14 +2173,24 @@
             color: var(--acc-gold) !important;
         }
 
-        #ladies-earrings-page .footer-links a,
-        #ladies-necklaces-page .footer-links a {
+        #ladies-earrings-page .footer-links-main a,
+        #ladies-necklaces-page .footer-links-main a {
             color: #6B7280 !important;
         }
 
-        #ladies-earrings-page .footer-links a:hover,
-        #ladies-necklaces-page .footer-links a:hover {
+        #ladies-earrings-page .footer-links-main a:hover,
+        #ladies-necklaces-page .footer-links-main a:hover {
             color: var(--acc-gold) !important;
+        }
+
+        #ladies-earrings-page .footer-links-secondary a,
+        #ladies-necklaces-page .footer-links-secondary a {
+            color: rgba(107, 114, 128, 0.5) !important;
+        }
+
+        #ladies-earrings-page .footer-links-secondary a:hover,
+        #ladies-necklaces-page .footer-links-secondary a:hover {
+            color: rgba(107, 114, 128, 0.7) !important;
         }
 
         #ladies-earrings-page .footer-copyright,
@@ -3984,6 +4069,7 @@ function buildAllItemsPage(targetKey, data) {
     controls
     preload="none"
     loading="lazy"
+    poster="assets/videos/ladies-earrings/hoop-earrings-thumb.jpg"
     style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     <source src="assets/videos/ladies-earrings/hoop-earrings-final.mp4" type="video/mp4">
     お使いのブラウザは動画タグをサポートしていません。
@@ -4259,6 +4345,7 @@ function buildAllItemsPage(targetKey, data) {
     controls
     preload="none"
     loading="lazy"
+    poster="assets/videos/ladies-necklaces/ribbon-necklace-thumb.jpg"
     style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     <source src="assets/videos/ladies-necklaces/ribbon-necklace-final.mp4" type="video/mp4">
     お使いのブラウザは動画タグをサポートしていません。
@@ -4844,6 +4931,7 @@ function buildAllItemsPage(targetKey, data) {
     controls
     preload="none"
     loading="lazy"
+    poster="assets/videos/pair-necklaces/heart-necklace-thumb.jpg"
     style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     <source src="assets/videos/pair-necklaces/heart-necklace-final.mp4" type="video/mp4">
     お使いのブラウザは動画タグをサポートしていません。
@@ -4998,6 +5086,7 @@ function buildAllItemsPage(targetKey, data) {
     controls
     preload="none"
     loading="lazy"
+    poster="assets/videos/ladies-set-items/silver-set-thumb.jpg"
     style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     <source src="assets/videos/ladies-set-items/silver-set-final.mp4" type="video/mp4">
     お使いのブラウザは動画タグをサポートしていません。
@@ -5132,17 +5221,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
 </div>
@@ -5170,17 +5266,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6098,17 +6201,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6148,17 +6258,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6198,17 +6315,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6248,17 +6372,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6298,17 +6429,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6348,17 +6486,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6398,17 +6543,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6437,17 +6589,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6474,17 +6633,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6651,17 +6817,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -6760,17 +6933,24 @@ function buildAllItemsPage(targetKey, data) {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
@@ -7015,17 +7195,24 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="container">
       <div class="footer-logo">aliba</div>
       <div class="footer-links">
-        <a href="#" onclick="showMainContent(); return false;">ホーム</a>
-        <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
-        <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
-        <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
-        <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
-        <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
-        <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
-        <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
-        <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
-        <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        <div class="footer-links-main">
+          <a href="#" onclick="showMainContent(); return false;">ホーム</a>
+          <a href="#about-page" onclick="showPage('about-page'); return false;">About</a>
+          <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="#contact-page" onclick="showPage('contact-page'); return false;">お問い合わせ</a>
+          <a href="#terms-page" onclick="showPage('terms-page'); return false;">利用規約・プライバシーポリシー</a>
+        </div>
+        <div class="footer-links-secondary">
+          <a href="#ladies-earrings-page" onclick="showPage('ladies-earrings-page'); return false;">レディースピアス</a>
+          <a href="#ladies-necklaces-page" onclick="showPage('ladies-necklaces-page'); return false;">レディースネックレス</a>
+          <a href="#mens-earrings-page" onclick="showPage('mens-earrings-page'); return false;">メンズピアス</a>
+          <a href="#mens-necklaces-page" onclick="showPage('mens-necklaces-page'); return false;">メンズネックレス</a>
+          <a href="#mens-wallets-page" onclick="showPage('mens-wallets-page'); return false;">メンズ財布</a>
+          <a href="#pair-necklaces-page" onclick="showPage('pair-necklaces-page'); return false;">ペアアイテム</a>
+          <a href="#memorial-page" onclick="showPage('memorial-page'); return false;">メモリアルジュエリー</a>
+          <a href="#aliva-luxe-page" onclick="showPage('aliva-luxe-page'); return false;">aliva luxe</a>
+          <a href="#column-page" onclick="showPage('column-page'); return false;">コラム</a>
+        </div>
       </div>
       <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
     </div>
