@@ -1683,6 +1683,146 @@
             }
         }
 
+        /* Ladies Category Summary & FAQ - Elegant Styling */
+        .category-summary {
+            background: linear-gradient(135deg, #FAF8F6 0%, #F5F2EE 100%);
+            padding: 60px 20px;
+            border-top: 1px solid rgba(194, 165, 120, 0.15);
+        }
+
+        .category-summary .category-summary-title {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            font-weight: 400;
+            margin-bottom: 28px;
+            color: var(--acc-gold);
+            text-align: center;
+            letter-spacing: 0.08em;
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        .category-summary .category-summary-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--acc-gold), transparent);
+        }
+
+        .category-summary .category-summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 800px;
+            color: #4A4A4A;
+            font-size: 15px;
+            line-height: 2;
+            font-weight: 300;
+        }
+
+        .category-summary .category-summary-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+        }
+
+        .category-summary .category-summary-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--acc-gold);
+            font-size: 10px;
+            top: 8px;
+        }
+
+        .category-faq {
+            background: #FFFFFF;
+            padding: 60px 20px 50px;
+            border-top: 1px solid rgba(194, 165, 120, 0.15);
+        }
+
+        .category-faq .category-faq-title {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            font-weight: 400;
+            margin-bottom: 36px;
+            color: var(--acc-gold);
+            text-align: center;
+            letter-spacing: 0.08em;
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        .category-faq .category-faq-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--acc-gold), transparent);
+        }
+
+        .category-faq .faq-list {
+            margin: 0 auto;
+            padding: 0;
+            max-width: 800px;
+        }
+
+        .category-faq .faq-item {
+            margin-bottom: 28px;
+            padding: 24px;
+            background: linear-gradient(135deg, #FDFCFB 0%, #FAF8F6 100%);
+            border-radius: 8px;
+            border: 1px solid rgba(194, 165, 120, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .category-faq .faq-item:hover {
+            border-color: rgba(194, 165, 120, 0.3);
+            box-shadow: 0 4px 12px rgba(194, 165, 120, 0.08);
+        }
+
+        .category-faq dt {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            font-size: 16px;
+            color: #2C2C2C;
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+            line-height: 1.6;
+        }
+
+        .category-faq dd {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.9;
+            color: #5A5A5A;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+        }
+
+        @media (max-width: 639px) {
+            .category-summary,
+            .category-faq {
+                padding: 48px 16px;
+            }
+
+            .category-summary .category-summary-title,
+            .category-faq .category-faq-title {
+                font-size: 22px;
+            }
+
+            .category-faq .faq-item {
+                padding: 20px;
+            }
+        }
+
         .mens-theme .product-card {
             background: #1F2229 !important;
             border-color: rgba(184, 197, 214, 0.2) !important;
