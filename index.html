@@ -1587,13 +1587,100 @@
             background: linear-gradient(135deg, var(--mens-bg-dark) 0%, var(--mens-navy) 100%) !important;
         }
 
+        .hero-label {
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .mens-theme .hero-label {
+            color: rgba(184, 197, 214, 0.85);
+        }
+
         .mens-theme .page-title {
             color: var(--mens-accent) !important;
             font-weight: 400 !important;
+            font-size: clamp(32px, 3vw, 40px);
+            letter-spacing: 0.08em;
         }
 
         .mens-theme .page-description {
             color: var(--mens-text) !important;
+        }
+
+        .mens-category-summary {
+            background: var(--mens-bg-section);
+            padding: 40px 20px;
+        }
+
+        .mens-category-summary .category-summary-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            margin-bottom: 16px;
+            color: var(--mens-text);
+        }
+
+        .mens-category-summary .category-summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--mens-text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .mens-category-summary .category-summary-list li + li {
+            margin-top: 6px;
+        }
+
+        .mens-category-faq {
+            background: #101217;
+            padding: 40px 20px 32px;
+        }
+
+        .mens-category-faq .category-faq-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            margin-bottom: 16px;
+            color: var(--mens-text);
+        }
+
+        .mens-category-faq .faq-list {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mens-category-faq .faq-item {
+            margin-bottom: 16px;
+            border-top: 1px solid rgba(184, 197, 214, 0.2);
+            padding-top: 12px;
+        }
+
+        .mens-category-faq .faq-item:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .mens-category-faq dt {
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--mens-text);
+            margin-bottom: 4px;
+        }
+
+        .mens-category-faq dd {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.8;
+            color: var(--mens-text-secondary);
+        }
+
+        @media (max-width: 639px) {
+            .mens-category-summary,
+            .mens-category-faq {
+                padding: 32px 16px;
+            }
         }
 
         .mens-theme .product-card {
@@ -4402,14 +4489,50 @@ function buildAllItemsPage(targetKey, data) {
   <span style="margin: 0 8px;">&gt;</span>
   <span style="color: #333; font-weight: 500;">メンズピアス</span>
 </nav>
+<p class="hero-label mens-hero-label">
+        aliba メンズピアス コレクション
+       </p>
 <h1 class="page-title">
-      aliba メンズピアス コレクション
-     </h1>
+        メンズピアス
+       </h1>
 <p class="page-description">
-      alibaのメンズピアスコレクションは、高品質なステンレス素材を使用し、日常使いからフォーマルまで幅広いシーンに対応します。モダンでスタイリッシュなデザインが魅力です。
-     </p>
+        高品質なサージカルステンレス316Lを使用した、つけっぱなしOKのメンズピアスコレクションです。ビジネスからオフスタイルまで幅広いシーンになじむ、シンプルでスタイリッシュなデザインが特徴です。
+       </p>
 </div>
 </div>
+
+<section class="category-summary mens-category-summary">
+  <div class="container">
+    <h2 class="category-summary-title">メンズピアスの特徴</h2>
+    <ul class="category-summary-list">
+      <li>サージカルステンレス316L製で、金属アレルギーに配慮した仕様</li>
+      <li>つけっぱなしでも使いやすい、日常使いを想定したデザイン</li>
+      <li>スーツにもカジュアルにも合う、程よいボリューム感とサイズ感</li>
+      <li>価格帯の目安はおおよそ1,000〜4,000円前後（モデルにより異なります）</li>
+    </ul>
+  </div>
+</section>
+
+<section class="category-faq mens-category-faq">
+  <div class="container">
+    <h2 class="category-faq-title">メンズピアスに関するよくある質問</h2>
+    <dl class="faq-list">
+      <div class="faq-item">
+        <dt>メンズピアスはつけっぱなしにしても大丈夫ですか？</dt>
+        <dd>サージカルステンレス316Lを採用しているため、汗や水に強く、日常生活でのつけっぱなしを想定しています。ただし肌質には個人差があるため、違和感やかゆみを感じた場合はいったん外して様子を見てください。</dd>
+      </div>
+      <div class="faq-item">
+        <dt>初めてメンズピアスをつける場合、どのようなデザインがおすすめですか？</dt>
+        <dd>ビジネスシーンでも使いやすい細めのフープタイプや、小ぶりなシルバーのリングピアスが初めての方にはおすすめです。主張しすぎず、さりげなく耳元を彩ります。</dd>
+      </div>
+      <div class="faq-item">
+        <dt>スーツスタイルにも合うメンズピアスはありますか？</dt>
+        <dd>シンプルなシルバーやブラックのフープピアスであれば、ジャケットやシャツスタイルにもなじみやすく、清潔感のある印象を保ちながらアクセントとして取り入れられます。</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
 <div class="container">
 <div class="products-grid">
   <a class="item-card" href="https://www.amazon.co.jp/dp/B096NNC6CR" rel="noopener noreferrer" target="_blank">
@@ -7866,6 +7989,40 @@ function addStructuredData(schemaData, id) {
   script.id = id;
   script.textContent = JSON.stringify(schemaData);
   document.head.appendChild(script);
+}
+</script>
+
+<!-- Structured Data - FAQPage for Men's Earrings -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "メンズピアスはつけっぱなしにしても大丈夫ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "サージカルステンレス316Lを採用しているため、汗や水に強く、日常生活でのつけっぱなしを想定しています。ただし肌質には個人差があるため、違和感やかゆみを感じた場合はいったん外して様子を見てください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "初めてメンズピアスをつける場合、どのようなデザインがおすすめですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ビジネスシーンでも使いやすい細めのフープタイプや、小ぶりなシルバーのリングピアスが初めての方にはおすすめです。主張しすぎず、さりげなく耳元を彩ります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "スーツスタイルにも合うメンズピアスはありますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "シンプルなシルバーやブラックのフープピアスであれば、ジャケットやシャツスタイルにもなじみやすく、清潔感のある印象を保ちながらアクセントとして取り入れられます。"
+      }
+    }
+  ]
 }
 </script>
 
