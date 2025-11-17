@@ -1610,96 +1610,152 @@
         }
 
         .mens-category-summary {
-            background: var(--mens-bg-section);
-            padding: 40px 20px;
+            background: var(--mens-bg-section) !important;
+            padding: 32px 20px !important;
+            border-top: 1px solid rgba(184, 197, 214, 0.15) !important;
         }
 
         .mens-category-summary .category-summary-title {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            margin-bottom: 16px;
-            color: var(--mens-text);
+            font-family: var(--font-serif) !important;
+            font-size: 17px !important;
+            margin-bottom: 14px !important;
+            color: var(--mens-text) !important;
+            letter-spacing: 0.06em !important;
+            position: relative !important;
+            padding-bottom: 12px !important;
+        }
+
+        .mens-category-summary .category-summary-title::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 50px !important;
+            height: 1px !important;
+            background: linear-gradient(90deg, transparent, var(--mens-accent), transparent) !important;
         }
 
         .mens-category-summary .category-summary-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            color: var(--mens-text-secondary);
-            font-size: 14px;
-            line-height: 1.8;
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 auto !important;
+            max-width: 800px !important;
+            color: var(--mens-text-secondary) !important;
+            font-size: 12px !important;
+            line-height: 1.7 !important;
         }
 
-        .mens-category-summary .category-summary-list li + li {
-            margin-top: 6px;
+        .mens-category-summary .category-summary-list li {
+            position: relative !important;
+            padding-left: 20px !important;
+            margin-bottom: 6px !important;
+        }
+
+        .mens-category-summary .category-summary-list li::before {
+            content: '◆' !important;
+            position: absolute !important;
+            left: 0 !important;
+            color: var(--mens-accent) !important;
+            font-size: 8px !important;
+            top: 6px !important;
         }
 
         .mens-category-faq {
-            background: #101217;
-            padding: 40px 20px 32px;
+            background: #101217 !important;
+            padding: 32px 20px 24px !important;
+            border-top: 1px solid rgba(184, 197, 214, 0.15) !important;
         }
 
         .mens-category-faq .category-faq-title {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            margin-bottom: 16px;
-            color: var(--mens-text);
+            font-family: var(--font-serif) !important;
+            font-size: 17px !important;
+            margin-bottom: 14px !important;
+            color: var(--mens-text) !important;
+            letter-spacing: 0.06em !important;
+            position: relative !important;
+            padding-bottom: 12px !important;
+        }
+
+        .mens-category-faq .category-faq-title::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 50px !important;
+            height: 1px !important;
+            background: linear-gradient(90deg, transparent, var(--mens-accent), transparent) !important;
         }
 
         .mens-category-faq .faq-list {
-            margin: 0;
-            padding: 0;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            max-width: 800px !important;
         }
 
         .mens-category-faq .faq-item {
-            margin-bottom: 16px;
-            border-top: 1px solid rgba(184, 197, 214, 0.2);
-            padding-top: 12px;
+            margin-bottom: 12px !important;
+            padding: 14px !important;
+            background: rgba(26, 29, 35, 0.5) !important;
+            border-radius: 6px !important;
+            border: 1px solid rgba(184, 197, 214, 0.15) !important;
+            transition: all 0.3s ease !important;
         }
 
-        .mens-category-faq .faq-item:first-child {
-            border-top: none;
-            padding-top: 0;
+        .mens-category-faq .faq-item:hover {
+            border-color: rgba(184, 197, 214, 0.3) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
         }
 
         .mens-category-faq dt {
-            font-weight: 500;
-            font-size: 14px;
-            color: var(--mens-text);
-            margin-bottom: 4px;
+            font-family: var(--font-serif) !important;
+            font-weight: 500 !important;
+            font-size: 12px !important;
+            color: var(--mens-text) !important;
+            margin-bottom: 6px !important;
+            letter-spacing: 0.02em !important;
+            line-height: 1.5 !important;
         }
 
         .mens-category-faq dd {
-            margin: 0;
-            font-size: 13px;
-            line-height: 1.8;
-            color: var(--mens-text-secondary);
+            margin: 0 !important;
+            font-size: 11px !important;
+            line-height: 1.6 !important;
+            color: var(--mens-text-secondary) !important;
+            font-weight: 300 !important;
+            letter-spacing: 0.01em !important;
         }
 
         @media (max-width: 639px) {
             .mens-category-summary,
             .mens-category-faq {
-                padding: 32px 16px;
+                padding: 28px 16px !important;
+            }
+
+            .mens-category-summary .category-summary-title,
+            .mens-category-faq .category-faq-title {
+                font-size: 15px !important;
             }
         }
 
         /* Ladies Category Summary & FAQ - Elegant Styling */
         .category-summary {
             background: linear-gradient(135deg, #FAF8F6 0%, #F5F2EE 100%);
-            padding: 60px 20px;
+            padding: 40px 20px;
             border-top: 1px solid rgba(194, 165, 120, 0.15);
         }
 
         .category-summary .category-summary-title {
             font-family: var(--font-serif);
-            font-size: 26px;
+            font-size: 18px;
             font-weight: 400;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
             color: var(--acc-gold);
             text-align: center;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
             position: relative;
-            padding-bottom: 16px;
+            padding-bottom: 12px;
         }
 
         .category-summary .category-summary-title::after {
@@ -1708,7 +1764,7 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 50px;
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--acc-gold), transparent);
         }
@@ -1719,15 +1775,15 @@
             margin: 0 auto;
             max-width: 800px;
             color: #4A4A4A;
-            font-size: 15px;
-            line-height: 2;
+            font-size: 13px;
+            line-height: 1.8;
             font-weight: 300;
         }
 
         .category-summary .category-summary-list li {
             position: relative;
-            padding-left: 24px;
-            margin-bottom: 12px;
+            padding-left: 20px;
+            margin-bottom: 8px;
         }
 
         .category-summary .category-summary-list li::before {
@@ -1735,26 +1791,26 @@
             position: absolute;
             left: 0;
             color: var(--acc-gold);
-            font-size: 10px;
-            top: 8px;
+            font-size: 8px;
+            top: 6px;
         }
 
         .category-faq {
             background: #FFFFFF;
-            padding: 60px 20px 50px;
+            padding: 40px 20px 30px;
             border-top: 1px solid rgba(194, 165, 120, 0.15);
         }
 
         .category-faq .category-faq-title {
             font-family: var(--font-serif);
-            font-size: 26px;
+            font-size: 18px;
             font-weight: 400;
-            margin-bottom: 36px;
+            margin-bottom: 24px;
             color: var(--acc-gold);
             text-align: center;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
             position: relative;
-            padding-bottom: 16px;
+            padding-bottom: 12px;
         }
 
         .category-faq .category-faq-title::after {
@@ -1763,7 +1819,7 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 50px;
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--acc-gold), transparent);
         }
@@ -1775,10 +1831,10 @@
         }
 
         .category-faq .faq-item {
-            margin-bottom: 28px;
-            padding: 24px;
+            margin-bottom: 16px;
+            padding: 16px;
             background: linear-gradient(135deg, #FDFCFB 0%, #FAF8F6 100%);
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid rgba(194, 165, 120, 0.12);
             transition: all 0.3s ease;
         }
@@ -1791,17 +1847,17 @@
         .category-faq dt {
             font-family: var(--font-serif);
             font-weight: 500;
-            font-size: 16px;
+            font-size: 13px;
             color: #2C2C2C;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             letter-spacing: 0.02em;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .category-faq dd {
             margin: 0;
-            font-size: 14px;
-            line-height: 1.9;
+            font-size: 12px;
+            line-height: 1.7;
             color: #5A5A5A;
             font-weight: 300;
             letter-spacing: 0.01em;
@@ -1810,16 +1866,16 @@
         @media (max-width: 639px) {
             .category-summary,
             .category-faq {
-                padding: 48px 16px;
+                padding: 32px 16px;
             }
 
             .category-summary .category-summary-title,
             .category-faq .category-faq-title {
-                font-size: 22px;
+                font-size: 16px;
             }
 
             .category-faq .faq-item {
-                padding: 20px;
+                padding: 14px;
             }
         }
 
