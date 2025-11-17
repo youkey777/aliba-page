@@ -2460,88 +2460,24 @@
             color: #6B7280;
         }
 
-        /* Memorial Theme - Elegant & Delicate Style (Light Silver) */
+        /* Memorial Theme - Modern Clean Style */
         .memorial-theme {
-            background: linear-gradient(180deg, #F5F7FA 0%, #E8EDF2 100%) !important;
-            color: #4B5563 !important;
+            background: #FAFBFC !important;
+            color: #374151 !important;
             position: relative;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        @keyframes sparkle {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-
-        /* ページヒーロー - ガラス風グラデーション + ブルーの境界線 + 光の演出 */
+        /* ページヒーロー - クリーンでミニマル */
         .memorial-theme .page-hero {
-            background:
-                linear-gradient(135deg,
-                    rgba(255, 255, 255, 0.75) 0%,
-                    rgba(245, 247, 250, 0.65) 25%,
-                    rgba(235, 240, 245, 0.6) 50%,
-                    rgba(245, 247, 250, 0.65) 75%,
-                    rgba(255, 255, 255, 0.75) 100%
-                ) !important;
-            -webkit-backdrop-filter: blur(30px);
-            backdrop-filter: blur(30px);
-            border: 1px solid rgba(220, 230, 245, 0.5);
-            box-shadow:
-                0 8px 32px rgba(180, 200, 225, 0.25),
-                0 4px 16px rgba(220, 230, 245, 0.3),
-                inset 0 1px 2px rgba(255, 255, 255, 0.9);
+            background: #FFFFFF !important;
+            border: 1px solid #E5E7EB !important;
+            border-radius: 12px !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
             position: relative;
             z-index: 2;
-            overflow: hidden;
-        }
-
-        /* 大きな光の差し込み表現（ヒーローセクション専用） */
-        .memorial-theme .page-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                /* 左上からの光: ライトブルー系 */
-                radial-gradient(ellipse 900px 700px at 10% 20%,
-                    rgba(220, 230, 245, 0.95) 0%,
-                    rgba(200, 215, 235, 0.7) 20%,
-                    rgba(180, 200, 225, 0.4) 45%,
-                    transparent 75%),
-                /* 右下からの光: ラベンダー系 */
-                radial-gradient(ellipse 700px 600px at 90% 85%,
-                    rgba(235, 235, 245, 0.9) 0%,
-                    rgba(215, 215, 230, 0.6) 25%,
-                    rgba(192, 192, 210, 0.35) 55%,
-                    transparent 80%),
-                /* 中央の光: ゴールデンシルバー */
-                radial-gradient(circle 500px at 50% 50%,
-                    rgba(245, 245, 235, 0.8) 0%,
-                    rgba(230, 230, 220, 0.5) 35%,
-                    rgba(210, 210, 200, 0.25) 65%,
-                    transparent 85%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* キラキラ輝き系アニメーション（ヒーローセクション専用） */
-        .memorial-theme .page-hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('data:image/svg+xml,%3Csvg width="600" height="600" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cfilter id="glow"%3E%3CfeGaussianBlur stdDeviation="1.5" result="coloredBlur"/%3E%3CfeMerge%3E%3CfeMergeNode in="coloredBlur"/%3E%3CfeMergeNode in="SourceGraphic"/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg filter="url(%23glow)"%3E%3C!-- 大きなキラキラ1 --%3E%3Cpath d="M100 80 L100 20 M100 80 L100 140 M100 80 L40 80 M100 80 L160 80" stroke="%23E0E8F5" stroke-width="2" opacity="0.8"/%3E%3Cpolygon points="100,60 105,75 120,80 105,85 100,100 95,85 80,80 95,75" fill="%23E0E8F5" opacity="0.85"/%3E%3C!-- 中くらいのキラキラ2 --%3E%3Cpath d="M280 120 L280 85 M280 120 L280 155 M280 120 L245 120 M280 120 L315 120" stroke="%23F5F5E8" stroke-width="1.5" opacity="0.75"/%3E%3Cpolygon points="280,105 283,115 293,120 283,125 280,135 277,125 267,120 277,115" fill="%23F5F5E8" opacity="0.8"/%3E%3C!-- 大きなキラキラ3 --%3E%3Cpath d="M480 200 L480 140 M480 200 L480 260 M480 200 L420 200 M480 200 L540 200" stroke="%23E8E0F5" stroke-width="2" opacity="0.8"/%3E%3Cpolygon points="480,180 485,195 500,200 485,205 480,220 475,205 460,200 475,195" fill="%23E8E0F5" opacity="0.85"/%3E%3C!-- 小さなキラキラ4 --%3E%3Cpath d="M150 300 L150 280 M150 300 L150 320 M150 300 L130 300 M150 300 L170 300" stroke="%23E0E8F5" stroke-width="1" opacity="0.7"/%3E%3Cpolygon points="150,292 152,298 158,300 152,302 150,308 148,302 142,300 148,298" fill="%23E0E8F5" opacity="0.75"/%3E%3C!-- 中くらいのキラキラ5 --%3E%3Cpath d="M380 380 L380 345 M380 380 L380 415 M380 380 L345 380 M380 380 L415 380" stroke="%23F5F5E8" stroke-width="1.5" opacity="0.75"/%3E%3Cpolygon points="380,365 383,375 393,380 383,385 380,395 377,385 367,380 377,375" fill="%23F5F5E8" opacity="0.8"/%3E%3C!-- 小さなキラキラ6 --%3E%3Cpath d="M200 480 L200 460 M200 480 L200 500 M200 480 L180 480 M200 480 L220 480" stroke="%23E8E0F5" stroke-width="1" opacity="0.7"/%3E%3Cpolygon points="200,472 202,478 208,480 202,482 200,488 198,482 192,480 198,478" fill="%23E8E0F5" opacity="0.75"/%3E%3C/g%3E%3C/svg%3E');
-            background-size: 600px 600px;
-            background-repeat: repeat;
-            opacity: 1;
-            pointer-events: none;
-            z-index: 0;
-            animation: sparkle 8s ease-in-out infinite;
+            overflow: visible;
         }
 
         .memorial-theme .page-hero-content {
@@ -2564,40 +2500,31 @@
             letter-spacing: 0.02em;
         }
 
-        /* 商品カード - ガラスモーフィズム + ブルーの境界線 */
+        /* 商品カード - クリーンモダン */
         .memorial-theme .product-card {
-            background: rgba(255, 255, 255, 0.55) !important;
-            border: 1px solid rgba(220, 230, 245, 0.6) !important;
-            -webkit-backdrop-filter: blur(15px) saturate(180%);
-            backdrop-filter: blur(15px) saturate(180%);
-            box-shadow:
-                0 4px 16px rgba(180, 200, 225, 0.2),
-                0 2px 8px rgba(220, 230, 245, 0.25),
-                inset 0 1px 2px rgba(255, 255, 255, 1);
+            background: #FFFFFF !important;
+            border: 1px solid #E5E7EB !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
             position: relative;
             z-index: 3;
-            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+            transition: all 0.2s ease !important;
         }
 
         .memorial-theme .product-card:hover {
-            background: rgba(255, 255, 255, 0.7) !important;
-            border-color: rgba(200, 215, 235, 0.8) !important;
-            box-shadow:
-                0 8px 32px rgba(180, 200, 225, 0.35),
-                0 4px 16px rgba(220, 230, 245, 0.4),
-                0 0 25px rgba(220, 230, 245, 0.5),
-                inset 0 1px 3px rgba(255, 255, 255, 1);
-            transform: translateY(-6px);
+            background: #FFFFFF !important;
+            border-color: #D1D5DB !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+            transform: translateY(-2px) !important;
         }
 
         .memorial-theme .product-name {
-            color: #4B5563 !important;
+            color: #111827 !important;
             font-weight: 500;
         }
 
         .memorial-theme .product-price {
-            color: #9CA3AF !important;
-            font-weight: 300;
+            color: #6B7280 !important;
+            font-weight: 400;
         }
 
         .memorial-theme .container {
@@ -2608,12 +2535,13 @@
         .memorial-theme .footer {
             position: relative;
             z-index: 2;
-            background: linear-gradient(180deg, #E8EDF2 0%, #D6DFE8 100%) !important;
-            color: #4B5563 !important;
+            background: #F9FAFB !important;
+            border-top: 1px solid #E5E7EB !important;
+            color: #374151 !important;
         }
 
         .memorial-theme .footer-logo {
-            color: #6B7280 !important;
+            color: #111827 !important;
         }
 
         .memorial-theme .footer-links-main a {
@@ -2621,15 +2549,15 @@
         }
 
         .memorial-theme .footer-links-main a:hover {
-            color: #4B5563 !important;
+            color: #111827 !important;
         }
 
         .memorial-theme .footer-links-secondary a {
-            color: rgba(107, 114, 128, 0.5) !important;
+            color: #9CA3AF !important;
         }
 
         .memorial-theme .footer-links-secondary a:hover {
-            color: rgba(107, 114, 128, 0.7) !important;
+            color: #6B7280 !important;
         }
 
         .memorial-theme .footer-copyright {
