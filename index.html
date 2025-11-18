@@ -3458,7 +3458,20 @@
       Jewelry Content
      </h2>
 <div class="journal-grid">
-<a class="journal-item" href="#column-article-1">
+<a class="journal-item" href="#column-article-1" onclick="showPage('column-article-1'); return false;">
+<div class="journal-image">
+<img alt="金属アレルギー対応ピアスの選び方" src="assets/journal/surgical-steel.jpg"/>
+</div>
+<div class="journal-content">
+<h3 class="journal-title">
+         金属アレルギー対応ピアスの選び方
+        </h3>
+<p class="journal-description">
+         サージカルステンレスで安心のおしゃれを。医療用グレード316Lの魅力と選び方を詳しく解説
+        </p>
+</div>
+</a>
+<a class="journal-item" href="#column-article-2" onclick="showPage('column-article-2'); return false;">
 <div class="journal-image">
 <img alt="季節とジュエリーの調和" src="assets/journal/seasonal.jpg"/>
 </div>
@@ -3471,7 +3484,7 @@
         </p>
 </div>
 </a>
-<a class="journal-item" href="#column-article-2">
+<a class="journal-item mobile-hidden" href="#column-article-3" onclick="showPage('column-article-3'); return false;">
 <div class="journal-image">
 <img alt="ペアで楽しむシェアアクセ" src="assets/journal/pair-style.jpg"/>
 </div>
@@ -3481,19 +3494,6 @@
         </h3>
 <p class="journal-description">
          性別超えて楽しむレディースアクセとメンズアクセのシェア術案内ガイド集記
-        </p>
-</div>
-</a>
-<a class="journal-item mobile-hidden" href="#column-article-3">
-<div class="journal-image">
-<img alt="素材別・長持ちケア術" src="assets/journal/care.jpg"/>
-</div>
-<div class="journal-content">
-<h3 class="journal-title">
-         素材別・長持ちケア術
-        </h3>
-<p class="journal-description">
-         素材別ケアで守るレディースジュエリーとメンズアクセの長持ち術記ガイド集案
         </p>
 </div>
 </a>
@@ -6714,7 +6714,20 @@ function buildAllItemsPage(targetKey, data) {
       Jewelry Content
      </h2>
 <div class="journal-grid">
-<a class="journal-item" href="#column-article-1">
+<a class="journal-item" href="#column-article-1" onclick="showPage('column-article-1'); return false;">
+<div class="journal-image">
+<img alt="金属アレルギー対応ピアスの選び方" src="assets/journal/surgical-steel.jpg"/>
+</div>
+<div class="journal-content">
+<h3 class="journal-title">
+         金属アレルギー対応ピアスの選び方
+        </h3>
+<p class="journal-description">
+         サージカルステンレスで安心のおしゃれを。医療用グレード316Lの魅力と選び方を詳しく解説
+        </p>
+</div>
+</a>
+<a class="journal-item" href="#column-article-2" onclick="showPage('column-article-2'); return false;">
 <div class="journal-image">
 <img alt="季節とジュエリーの調和" src="assets/journal/seasonal.jpg"/>
 </div>
@@ -6727,7 +6740,7 @@ function buildAllItemsPage(targetKey, data) {
         </p>
 </div>
 </a>
-<a class="journal-item" href="#column-article-2">
+<a class="journal-item mobile-hidden" href="#column-article-3" onclick="showPage('column-article-3'); return false;">
 <div class="journal-image">
 <img alt="ペアで楽しむシェアアクセ" src="assets/journal/pair-style.jpg"/>
 </div>
@@ -6737,19 +6750,6 @@ function buildAllItemsPage(targetKey, data) {
         </h3>
 <p class="journal-description">
          性別超えて楽しむレディースアクセとメンズアクセのシェア術案内ガイド集記
-        </p>
-</div>
-</a>
-<a class="journal-item mobile-hidden" href="#column-article-3">
-<div class="journal-image">
-<img alt="素材別・長持ちケア術" src="assets/journal/care.jpg"/>
-</div>
-<div class="journal-content">
-<h3 class="journal-title">
-         素材別・長持ちケア術
-        </h3>
-<p class="journal-description">
-         素材別ケアで守るレディースジュエリーとメンズアクセの長持ち術記ガイド集案
         </p>
 </div>
 </a>
@@ -6819,7 +6819,7 @@ function buildAllItemsPage(targetKey, data) {
   </div>
 
   <div class="column-grid">
-    <!-- Article 1 -->
+    <!-- Article 1: Surgical Steel -->
     <a href="#column-article-1" class="column-card" onclick="showPage('column-article-1'); return false;">
       <div class="column-card-image">
         <img src="assets/journal/surgical-steel.jpg" alt="金属アレルギー対応ピアスの選び方">
@@ -6830,8 +6830,19 @@ function buildAllItemsPage(targetKey, data) {
       </div>
     </a>
 
-    <!-- Article 2 -->
-    <a href="#column-article-2" class="column-card">
+    <!-- Article 2: Seasonal -->
+    <a href="#column-article-2" class="column-card" onclick="showPage('column-article-2'); return false;">
+      <div class="column-card-image">
+        <img src="assets/journal/seasonal.jpg" alt="季節とジュエリーの調和">
+      </div>
+      <div class="column-card-content">
+        <h3 class="column-card-title">季節とジュエリーの調和</h3>
+        <p class="column-card-excerpt">季節の光で映えるレディースアクセとメンズジュエリー活用術ヒント集案内</p>
+      </div>
+    </a>
+
+    <!-- Article 3 -->
+    <a href="#column-article-3" class="column-card" onclick="showPage('column-article-3'); return false;">
       <div class="column-card-image">
         <img src="assets/journal/pair-style.jpg" alt="ペアで楽しむシェアアクセ">
       </div>
@@ -6841,8 +6852,8 @@ function buildAllItemsPage(targetKey, data) {
       </div>
     </a>
 
-    <!-- Article 3 -->
-    <a href="#column-article-3" class="column-card">
+    <!-- Article 4 -->
+    <a href="#column-article-4" class="column-card" onclick="showPage('column-article-4'); return false;">
       <div class="column-card-image">
         <img src="assets/journal/care.jpg" alt="素材別・長持ちケア術">
       </div>
@@ -6852,8 +6863,8 @@ function buildAllItemsPage(targetKey, data) {
       </div>
     </a>
 
-    <!-- Article 4 -->
-    <a href="#column-article-4" class="column-card">
+    <!-- Article 5 -->
+    <a href="#column-article-5" class="column-card" onclick="showPage('column-article-5'); return false;">
       <div class="column-card-image">
         <img src="assets/journal/work.jpg" alt="ワークシーンの洗練アクセ">
       </div>
@@ -6863,8 +6874,8 @@ function buildAllItemsPage(targetKey, data) {
       </div>
     </a>
 
-    <!-- Article 5 -->
-    <a href="#column-article-5" class="column-card">
+    <!-- Article 6 -->
+    <a href="#column-article-6" class="column-card" onclick="showPage('column-article-6'); return false;">
       <div class="column-card-image">
         <img src="assets/journal/travel.jpg" alt="旅先で輝くミニマルセット">
       </div>
@@ -6874,8 +6885,8 @@ function buildAllItemsPage(targetKey, data) {
       </div>
     </a>
 
-    <!-- Article 6 -->
-    <a href="#column-article-6" class="column-card">
+    <!-- Article 7 -->
+    <a href="#column-article-7" class="column-card" onclick="showPage('column-article-7'); return false;">
       <div class="column-card-image">
         <img src="assets/journal/genderless.jpg" alt="ジェンダーレスな重ね付け術">
       </div>
