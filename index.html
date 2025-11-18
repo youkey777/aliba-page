@@ -223,8 +223,20 @@
             gap: 30px;
         }
 
-        @media (min-width: 768px) {
-            .nav { display: flex; }
+        /* Desktop: full navigation with normal spacing */
+        @media (min-width: 1024px) {
+            .nav {
+                display: flex;
+                gap: 30px;
+            }
+        }
+
+        /* Tablet: compact navigation to prevent 2-line wrap */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .nav {
+                display: flex;
+                gap: 12px;
+            }
         }
 
         .nav-item {
@@ -238,6 +250,15 @@
             transition: color 0.3s ease;
             padding: 10px 0;
             display: block;
+            white-space: nowrap;
+        }
+
+        /* Tablet: smaller font to fit all items */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .nav-link {
+                font-size: 13px;
+                padding: 8px 0;
+            }
         }
 
         .nav-link:hover {
@@ -306,7 +327,8 @@
             text-transform: uppercase;
         }
 
-        @media (max-width: 768px) {
+        /* Hide accent on tablet and mobile to save header space */
+        @media (max-width: 1023px) {
             .header-accent {
                 display: none;
             }
