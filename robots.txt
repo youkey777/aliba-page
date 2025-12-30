@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://www.aliba.online/sitemap.xml
+Sitemap: https://www.aliba.online/jewelry/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
