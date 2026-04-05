@@ -1,8 +1,19 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://www.aliba.online/jewelry/sitemap.xml
+User-agent: GPTBot
+Allow: /
 
-# Crawl-delay
-Crawl-delay: 1
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.aliba.online/jewelry/sitemap.xml
