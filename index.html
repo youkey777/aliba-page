@@ -29,6 +29,52 @@
     });
   }
 </script>
+<!-- amazon_click: Amazon リンクのクリック計測 -->
+<script>
+(function () {
+  var SITE = 'jewelry';
+  var HOST = /(^|\.)amazon\.co\.jp$|^amzn\.(to|asia)$|^a\.co$/i;
+  function clean(s) { return (s || '').replace(/\s+/g, ' ').trim().slice(0, 100); }
+  function asinOf(u) {
+    var m = u.pathname.match(/\/(?:dp|gp\/product|gp\/aw\/d|o\/ASIN|exec\/obidos\/ASIN)\/([A-Z0-9]{10})/i);
+    if (m) return m[1].toUpperCase();
+    var q = u.search.match(/[?&]asin=([A-Z0-9]{10})/i);
+    if (q) return q[1].toUpperCase();
+    return /\/stores\//.test(u.pathname) ? 'store' : '';
+  }
+  function nameOf(a) {
+    var sel = '[class*="name"],[class*="title"],h2,h3,h4';
+    var el = a.querySelector(sel), img = a.querySelector('img[alt]');
+    var t = clean(el && el.textContent) || clean(img && img.alt);
+    if (!t) {
+      var box = a.closest('article,li,[class*="card"],[class*="item"],[class*="product"]');
+      if (box) {
+        var bi = box.querySelector('img[alt]'), be = box.querySelector(sel);
+        t = clean(bi && bi.alt) || clean(be && be.textContent);
+      }
+    }
+    return t || clean(a.getAttribute('aria-label')) || clean(a.textContent);
+  }
+  function onClick(e) {
+    if (e.type === 'auxclick' && e.button !== 1) return;
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var u;
+    try { u = new URL(a.href, location.href); } catch (x) { return; }
+    if (!HOST.test(u.hostname) || typeof gtag !== 'function') return;
+    gtag('event', 'amazon_click', {
+      asin: asinOf(u),
+      product_name: nameOf(a),
+      site: SITE,
+      page_path: location.pathname,
+      link_url: (u.origin + u.pathname).slice(0, 100),
+      transport_type: 'beacon'
+    });
+  }
+  document.addEventListener('click', onClick, true);
+  document.addEventListener('auxclick', onClick, true);
+})();
+</script>
 <!-- /GA4 -->
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -8433,7 +8479,7 @@ function buildAllItemsPage(targetKey, data) {
 
         <article style="margin-bottom: 28px;">
           <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第5条（クッキー等の利用）</h3>
-          <p style="margin-bottom: 12px;">当店は、閲覧状況を把握してサイトを改善するため、Google LLC の Google アナリティクスを利用しています。Google アナリティクスはクッキーを使い、閲覧したページ、閲覧日時、どこから来たか（参照元）、利用端末・ブラウザの種類、おおよその地域などの閲覧状況を収集します。氏名やメールアドレスなど、個人を特定する情報は送っていません。収集された情報はGoogleのプライバシーポリシーに基づいて管理されます。詳しくは<a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">Google のサービスを使用するサイトやアプリから収集した情報の Google による使用</a>と<a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener">Google プライバシーポリシー</a>をご確認ください。</p>
+          <p style="margin-bottom: 12px;">当店は、閲覧状況を把握してサイトを改善するため、Google LLC の Google アナリティクスを利用しています。Google アナリティクスはクッキーを使い、閲覧したページ、閲覧日時、どこから来たか（参照元）、どのリンク（Amazon の商品ページへのリンクなど）を押したか、利用端末・ブラウザの種類、おおよその地域などの閲覧状況を収集します。氏名やメールアドレスなど、個人を特定する情報は送っていません。収集された情報はGoogleのプライバシーポリシーに基づいて管理されます。詳しくは<a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">Google のサービスを使用するサイトやアプリから収集した情報の Google による使用</a>と<a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener">Google プライバシーポリシー</a>をご確認ください。</p>
           <p style="margin-bottom: 0;">収集を止めたい場合は、<a href="https://tools.google.com/dlpage/gaoptout?hl=ja" target="_blank" rel="noopener">Google アナリティクス オプトアウト アドオン</a>をブラウザに追加するか、ブラウザの設定でクッキーを無効にしてください。</p>
         </article>
 

@@ -25,6 +25,52 @@
     });
   }
 </script>
+<!-- amazon_click: Amazon リンクのクリック計測 -->
+<script>
+(function () {
+  var SITE = 'jewelry';
+  var HOST = /(^|\.)amazon\.co\.jp$|^amzn\.(to|asia)$|^a\.co$/i;
+  function clean(s) { return (s || '').replace(/\s+/g, ' ').trim().slice(0, 100); }
+  function asinOf(u) {
+    var m = u.pathname.match(/\/(?:dp|gp\/product|gp\/aw\/d|o\/ASIN|exec\/obidos\/ASIN)\/([A-Z0-9]{10})/i);
+    if (m) return m[1].toUpperCase();
+    var q = u.search.match(/[?&]asin=([A-Z0-9]{10})/i);
+    if (q) return q[1].toUpperCase();
+    return /\/stores\//.test(u.pathname) ? 'store' : '';
+  }
+  function nameOf(a) {
+    var sel = '[class*="name"],[class*="title"],h2,h3,h4';
+    var el = a.querySelector(sel), img = a.querySelector('img[alt]');
+    var t = clean(el && el.textContent) || clean(img && img.alt);
+    if (!t) {
+      var box = a.closest('article,li,[class*="card"],[class*="item"],[class*="product"]');
+      if (box) {
+        var bi = box.querySelector('img[alt]'), be = box.querySelector(sel);
+        t = clean(bi && bi.alt) || clean(be && be.textContent);
+      }
+    }
+    return t || clean(a.getAttribute('aria-label')) || clean(a.textContent);
+  }
+  function onClick(e) {
+    if (e.type === 'auxclick' && e.button !== 1) return;
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var u;
+    try { u = new URL(a.href, location.href); } catch (x) { return; }
+    if (!HOST.test(u.hostname) || typeof gtag !== 'function') return;
+    gtag('event', 'amazon_click', {
+      asin: asinOf(u),
+      product_name: nameOf(a),
+      site: SITE,
+      page_path: location.pathname,
+      link_url: (u.origin + u.pathname).slice(0, 100),
+      transport_type: 'beacon'
+    });
+  }
+  document.addEventListener('click', onClick, true);
+  document.addEventListener('auxclick', onClick, true);
+})();
+</script>
 <!-- /GA4 -->
 <title>金属アレルギー対応ピアスの選び方 | aliba（アリバ）ジュエリーコラム</title>
 <meta name="description" content="金属アレルギー対応ピアスの選び方を解説。医療用グレード316Lサージカルステンレスの特徴、選び方のポイント、お手入れ方法、よくある質問まで。aliba（アリバ）ジュエリーコラム。">
