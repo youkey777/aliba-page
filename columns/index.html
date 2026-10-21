@@ -2,6 +2,33 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P3XDQHJBQQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  var gaConfig = {};
+  try {
+    if (location.search.indexOf('internal=1') !== -1) localStorage.setItem('aliba_internal', '1');
+    if (location.search.indexOf('internal=0') !== -1) localStorage.removeItem('aliba_internal');
+    if (localStorage.getItem('aliba_internal') === '1') gaConfig.traffic_type = 'internal';
+  } catch (e) {}
+  gtag('config', 'G-P3XDQHJBQQ', gaConfig);
+  if (location.search.indexOf('internal=') !== -1) {
+    window.addEventListener('DOMContentLoaded', function () {
+      var box = document.createElement('div');
+      box.setAttribute('role', 'status');
+      box.style.cssText = 'position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9999;padding:10px 16px;border-radius:8px;background:#222;color:#fff;font-size:14px;';
+      box.textContent = gaConfig.traffic_type === 'internal'
+        ? 'この端末は、アクセス数の集計から除外されます'
+        : '除外を解除しました。この端末のアクセスは集計に入ります';
+      document.body.appendChild(box);
+      setTimeout(function () { box.remove(); }, 8000);
+    });
+  }
+</script>
+<!-- /GA4 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#C2A578">
@@ -410,6 +437,7 @@ body {
     <div class="footer-logo">aliba</div>
     <div class="footer-links">
       <a href="../index.html">ジュエリーTOP</a>
+      <a href="../index.html#terms-page">プライバシーポリシー</a>
       <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
     <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>

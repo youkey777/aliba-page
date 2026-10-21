@@ -1,4 +1,31 @@
 <!-- Column Article: Surgical Steel Earrings -->
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P3XDQHJBQQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  var gaConfig = {};
+  try {
+    if (location.search.indexOf('internal=1') !== -1) localStorage.setItem('aliba_internal', '1');
+    if (location.search.indexOf('internal=0') !== -1) localStorage.removeItem('aliba_internal');
+    if (localStorage.getItem('aliba_internal') === '1') gaConfig.traffic_type = 'internal';
+  } catch (e) {}
+  gtag('config', 'G-P3XDQHJBQQ', gaConfig);
+  if (location.search.indexOf('internal=') !== -1) {
+    window.addEventListener('DOMContentLoaded', function () {
+      var box = document.createElement('div');
+      box.setAttribute('role', 'status');
+      box.style.cssText = 'position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9999;padding:10px 16px;border-radius:8px;background:#222;color:#fff;font-size:14px;';
+      box.textContent = gaConfig.traffic_type === 'internal'
+        ? 'この端末は、アクセス数の集計から除外されます'
+        : '除外を解除しました。この端末のアクセスは集計に入ります';
+      document.body.appendChild(box);
+      setTimeout(function () { box.remove(); }, 8000);
+    });
+  }
+</script>
+<!-- /GA4 -->
 <title>金属アレルギー対応ピアスの選び方 | aliba（アリバ）ジュエリーコラム</title>
 <meta name="description" content="金属アレルギー対応ピアスの選び方を解説。医療用グレード316Lサージカルステンレスの特徴、選び方のポイント、お手入れ方法、よくある質問まで。aliba（アリバ）ジュエリーコラム。">
 <link rel="canonical" href="https://www.aliba.online/jewelry/column-surgical-steel-earrings.html">

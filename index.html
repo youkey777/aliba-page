@@ -3,6 +3,33 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"/>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P3XDQHJBQQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  var gaConfig = {};
+  try {
+    if (location.search.indexOf('internal=1') !== -1) localStorage.setItem('aliba_internal', '1');
+    if (location.search.indexOf('internal=0') !== -1) localStorage.removeItem('aliba_internal');
+    if (localStorage.getItem('aliba_internal') === '1') gaConfig.traffic_type = 'internal';
+  } catch (e) {}
+  gtag('config', 'G-P3XDQHJBQQ', gaConfig);
+  if (location.search.indexOf('internal=') !== -1) {
+    window.addEventListener('DOMContentLoaded', function () {
+      var box = document.createElement('div');
+      box.setAttribute('role', 'status');
+      box.style.cssText = 'position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9999;padding:10px 16px;border-radius:8px;background:#222;color:#fff;font-size:14px;';
+      box.textContent = gaConfig.traffic_type === 'internal'
+        ? 'この端末は、アクセス数の集計から除外されます'
+        : '除外を解除しました。この端末のアクセスは集計に入ります';
+      document.body.appendChild(box);
+      setTimeout(function () { box.remove(); }, 8000);
+    });
+  }
+</script>
+<!-- /GA4 -->
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#C2A578">
@@ -8292,7 +8319,7 @@ function buildAllItemsPage(targetKey, data) {
   <div class="page-hero">
     <div class="page-hero-content">
       <h1 class="page-title">利用規約<br>プライバシーポリシー</h1>
-      <p class="page-description">最終確定日：2024年4月13日</p>
+      <p class="page-description">最終確定日：2024年4月13日／最終改定日：2026年10月21日</p>
     </div>
   </div>
   <div class="container" style="padding: 60px 20px;">
@@ -8406,7 +8433,8 @@ function buildAllItemsPage(targetKey, data) {
 
         <article style="margin-bottom: 28px;">
           <h3 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 12px;">第5条（クッキー等の利用）</h3>
-          <p style="margin-bottom: 0;">当店は、サイトの利便性向上やアクセス解析のため、クッキー等を利用する場合があります。利用者はブラウザ設定によりクッキーを無効化できますが、一部機能が利用できなくなることがあります。</p>
+          <p style="margin-bottom: 12px;">当店は、閲覧状況を把握してサイトを改善するため、Google LLC の Google アナリティクスを利用しています。Google アナリティクスはクッキーを使い、閲覧したページ、閲覧日時、どこから来たか（参照元）、利用端末・ブラウザの種類、おおよその地域などの閲覧状況を収集します。氏名やメールアドレスなど、個人を特定する情報は送っていません。収集された情報はGoogleのプライバシーポリシーに基づいて管理されます。詳しくは<a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">Google のサービスを使用するサイトやアプリから収集した情報の Google による使用</a>と<a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener">Google プライバシーポリシー</a>をご確認ください。</p>
+          <p style="margin-bottom: 0;">収集を止めたい場合は、<a href="https://tools.google.com/dlpage/gaoptout?hl=ja" target="_blank" rel="noopener">Google アナリティクス オプトアウト アドオン</a>をブラウザに追加するか、ブラウザの設定でクッキーを無効にしてください。</p>
         </article>
 
         <article style="margin-bottom: 28px;">
