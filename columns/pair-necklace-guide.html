@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P3XDQHJBQQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  var gaConfig = {};
+  try {
+    if (location.search.indexOf('internal=1') !== -1) localStorage.setItem('aliba_internal', '1');
+    if (location.search.indexOf('internal=0') !== -1) localStorage.removeItem('aliba_internal');
+    if (localStorage.getItem('aliba_internal') === '1') gaConfig.traffic_type = 'internal';
+  } catch (e) {}
+  gtag('config', 'G-P3XDQHJBQQ', gaConfig);
+  if (location.search.indexOf('internal=') !== -1) {
+    window.addEventListener('DOMContentLoaded', function () {
+      var box = document.createElement('div');
+      box.setAttribute('role', 'status');
+      box.style.cssText = 'position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9999;padding:10px 16px;border-radius:8px;background:#222;color:#fff;font-size:14px;';
+      box.textContent = gaConfig.traffic_type === 'internal'
+        ? 'この端末は、アクセス数の集計から除外されます'
+        : '除外を解除しました。この端末のアクセスは集計に入ります';
+      document.body.appendChild(box);
+      setTimeout(function () { box.remove(); }, 8000);
+    });
+  }
+</script>
+<!-- amazon_click: Amazon リンクのクリック計測 -->
+<script>
+(function () {
+  var SITE = 'jewelry';
+  var HOST = /(^|\.)amazon\.co\.jp$|^amzn\.(to|asia)$|^a\.co$/i;
+  function clean(s) { return (s || '').replace(/\s+/g, ' ').trim().slice(0, 100); }
+  function asinOf(u) {
+    var m = u.pathname.match(/\/(?:dp|gp\/product|gp\/aw\/d|o\/ASIN|exec\/obidos\/ASIN)\/([A-Z0-9]{10})/i);
+    if (m) return m[1].toUpperCase();
+    var q = u.search.match(/[?&]asin=([A-Z0-9]{10})/i);
+    if (q) return q[1].toUpperCase();
+    return /\/stores\//.test(u.pathname) ? 'store' : '';
+  }
+  function nameOf(a) {
+    var sel = '[class*="name"],[class*="title"],h2,h3,h4';
+    var el = a.querySelector(sel), img = a.querySelector('img[alt]');
+    var t = clean(el && el.textContent) || clean(img && img.alt);
+    if (!t) {
+      var box = a.closest('article,li,[class*="card"],[class*="item"],[class*="product"]');
+      if (box) {
+        var bi = box.querySelector('img[alt]'), be = box.querySelector(sel);
+        t = clean(bi && bi.alt) || clean(be && be.textContent);
+      }
+    }
+    return t || clean(a.getAttribute('aria-label')) || clean(a.textContent);
+  }
+  function onClick(e) {
+    if (e.type === 'auxclick' && e.button !== 1) return;
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var u;
+    try { u = new URL(a.href, location.href); } catch (x) { return; }
+    if (!HOST.test(u.hostname) || typeof gtag !== 'function') return;
+    gtag('event', 'amazon_click', {
+      asin: asinOf(u),
+      product_name: nameOf(a),
+      site: SITE,
+      page_path: location.pathname,
+      link_url: (u.origin + u.pathname).slice(0, 100),
+      transport_type: 'beacon'
+    });
+  }
+  document.addEventListener('click', onClick, true);
+  document.addEventListener('auxclick', onClick, true);
+})();
+</script>
+<!-- /GA4 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#C2A578">
+<title>ペアネックレスの選び方｜デザイン・素材・長さの決め方 | aliba（アリバ）ジュエリーコラム</title>
+<meta name="description" content="ペアネックレスは、デザイン・素材・長さの3つを順に決めると迷いにくくなります。クリスマスや記念日の贈りものにも使える、おそろいの度合いの決め方、素材表記の見方、長さの測り方をaliba（アリバ）がまとめました。">
+<link rel="canonical" href="https://www.aliba.online/jewelry/columns/pair-necklace-guide.html">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg?v=2">
+<link rel="icon" type="image/webp" href="../logo.webp?v=2">
+<link rel="apple-touch-icon" href="../logo.webp?v=2">
+
+<!-- OGP (Open Graph Protocol) -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="aliba jewelry">
+<meta property="og:title" content="ペアネックレスの選び方｜デザイン・素材・長さの決め方 | aliba（アリバ）ジュエリーコラム">
+<meta property="og:description" content="ペアネックレスは、デザイン・素材・長さの3つを順に決めると迷いにくくなります。クリスマスや記念日の贈りものにも使える、おそろいの度合いの決め方、素材表記の見方、長さの測り方をaliba（アリバ）がまとめました。">
+<meta property="og:url" content="https://www.aliba.online/jewelry/columns/pair-necklace-guide.html">
+<meta property="og:image" content="https://www.aliba.online/jewelry/assets/journal/pair-necklace.webp">
+<meta property="og:image:alt" content="ペアネックレスのイメージ">
+<meta property="article:published_time" content="2026-10-26">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ペアネックレスの選び方｜デザイン・素材・長さの決め方 | aliba（アリバ）ジュエリーコラム">
+<meta name="twitter:description" content="ペアネックレスは、デザイン・素材・長さの3つを順に決めると迷いにくくなります。クリスマスや記念日の贈りものにも使える、おそろいの度合いの決め方、素材表記の見方、長さの測り方をaliba（アリバ）がまとめました。">
+<meta name="twitter:image" content="https://www.aliba.online/jewelry/assets/journal/pair-necklace.webp">
+
+<!-- Structured Data - Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://www.aliba.online/jewelry/columns/pair-necklace-guide.html#article",
+  "headline": "ペアネックレスの選び方｜デザイン・素材・長さの決め方",
+  "description": "ペアネックレスは、デザイン・素材・長さの3つを順に決めると迷いにくくなります。クリスマスや記念日の贈りものにも使える、おそろいの度合いの決め方、素材表記の見方、長さの測り方をaliba（アリバ）がまとめました。",
+  "datePublished": "2026-10-26",
+  "dateModified": "2026-10-26",
+  "inLanguage": "ja",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.aliba.online/jewelry/columns/pair-necklace-guide.html"
+  },
+  "image": "https://www.aliba.online/jewelry/assets/journal/pair-necklace.webp",
+  "author": {
+    "@type": "Organization",
+    "name": "aliba",
+    "url": "https://www.aliba.online/jewelry/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "aliba",
+    "legalName": "合同会社aliba",
+    "url": "https://www.aliba.online/jewelry/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.aliba.online/jewelry/logo.webp"
+    }
+  }
+}
+</script>
+
+<!-- Structured Data - BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "aliba ジュエリー公式",
+      "item": "https://www.aliba.online/jewelry/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "コラム",
+      "item": "https://www.aliba.online/jewelry/columns/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ペアネックレスの選び方｜デザイン・素材・長さの決め方",
+      "item": "https://www.aliba.online/jewelry/columns/pair-necklace-guide.html"
+    }
+  ]
+}
+</script>
+
+<!-- Structured Data - FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.aliba.online/jewelry/columns/pair-necklace-guide.html#faq",
+  "inLanguage": "ja",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ペアネックレスはまったく同じデザインのほうがいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "どちらでもかまいません。おそろいらしさを出したいなら同じデザインを選びます。好みや服の雰囲気が違うなら、形や色だけを共通にする選び方もあります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "毎日つけるなら、どの素材を選べばいいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "お手入れのしやすさで選ぶなら、サージカルステンレスが候補になります。汗や水に強く錆びにくい素材として、アクセサリーに広く使われています。肌に合うかどうかには個人差があるので、違和感があれば使うのを控えてください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ペアネックレスの長さは、ふたりで同じにするべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同じにする必要はありません。手持ちのネックレスで、飾りがちょうどよい位置に来るものを1本選びます。留め具の先から、ふだん留め具をかけている輪までの長さを測ります。その長さのチェーンが売られているか、アジャスターで調節できるかを、商品ページの「チェーンの長さ」で確かめてください。"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg-light: #F8F5F2;
+    --bg-white: #ffffff;
+    --bg-section: #F9F9F9;
+    --fg-primary: #333333;
+    --fg-secondary: #4A4A4A;
+    --acc-gold: #C2A578;
+    --acc-gold-hover: #D4B689;
+    --line: #E6DFD6;
+    --border-light: #e5e5e5;
+    --font-serif: 'Noto Serif JP', serif;
+    --font-sans: 'Noto Sans JP', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    background: var(--bg-white);
+    color: var(--fg-primary);
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--line);
+}
+
+.site-header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-header-logo {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--fg-primary);
+    text-decoration: none;
+}
+
+.site-header-back {
+    font-size: 13px;
+    color: var(--acc-gold);
+    text-decoration: none;
+    border: 1px solid var(--acc-gold);
+    border-radius: 999px;
+    padding: 7px 18px;
+    transition: background 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+}
+
+.site-header-back:hover {
+    background: var(--acc-gold);
+    color: #fff;
+}
+
+/* Hero */
+.page-hero {
+    background: linear-gradient(135deg, #FAF8F6 0%, #F5F2EE 100%);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+    padding: 56px 20px 48px;
+}
+
+.hero-label {
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--acc-gold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.page-title {
+    font-family: var(--font-serif);
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    color: var(--fg-primary);
+    margin-bottom: 14px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.article-date {
+    font-size: 13px;
+    color: var(--fg-secondary);
+}
+
+/* Article body */
+.article-wrap {
+    padding: 56px 0 40px;
+}
+
+.article-body {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.article-body section {
+    margin-bottom: 50px;
+}
+
+.article-body h2 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--fg-primary);
+    border-left: 4px solid var(--acc-gold);
+    padding-left: 16px;
+    line-height: 1.5;
+}
+
+.article-body h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 30px 0 16px;
+    color: var(--fg-primary);
+    line-height: 1.5;
+}
+
+.article-body h4 {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--acc-gold);
+}
+
+.article-body p {
+    line-height: 1.9;
+    color: var(--fg-secondary);
+    margin-bottom: 16px;
+}
+
+.article-body ul,
+.article-body ol {
+    padding-left: 24px;
+    line-height: 2;
+    color: var(--fg-secondary);
+    margin-bottom: 16px;
+}
+
+.article-body .box {
+    background: var(--bg-section);
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.article-body .box p:last-child,
+.article-body .box ul:last-child,
+.article-body .box ol:last-child {
+    margin-bottom: 0;
+}
+
+.article-body .box-highlight {
+    background: linear-gradient(135deg, #FAF8F6 0%, #F5F2EE 100%);
+    padding: 32px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+/* Comparison table (article-scoped) */
+.cmp-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.cmp-table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.cmp-table th,
+.cmp-table td {
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.7;
+    color: var(--fg-secondary);
+}
+
+.cmp-table thead th {
+    background: var(--acc-gold);
+    color: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.cmp-table tbody th {
+    background: var(--bg-section);
+    color: var(--fg-primary);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.cmp-table tbody tr:nth-child(even) td {
+    background: #FCFBFA;
+}
+
+.article-note {
+    font-size: 12.5px;
+    color: #8A8378;
+    line-height: 1.8;
+}
+
+.inline-link {
+    color: var(--acc-gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.inline-link:hover {
+    color: var(--acc-gold-hover);
+}
+
+/* CTA */
+.article-cta {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 88px;
+    text-align: center;
+}
+
+.article-cta-lead {
+    font-size: 15px;
+    color: var(--fg-secondary);
+    margin-bottom: 24px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 14px 44px;
+    background: var(--acc-gold);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--acc-gold-hover);
+}
+
+.article-cta-back {
+    display: block;
+    margin-top: 28px;
+    font-size: 14px;
+    color: var(--acc-gold);
+    text-decoration: none;
+}
+
+.article-cta-back:hover {
+    color: var(--acc-gold-hover);
+}
+
+/* Footer */
+.footer {
+    background: #0E0E10;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 40px 20px 30px;
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--acc-gold);
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: var(--acc-gold);
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .page-hero {
+        padding: 44px 20px 38px;
+    }
+
+    .page-title {
+        font-size: 23px;
+    }
+
+    .article-wrap {
+        padding: 40px 0 24px;
+    }
+}
+
+/* 文字として読む金色は濃くする（白地との明暗差 約6:1。飾りの線は元の金色のまま） */
+:root {
+    --acc-gold-text: #7A5F2E;
+    --acc-gold-text-hover: #6E5428;
+}
+
+.hero-label,
+.site-header-back,
+.inline-link,
+.article-cta-back,
+.article-body h4 {
+    color: var(--acc-gold-text);
+}
+
+.site-header-back {
+    border-color: var(--acc-gold-text);
+}
+
+.site-header-back:hover {
+    background: var(--acc-gold-text);
+    color: #fff;
+}
+
+.inline-link:hover,
+.article-cta-back:hover {
+    color: var(--acc-gold-text-hover);
+}
+
+.btn-primary {
+    background: var(--acc-gold-text);
+}
+
+.btn-primary:hover {
+    background: var(--acc-gold-text-hover);
+}
+
+.cmp-table thead th {
+    background: var(--acc-gold-text);
+}
+
+/* この記事の表は列が少ないので、スマホで横にはみ出さないようにする */
+.cmp-table {
+    min-width: 0;
+}
+
+.cmp-table tbody th {
+    white-space: normal;
+}
+
+.article-note {
+    font-size: 14px;
+    color: #5F5A52;
+}
+
+.article-body h3.faq-q {
+    font-size: 17px;
+    margin: 24px 0 10px;
+}
+
+.article-figure {
+    margin: 0 0 32px;
+}
+
+.article-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.article-figure figcaption {
+    font-size: 13px;
+    color: #5F5A52;
+    margin-top: 6px;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-header-logo" href="../index.html">aliba</a>
+    <a class="site-header-back" href="../index.html">ジュエリーTOPへ戻る</a>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <p class="hero-label">aliba Column</p>
+    <h1 class="page-title">ペアネックレスの選び方｜デザイン・素材・長さの決め方</h1>
+    <p class="article-date"><time datetime="2026-10-26">2026年10月26日</time></p>
+  </div>
+
+  <div class="article-wrap">
+    <div class="container">
+      <article class="article-body">
+
+<figure class="article-figure">
+  <img src="../assets/journal/pair-necklace.webp" alt="ペアネックレスのイメージ" width="2752" height="1536" decoding="async">
+  <figcaption>※写真はイメージです。</figcaption>
+</figure>
+
+<section>
+  <div class="box-highlight">
+    <p style="margin-bottom:0;">ペアネックレスは、デザイン・素材・長さの3つを順に決めると迷いにくくなります。クリスマスや記念日の贈りものにするなら、届く日と付属品も先に確かめておきましょう。</p>
+  </div>
+  <ul>
+    <li><strong>デザイン</strong>：まったく同じものにするか、形や色だけを共通にするか</li>
+    <li><strong>素材</strong>：商品名や説明の素材表記を見る</li>
+    <li><strong>長さ</strong>：ネックレスの飾り（ペンダントトップ）を、鎖骨の近くか胸元か、どの位置に見せたいか。ふたりそれぞれで考える</li>
+  </ul>
+</section>
+
+<section>
+  <h2>デザインは「まったく同じ」か「形や色だけ共通」かを先に決める</h2>
+  <p>おそろいらしさをはっきり出したいなら、ふたりでまったく同じデザインを選ぶ方法があります。</p>
+  <p>ふたりの好みや服の雰囲気が違うなら、形だけを共通にする選び方もできます。たとえば、ハートの形はそろえて、大きさや色味をそれぞれに合わせる方法です。</p>
+  <p>ふたつを並べると1つの形になるデザインは、記念日の贈りものらしさを出しやすいのが魅力です。ひとりで身につける日の見え方も、商品写真で確かめておくと選びやすくなります。</p>
+</section>
+
+<section>
+  <h2>素材は「素材表記」を見て決める</h2>
+  <p>商品名だけでなく、チェーンや留め具の説明も見ておきましょう。</p>
+  <p>サージカルステンレスは、汗や水に強く、錆びにくい素材として、アクセサリーに広く使われています。使ったあとに柔らかい布で拭くなど、日々のお手入れがしやすいのも特徴です。</p>
+  <p>シルバー925は、銀を92.5%含む素材です。上品な光り方が魅力ですが、空気や汗の成分で黒ずむことがあるので、お手入れをしながら使います。</p>
+  <p>金色のネックレスは、土台の素材と、表面の加工（メッキなど）を分けて確かめてください。表面の加工がすり減ると、土台の素材が肌に触れる場合があります。お手入れの方法も加工によって変わるので、製品ごとの案内に従いましょう。</p>
+  <div class="cmp-table-wrap">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>素材（土台）</th>
+          <th>特徴</th>
+          <th>お手入れ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>サージカルステンレス</th>
+          <td>汗や水に強く、錆びにくい</td>
+          <td>使ったあと柔らかい布で拭く</td>
+        </tr>
+        <tr>
+          <th>シルバー925</th>
+          <td>銀を92.5%含む。上品な質感だが黒ずむことがある</td>
+          <td>製品の案内に合う方法で磨く</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="article-note">※素材の一般的な傾向です。肌に合うかどうかには個人差があります。製品ごとの表示と注意書きを優先してください。</p>
+  <p>金属アレルギーが気になる方は、<a class="inline-link" href="metal-allergy-materials.html">金属アレルギーが気になる方の素材比較</a>で素材ごとの特徴を見てから選んでください。肌に違和感が出たときは、使うのを控えましょう。</p>
+</section>
+
+<section>
+  <h2>長さは「飾りを見せたい位置」から決める</h2>
+  <p>ペアだからといって、長さまで同じにする必要はありません。手持ちのネックレスがあれば、次の順で測ると具体的になります。</p>
+  <ol>
+    <li>手持ちのネックレスをつけて鏡を見て、飾りがちょうどよい位置に来るものを1本選ぶ</li>
+    <li>留め具（引き輪やカニカンなど、開け閉めする金具）をどの輪にかけているかを覚えておき、ネックレスを外す</li>
+    <li>チェーンをまっすぐ伸ばし、留め具の先から、ふだん留め具をかけている輪までの長さをメジャーで測る</li>
+  </ol>
+  <p>飾りの長さは、測った長さに入れません。</p>
+  <p>測った長さは、商品ページに書かれた「チェーンの長さ」と比べます。その長さに留め具やアジャスター（長さを調節できる短い鎖）が入っているかは商品ごとに違うので、説明を見ておきましょう。あわせて、次の2つも確かめます。</p>
+  <ul>
+    <li>欲しい長さのチェーンが売られているか、アジャスターで何cmまで調節できるか</li>
+    <li>ペアの2本で、別々の長さを選べるか</li>
+  </ul>
+  <p>手持ちのネックレスが無いときは、店頭で試着してみるか、商品ページの着用写真と長さの案内を見て決める方法もあります。</p>
+</section>
+
+<section>
+  <h2>目的別の選び方</h2>
+  <div class="cmp-table-wrap">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>こんなふたりに</th>
+          <th>選び方の目安</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>毎日つけたい</th>
+          <td>お手入れのしやすさで選ぶなら、素材表記に「サージカルステンレス」とあるもの。使い方の注意は商品ごとに確かめる</td>
+        </tr>
+        <tr>
+          <th>贈りものらしさを出したい</th>
+          <td>ふたつを並べると1つの形になるデザインや、ケースが付いているもの</td>
+        </tr>
+        <tr>
+          <th>きらっと光る石がほしい</th>
+          <td>商品名や説明に「ジルコニア」とあるもの</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>aliba（アリバ）のペアアイテムは、一覧で写真と商品名を見比べられます。付属品や素材は、リンク先の商品ページの説明で確かめてください。</p>
+  <p><a class="inline-link" href="../index.html#pair-necklaces-page">ペアアイテムの一覧を見る</a></p>
+</section>
+
+<section>
+  <h2>贈る前に確かめたい3つのこと</h2>
+  <ul>
+    <li><strong>素材の表記</strong>：土台の素材と表面の加工がはっきり書かれているか。金属アレルギーが気になる方は、留め具の素材も見ておきましょう。</li>
+    <li><strong>名前や日付を入れたいとき</strong>：好きな文字を指定して入れられる商品か、購入前に商品ページで確かめましょう。</li>
+    <li><strong>届く日と付属品</strong>：記念日に間に合うか、ケースが付いているか。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>よくある質問</h2>
+  <h3 class="faq-q">Q. ペアネックレスはまったく同じデザインのほうがいいですか？</h3>
+  <p>どちらでもかまいません。おそろいらしさを出したいなら同じデザインを選びます。好みや服の雰囲気が違うなら、形や色だけを共通にする選び方もあります。</p>
+
+  <h3 class="faq-q">Q. 毎日つけるなら、どの素材を選べばいいですか？</h3>
+  <p>お手入れのしやすさで選ぶなら、サージカルステンレスが候補になります。汗や水に強く錆びにくい素材として、アクセサリーに広く使われています。肌に合うかどうかには個人差があるので、違和感があれば使うのを控えてください。</p>
+
+  <h3 class="faq-q">Q. ペアネックレスの長さは、ふたりで同じにするべきですか？</h3>
+  <p>同じにする必要はありません。手持ちのネックレスで、飾りがちょうどよい位置に来るものを1本選びます。留め具の先から、ふだん留め具をかけている輪までの長さを測ります。その長さのチェーンが売られているか、アジャスターで調節できるかを、商品ページの「チェーンの長さ」で確かめてください。</p>
+</section>
+
+<section>
+  <p>ふたりで長く使うなら、素材の表記とお手入れのしやすさまで見て選ぶのが大切なポイントです。購入後のケアは<a class="inline-link" href="surgical-steel-care.html">サージカルステンレスジュエリーのお手入れ方法</a>もあわせてご覧ください。</p>
+</section>
+
+      </article>
+    </div>
+  </div>
+
+  <div class="article-cta">
+    <p class="article-cta-lead">alibaでは、ペアネックレスをはじめ、サージカルステンレスのジュエリーを紹介しています。</p>
+    <a class="btn-primary" href="../index.html#pair-necklaces-page">ペアアイテムを見る</a>
+    <a class="article-cta-back" href="index.html">← コラム一覧に戻る</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">aliba</div>
+    <div class="footer-links">
+      <a href="index.html">コラム一覧</a>
+      <a href="../index.html">ジュエリーTOP</a>
+      <a href="../index.html#terms-page">プライバシーポリシー</a>
+      <a href="https://www.instagram.com/aliba_official01/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+    <div class="footer-copyright">© 2024 aliba. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
